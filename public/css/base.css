@@ -1,0 +1,231 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+.clearfix:before,
+.clearfix:after
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#login-wrapper
+{
+    width: 33%;
+}
+
+#login-wrapper #email, #login-wrapper #password
+{
+    padding: 6px 9px;
+}
+
+.error
+{
+    color: #a10;
+}
+
+table td {
+    word-wrap: break-word;         /* All browsers since IE 5.5+ */
+    overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */
+}
+
+table {
+    width: 100%;
+}
+
+td p
+{
+    width: 100% !important;
+}
+
+.tar
+{
+    text-align: right;
+}
+
+.agency_detail .ngdialog-content
+{
+    /*width: 90% !important;*/
+}
+
+div.error
+{
+    padding: 5px 0;
+}
+
+.tab-content
+{
+    padding: 20px 5px;
+}
+
+.nav > li > a:hover
+{
+    background-color: transparent;
+    color: #333;
+    border-top: none;
+    border-left: none;
+}
+
+.navbar-left
+{
+    padding: 0 50px;
+}
+
+.navbar-left ul
+{
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-left ul li
+{
+    display: inline-block;
+    line-height: 1;
+}
+.navbar-left ul li a
+{
+    display: inherit;
+    line-height: 1;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.main-content-wrapper
+{
+    margin: 0;
+    min-height: 1px;
+}
+
+.curp
+{
+    cursor: pointer;
+}
+
+tr .delete
+{
+    color: #aaa;
+    float: right;
+}
+
+tr button.btn
+{
+    margin: 0;
+}
+
+td.edit
+{
+    padding: 1px 5px !important;
+}
+
+
+.form-group
+{
+    display: block !important;
+    margin: 10px 0;
+}
+
+.form-group:last-child
+{
+    margin-bottom: 10px;
+}
+.search_panel .form-group
+{
+    padding: 0;
+}
+
+.user-nav .reg_item
+{
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.pagination_wrapper
+{
+    width: 100%;
+    text-align: center;
+}
+
+.pagination
+{
+    padding: 10px;
+}
+
+.dropdown-toggle
+{
+    cursor: pointer;
+}
+
+#header .dropdown-toggle
+{
+    font-size: 14px !important;
+}
+
+tr:hover
+{
+    background: rgba(255, 255, 0, 0.2) !important;
+}
+
+.agency_detail .ngdialog-content
+{
+    width: 95% !important;
+}
+
+.form-group label
+{
+    margin-right: 10px;
+}
+
+label.error
+{
+    background: transparent;
+    color: #a10;
+    border: 0;
+}
+
+.page.doctor_home
+{
+
+}
+
+.bold
+{
+    font-weight: 700;
+}
+
+.page.doctor_login label
+{
+    display: block;
+    margin-left: 0;
+}
+.page.doctor_home .button_wrapper
+{
+    text-align: center;
+}
+
+.page.doctor_home button, .page.doctor_home a
+{
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.doctor_history .card
+{
+    background: #fff;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.doctor_history .card.special
+{
+    font-weight: bold;
+}
+
+.doctor_home
+{
+
+}
+/*.page.doctor_home.container*/
+/*{*/
+    /*margin-top: 80px;*/
+/*}*/

@@ -1,0 +1,25 @@
+{
+  "name": "public",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "angular-bootstrap": "^0.12.2",
+    "angular-ui-router": "^0.2.15",
+    "angular": "^1.4.4",
+    "angular-xeditable": "^0.0.1",
+    "jquery": "^2.1.4",
+    "nprogress": "^0.2.0",
+    "toastr": "^2.1.2",
+    "ng-file-upload": "^7.3.4",
+    "moment": "^2.10.6",
+    "angular-filter": "^0.5.5",
+    "ng-dialog": "^0.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
