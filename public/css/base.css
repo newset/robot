@@ -20,6 +20,31 @@
     padding: 6px 9px;
 }
 
+#login-wrapper .text-right a{
+    display: inline-block;
+    margin: 10px 20px;
+}
+
+#login-wrapper .panel-primary > .panel-heading {
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+
+#login-wrapper a:link, #login-wrapper a:visited {
+    color: #337ab7;
+}
+
+#login-wrapper .btn-primary[disabled], 
+#login-wrapper a.btn-primary:link[disabled],  
+#login-wrapper a.btn-primary:visited[disabled]{
+    background-color: #2e6da4;
+}
+
+.btn-primary, a.btn-primary:link, a.btn-primary:visited {
+    color: #fff;
+    background-color: #2e6da4;
+}
+
 .error
 {
     color: #a10;

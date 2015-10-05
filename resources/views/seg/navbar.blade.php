@@ -13,17 +13,18 @@
     <div class="user-nav">
         <ul>
             <li class="reg_item"><a href="">首页</a></li>
-            <li class="reg_item"><a href="" ui-sref="base.mark({with_search: 1})">Mark管理</a></li>
+            
+            <!-- <li class="reg_item"><a href="" ui-sref="base.mark({with_search: 1})">Mark管理</a></li> -->
             @if(he_is('agency'))
-            <li class="reg_item"><a href="" ui-sref="base.mark_checkout">Mark归档</a></li>
+            <!-- <li class="reg_item"><a href="" ui-sref="base.mark_checkout">Mark归档</a></li> -->
             @endif
             @if(he_is('employee'))
-                <li class="reg_item"><a href="" ui-sref="base.hospital_menu">医院管理</a></li>
+                <!-- <li class="reg_item"><a href="" ui-sref="base.hospital_menu">医院管理</a></li>
                 <li class="reg_item"><a href="" ui-sref="base.hospital_menu">医生/科室管理</a></li>
                 <li class="reg_item"><a href="" ui-sref="base.robot({with_search: 1})">设备管理</a></li>
                 <li class="reg_item"><a href="" ui-sref="base.agency({with_search: 1})">代理商管理</a></li>
                 <li class="reg_item"><a href="" ui-sref="base.employee({with_search: 1})">员工管理</a></li>
-                <li class="reg_item"><a href="" ui-sref="base.hospital_menu">病患管理</a></li>
+                <li class="reg_item"><a href="" ui-sref="base.hospital_menu">病患管理</a></li> -->
             @endif
 
             <li class="dropdown messages">
@@ -32,92 +33,6 @@
                         data-toggle="dropdown">
                     <i class="fa fa-envelope"></i>
                 </button>
-                <ul class="dropdown-menu alert animated fadeInDown">
-                    <li>
-                        <h1>You have <strong>5</strong> new messages</h1>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="profile-photo">
-                                <img src="assets/img/avatar.gif" alt="" class="img-circle">
-                            </div>
-                            <div class="message-info">
-                                <span class="sender">James Bagian</span>
-                                <span class="time">30 mins</span>
-
-                                <div class="message-content">Lorem ipsum dolor sit amet, elit rutrum felis sed erat
-                                    augue fusce...
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <div class="profile-photo">
-                                <img src="assets/img/avatar1.gif" alt="" class="img-circle">
-                            </div>
-                            <div class="message-info">
-                                <span class="sender">Jeffrey Ashby</span>
-                                <span class="time">2 hour</span>
-
-                                <div class="message-content">hendrerit pellentesque, iure tincidunt, faucibus vitae
-                                    dolor aliquam...
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <div class="profile-photo">
-                                <img src="assets/img/avatar2.gif" alt="" class="img-circle">
-                            </div>
-                            <div class="message-info">
-                                <span class="sender">John Douey</span>
-                                <span class="time">3 hours</span>
-
-                                <div class="message-content">Penatibus suspendisse sit pellentesque eu accumsan
-                                    condimentum nec...
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <div class="profile-photo">
-                                <img src="assets/img/avatar3.gif" alt="" class="img-circle">
-                            </div>
-                            <div class="message-info">
-                                <span class="sender">Ellen Baker</span>
-                                <span class="time">7 hours</span>
-
-                                <div class="message-content">Sem dapibus in, orci bibendum faucibus tellus, justo
-                                    arcu...
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="profile-photo">
-                                <img src="assets/img/avatar4.gif" alt="" class="img-circle">
-                            </div>
-                            <div class="message-info">
-                                <span class="sender">Ivan Bella</span>
-                                <span class="time">6 hours</span>
-
-                                <div class="message-content">Curabitur metus faucibus sapien elit, ante molestie
-                                    sapien...
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li><a href="#">Check all messages <i class="fa fa-angle-right"></i></a>
-                    </li>
-                </ul>
-
             </li>
 
             <li class="dropdown settings" dropdown is-open="isopen">
