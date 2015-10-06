@@ -4,7 +4,6 @@ Homestead.yaml
 vendor
 .phpintel
 storage
-tests
 node_modules
 public/assets/plugins
 resources/raw_tpl/HTML_version/
