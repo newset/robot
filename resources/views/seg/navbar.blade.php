@@ -12,7 +12,7 @@
     </div>
     <div class="user-nav">
         <ul>
-            <li class="reg_item"><a href="">首页</a></li>
+            <!-- <li class="reg_item"><a href="">首页</a></li> -->
             
             <!-- <li class="reg_item"><a href="" ui-sref="base.mark({with_search: 1})">Mark管理</a></li> -->
             @if(he_is('agency'))
@@ -27,19 +27,22 @@
                 <li class="reg_item"><a href="" ui-sref="base.hospital_menu">病患管理</a></li> -->
             @endif
 
-            <li class="dropdown messages">
+            <!-- <li class="dropdown messages">
                 <span class="badge badge-danager animated bounceIn" id="new-messages">5</span>
                 <button type="button" class="btn btn-default dropdown-toggle options" id="toggle-mail"
                         data-toggle="dropdown">
                     <i class="fa fa-envelope"></i>
                 </button>
+            </li> -->
+            <li>
+                当前登录用户:
             </li>
-
             <li class="dropdown settings" dropdown is-open="isopen">
                 <a class="dropdown-toggle" dropdown-toggle>
                     {{username()}} <i class="fa fa-angle-down"></i>
                 </a>
                 <ul class="dropdown-menu animated fadeInDown">
+                   
                     <li>
                         <a href="" ui-sref="base.me"><i class="fa fa-user"></i>个人设置</a>
                     </li>
