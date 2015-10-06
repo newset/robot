@@ -25,10 +25,6 @@
                             page:
                             {
                                 template: '<ui-view>'
-                            },
-                            sidebar_left:
-                            {
-                                templateUrl: shot('seg/sidebar_left')
                             }
                         },
                         sticky: 1,
@@ -76,10 +72,16 @@
                     .state('base.robot',
                     {
                         url: '/robot?page_num&limit&with_search',
-                        controller: 'CPageRobot as cPageRobot',
-                        templateUrl: shot('page/robot'),
+                        views : {
+                            'page@' : {
+                                templateUrl: shot('page/robot')
+                            },
+                            '@actions' : {
+                                templateUrl : 'templates/device-nav.html'
+                            }
+                        },
+                        controller: 'CPageRobot as cPageRobot'
                     })
-
                     .state('base.hospital',
                     {
                         url: '/hospital?page_num&limit&with_search',

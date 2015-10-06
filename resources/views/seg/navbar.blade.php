@@ -5,11 +5,16 @@
     </div>
     <!--logo end-->
     <div class="toggle-navigation toggle-left">
-        <a class="btn btn-default" id="toggle-left" data-toggle="tooltip" data-placement="right" href="#/" 
+        <a class="btn btn-default pull-left" id="toggle-left" data-toggle="tooltip" data-placement="right" href="#/" 
                 title="Toggle Navigation" style="line-height: 30px;">
             <i class="fa fa-bars"></i>
         </a>
+
+        <div class="page-nav pull-left" ui-view="actions">
+            
+        </div>
     </div>
+ 
     <div class="user-nav">
         <ul>
             <!-- <li class="reg_item"><a href="">首页</a></li> -->
@@ -54,3 +59,15 @@
         </ul>
     </div>
 </header>
+
+<!-- ngtemplate -->
+<script type="text/ng-template" id="templates/device-nav.html">
+    <ul>
+        <li><a href="" title="">新增设备</a></li>
+        <li><a href="" title="">设备销售</a></li>
+        <li><a href="" title="">设备作废</a></li>
+        <li><a href="" title="">终止合作</a></li>
+        <li><a href="" title="">设备查询</a></li>
+    </ul>
+</script>
+<script type="text/ng-template" id="templates/empty-nav.html"></script>
