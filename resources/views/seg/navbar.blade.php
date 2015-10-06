@@ -5,10 +5,10 @@
     </div>
     <!--logo end-->
     <div class="toggle-navigation toggle-left">
-        <button type="button" class="btn btn-default" id="toggle-left" data-toggle="tooltip" data-placement="right"
-                title="Toggle Navigation">
+        <a class="btn btn-default" id="toggle-left" data-toggle="tooltip" data-placement="right" href="#/" 
+                title="Toggle Navigation" style="line-height: 30px;">
             <i class="fa fa-bars"></i>
-        </button>
+        </a>
     </div>
     <div class="user-nav">
         <ul>

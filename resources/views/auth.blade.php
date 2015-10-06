@@ -1,5 +1,5 @@
 @include('seg.head')
-<body class="animated fadeIn" ng-app="base_app">
+<body class="animated fadeIn auth-body" ng-app="base_app">
 <section id="login-container">
 	<div class="">
 		<div class="col-md-3" id="login-wrapper">
