@@ -7,7 +7,7 @@
     <div class="toggle-navigation toggle-left">
         <a class="btn btn-default pull-left" id="toggle-left" data-toggle="tooltip" data-placement="right" href="#/" 
                 title="Toggle Navigation" style="line-height: 30px;margin-right: 10px;">
-            <i class="fa fa-bars"></i>
+            <i class="fa fa-home"></i>
         </a>
         <div class="page-nav pull-left" ng-if="$state.includes('base.robot')" ng-cloak>
              <ul class="nav nav-pills">

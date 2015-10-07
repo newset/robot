@@ -1,7 +1,8 @@
 <form ng-submit="SIns.cu(SIns.current_row)"
       name="form_robot"
       ng-init="SEmployee.r({limit: 0}); SIns.current_row = {}"
-      ng-controller="CPageRobot">
+      ng-controller="CPageRobot"
+      class="col-md-6" style="float:none; margin:0 auto">
     <div class="form-group">
         <label>编号</label>
         <input class="form-control"
