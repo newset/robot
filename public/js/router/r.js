@@ -74,13 +74,13 @@
                         url: '/robot?page_num&limit&with_search',
                         views : {
                             'page@' : {
-                                templateUrl: shot('page/robot')
+                                templateUrl: shot('page/robot'),
+                                controller: 'CPageRobot as cPageRobot'
                             },
-                            '@actions' : {
+                            'actions' : {
                                 templateUrl : 'templates/device-nav.html'
                             }
-                        },
-                        controller: 'CPageRobot as cPageRobot'
+                        }
                     })
                     .state('base.hospital',
                     {
