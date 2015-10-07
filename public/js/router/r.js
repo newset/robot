@@ -123,7 +123,8 @@
                     {
                         url: '/mark?page_num&limit&with_search',
                         // templateUrl: shot('page/mark'),
-                        templateUrl: 'templates/mark/index.html',
+                        // templateUrl: 'templates/mark/index.html',
+                        template : '<div ui-view></div>'
                     })
 
                     .state('base.mark_checkout',
@@ -133,14 +134,14 @@
                     }).state('base.robot.new',{
                         url : '/new',
                         templateUrl : shot('seg/robot_new_form')
-                    }).state('base.mark_bind',{
-                        url : '/mark/bind',
+                    }).state('base.mark.bind',{
+                        url : '/bind',
                         templateUrl : shot('seg/mark_bind_form')
-                    }).state('base.mark_unbind',{
-                        url : '/mark/unbind',
+                    }).state('base.mark.unbind',{
+                        url : '/unbind',
                         templateUrl : shot('seg/mark_unbind_form')
-                    }).state('base.hospital_new',{
-                        url : '/hospital/new',
+                    }).state('base.hospital.new',{
+                        url : '/new',
                         templateUrl : shot('seg/hospital_form')
                     })
             }])

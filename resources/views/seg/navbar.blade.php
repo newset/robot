@@ -27,8 +27,8 @@
             <ul class="nav nav-pills">
                 <li><a href="" ui-sref="base.mark_bind" title="">新增Mark</a></li>
                 <li><a href="" title="">Mark查询</a></li>
-                <li><a href="" ui-sref="base.mark_bind" title="">Mark绑定</a></li>
-                <li><a href="" ui-sref="base.mark_unbind" title="">Mark解绑</a></li>
+                <li><a href="" ui-sref="base.mark.bind" title="">Mark绑定</a></li>
+                <li><a href="" ui-sref="base.mark.unbind" title="">Mark解绑</a></li>
                 <li><a href="" ngf-select="uploadFiles($file)" title="">USB数据上传</a></li>
                 <li role="presentation" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
@@ -37,6 +37,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="" title="">Mark情况统计表</a></li>
                         <li><a href="" title="">医院Mark使用情况表</a></li>
+                        <li><a href="" title="">医生Mark使用情况表</a></li>
                     </ul>
                 </li>
             </ul>

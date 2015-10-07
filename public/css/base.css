@@ -42,12 +42,18 @@ body.auth-body{
 #login-wrapper .btn-primary[disabled], 
 #login-wrapper a.btn-primary:link[disabled],  
 #login-wrapper a.btn-primary:visited[disabled]{
-    background-color: #2e6da4;
+    background-color: #337ab7;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    outline: none;
+    color: #337ab7;
 }
 
 .btn-primary, a.btn-primary:link, a.btn-primary:visited {
     color: #fff;
-    background-color: #2e6da4;
+    background-color: #337ab7;
 }
 
 .error
@@ -291,4 +297,10 @@ label.error
 
 .dashboard-tile.detail {
     margin-top: 20px;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+    color: #FFF;
+    background-color: #286090;
+    border-color: #204d74;
 }
