@@ -125,6 +125,18 @@
                     {
                         url: '/mark_checkout?page_num&limit',
                         templateUrl: shot('page/mark_checkout'),
+                    }).state('base.robot_new',{
+                        url : '/new',
+                        templateUrl : shot('seg/robot_new_form')
+                    }).state('base.mark_bind',{
+                        url : '/mark/bind',
+                        templateUrl : shot('seg/mark_bind_form')
+                    }).state('base.mark_unbind',{
+                        url : '/mark/unbind',
+                        templateUrl : shot('seg/mark_unbind_form')
+                    }).state('base.hospital_new',{
+                        url : '/hospital/new',
+                        templateUrl : shot('seg/hospital_form')
                     })
             }])
 })();

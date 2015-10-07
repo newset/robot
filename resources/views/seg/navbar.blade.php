@@ -11,7 +11,7 @@
         </a>
         <div class="page-nav pull-left" ng-if="$state.includes('base.robot')" ng-cloak>
              <ul class="nav nav-pills">
-                <li><a href="" title="">新增设备</a></li>
+                <li><a href="" ui-sref="base.robot_new" title="">新增设备</a></li>
                 <li><a href="" title="">设备销售</a></li>
                 <li><a href="" title="">设备作废</a></li>
                 <li><a href="" title="">终止合作</a></li>
@@ -27,6 +27,42 @@
                   </li>
             </ul>
         </div>
+
+        <div class="page-nav pull-left" ng-if="$state.includes('base.mark')" ng-cloak>
+            <ul class="nav nav-pills">
+                <li><a href="" ui-sref="base.mark_bind" title="">新增Mark</a></li>
+                <li><a href="" title="">Mark查询</a></li>
+                <li><a href="" ui-sref="base.mark_bind" title="">Mark绑定</a></li>
+                <li><a href="" ui-sref="base.mark_unbind" title="">Mark解绑</a></li>
+                <li><a href="" ngf-select="uploadFiles($file)" title="">USB数据上传</a></li>
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
+                        报表 <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="" title="">Mark情况统计表</a></li>
+                        <li><a href="" title="">医院Mark使用情况表</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="page-nav pull-left" ng-if="$state.includes('base.hospital_menu')" ng-cloak>
+            <ul class="nav nav-pills">
+                <li><a href="" ui-sref="base.hospital_new" title="">新建医院</a></li>
+                <li><a href="" ui-sref="base.hospital({with_search: 1})" title="">医院查询</a></li>
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
+                        报表 <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="" title="">设备状态清单</a></li>
+                        <li><a href="" title="">销售情况表</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
     </div>
  
     <div class="user-nav">

@@ -81,6 +81,9 @@ if ( ! function_exists('table_name'))
 {
     function table_name($ins_name, $type = 'i', $prefix = null, $suffix = null)
     {
+
+//        dd($ins_name, $type);
+        $type = 'i';
         switch ($type)
         {
             case 'i':

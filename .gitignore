@@ -3,5 +3,8 @@ Homestead.yaml
 .env
 vendor
 .phpintel
+storage
 node_modules
+public/assets/plugins
 resources/raw_tpl/HTML_version/
+.idea
