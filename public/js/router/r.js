@@ -71,8 +71,13 @@
 
                     .state('base.robot',
                     {
-                        url: '/robot?page_num&limit&with_search',
-                        templateUrl: 'templates/robot/index.html',
+                        url: '/robot',
+                        templateUrl: 'templates/robot/index.html'
+                    })
+                    .state('base.robot.list',
+                    {
+                        url: '/list?page_num&limit&with_search',
+                        templateUrl: shot('page/robot'),
                         controller: 'CPageRobot as cPageRobot'
                     })
                     .state('base.hospital',

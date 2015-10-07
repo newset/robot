@@ -37,7 +37,7 @@
 		</a>
 	</div>
 	<div class="col-md-4 col-sm-6">
-		<a ui-sref="base.hospital_menu">
+		<a ui-sref="base.department_doctor">
 		<div class="dashboard-tile detail tile-blue">
 			<div class="content">
 				<h1><img src="../assets/img/grid/05.png" alt="">医生管理</h1>
