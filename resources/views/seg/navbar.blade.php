@@ -1,9 +1,4 @@
 <header id="header">
-    <!--logo start-->
-    <div class="brand">
-        <a href="" ui-sref="base.home" class="logo"><span>Space</span>Lab</a>
-    </div>
-    <!--logo end-->
     <div class="toggle-navigation toggle-left">
         <a class="btn btn-default pull-left" id="toggle-left" data-toggle="tooltip" data-placement="right" href="#/" 
                 title="Toggle Navigation" style="line-height: 30px;margin-right: 10px;">
