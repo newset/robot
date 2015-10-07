@@ -72,7 +72,7 @@
                     .state('base.robot',
                     {
                         url: '/robot?page_num&limit&with_search',
-                        templateUrl: shot('page/robot'),
+                        templateUrl: 'templates/robot/index.html',
                         controller: 'CPageRobot as cPageRobot'
                     })
                     .state('base.hospital',
@@ -98,7 +98,8 @@
                     .state('base.agency',
                     {
                         url: '/agency?page_num&limit&with_search',
-                        templateUrl: shot('page/agency'),
+                        // templateUrl: shot('page/agency'),
+                        templateUrl: 'templates/agency/index.html',
                     })
 
                     .state('base.employee',
@@ -116,7 +117,8 @@
                     .state('base.mark',
                     {
                         url: '/mark?page_num&limit&with_search',
-                        templateUrl: shot('page/mark'),
+                        // templateUrl: shot('page/mark'),
+                        templateUrl: 'templates/mark/index.html',
                     })
 
                     .state('base.mark_checkout',
