@@ -9,9 +9,14 @@
                 title="Toggle Navigation" style="line-height: 30px;">
             <i class="fa fa-bars"></i>
         </a>
-
-        <div class="page-nav pull-left" ui-view="actions">
-            
+        <div class="page-nav pull-left" ng-if="$state.includes('base.robot')" ng-cloak>
+             <ul class="nav nav-pills">
+                <li><a href="" title="">新增设备</a></li>
+                <li><a href="" title="">设备销售</a></li>
+                <li><a href="" title="">设备作废</a></li>
+                <li><a href="" title="">终止合作</a></li>
+                <li><a href="" title="">设备查询</a></li>
+            </ul>
         </div>
     </div>
  
@@ -59,15 +64,3 @@
         </ul>
     </div>
 </header>
-
-<!-- ngtemplate -->
-<script type="text/ng-template" id="templates/device-nav.html">
-    <ul>
-        <li><a href="" title="">新增设备</a></li>
-        <li><a href="" title="">设备销售</a></li>
-        <li><a href="" title="">设备作废</a></li>
-        <li><a href="" title="">终止合作</a></li>
-        <li><a href="" title="">设备查询</a></li>
-    </ul>
-</script>
-<script type="text/ng-template" id="templates/empty-nav.html"></script>

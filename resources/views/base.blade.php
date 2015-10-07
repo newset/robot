@@ -6,7 +6,7 @@
     <!--main content start-->
     <section class="main-content-wrapper">
         <section id="main-content">
-            <div ui-view></div>
+            <div ui-view="page"></div>
         </section>
     </section>
 </div>
