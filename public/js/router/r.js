@@ -130,7 +130,7 @@
                     {
                         url: '/mark_checkout?page_num&limit',
                         templateUrl: shot('page/mark_checkout'),
-                    }).state('base.robot_new',{
+                    }).state('base.robot.new',{
                         url : '/new',
                         templateUrl : shot('seg/robot_new_form')
                     }).state('base.mark_bind',{
