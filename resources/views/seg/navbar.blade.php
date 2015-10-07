@@ -6,7 +6,7 @@
     <!--logo end-->
     <div class="toggle-navigation toggle-left">
         <a class="btn btn-default pull-left" id="toggle-left" data-toggle="tooltip" data-placement="right" href="#/" 
-                title="Toggle Navigation" style="line-height: 30px;">
+                title="Toggle Navigation" style="line-height: 30px;margin-right: 10px;">
             <i class="fa fa-bars"></i>
         </a>
         <div class="page-nav pull-left" ng-if="$state.includes('base.robot')" ng-cloak>
@@ -16,6 +16,15 @@
                 <li><a href="" title="">设备作废</a></li>
                 <li><a href="" title="">终止合作</a></li>
                 <li><a href="" title="">设备查询</a></li>
+                 <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
+                      报表 <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="" title="">设备状态清单</a></li>
+                        <li><a href="" title="">销售情况表</a></li>
+                    </ul>
+                  </li>
             </ul>
         </div>
     </div>

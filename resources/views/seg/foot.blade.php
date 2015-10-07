@@ -32,7 +32,7 @@
 <script src="{{ base_url() . 'js/base.js'}}"></script>
 
 {{--<script src="assets/js/jquery-1.10.2.min.js"></script>--}}
-{{--<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>--}}
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 {{--<script src="assets/plugins/navgoco/jquery.navgoco.min.js"></script>--}}
 {{--<script src="assets/plugins/waypoints/waypoints.min.js"></script>--}}
 {{--<script src="assets/plugins/switchery/switchery.min.js"></script>--}}
