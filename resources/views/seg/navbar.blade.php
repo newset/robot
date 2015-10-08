@@ -28,7 +28,7 @@
                 <li><a href="" ui-sref="base.mark.query" title="">Mark查询</a></li>
                 <li><a href="" ui-sref="base.mark.bind" title="">Mark绑定</a></li>
                 <li><a href="" ui-sref="base.mark.unbind" title="">Mark解绑</a></li>
-                <li><a href="" ngf-select="uploadFiles($file)" title="">USB数据上传</a></li>
+                <li><a href="" ui-sref="base.mark.usb" title="">USB数据上传</a></li>
                 <li role="presentation" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
                         报表 <span class="caret"></span>

@@ -147,6 +147,10 @@
                     }).state('base.mark.unbind',{
                         url : '/unbind',
                         templateUrl : shot('seg/mark_unbind_form')
+                    })
+                    .state('base.mark.usb',{
+                        url : '/usb',
+                        templateUrl : shot('seg/mark_usb')
                     }).state('base.mark.query',{
                         url : '/query',
                         templateUrl : shot('seg/mark_query')
