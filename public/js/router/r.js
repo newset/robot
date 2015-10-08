@@ -117,7 +117,8 @@
                     .state('base.employee',
                     {
                         url: '/employee?page_num&limit&with_search',
-                        templateUrl: shot('page/employee'),
+                        // templateUrl: shot('page/employee'),
+                        template : '<div ui-view></div>'
                     })
                     .state('base.me',
                     {

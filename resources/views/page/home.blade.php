@@ -46,7 +46,7 @@
 		</a>
 	</div>
 	<div class="col-md-4 col-sm-6">
-		<a ui-sref="base.patient">
+		<a href="">
 			<div class="dashboard-tile detail tile-green">
 				 <div class="content">
 					<h1><img src="../assets/img/grid/06.png" alt="">病患管理</h1>
@@ -64,7 +64,7 @@
 		</a>
 	</div>
 	<div class="col-md-4 col-sm-6">
-		<a href="">
+		<a ui-sref="base.employee({with_search: 1})">
 			<div class="dashboard-tile detail tile-purple">
 				 <div class="content">
 					<h1><img src="../assets/img/grid/05.png" alt="">日志查看</h1>
@@ -73,7 +73,7 @@
 		</a>
 	</div>
 	<div class="col-md-4 col-sm-6">
-		<a href="">
+		<a ui-sref="base.employee({with_search: 1})">
 			<div class="dashboard-tile detail tile-yellow">
 				 <div class="content">
 					<h1><img src="../assets/img/grid/05.png" alt="">系统配置</h1>
