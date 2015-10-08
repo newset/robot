@@ -10,7 +10,7 @@
                 <li><a href="" ui-sref="base.robot.list"  title="">设备销售</a></li>
                 <li><a href="" title="">设备作废</a></li>
                 <li><a href="" title="">终止合作</a></li>
-                <li><a href="" title="">设备查询</a></li>
+                <li><a href="" ui-sref="base.robot.query" title="">设备查询</a></li>
                  <li role="presentation" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
                       报表 <span class="caret"></span>
@@ -25,8 +25,8 @@
 
         <div class="page-nav pull-left" ng-if="$state.includes('base.mark')" ng-cloak>
             <ul class="nav nav-pills">
-                <li><a href="" ui-sref="base.mark_bind" title="">新增Mark</a></li>
-                <li><a href="" title="">Mark查询</a></li>
+                <li><a href="" ui-sref="base.mark.new" title="">新增Mark</a></li>
+                <li><a href="" ui-sref="base.mark.query" title="">Mark查询</a></li>
                 <li><a href="" ui-sref="base.mark.bind" title="">Mark绑定</a></li>
                 <li><a href="" ui-sref="base.mark.unbind" title="">Mark解绑</a></li>
                 <li><a href="" ngf-select="uploadFiles($file)" title="">USB数据上传</a></li>

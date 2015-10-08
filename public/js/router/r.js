@@ -134,15 +134,24 @@
                     }).state('base.robot.new',{
                         url : '/new',
                         templateUrl : shot('seg/robot_new_form')
+                    }).state('base.mark.new',{
+                        url : '/new',
+                        templateUrl : shot('seg/mark_new_form')
                     }).state('base.mark.bind',{
                         url : '/bind',
                         templateUrl : shot('seg/mark_bind_form')
                     }).state('base.mark.unbind',{
                         url : '/unbind',
                         templateUrl : shot('seg/mark_unbind_form')
+                    }).state('base.mark.query',{
+                        url : '/query',
+                        templateUrl : shot('seg/mark_query')
                     }).state('base.hospital.new',{
                         url : '/new',
                         templateUrl : shot('seg/hospital_form')
+                    }).state('base.robot.query',{
+                        url : '/query',
+                        templateUrl : shot('page/robot_query')
                     })
             }])
 })();
