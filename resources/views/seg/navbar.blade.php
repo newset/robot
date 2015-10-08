@@ -22,7 +22,6 @@
                   </li>
             </ul>
         </div>
-
         <div class="page-nav pull-left" ng-if="$state.includes('base.mark')" ng-cloak>
             <ul class="nav nav-pills">
                 <li><a href="" ui-sref="base.mark.new" title="">新增Mark</a></li>
@@ -42,11 +41,10 @@
                 </li>
             </ul>
         </div>
-
-        <div class="page-nav pull-left" ng-if="$state.includes('base.hospital_menu')" ng-cloak>
+        <div class="page-nav pull-left" ng-if="$state.includes('base.hospital')" ng-cloak>
             <ul class="nav nav-pills">
-                <li><a href="" ui-sref="base.hospital_new" title="">新建医院</a></li>
-                <li><a href="" ui-sref="base.hospital({with_search: 1})" title="">医院查询</a></li>
+                <li><a href="" ui-sref="base.hospital.new" title="">新建医院</a></li>
+                <li><a href="" ui-sref="base.hospital.list({with_search: 1})" title="">医院查询</a></li>
                 <li role="presentation" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
                         报表 <span class="caret"></span>
@@ -58,7 +56,35 @@
                 </li>
             </ul>
         </div>
-
+        <div class="page-nav pull-left" ng-if="$state.includes('base.doctor')" ng-cloak>
+            <ul class="nav nav-pills">
+                <li><a href="" ui-sref="base.doctor.new" title="">新建医生</a></li>
+                <li><a href="" ui-sref="base.doctor.list({with_search: 1})" title="">医生查询</a></li>
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
+                        报表 <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="" title="">医生情况统计表</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="page-nav pull-left" ng-if="$state.includes('base.agency')" ng-cloak>
+            <ul class="nav nav-pills">
+                <li><a href="" ui-sref="base.agency.new" title="">新建代理商</a></li>
+                <li><a href="" ui-sref="base.agency.list({with_search: 1})" title="">代理商查询</a></li>
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
+                        报表 <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="" title="">代理商Mark情况统计表</a></li>
+                        <li><a href="" title="">代理情况表</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
  
     <div class="user-nav">

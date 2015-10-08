@@ -28,7 +28,7 @@
 		</a>
 	</div>
 	<div class="col-md-4 col-sm-6">
-		<a ui-sref="base.hospital_menu">
+		<a ui-sref="base.hospital">
 			<div class="dashboard-tile detail tile-default">
 				<div class="content">
 					<h1><img src="../assets/img/grid/04.png" alt="">医院管理 </h1>
@@ -37,7 +37,7 @@
 		</a>
 	</div>
 	<div class="col-md-4 col-sm-6">
-		<a ui-sref="base.department_doctor">
+		<a ui-sref="base.doctor">
 		<div class="dashboard-tile detail tile-blue">
 			<div class="content">
 				<h1><img src="../assets/img/grid/05.png" alt="">医生管理</h1>
@@ -46,7 +46,7 @@
 		</a>
 	</div>
 	<div class="col-md-4 col-sm-6">
-		<a ui-sref="base.hospital_menu">
+		<a ui-sref="base.patient">
 			<div class="dashboard-tile detail tile-green">
 				 <div class="content">
 					<h1><img src="../assets/img/grid/06.png" alt="">病患管理</h1>

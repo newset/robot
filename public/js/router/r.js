@@ -82,43 +82,48 @@
                     })
                     .state('base.hospital',
                     {
-                        url: '/hospital?page_num&limit&with_search',
+                        url: '/hospital',
+                        //controller: 'CPageHospital as cPageHospital',
+                        template: '<div ui-view></div>',
+                    })
+                    .state('base.hospital.new',{
+                        url : '/new',
+                        templateUrl : shot('seg/hospital_form')
+                    })
+                    .state('base.hospital.list', {
+                        url: '/list?page_num&limit&with_search',
                         controller: 'CPageHospital as cPageHospital',
                         templateUrl: shot('page/hospital'),
                     })
-
-                    .state('base.hospital_menu',
-                    {
-                        url: '/hospital_menu',
-                        //controller: 'CPageHospital as cPageHospital',
-                        templateUrl: shot('page/hospital_menu'),
-                    })
-
                     .state('base.department_doctor',
                     {
                         url: '/department_doctor?page_num&limit&with_search&hid',
                         templateUrl: shot('page/department_doctor'),
                     })
-
                     .state('base.agency',
                     {
                         url: '/agency?page_num&limit&with_search',
                         // templateUrl: shot('page/agency'),
-                        templateUrl: 'templates/agency/index.html',
+                        template : '<div ui-view></div>'
                     })
-
+                    .state('base.agency.new', {
+                        url : '/new',
+                        template : ''
+                    })
+                    .state('base.agency.list', {
+                        url : '/list',
+                        templateUrl: shot('page/agency'),
+                    })
                     .state('base.employee',
                     {
                         url: '/employee?page_num&limit&with_search',
                         templateUrl: shot('page/employee'),
                     })
-
                     .state('base.me',
                     {
                         url: '/me',
                         templateUrl: shot('page/me'),
                     })
-
                     .state('base.mark',
                     {
                         url: '/mark?page_num&limit&with_search',
@@ -126,7 +131,6 @@
                         // templateUrl: 'templates/mark/index.html',
                         template : '<div ui-view></div>'
                     })
-
                     .state('base.mark_checkout',
                     {
                         url: '/mark_checkout?page_num&limit',
@@ -146,12 +150,25 @@
                     }).state('base.mark.query',{
                         url : '/query',
                         templateUrl : shot('seg/mark_query')
-                    }).state('base.hospital.new',{
-                        url : '/new',
-                        templateUrl : shot('seg/hospital_form')
                     }).state('base.robot.query',{
                         url : '/query',
                         templateUrl : shot('page/robot_query')
+                    })
+                    .state('base.doctor', {
+                        url : '/doctor',
+                        template : '<div ui-view></div>'
+                    })
+                    .state('base.doctor.new', {
+                        url : '/new',
+                        template : ''
+                    })
+                    .state('base.doctor.list', {
+                        url : '/list',
+                        template : ''
+                    })
+                    .state('base.patient', {
+                        url : '/patient',
+                        template : '<div ui-view></div>'
                     })
             }])
 })();
