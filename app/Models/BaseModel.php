@@ -323,6 +323,7 @@ class BaseModel extends Model
      */
     public function r()
     {
+
         $builder = $this->r_builder(rq());
         $builder = $builder->whereNull('deleted_at');
         $main = isset($ret) ? $ret : $builder->get()->toArray();

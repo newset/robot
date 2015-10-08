@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Input;
+use DB;
 
 class IRobot extends BaseModel
 {
@@ -33,6 +35,72 @@ class IRobot extends BaseModel
     //    dd($ins);
     //    //$this->get_lease_type($d[0]['id']);
     //}
+
+    public function r() {
+        $sql = 'select * from i_robot left join i_robot_lease_log on i_robot.id = i_robot_lease_log.robot_id left join i_robot_log on i_robot.id = i_robot_log.robot_id
+left join i_agency on i_robot_lease_log.agency_id = i_agency.id where 1=1 ';
+        $where = [];
+
+        if(Input::has("where.cust_id")) {
+            $sql .= ' and i_robot.cust_id like "'.Input::get('where.cust_id').'%"';
+            //$where[] = Input::get('where.cust_id');
+        }
+        if(Input::has("where.province_id")) {
+            $sql .= ' and i_agency.province_id = ?';
+            $where[] = Input::get('where.province_id');
+        }
+        if(Input::has("where.city_id")) {
+            $sql .= ' and i_agency.city_id = ?';
+            $where[] = Input::get('where.city_id');
+        }
+
+        $lease_type_id = Input::get('where.lease_type_id');
+        if(Input::has("where.lease_type_id") && !empty($lease_type_id)) {
+            $id = array_map('intval',$lease_type_id);
+            $id = implode(",",$id);
+            $sql .= ' and i_robot_lease_log.lease_type_id in ('.$id.')';
+        }
+
+        $action_type_id = Input::get('where.action_type_id');
+        if(Input::has("where.action_type_id") && !empty($action_type_id)) {
+            $id = array_map('intval',$action_type_id);
+            $id = implode(",",$id);
+            $sql .= ' and i_robot_log.action_type_id in ('.$id.')';
+        }
+
+        if(Input::has("where.agency_id")) {
+            $sql .= ' and i_robot_lease_log.agency_id = ?';
+            $where[] = Input::get('where.agency_id');
+        }
+        if(Input::has("where.hospital_id")) {
+            $sql .= ' and i_robot_lease_log.hospital_id = ?';
+            $where[] = Input::get('where.hospital_id');
+        }
+
+        if(Input::has('where.created_start') && Input::has("where.created_end")) {
+            $sql .= ' and production_date between (?,?)';
+            $where[] = Input::get('where.created_start');
+            $where[] = Input::get('where.created_end');
+        }
+
+        $sql .= ' group by i_robot.cust_id';
+
+        $pagination = Input::get("pagination",1);
+        $offset = 0;
+        $perpage = 50;
+
+        DB::enableQueryLog();
+        $result = DB::select(DB::raw($sql),$where);
+
+        $r = [
+            'count' => count($result),
+            'main'  => array_slice($result,($pagination - 1) * $perpage,$perpage),
+        ];
+
+        $query = DB::getQueryLog();
+        //dd($query);
+        return ss($r);
+    }
 
     public function cu_($in = null)
     {

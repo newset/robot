@@ -24,7 +24,7 @@
                                     <select class="form-control"
                                             name="province_id"
                                             ng-init="SIns.current_row.province_id = SIns.current_row.province_id || options[0].id"
-                                            ng-model="SIns.current_row.province_id"
+                                            ng-model="SIns.cond.where.province_id"
                                             ng-options="l.id as l.name for l in SBase._.location.province"
                                             required>
                                         <option value="" selected>不限</option>
@@ -32,7 +32,7 @@
                                     <select class="form-control"
                                             name="city_id"
                                             ng-init="SIns.current_row.city_id = SIns.current_row.city_id || options[0].id"
-                                            ng-model="SIns.current_row.city_id"
+                                            ng-model="SIns.cond.where.city_id"
                                             ng-options="l.id as l.name for l in SBase._.location.city | filter: {parent_id: SIns.current_row.province_id}"
                                             required>
                                         <option value="" selected>不限</option>
@@ -41,24 +41,24 @@
 
                                 <div class="form-group">
                                     <label class="control-label col-md-3">销售状态</label>
-                                    <input type="checkbox" value="number:1" ng-model="SIns.cond.where.log_lease_lease_type_id1">自营
-                                    <input type="checkbox" value="number:2" ng-model="SIns.cond.where.log_lease_lease_type_id2">租赁
-                                    <input type="checkbox" value="number:3" ng-model="SIns.cond.where.log_lease_lease_type_id3">出售
-                                    <input type="checkbox" value="number:4" ng-model="SIns.cond.where.log_lease_lease_type_id4">免费合作
+                                    <input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.lease_type_id[0]">自营
+                                    <input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.lease_type_id[1]">租赁
+                                    <input type="checkbox" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.lease_type_id[2]">出售
+                                    <input type="checkbox" value="number:4" ng-true-value="4" ng-model="SIns.cond.where.lease_type_id[3]">免费合作
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label col-md-3">设备状态</label>
-                                    <input type="checkbox" value="number:1" ng-model="SIns.cond.where.log_action_type_id1">ok
-                                    <input type="checkbox" value="number:2" ng-model="SIns.cond.where.log_action_type_id2">维修中
-                                    <input type="checkbox" value="number:3" ng-model="SIns.cond.where.log_action_type_id3">已报废
+                                    <input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.action_type_id[0]">ok
+                                    <input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.action_type_id[1]">维修中
+                                    <input type="checkbox" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.action_type_id[2]">已报废
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label col-md-3">代理商</label>
                                     <select class="form-control"
                                             name="log_lease_agency_id"
-                                            ng-model="SIns.cond.where.log_lease_agency_id"
+                                            ng-model="SIns.cond.where.agency_id"
                                             ng-options="l.id as l.name for l in SAgency.all_rec">
                                         <option value="" selected>不限</option>
                                     </select>
@@ -67,21 +67,21 @@
                                     <label class="control-label col-md-3">医院</label>
                                     <select class="form-control"
                                             name="log_lease_hospital_id"
-                                            ng-model="SIns.cond.where.log_lease_hospital_id"
+                                            ng-model="SIns.cond.where.hospital_id"
                                             ng-options="l.id as l.name for l in SHospital.all_rec">
                                         <option value="" selected>不限</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-3">维修记录</label>
-                                    <input type="checkbox" value="number:1" ng-model="SIns.cond.where.log_action_tid1">不限
-                                    <input type="checkbox" value="number:2" ng-model="SIns.cond.where.log_action_tid2">有维修记录
-                                    <input type="checkbox" value="number:3" ng-model="SIns.cond.where.log_action_tid3">无维修记录
+                                    <input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.log_action_tid1">不限
+                                    <input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.log_action_tid2">有维修记录
+                                    <input type="checkbox" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.log_action_tid3">无维修记录
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label col-md-3">生产日期</label>
-                                    <input class="form-control" type="date">到<input class="form-control" type="date">
+                                    <input ng-model="SIns.cond.where.created_start" class="form-control" type="date">到<input ng-model="SIns.cond.where.created_end" class="form-control" type="date">
                                 </div>
 
 
@@ -119,12 +119,11 @@
                                 ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
                                 <td>[:row.cust_id:]</td>
                                 <td>
-                                    <span ng-if="!row.log_lease_lease_type_id">-</span>
-                                    <span>[: SIns.lease_type[row.log_lease_lease_type_id - 1].name :]</span>
+                                    <span ng-if="!row.lease_type_id">-</span>
+                                    <span>[: SIns.lease_type[row.lease_type_id - 1].name :]</span>
                                 </td>
                                 <td>
-                                    <span ng-if="!row.log_action_type_id">ok</span>
-                                    <span>[: SIns.robot_action_type[row.log_action_type_id - 1].name:]</span>
+                                    <span>[: SIns.robot_action_type[row.action_type_id - 1].name:]</span>
                                 </td>
                                 {{--<td>--}}
                                 {{--<span ng-if="!row.log_lease_hospital_id">-</span>--}}
