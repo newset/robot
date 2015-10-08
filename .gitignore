@@ -1,6 +1,6 @@
 Homestead.yaml
 .env
-vendor
+/vendor
 .phpintel
 storage
 resources/raw_tpl/HTML_version/

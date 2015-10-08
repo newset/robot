@@ -1,0 +1,33 @@
+{
+		"name": "robot",
+		"version": "1",
+		"homepage": "https://github.com/newset/robot",
+		"authors": [
+				"Insane <luojieyy@gmail.com>"
+		],
+		"description": "",
+		"main": "",
+		"dependencies": {
+				"angular-bootstrap": "^0.12.1",
+				"angular-ui-router": "^0.2.15",
+				"angular": "^1.4.4",
+				"angular-xeditable": "^0.1.8",
+				"jquery": "^2.1.4",
+				"nprogress": "^0.2.0",
+				"toastr": "^2.1.2",
+				"ng-file-upload": "^7.3.4",
+				"moment": "^2.10.6",
+				"angular-filter": "^0.5.5",
+				"ng-dialog": "^0.5.1"
+		},
+		"moduleType": [],
+		"license": "MIT",
+		"ignore": [
+				"**/.*",
+				"node_modules",
+				"bower_components",
+				"vendors",
+				"test",
+				"tests"
+		]
+}
