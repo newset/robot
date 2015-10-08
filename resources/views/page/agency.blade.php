@@ -4,14 +4,17 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">代理商管理</h3>
+                    <h3 class="panel-title">查询条件</h3>
+                    <div class="actions pull-right">
+                        <i class="fa fa-chevron-down" i-toggle data-toggle="collapse" data-target="#agency_query" aria-expanded="false" aria-controls="collapseExample"></i>
+                    </div>
                 </div>
                 <div class="panel-body">
                     <div role="grid" id="example_wrapper" class="dataTables_wrapper form-inline no-footer">
                         <div class="row col-md-12 search_panel" ng-if="SIns.with_search">
-                            <h4>检索</h4>
-                            <form>
+                            <form class="form-horizontal collapse" id="agency_query">
                                 <div class="form-group">
+                                        <label class="control-label col-md-3">编号</label>
                                     <input class="form-control"
                                            ng-model-options="{debounce: 300}"
                                            ng-model="SIns.cond.where.id"
@@ -24,12 +27,14 @@
                                            {{--placeholder="名称搜索">--}}
                                 {{--</div>--}}
                                 <div class="form-group">
+                                        <label class="control-label col-md-3">名称</label>
                                     <input class="form-control"
                                            ng-model-options="{debounce: 300}"
                                            ng-model="SIns.cond.where.name"
                                            placeholder="名称">
                                 </div>
                                 <div class="form-group">
+                                        <label class="control-label col-md-3">地区</label>
                                     <select class="form-control"
                                             name="province_id"
                                             ng-model="SIns.cond.where.province_id"
@@ -65,15 +70,7 @@
                                 {{--</div>--}}
                             </form>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="dataTables_length" id="example_length">
-                                    <button class="btn btn-default fr"
-                                            ng-click="SIns.popup_edit(null)">创建
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <table
                                 id="example"
                                 class="table

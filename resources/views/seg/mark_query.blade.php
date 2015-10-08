@@ -4,15 +4,16 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Mark管理</h3>
+                    <h3 class="panel-title">查询条件</h3>
+                    <div class="actions pull-right">
+                        <i class="fa fa-chevron-down" i-toggle data-toggle="collapse" data-target="#mark_query" aria-expanded="false" aria-controls="collapseExample"></i>
+                    </div>
                 </div>
                 <div class="panel-body">
                     <div role="grid" id="example_wrapper" class="dataTables_wrapper form-inline no-footer">
                         @if(!he_is('department'))
                             <div class="row col-md-12 search_panel" ng-if="SIns.with_search">
-                                <h4>检索</h4>
-
-                                <form class="form-horizontal">
+                                <form class="form-horizontal collapse" id="mark_query">
                                     <div class="form-group">
                                         <label class="control-label col-md-3">编号</label>
                                         <input class="form-control"
