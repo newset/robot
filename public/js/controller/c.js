@@ -315,10 +315,7 @@
                     SRobot.with_search = 1;
                 }
 
-                $scope.$watch('cond', function()
-                {
-                    SRobot.refresh();
-                }, true)
+                SRobot.refresh();
             }
         ])
 
