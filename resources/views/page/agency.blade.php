@@ -14,7 +14,7 @@
                         <div class="row col-md-12 search_panel" ng-if="SIns.with_search">
                             <form class="form-horizontal collapse" id="agency_query">
                                 <div class="form-group">
-                                        <label class="control-label col-md-3">编号</label>
+                                        <label class="control-label col-md-1">编号</label>
                                     <input class="form-control"
                                            ng-model-options="{debounce: 300}"
                                            ng-model="SIns.cond.where.id"
@@ -27,14 +27,14 @@
                                            {{--placeholder="名称搜索">--}}
                                 {{--</div>--}}
                                 <div class="form-group">
-                                        <label class="control-label col-md-3">名称</label>
+                                        <label class="control-label col-md-1">名称</label>
                                     <input class="form-control"
                                            ng-model-options="{debounce: 300}"
                                            ng-model="SIns.cond.where.name"
                                            placeholder="名称">
                                 </div>
                                 <div class="form-group">
-                                        <label class="control-label col-md-3">地区</label>
+                                        <label class="control-label col-md-1">地区</label>
                                     <select class="form-control"
                                             name="province_id"
                                             ng-model="SIns.cond.where.province_id"

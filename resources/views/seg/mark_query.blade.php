@@ -15,7 +15,7 @@
                             <div class="row col-md-12 search_panel" ng-if="SIns.with_search">
                                 <form class="form-horizontal collapse" id="mark_query">
                                     <div class="form-group">
-                                        <label class="control-label col-md-3">编号</label>
+                                        <label class="control-label col-md-2">编号</label>
                                         <input class="form-control"
                                                ng-model-options="{debounce: 300}"
                                                ng-model="SIns.cond.where.id"
@@ -28,7 +28,7 @@
                                     {{--placeholder="名称搜索">--}}
                                     {{--</div>--}}
                                     <div class="form-group">
-                                        <label class="control-label col-md-3">Mark状态</label>
+                                        <label class="control-label col-md-2">Mark状态</label>
                                         <div>
                                             <input type="checkbox" value="number:1" ng-model="SIns.cond.where.status_type_id1">未使用
                                             <input type="checkbox" value="number:2" ng-model="SIns.cond.where.status_type_id2">已使用
@@ -39,7 +39,7 @@
                                     </div>
                                     @if(he_is('employee'))
                                         <div class="form-group">
-                                            <label class="control-label col-md-3">销售状态</label>
+                                            <label class="control-label col-md-2">销售状态</label>
                                             <div>
                                                 <input type="checkbox" value="number:1" ng-model="SIns.cond.where.selling_status_type_id1">在库
                                                 <input type="checkbox" value="number:2" ng-model="SIns.cond.where.selling_status_type_id2">出货(卖给代理商)
@@ -48,10 +48,10 @@
                                         </div>
                                     @endif
                                     <div class="form-group">
-                                        <label class="control-label col-md-3">代理商</label>
+                                        <label class="control-label col-md-2">代理商</label>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3">医院</label>
+                                        <label class="control-label col-md-2">医院</label>
                                         <input class="form-control"
                                                ng-model-options="{debounce: 300}"
                                                ng-model="SIns.cond.where.hospital_name"
@@ -59,7 +59,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="control-label col-md-3">出货给代理商时间</label>
+                                        <label class="control-label col-md-2">出货给代理商时间</label>
                                         <input class="form-control"
                                                type="date"
                                                ng-model-options="{debounce: 300}"
@@ -74,7 +74,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="control-label col-md-3">卖出给医院时间</label>
+                                        <label class="control-label col-md-2">卖出给医院时间</label>
                                         <input class="form-control"
                                                type="date"
                                                ng-model-options="{debounce: 300}"
@@ -89,7 +89,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="control-label col-md-3">医生扫码时间</label>
+                                        <label class="control-label col-md-2">医生扫码时间</label>
                                         <input class="form-control"
                                                type="date"
                                                ng-model-options="{debounce: 300}"
@@ -104,7 +104,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="control-label col-md-3">损坏时间</label>
+                                        <label class="control-label col-md-2">损坏时间</label>
                                         <input class="form-control"
                                                type="date"
                                                ng-model-options="{debounce: 300}"
@@ -119,7 +119,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="control-label col-md-3">归档时间</label>
+                                        <label class="control-label col-md-2">归档时间</label>
                                         <input class="form-control"
                                                type="date"
                                                ng-model-options="{debounce: 300}"
@@ -134,7 +134,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="control-label col-md-3">手术时间</label>
+                                        <label class="control-label col-md-2">手术时间</label>
                                         <input class="form-control"
                                                type="date"
                                                ng-model-options="{debounce: 300}"
@@ -149,7 +149,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="control-label col-md-3">生产时间</label>
+                                        <label class="control-label col-md-2">生产时间</label>
                                         <input class="form-control"
                                                type="date"
                                                ng-model-options="{debounce: 300}"
