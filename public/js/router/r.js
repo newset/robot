@@ -108,7 +108,7 @@
                     })
                     .state('base.agency.new', {
                         url : '/new',
-                        template : ''
+                        templateUrl : shot('page/agency_new')
                     })
                     .state('base.agency.list', {
                         url : '/list',
