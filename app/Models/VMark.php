@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Input;
+use DB;
 
 class VMark extends IMark
 {
@@ -17,7 +19,51 @@ class VMark extends IMark
         $this->table = table_name($this->ins_name, 'v');
     }
 
-    public function r_()
+    public function r_() {
+        $sql = 'select * from i_mark where 1=1 ';
+        $where = [];
+
+        if(Input::has('where.cust_id')) {
+            $sql .= ' and i_mark.cust_id = ?';
+            $where[] = Input::get('where.cust_id');
+        }
+        $status = Input::get('where.status');
+        if(!empty($status)) {
+            $id = array_map('intval',$status);
+            $id = implode(",",$id);
+            $sql .= ' and i_mark.status in ('.$id.')';
+        }
+        $selling_status = Input::get('where.selling_status');
+        if(!empty($selling_status)) {
+            $sub_sql = ' and ( 1=1 ';
+            if(in_array(1,$selling_status)) {
+                $sub_sql .= ' or sold = 0';
+            }
+            if(in_array(1,$selling_status)) {
+                $sub_sql .= ' or agency_id > 0';
+            }
+            if(in_array(2,$selling_status)) {
+                $sub_sql .= ' or hospital_id > 0';
+            }
+            $sub_sql .= ')';
+            $sql .= $sub_sql;
+        }
+
+        $pagination = Input::get("pagination",1);
+        $offset = 0;
+        $perpage = 50;
+
+        $result = DB::select(DB::raw($sql),$where);
+        $r = [
+            'count' => count($result),
+            'main'  => array_slice($result,($pagination - 1) * $perpage,$perpage),
+        ];
+
+        return ss($r);
+
+    }
+
+    public function __r_()
     {
         if ( ! rq('where') && he_is('employee'))
             return $this->r();

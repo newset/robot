@@ -18,7 +18,7 @@
                                         <label class="control-label col-md-2">编号</label>
                                         <input class="form-control"
                                                ng-model-options="{debounce: 300}"
-                                               ng-model="SIns.cond.where.id"
+                                               ng-model="SIns.cond.where.cust_id"
                                                placeholder="编号">
                                     </div>
                                     {{--<div class="form-group">--}}
@@ -30,20 +30,20 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-2">Mark状态</label>
                                         <div>
-                                            <input type="checkbox" value="number:1" ng-model="SIns.cond.where.status_type_id1">未使用
-                                            <input type="checkbox" value="number:2" ng-model="SIns.cond.where.status_type_id2">已使用
-                                            <input type="checkbox" value="number:3" ng-model="SIns.cond.where.status_type_id3">已绑定
-                                            <input type="checkbox" value="number:4" ng-model="SIns.cond.where.status_type_id4">损坏报废
-                                            <input type="checkbox" value="number:5" ng-model="SIns.cond.where.status_type_id5">损坏更换
+                                            <input type="checkbox" value="number:1" ng-true-value="1" ng-false-value="" ng-model="SIns.cond.where.status[0]">未使用
+                                            <input type="checkbox" value="number:2" ng-true-value="2" ng-false-value="" ng-model="SIns.cond.where.status[1]">已使用
+                                            <input type="checkbox" value="number:3" ng-true-value="5" ng-false-value="" ng-model="SIns.cond.where.status[2]">已绑定
+                                            <input type="checkbox" value="number:4" ng-true-value="3" ng-false-value="" ng-model="SIns.cond.where.status[3]">损坏报废
+                                            <input type="checkbox" value="number:5" ng-true-value="4" ng-false-value="" ng-model="SIns.cond.where.status[4]">损坏更换
                                         </div>
                                     </div>
                                     @if(he_is('employee'))
                                         <div class="form-group">
                                             <label class="control-label col-md-2">销售状态</label>
                                             <div>
-                                                <input type="checkbox" value="number:1" ng-model="SIns.cond.where.selling_status_type_id1">在库
-                                                <input type="checkbox" value="number:2" ng-model="SIns.cond.where.selling_status_type_id2">出货(卖给代理商)
-                                                <input type="checkbox" value="number:3" ng-model="SIns.cond.where.selling_status_type_id3">已售(卖给医院)
+                                                <input type="checkbox" value="number:1" ng-model="SIns.cond.where.selling_status[0]">在库
+                                                <input type="checkbox" value="number:2" ng-model="SIns.cond.where.selling_status[1]">出货(卖给代理商)
+                                                <input type="checkbox" value="number:3" ng-model="SIns.cond.where.selling_status[2]">已售(卖给医院)
                                             </div>
                                         </div>
                                     @endif
@@ -236,8 +236,8 @@
                                 <td>[:row.cust_id:]</td>
                                 @if(he_is('employee'))
                                     <td>
-                                        <span ng-if="row.agency_id == 1">未卖出</span>
-                                        <span ng-if="row.agency_id != 1">已卖出</span>
+                                        <span ng-if="row.sold == 0">未卖出</span>
+                                        <span ng-if="row.sold != 0">已卖出</span>
                                     </td>
                                 @endif
                                 @if(he_is('agency'))
@@ -247,11 +247,11 @@
                                     <td>[:row.doctor_name || '-' :]</td>
                                 @endif
                                 <td>
-                                    <span ng-if="row.damaged_at">已损坏</span>
-                                    <span ng-if="row.archive_at && !row.damaged_at">已归档</span>
-                                    <span ng-if="row.used_at && !row.damaged_at && !row.doctor_id && !row.archive_at">已使用</span>
-                                    <span ng-if="row.used_at && !row.damaged_at && row.doctor_id && !row.archive_at">已绑定</span>
-                                    <span ng-if="!row.used_at && !row.damaged_at && !row.archive_at">未使用</span>
+                                    <span ng-if="row.status == 2">使用完毕</span>
+                                    <span ng-if="row.status == 3">损坏报废</span>
+                                    <span ng-if="row.status == 4">损坏更新</span>
+                                    <span ng-if="row.status == 5">已绑定</span>
+                                    <span ng-if="row.status == 1">未使用</span>
                                 </td>
                                 @if(!he_is('department'))
                                     <td class="edit col-md-2">
