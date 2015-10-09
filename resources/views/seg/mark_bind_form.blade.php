@@ -39,6 +39,7 @@
                       class="form-control col-md-12"
                       rows="10"
                       name="mark_list"
+                      style="width:100%" 
                       cols="175"
                       array-receiver="SIns.cu_bat_data.mark_list"
                       la-row-num-match="SIns.cu_bat_data.bind_amount"

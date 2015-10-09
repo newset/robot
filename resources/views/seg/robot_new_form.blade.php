@@ -35,7 +35,7 @@
         </div>
         <div class="form-group">
             <label class="control-label col-md-2">生产日期</label>
-            <div class="col-md-4">
+            <div class="">
               <md-datepicker ng-model="SIns.current_row.production_date" md-placeholder="生产日期"></md-datepicker>
             </div>
         </div>

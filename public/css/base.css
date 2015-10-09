@@ -304,3 +304,12 @@ label.error
     background-color: #286090;
     border-color: #204d74;
 }
+
+/**
+ * material override
+ */
+
+.md-datepicker-input-container{
+    float: left;
+    margin-top: 6px;
+}

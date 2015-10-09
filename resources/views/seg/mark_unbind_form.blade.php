@@ -35,6 +35,7 @@
                       class="form-control"
                       rows="10"
                       cols="175"
+                      style="width:100%" 
                       name="mark_list"
                       array-receiver="SIns.cu_bat_data.mark_list"
                       la-row-num-match="SIns.cu_bat_data.unbind_amount"
