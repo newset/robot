@@ -58,7 +58,7 @@
                                                placeholder="医院名称">
                                     </div>
 
-                                    <div class="form-group">
+                                <!--     <div class="form-group">
                                         <label class="control-label col-md-2">出货给代理商时间</label>
                                         <input class="form-control"
                                                type="date"
@@ -161,7 +161,7 @@
                                                ng-model-options="{debounce: 300}"
                                                ng-model="SIns.cond.where.create_at"
                                                placeholder="">
-                                    </div>
+                                    </div> -->
 
                                     <div class="form-group">
                                         <button class="btn btn-primary" style="float: right">查询</button>
