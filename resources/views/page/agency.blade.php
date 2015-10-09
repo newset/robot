@@ -139,6 +139,7 @@
                                         class="pagination-md"
                                         previous-text="<"
                                         next-text=">"
+                                        max-size="10"
                                         first-text="第一页"
                                         {{--items-per-page="5"--}}
                                         last-text="最后一页"

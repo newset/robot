@@ -114,13 +114,13 @@
                             <thead>
                             <tr role="row">
                                 <th>编号</th>
-                                <th>销售方式</th>
                                 <th>设备状态</th>
-                                <th>医院ID</th>
-                                <th>代理商ID</th>
+                                <th>销售方式</th>
+                                <th>医院</th>
+                                <th>代理商</th>
                                 <th>负责人</th>
                                 <th>维护记录</th>
-                                <th>操作</th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -128,12 +128,13 @@
                                 ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
                                 <td>[:row.cust_id:]</td>
                                 <td>
+                                    <span>[: SIns.robot_action_type[row.action_type_id - 1].name:]</span>
+                                </td>
+                                <td>
                                     <span ng-if="!row.lease_type_id">-</span>
                                     <span>[: SIns.lease_type[row.lease_type_id - 1].name :]</span>
                                 </td>
-                                <td>
-                                    <span>[: SIns.robot_action_type[row.action_type_id - 1].name:]</span>
-                                </td>
+                                
                                 {{--<td>--}}
                                 {{--<span ng-if="!row.log_lease_hospital_id">-</span>--}}
                                 {{--<span>[: SHospital.all_rec[row.log_lease_hospital_id - 1].name:]</span>--}}
@@ -150,15 +151,13 @@
                                 <td>[:row.robot_lease_log.length:]</td>
                                 <td class="edit col-md-2">
                                     <span class="tool_wrapper">
-                                        <button class="btn btn-default" href="" ng-click="SIns.popup_edit(row)">
-                                            编辑
+                                        <button class="btn btn-primary btn-sm" href="" ng-click="SIns.popup_edit(row)">
+                                            设置销售状态
                                         </button>
-                                        <button class="btn btn-default" href=""
+                                        <button class="btn btn-default btn-sm" href=""
                                                 ng-click="SIns.h.popup_detail()">
-                                            详细
+                                            查看
                                         </button>
-                                        <span href="" class="curp delete"
-                                              ng-click="SIns.d(row.id)">删除</span>
                                     </span>
                                 </td>
                                 {{--<td>[:row.updated_at:]</td>--}}
@@ -177,6 +176,7 @@
                                         ng-change="SIns.change_page(SIns.cond.pagination)"
                                         class="pagination-md"
                                         previous-text="<"
+                                        max-size="10"
                                         next-text=">"
                                         first-text="第一页"
                                         {{--items-per-page="5"--}}
