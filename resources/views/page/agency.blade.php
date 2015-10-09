@@ -33,23 +33,30 @@
                                            ng-model="SIns.cond.where.name"
                                            placeholder="名称">
                                 </div>
-                                <div class="form-group">
-                                        <label class="control-label col-md-1">地区</label>
-                                    <select class="form-control"
-                                            name="province_id"
+                              
+                                <div class="form-group col-md-6">
+                                    <label class="control-label col-md-2">所在省市</label>
+                                    <div class="col-md-3">
+                                    <md-select 
                                             ng-model="SIns.cond.where.province_id"
-                                            ng-options="l.id as l.name for l in SBase._.location.province"
-                                            required>
+                                            required class="" style="margin: 0px;">
                                         <option value="" selected>所在省份</option>
-                                    </select>
-                                    <select class="form-control"
-                                            ng-model="SIns.cond.where.city_id"
-                                            ng-options="l.id as l.name for l in SBase._.location.city
-                                                    | filter: {parent_id: SIns.cond.where.province_id}"
-                                            name="province"
-                                            required>
-                                        <option value="" selected>所在市区</option>
-                                    </select>
+
+                                        <md-option ng-repeat="l in SBase._.location.province" value="[:l.id:]">
+                                          [:l.name:]
+                                        </md-option>
+                                      </md-select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <md-select 
+                                                ng-model="SIns.cond.where.city_id"
+                                                required class="" style="margin: 0px;">
+                                            <option value="" selected>所在市区</option>
+                                            <md-option ng-repeat="l in SBase._.location.city|filter: {parent_id: SIns.current_row.province_id}:true" value="[:l.id:]">
+                                              [:l.name:]
+                                            </md-option>
+                                          </md-select>
+                                    </div>
                                 </div>
                                 {{--<div class="form-group">--}}
                                 {{--<div>--}}
@@ -84,22 +91,20 @@
                                 style="width: 100%;">
                             <thead>
                             <tr role="row">
-                                <th>状态</th>
+                                <th></th>
                                 <th>编号</th>
                                 <th>公司</th>
                                 <th>地区</th>
-                                <th>负责人</th>
-                                <th>手机号</th>
-                                <th>开始时间</th>
-                                <th>结束时间</th>
-                                <th>备注</th>
-                                <th>操作</th>
+                                <th>代理状态</th>
+                                <th>代理开始</th>
+                                <th>代理结束</th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr class="odd"
                                 ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
-                                <td>[:SIns.status(row):]</td>
+                                <td></td>
                                 <td>[:row.id:]</td>
                                 <td>[:row.name:]</td>
                                 <td>
@@ -107,21 +112,14 @@
                                     •
                                     <span ng-repeat="l in SBase._.location.city |filter:{id: row.city_id }:true">[:l.name :]</span>
                                 </td>
-                                <td>[:row.name_in_charge:]</td>
-                                <td>[:row.phone:]</td>
+                                <td>[:SIns.status(row):]</td>
                                 <td>[:row.started_at:]</td>
                                 <td>[:row.ended_at:]</td>
-                                <td title="[:row.memo:]">[:row.memo | cut:true:10 :]</td>
                                 <td class="edit col-md-2">
                                     <span class="tool_wrapper">
-                                        <button class="btn btn-default" href="" ng-click="SIns.popup_edit(row)">
-                                            编辑
-                                        </button>
                                         <button class="btn btn-default" href="" ng-click="SIns.h.popup_detail(row, SIns, 'agency/r', {relation: ['robotLeaseLog', 'mark', 'hospital'], where: {id: row.id}})">
                                             详细
                                         </button>
-                                        <span href="" class="curp delete"
-                                              ng-click="SIns.d(row.id)">删除</span>
                                     </span>
                                 </td>
                                 {{--<td>[:row.updated_at:]</td>--}}

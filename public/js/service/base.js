@@ -95,15 +95,15 @@
                 me.robot_status_type = [
                     {
                         id: 1,
-                        name: '自营中'
+                        name: '在库'
                     },
                     {
                         id: 2,
-                        name: '租赁中'
+                        name: '已租出'
                     },
                     {
                         id: 3,
-                        name: '已出售'
+                        name: '已售出'
                     },
                     {
                         id: 4,
@@ -113,15 +113,15 @@
                 me.robot_action_type = [
                     {
                         id: 1,
-                        name: 'ok'
+                        name: '正常'
                     },
                     {
                         id: 2,
-                        name: '维修中'
+                        name: '维修'
                     },
                     {
                         id: 3,
-                        name: '已报废'
+                        name: '作废'
                     }
                 ];
 

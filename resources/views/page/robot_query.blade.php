@@ -44,17 +44,17 @@
 
                                 <div class="form-group">
                                     <label class="control-label col-md-1">销售状态</label>
-                                    <input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.lease_type_id[0]">自营
-                                    <input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.lease_type_id[1]">租赁
-                                    <input type="checkbox" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.lease_type_id[2]">出售
-                                    <input type="checkbox" value="number:4" ng-true-value="4" ng-model="SIns.cond.where.lease_type_id[3]">免费合作
+                                    <input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.lease_type_id[0]">在库
+                                    <input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.lease_type_id[1]">已租出
+                                    <input type="checkbox" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.lease_type_id[2]">已售出
+                                    <input type="checkbox" value="number:4" ng-true-value="4" ng-model="SIns.cond.where.lease_type_id[3]">免费合作中
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label col-md-1">设备状态</label>
-                                    <input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.action_type_id[0]">ok
-                                    <input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.action_type_id[1]">维修中
-                                    <input type="checkbox" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.action_type_id[2]">已报废
+                                    <input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.action_type_id[0]">正常
+                                    <input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.action_type_id[1]">维修
+                                    <input type="checkbox" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.action_type_id[2]">作废
                                 </div>
 
                                 <div class="form-group">
@@ -77,14 +77,20 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-1">维修记录</label>
-                                    <input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.log_action_tid1">不限
-                                    <input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.log_action_tid2">有维修记录
-                                    <input type="checkbox" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.log_action_tid3">无维修记录
+                                    <input type="radio" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.log_action_tid">不限
+                                    <input type="radio" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.log_action_tid">有维修记录
+                                    <input type="radio" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.log_action_tid">无维修记录
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label col-md-1">生产日期</label>
-                                    <input ng-model="SIns.cond.where.created_start" class="form-control" type="date">到<input ng-model="SIns.cond.where.created_end" class="form-control" type="date">
+                                    <div style="display: inline-block;">
+                                      <md-datepicker ng-model="SIns.cond.where.created_start" md-placeholder="生产日期"></md-datepicker>
+                                    </div>
+                                    到
+                                    <div style="display: inline-block;">
+                                      <md-datepicker ng-model="SIns.cond.where.created_end" md-placeholder="生产日期"></md-datepicker>
+                                    </div>
                                 </div>
 
 

@@ -49,29 +49,30 @@
 
 		    </div>
 		    <div class="form-group row">
-		        <div class="form-group col-md-6">
-		            <label class="control-label col-md-2">所在省</label>
-		            <div class="col-md-3">
-			            <select class="form-control"
-			                    name="province_id"
-			                    ng-init="SIns.current_row.province_id = SIns.current_row.province_id || options[0].id"
-			                    ng-model="SIns.current_row.province_id"
-			                    ng-options="l.id as l.name for l in SBase._.location.province"
-			                    required>
-			                {{--<option value="">所在省市</option>--}}
-			            </select>
-					</div>
-		            <div class="col-md-3">
-			             <select class="form-control"
-			                    name="city_id"
-			                    ng-init="SIns.current_row.city_id = SIns.current_row.city_id || options[0].id"
-			                    ng-model="SIns.current_row.city_id"
-			                    ng-options="l.id as l.name for l in SBase._.location.city | filter: {parent_id: SIns.current_row.province_id}:true"
-			                    required>
-			                {{--<option value="">所在省份</option>--}}
-			            </select>
-		            </div>
-		        </div>
+                <div class="form-group col-md-6">
+                    <label class="control-label col-md-2">所在省市</label>
+                    <div class="col-md-3">
+                    <md-select 
+                            ng-model="SIns.cond.where.province_id"
+                            required class="" style="margin: 0px;">
+                        <option value="" selected>所在省份</option>
+
+                        <md-option ng-repeat="l in SBase._.location.province" value="[:l.id:]">
+                          [:l.name:]
+                        </md-option>
+                      </md-select>
+                    </div>
+                    <div class="col-md-3">
+                        <md-select 
+                                ng-model="SIns.cond.where.city_id"
+                                required class="" style="margin: 0px;">
+                            <option value="" selected>所在市区</option>
+                            <md-option ng-repeat="l in SBase._.location.city|filter: {parent_id: SIns.current_row.province_id}:true" value="[:l.id:]">
+                              [:l.name:]
+                            </md-option>
+                          </md-select>
+                    </div>
+                </div>
 		        <div class="form-group col-md-6">
 		            <label class="control-label col-md-2"></label>
 		            <div class="col-md-4">
