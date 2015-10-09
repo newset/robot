@@ -17,6 +17,7 @@
         'base_app.controller',
         'base_app.directive',
         'base_app.filter',
+        'ngMaterial'
     ])
 
         .config([

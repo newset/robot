@@ -6,7 +6,7 @@ Route::get('/', function ()
     if ( ! is_logged_in())
         return V('auth');
 
-    return V('base');
+    return V('main');
 });
 
 Route::any('wx/{p1?}/{p2?}/{p3?}/{p4?}', function ($p1 = null, $p2 = null, $p3 = null, $p4 = null)

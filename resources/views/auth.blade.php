@@ -1,4 +1,4 @@
-@include('seg.head')
+@include('includes.head')
 <body class="animated fadeIn auth-body" ng-app="base_app">
 <section id="login-container">
 	<div class="">
@@ -265,4 +265,4 @@
 		</div>
 	</div>
 </section>
-@include('seg.foot')
+@include('includes.foot')
