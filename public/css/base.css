@@ -66,9 +66,9 @@ table td {
     overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */
 }
 
-table {
+/*table {
     width: 100%;
-}
+}*/
 
 td p
 {
