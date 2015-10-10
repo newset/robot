@@ -28,5 +28,7 @@
     <link rel="stylesheet" href="{{base_url()}}css/base.css">
     <link rel="stylesheet" href="{{base_url()}}vendor/ng-dialog/css/ngDialog.css">
     <link rel="stylesheet" href="{{base_url()}}vendor/ng-dialog/css/ngDialog-theme-default.css">
+      <!-- style sheet -->
     <link rel="stylesheet" href="{{base_url()}}vendor/angular-material/angular-material.css">
+
 </head>

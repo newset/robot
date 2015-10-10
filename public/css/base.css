@@ -111,6 +111,7 @@ div.error
     height:-moz-calc(100% - 80px);
     height:-webkit-calc(100% - 80px);
     height: calc(100% - 80px);
+    overflow: auto;
 }
  #main-content, #main-content .load-container{
     height: 100%;
