@@ -77,27 +77,9 @@
 	            <dd>[:SIns.current_row.agency.name:]</dd>
 	            <dt>销售状态</dt>
 	            <dd>销售在库</dd>
-	            <dt>医院</dt>
+	            <dt>销售医院</dt>
 	            <dd>[:SIns.current_row.hospital_name:]</dd>
 	            <dt>销售日期</dt>
-	            <dd>[:SIns.current_row.sold_at:]</dd>
-	            <dt>病人</dt>
-	            <dd>-</dd>
-	            <dt>设备</dt>
-	            <dd>
-	                <span ng-if="SIns.current_row.robot_cust_id">[:SIns.current_row.robot_cust_id:]</span>
-	                <span ng-if="!SIns.current_row.robot_cust_id">-</span>
-	            </dd>
-	            <dt>手术类型</dt>
-	            <dd>
-	                <span ng-if="SIns.current_row.surgery_type">[:SIns.current_row.surgery_type:]</span>
-	                <span ng-if="!SIns.current_row.surgery_type">-</span>
-	            </dd>
-	            <dt>手术时间</dt>
-	            <dd>
-	                <span ng-if="SIns.current_row.surgery_at">[:SIns.current_row.surgery_at:]</span>
-	                <span ng-if="!SIns.current_row.surgery_at">-</span>
-	            </dd>
 	        </dl>
 		</div>
 	</div>
@@ -108,7 +90,20 @@
 			</h3>
 		</div>
 		<div class="panel-body">
-			
+			<dl class="dl-horizontal">
+	            <dt>病人</dt>
+	            <dd>-</dd>
+	            <dt>设备</dt>
+	            <dd>
+	                <span ng-if="SIns.current_row.robot_cust_id">[:SIns.current_row.robot_cust_id:]</span>
+	                <span ng-if="!SIns.current_row.robot_cust_id">-</span>
+	            </dd>
+	            <dt>手术时间</dt>
+	            <dd>
+	                <span ng-if="SIns.current_row.surgery_at">[:SIns.current_row.surgery_at:]</span>
+	                <span ng-if="!SIns.current_row.surgery_at">-</span>
+	            </dd>
+	        </dl>
 		</div>
 	</div>
 </div>
