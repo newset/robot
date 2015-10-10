@@ -36,6 +36,24 @@
             }
         ])
         .run(['$rootScope', '$state', function($rootScope, $state) {
-            $rootScope.$state = $state
+            $rootScope.$state = $state;
+
+            $rootScope.$on('$stateChangeStart',
+                function(event){ 
+                    $('#main-content .load-container').show();
+                    $('#main-content .load-container+div[ui-view]').hide();
+            });
+            $rootScope.$on('$stateChangeSuccess',
+                function(event, toState, toParams, fromState, fromParams){ 
+                    $('#main-content .load-container').hide();
+                    $('#main-content .load-container+div[ui-view]').show();
+
+            });
+
+            $rootScope.$on('$stateChangeError',
+                function(event, toState, toParams, fromState, fromParams){ 
+                    $('#main-content .load-container+div[ui-view]').show();
+                    $('#main-content .load-container').hide();
+            });
         }])
 })();

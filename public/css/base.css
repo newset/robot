@@ -106,7 +106,15 @@ div.error
 .page-nav{
     width: 800px;
 }
-
+.main-content-wrapper{
+    /*min-height: 90%;写给不支持calc()的浏览器*/
+    height:-moz-calc(100% - 80px);
+    height:-webkit-calc(100% - 80px);
+    height: calc(100% - 80px);
+}
+ #main-content, #main-content .load-container{
+    height: 100%;
+}
 .navbar-left
 {
     padding: 0 50px;

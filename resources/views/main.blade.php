@@ -6,7 +6,9 @@
     <!--main content start-->
     <section class="main-content-wrapper">
         <section id="main-content">
-        	<!-- <md-progress-circular md-mode="indeterminate"></md-progress-circular> -->
+        	<div layout="row" layout-sm="column" class="load-container" layout-align="center center">
+		    	<md-progress-circular md-mode="indeterminate"></md-progress-circular>
+		  	</div>
             <div ui-view="page"></div>
         </section>
     </section>
