@@ -1,4 +1,4 @@
-<section id="main-content" ng-controller="CPageRobot">
+<section id="main-content">
     <!--tiles start-->
     <div class="row">
         <div class="col-md-12">
@@ -44,17 +44,17 @@
 
                                 <div class="form-group">
                                     <label class="control-label col-md-1">销售状态</label>
-                                    <input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.lease_type_id[0]">在库
-                                    <input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.lease_type_id[1]">已租出
-                                    <input type="checkbox" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.lease_type_id[2]">已售出
-                                    <input type="checkbox" value="number:4" ng-true-value="4" ng-model="SIns.cond.where.lease_type_id[3]">免费合作中
+                                     <label class="checkbox-inline"><input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.lease_type_id[0]">在库</label>
+                                     <label class="checkbox-inline"><input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.lease_type_id[1]">已租出</label>
+                                     <label class="checkbox-inline"><input type="checkbox" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.lease_type_id[2]">已售出</label>
+                                     <label class="checkbox-inline"><input type="checkbox" value="number:4" ng-true-value="4" ng-model="SIns.cond.where.lease_type_id[3]">免费合作中</label>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label col-md-1">设备状态</label>
-                                    <input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.action_type_id[0]">正常
-                                    <input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.action_type_id[1]">维修
-                                    <input type="checkbox" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.action_type_id[2]">作废
+                                    <label class="checkbox-inline"><input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.action_type_id[0]">正常</label>
+                                    <label class="checkbox-inline"><input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.action_type_id[1]">维修</label>
+                                    <label class="checkbox-inline"><input type="checkbox" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.action_type_id[2]">作废</label>
                                 </div>
 
                                 <div class="form-group">
@@ -77,9 +77,9 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-1">维修记录</label>
-                                    <input type="radio" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.log_action_tid">不限
-                                    <input type="radio" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.log_action_tid">有维修记录
-                                    <input type="radio" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.log_action_tid">无维修记录
+                                    <label class="radio-inline"><input type="radio" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.log_action_tid">不限</label>
+                                    <label class="radio-inline"><input type="radio" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.log_action_tid">有维修记录</label>
+                                    <label class="radio-inline"><input type="radio" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.log_action_tid">无维修记录</label>
                                 </div>
 
                                 <div class="form-group">

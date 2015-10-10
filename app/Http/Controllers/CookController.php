@@ -22,6 +22,12 @@ class CookController extends Controller
         $this->permission_api_set = config('permission');
     }
 
+    /**
+     * 主方法
+     * @param  [type] $p1 用户类型
+     * @param  [type] $p2 model名
+     * @return [type]     [description]
+     */
     public function leader($p1 = null, $p2 = null)
     {
         if (empty($p1)) return ee(2);

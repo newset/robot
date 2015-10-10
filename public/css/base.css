@@ -103,6 +103,10 @@ div.error
     border-left: none;
 }
 
+.page-nav{
+    width: 800px;
+}
+
 .navbar-left
 {
     padding: 0 50px;
@@ -312,4 +316,7 @@ label.error
 .md-datepicker-input-container{
     float: left;
     margin-top: 6px;
+}
+.md-datepicker-input-mask{
+    width: 209px!important;
 }

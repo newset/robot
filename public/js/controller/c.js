@@ -281,7 +281,7 @@
         [
             '$scope',
             '$stateParams',
-            'SRobot',
+            'Resolve',
             'SHospital',
             'SAgency',
             'SEmployee',
@@ -289,7 +289,7 @@
             'h',
             function ($scope
                 , $stateParams
-                , SRobot
+                , Resolve
                 , SHospital
                 , SAgency
                 , SEmployee
@@ -302,23 +302,46 @@
                 $scope.SEmployee = SEmployee;
                 $scope.SHospital = SHospital;
                 $scope.SAgency = SAgency;
-                $scope.SIns = SRobot;
-                $scope.current_row = SRobot.current_row;
+                $scope.SIns = Resolve;
+                $scope.current_row = Resolve.current_row;
                 $scope.SIns.cond.where.hospital_id = $stateParams.hid;
-                SRobot.init();
-                $scope.cond = SRobot.cond;
+                // Resolve.init();
+                $scope.cond = Resolve.cond;
                 $scope.with_search = $stateParams.with_search;
                 h.prepare_location_data();
 
                 if($stateParams.with_search)
                 {
-                    SRobot.with_search = 1;
+                    Resolve.with_search = 1;
                 }
 
-                SRobot.refresh();
+                console.log('resfresh:', Resolve.refresh());
             }
         ])
-
+        .controller('CPageRobotNew', [
+            '$scope',
+            '$stateParams',
+            'Resolve',
+            'SHospital',
+            'SAgency',
+            'SEmployee',
+            'SBase',
+            'h',
+            function ($scope
+                , $stateParams
+                , Resolve
+                , SHospital
+                , SAgency
+                , SEmployee
+                , SBase
+                , h
+            ){
+                $scope.SEmployee = SEmployee;
+                $scope.SHospital = SHospital;
+                $scope.SAgency = SAgency;
+                $scope.SIns = Resolve;
+            
+        }])
         .controller('CPageMark',
         [
             '$scope',

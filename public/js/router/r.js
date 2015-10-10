@@ -16,19 +16,13 @@
                     .state('base',
                     {
                         abstract: true,
-                        views:
-                        {
-                            navbar:
-                            {
-                                templateUrl: shot('seg/navbar')
-                            },
-                            page:
-                            {
-                                template: '<div ui-view class="page-view"></div>'
-                            }
-                        },
                         sticky: 1,
                         //controller: 'CBase as cBase',
+                        views: {
+                            'page' : {
+                                template : '<div ui-view></div>'
+                            }
+                        },
                         resolve:
                         {
                             Init:
@@ -46,7 +40,6 @@
                                 ]
                         }
                     })
-
                     .state('base.home',
                     {
                         url: '/',
@@ -72,13 +65,45 @@
                     .state('base.robot',
                     {
                         url: '/robot',
-                        templateUrl: 'templates/robot/index.html'
+                        templateUrl: 'templates/robot/index.html',
+                        resolve : {
+                            Robot : function(SRobot){
+                                return SRobot.refresh().then(function(){
+                                    return SRobot;
+                                })
+                            }
+                        }
                     })
                     .state('base.robot.list',
                     {
                         url: '/list?page_num&limit&with_search',
                         templateUrl: shot('page/robot'),
-                        controller: 'CPageRobot as cPageRobot'
+                        controller: 'CPageRobot as cPageRobot', 
+                        resolve : {
+                            'Resolve' : function(Robot){
+                                return Robot
+                            }
+                        }
+                    })
+                    .state('base.robot.query',{
+                        url : '/query',
+                        templateUrl : shot('page/robot_query'),
+                        controller: 'CPageRobot as cPageRobot', 
+                        resolve : {
+                            'Resolve' : function(Robot){
+                                return Robot
+                            }
+                        }
+                    })
+                    .state('base.robot.new',{
+                        url : '/new',
+                        templateUrl : shot('seg/robot_new_form'),
+                        controller: 'CPageRobotNew as cPageRobot',
+                        resolve : {
+                            'Resolve' : function(Robot){
+                                return Robot
+                            }
+                        }
                     })
                     .state('base.hospital',
                     {
@@ -129,16 +154,13 @@
                     {
                         url: '/mark?page_num&limit&with_search',
                         // templateUrl: shot('page/mark'),
-                        // templateUrl: 'templates/mark/index.html',
-                        template : '<div ui-view></div>'
+                        templateUrl: 'templates/mark/index.html',
+                        // template : '<div ui-view></div>'
                     })
                     .state('base.mark_checkout',
                     {
                         url: '/mark_checkout?page_num&limit',
                         templateUrl: shot('page/mark_checkout'),
-                    }).state('base.robot.new',{
-                        url : '/new',
-                        templateUrl : shot('seg/robot_new_form')
                     }).state('base.mark.new',{
                         url : '/new',
                         templateUrl : shot('seg/mark_new_form')
@@ -155,9 +177,6 @@
                     }).state('base.mark.query',{
                         url : '/query',
                         templateUrl : shot('seg/mark_query')
-                    }).state('base.robot.query',{
-                        url : '/query',
-                        templateUrl : shot('page/robot_query')
                     })
                     .state('base.doctor', {
                         url : '/doctor',

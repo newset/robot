@@ -20,7 +20,8 @@
     "moment": "^2.10.6",
     "angular-filter": "^0.5.5",
     "ng-dialog": "^0.5.1",
-    "angular-material": "0.11.1"
+    "angular-material": "0.11.1",
+    "angular-material-data-table": "~0.8.14"
   },
   "moduleType": [],
   "license": "MIT",
