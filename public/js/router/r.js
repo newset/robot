@@ -156,6 +156,13 @@
                         // templateUrl: shot('page/mark'),
                         templateUrl: 'templates/mark/index.html',
                         // template : '<div ui-view></div>'
+                        resolve : {
+                            'iBase' : function(SMark){
+                                return SMark.refresh().then(function(){
+                                    return SMark;
+                                })
+                            }
+                        }
                     })
                     .state('base.mark_checkout',
                     {
@@ -176,7 +183,31 @@
                         templateUrl : shot('seg/mark_usb')
                     }).state('base.mark.query',{
                         url : '/query',
-                        templateUrl : shot('seg/mark_query')
+                        templateUrl : shot('seg/mark_query'),
+                        controller : 'CPageMark as CPageMark',
+                        resolve : {
+                            SMark : function(iBase){
+                                return iBase;
+                            }
+                        }
+                    })
+                    .state('base.mark.show', {
+                        url : '/show/:id',
+                        templateUrl : shot('page/mark/show'),
+                        controller : 'CMarkDetail', 
+                        resolve : {
+                            iMark : function(SMark, $stateParams, $state){
+                                return SMark.h.r($stateParams.id, SMark, ['hospital', 'agency', 'doctor', 'robot']).then(function(res){
+                                    if (res.data.status == 1) {
+                                        return SMark;
+                                    }else{
+                                        // 无权限访问
+                                    };
+                                }, function(){
+
+                                });
+                            }
+                        }
                     })
                     .state('base.doctor', {
                         url : '/doctor',

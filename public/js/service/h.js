@@ -76,10 +76,36 @@
                 me.ins_helper.popup_form = popup_form;
                 me.ins_helper.popup_detail = popup_detail;
                 me.ins_helper.make_dialog_class_name = make_dialog_class_name;
+                me.ins_helper.r = r;
 
                 me.he_is = function(chara)
                 {
                     return $.inArray(chara, SBase._.his_chara);
+                }
+
+                /**
+                 * 读取 instance
+                 * @param  {[type]} ins       [description]
+                 * @param  {[type]} key       [description]
+                 * @param  {[type]} relation  [description]
+                 * @param  {[type]} condition [description]
+                 * @return {[type]}           [description]
+                 */
+                function r(id, ins, rel) {
+                    // row, SIns, 'agency/r', {relation: ['robotLeaseLog', 'mark', 'hospital'], where: {id: row.id}
+                    var condition = {
+                        'relation' : rel,
+                        where : {'id' : id}
+                    },
+                    url = ins.ins_name+'/r';
+                    var promise = H.p(cook(url), condition)
+                    promise.then(function(res){
+                        // 获取成功
+                        if (res.data.status == 1) {
+                            ins.current_row = res.data.d.main[0];
+                        };
+                    });
+                    return promise;
                 }
 
                 function popup_detail(current_row, ins, url, cond)

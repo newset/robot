@@ -418,13 +418,12 @@
                     SMark.with_search = 1;
                 }
 
-                $scope.$watch('cond', function()
-                {
-                    SMark.refresh();
-                }, true)
             }
         ])
-
+        .controller('CMarkDetail', ['$scope', 'iMark', function ($scope, iMark) {
+            $scope.SIns = iMark;
+            console.log(iMark.current_row);
+        }])
         .controller('CPageEmployee',
         [
             '$scope',

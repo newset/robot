@@ -1,4 +1,4 @@
-<section id="main-content" ng-controller="CPageMark">
+<section id="main-content">
     <!--tiles start-->
     <div class="row">
         <div class="col-md-12">
@@ -30,32 +30,56 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-2">Mark状态</label>
                                         <div>
-                                            <input type="checkbox" value="number:1" ng-true-value="1" ng-false-value="" ng-model="SIns.cond.where.status[0]">未使用
-                                            <input type="checkbox" value="number:2" ng-true-value="2" ng-false-value="" ng-model="SIns.cond.where.status[1]">已使用
-                                            <input type="checkbox" value="number:3" ng-true-value="5" ng-false-value="" ng-model="SIns.cond.where.status[2]">已绑定
-                                            <input type="checkbox" value="number:4" ng-true-value="3" ng-false-value="" ng-model="SIns.cond.where.status[3]">损坏报废
-                                            <input type="checkbox" value="number:5" ng-true-value="4" ng-false-value="" ng-model="SIns.cond.where.status[4]">损坏更换
+                                            <label class="checkbox-inline"><input type="checkbox" value="number:1" ng-true-value="1" ng-false-value="" ng-model="SIns.cond.where.status[0]">未使用</label>
+                                            <label class="checkbox-inline"><input type="checkbox" value="number:2" ng-true-value="2" ng-false-value="" ng-model="SIns.cond.where.status[1]">已使用</label>
+                                            <label class="checkbox-inline"><input type="checkbox" value="number:3" ng-true-value="5" ng-false-value="" ng-model="SIns.cond.where.status[2]">已绑定</label>
+                                            <label class="checkbox-inline"><input type="checkbox" value="number:4" ng-true-value="3" ng-false-value="" ng-model="SIns.cond.where.status[3]">损坏报废</label>
+                                            <label class="checkbox-inline"><input type="checkbox" value="number:5" ng-true-value="4" ng-false-value="" ng-model="SIns.cond.where.status[4]">损坏更换</label>
                                         </div>
                                     </div>
                                     @if(he_is('employee'))
                                         <div class="form-group">
                                             <label class="control-label col-md-2">销售状态</label>
                                             <div>
-                                                <input type="checkbox" value="number:1" ng-model="SIns.cond.where.selling_status[0]">在库
-                                                <input type="checkbox" value="number:2" ng-model="SIns.cond.where.selling_status[1]">出货(卖给代理商)
-                                                <input type="checkbox" value="number:3" ng-model="SIns.cond.where.selling_status[2]">已售(卖给医院)
+                                                <label class="checkbox-inline"><input type="checkbox" value="number:1" ng-model="SIns.cond.where.selling_status[0]">在库</label>
+                                                <label class="checkbox-inline"><input type="checkbox" value="number:2" ng-model="SIns.cond.where.selling_status[1]">出货(卖给代理商)</label>
+                                                <label class="checkbox-inline"><input type="checkbox" value="number:3" ng-model="SIns.cond.where.selling_status[2]">已售(卖给医院)</label>
                                             </div>
                                         </div>
                                     @endif
                                     <div class="form-group">
                                         <label class="control-label col-md-2">代理商</label>
+                                         <div class="col-md-2">
+                                        <md-autocomplete
+                                              md-selected-item="selectedAgency"
+                                              md-search-text="agencySearch"
+                                              md-selected-item-change="SIns.cond.where.agency_id = item.id"
+                                              md-items="l in SAgency.all_rec|filter : {name: agencySearch}"
+                                              md-item-text="l.name"
+                                              md-min-length="0"
+                                              placeholder="不限">
+                                            <md-item-template md-highlight-text="agencySearch" md-highlight-flags="^i">
+                                              <span>[:l.name:]</span>
+                                            </md-item-template>
+                                        </md-autocomplete>
+                                      </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-2">医院</label>
-                                        <input class="form-control"
-                                               ng-model-options="{debounce: 300}"
-                                               ng-model="SIns.cond.where.hospital_name"
-                                               placeholder="医院名称">
+                                         <div class="col-md-2">
+                                          <md-autocomplete
+                                                md-selected-item="selectedHospital"
+                                                md-search-text="hostpitalSearch"
+                                                md-selected-item-change="SIns.cond.where.hospital_id = item.id"
+                                                md-items="l in SHospital.all_rec|filter : {name: hostpitalSearch}"
+                                                md-item-text="l.name"
+                                                md-min-length="0"
+                                                placeholder="不限">
+                                              <md-item-template md-highlight-text="hostpitalSearch" md-highlight-flags="^i">
+                                                <span>[:l.name:]</span>
+                                              </md-item-template>
+                                          </md-autocomplete>
+                                      </div>
                                     </div>
 
                                 <!--     <div class="form-group">
@@ -259,20 +283,21 @@
                                         {{--<button class="btn btn-default" href="" ng-click="SIns.popup_edit(row)">--}}
                                         {{--编辑--}}
                                         {{--</button>--}}
-                                        <button class="btn btn-default"
-                                                ng-click="SIns.h.popup_detail(row, SIns, 'agency/r', {relation: ['robotLeaseLog', 'mark', 'hospital'], where: {id: row.id}})">
-                                            详细
-                                        </button>
-                                        <button class="btn btn-default" ng-click="SIns.popup_edit(row)"
+                                        <a class="btn btn-default btn-sm" ui-sref="base.mark.show({id : row.id})">
+                                            查看
+                                        </a>
+                                        <!-- <a class="btn btn-default btn-sm" ng-click="SIns.h.popup_detail(row, SIns, 'agency/r', {relation: ['robotLeaseLog', 'mark', 'hospital'], where: {id: row.id}})">
+                                            查看
+                                        </a> -->
+                                        <!-- <button class="btn btn-default" ng-click="SIns.popup_edit(row)" -->
                                         @if(he_is('agency'))
-                                                ng-if="row.used_at && !row.damaged_at && !row.archive_at && !row.doctor_id"
+                                                <!-- ng-if="row.used_at && !row.damaged_at && !row.archive_at && !row.doctor_id" -->
                                                 @endif
-                                                >
-                                            编辑
+                                                <!-- > -->
+                                            <!-- 编辑 -->
                                         </button>
                                         @if(he_is('employee'))
-                                            <span class="curp delete"
-                                                  ng-click="SIns.d(row.id)">删除</span>
+                                            <!-- <span class="curp delete" ng-click="SIns.d(row.id)">删除</span> -->
                                         @endif
                                     </span>
                                     </td>
