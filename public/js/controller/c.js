@@ -327,6 +327,7 @@
             'SEmployee',
             'SBase',
             'h',
+            '$state',
             function ($scope
                 , $stateParams
                 , Resolve
@@ -335,11 +336,20 @@
                 , SEmployee
                 , SBase
                 , h
+                , $state
             ){
                 $scope.SEmployee = SEmployee;
                 $scope.SHospital = SHospital;
                 $scope.SAgency = SAgency;
                 $scope.SIns = Resolve;
+
+                $scope.save = function(){
+                    $scope.SIns.cu($scope.SIns.current_row).then(function(res){
+                        // 跳转到详情 todo
+                        $scope.SIns.current_row = {};
+                        console.log('创建成功: ', res.data.d);
+                    });
+                }
             
         }])
         .controller('CPageMark',

@@ -1,6 +1,6 @@
 <div class="panel container">
   <div class="panel-body">
-    <form ng-submit="SIns.cu(SIns.current_row)"
+    <form
           name="form_robot"
           ng-init="SEmployee.r({limit: 0}); SIns.current_row = {}"
           class="col-md-6 form-horizontal" style="float:none; margin:0 auto">
@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary pull-right" ng-disabled="form_hospital.$invalid">提交</button>
+            <button type="submit" ng-click="save()" class="btn btn-primary pull-right" ng-disabled="form_hospital.$invalid">提交</button>
         </div>
     </form>
     

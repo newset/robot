@@ -133,18 +133,21 @@
                     console.log('cu_data: ', d);
                     d = parse_date_fields_to_w3c(d);
                     d['write_data'] = 1;
-                    return H.cu(ins.ins_name, d)
-                        .then(function (r)
+                    var promise = H.cu(ins.ins_name, d);
+
+                    promise.then(function (r)
+                    {
+                        if (r.data.d)
                         {
-                            if (r.data.d)
-                            {
-                                ins.refresh();
-                                ngDialog.closeAll();
-                                return r;
-                            }
-                        }, function ()
-                        {
-                        })
+                            ins.refresh();
+                            ngDialog.closeAll();
+                            return r;
+                        }
+                    }, function ()
+                    {
+                    })
+
+                    return promise;
                 }
 
                 function prepare_current_row()

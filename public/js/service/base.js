@@ -188,7 +188,7 @@
 
                 function cu(d)
                 {
-                    h.cu.apply(me, arguments);
+                    return h.cu.apply(me, arguments);
                 }
 
                 function d(id)

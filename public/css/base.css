@@ -329,3 +329,10 @@ label.error
 .md-datepicker-input-mask{
     width: 209px!important;
 }
+
+.md-select-group{
+    margin: 20px 0px;
+}
+.md-select-group md-select{
+    margin: 0px;
+}

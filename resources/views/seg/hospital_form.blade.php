@@ -15,27 +15,29 @@
                        required>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group md-select-group">
                 <label class="control-label col-md-3">所在省市</label>
                 <div class="col-md-3">
-                    <select class="form-control"
+                    <md-select
                             name="province_id"
                             ng-init="SIns.current_row.province_id = SIns.current_row.province_id || options[0].id"
                             ng-model="SIns.current_row.province_id"
-                            ng-options="l.id as l.name for l in SBase._.location.province"
                             required>
                         {{--<option value="">所在省份</option>--}}
+                        <md-option value="[:l.id:]" ng-repeat="l in SBase._.location.province">[:l.name:]</md-option>
                     </select>
                 </div>  
                 <div class="col-md-3">
                     {{--[:SIns.current_row:]--}}
-                    <select class="form-control"
+                    <md-select
                             name="city_id"
                             ng-init="SIns.current_row.city_id = SIns.current_row.city_id || options[0].id"
                             ng-model="SIns.current_row.city_id"
-                            ng-options="l.id as l.name for l in SBase._.location.city | filter: {parent_id: SIns.current_row.province_id}"
                             required>
                         {{--<option value="">所在省份</option>--}}
+                            <md-option value="[:l.id:]" ng-repeat="l in SBase._.location.city | filter: {parent_id: SIns.current_row.province_id}">
+                                [:l.name:]
+                            </md-option>
                     </select>
                 </div>
             </div>
