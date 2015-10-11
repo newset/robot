@@ -4,7 +4,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">查询条件1</h3>
+                    <h3 class="panel-title">查询条件</h3>
                     <div class="actions pull-right">
                         <i class="fa fa-chevron-down" i-toggle data-toggle="collapse" data-target="#mark_query" aria-expanded="false" aria-controls="collapseExample"></i>
                     </div>
