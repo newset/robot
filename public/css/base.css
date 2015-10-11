@@ -14,6 +14,9 @@ body.auth-body{
     display: table;
     clear: both;
 }
+.panel{
+ width: 100%;
+}
 
 #login-wrapper
 {
@@ -39,8 +42,8 @@ body.auth-body{
     color: #337ab7;
 }
 
-#login-wrapper .btn-primary[disabled], 
-#login-wrapper a.btn-primary:link[disabled],  
+#login-wrapper .btn-primary[disabled],
+#login-wrapper a.btn-primary:link[disabled],
 #login-wrapper a.btn-primary:visited[disabled]{
     background-color: #337ab7;
 }
