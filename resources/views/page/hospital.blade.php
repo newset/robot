@@ -113,7 +113,7 @@
                                 <td>[:row.department.length:]</td>
                                 <td>[:row.agency.length:]</td>
                                 <td title="[:row.memo:]" >
-                                    <button href="" ng-if="row.memo.length>0"  ng-click="SIns.popup_edit(row,0)">
+                                    <button href="" ng-if="row.memo.length>0"  ng-click="SIns.popup_edit(row,1)">
                                         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                     {{-- <i class="icon-file-alt"></i> --}}
                                     </button>
