@@ -332,6 +332,7 @@ class BaseModel extends Model
         $r = [
             'main'  => $main,
             'count' => $builder->count(),
+            'builder' => $builder
         ];
 
         return ss($r);

@@ -41,9 +41,9 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-2">销售状态</label>
                                             <div>
-                                                <label class="checkbox-inline"><input type="checkbox" value="number:1" ng-model="SIns.cond.where.selling_status[0]">在库</label>
-                                                <label class="checkbox-inline"><input type="checkbox" value="number:2" ng-model="SIns.cond.where.selling_status[1]">出货(卖给代理商)</label>
-                                                <label class="checkbox-inline"><input type="checkbox" value="number:3" ng-model="SIns.cond.where.selling_status[2]">已售(卖给医院)</label>
+                                                <label class="checkbox-inline"><input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.sold[0]">在库</label>
+                                                <label class="checkbox-inline"><input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.sold[1]">出货(卖给代理商)</label>
+                                                <label class="checkbox-inline"><input type="checkbox" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.sold[2]">已售(卖给医院)</label>
                                             </div>
                                         </div>
                                     @endif
@@ -271,11 +271,11 @@
                                     <td>[:row.doctor_name || '-' :]</td>
                                 @endif
                                 <td>
+                                    <span ng-if="row.status == 1">未使用</span>
                                     <span ng-if="row.status == 2">使用完毕</span>
                                     <span ng-if="row.status == 3">损坏报废</span>
                                     <span ng-if="row.status == 4">损坏更新</span>
                                     <span ng-if="row.status == 5">已绑定</span>
-                                    <span ng-if="row.status == 1">未使用</span>
                                 </td>
                                 @if(!he_is('department'))
                                     <td class="edit col-md-2">

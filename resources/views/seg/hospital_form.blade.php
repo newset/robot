@@ -5,7 +5,7 @@
     <div class="panel-body">
         <form ng-submit="SIns.cu(SIns.current_row)"
               name="form_hospital"
-              class="form-horizontal" 
+              class="form-horizontal"
               ng-controller="CPageHospital as cPageHospital">
             <div class="form-group">
                 <label class="control-label col-md-3">名称</label>
@@ -26,7 +26,7 @@
                         {{--<option value="">所在省份</option>--}}
                         <md-option value="[:l.id:]" ng-repeat="l in SBase._.location.province">[:l.name:]</md-option>
                     </select>
-                </div>  
+                </div>
                 <div class="col-md-3">
                     {{--[:SIns.current_row:]--}}
                     <md-select

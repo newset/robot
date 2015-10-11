@@ -29,6 +29,7 @@
                                                 name="province_id"
                                                 ng-model="SIns.cond.where.province_id"
                                                 required>
+                                            <md-option value="">不限</md-option>
                                             <md-option value="[:l.id:]" ng-repeat="l in SBase._.location.province">[:l.name:]</option>
                                         </md-select>
                                     </div>
@@ -37,6 +38,7 @@
                                                 name="city_id"
                                                 ng-model="SIns.cond.where.city_id"
                                                 required>
+                                            <md-option value="">不限</md-option>
                                             <md-option value="[:l.id:]" ng-repeat="l in SIns.cond.where.province_id&&SBase._.location.city|| []| filter: {parent_id: SIns.cond.where.province_id}:true">[:l.name:]</option>
                                         </md-select>
                                     </div>

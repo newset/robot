@@ -71,15 +71,29 @@
                         })
                 }
 
-                function popup_edit(row)
+                function popup_edit(row,memo)
+                {
+                    //me.current_row.type = type;
+                    me.current_row = row;
+                    if(memo==0)  {
+                      ngDialog.open({
+                        templateUrl: shot('seg/hospital_form'),
+                    });
+}else {
+                      ngDialog.open({
+                          templateUrl: shot('seg/hospital_memo'),
+                      });
+}
+                }
+
+                function popup_memo(row)
                 {
                     //me.current_row.type = type;
                     me.current_row = row;
                     ngDialog.open({
-                        templateUrl: shot('seg/hospital_form'),
+                        templateUrl: shot('seg/hospital_memo'),
                     })
                 }
-
 
                 function refresh()
                 {

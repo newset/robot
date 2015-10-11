@@ -86,7 +86,7 @@
                         }
                     })
                     .state('base.robot.query',{
-                        url : '/query',
+                        url : '/query/:type',
                         templateUrl : shot('page/robot_query'),
                         controller: 'CPageRobot as cPageRobot', 
                         resolve : {
