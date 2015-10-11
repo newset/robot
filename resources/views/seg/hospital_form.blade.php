@@ -35,7 +35,7 @@
                             ng-model="SIns.current_row.city_id"
                             required>
                         {{--<option value="">所在省份</option>--}}
-                            <md-option value="[:l.id:]" ng-repeat="l in SBase._.location.city | filter: {parent_id: SIns.current_row.province_id}">
+                            <md-option value="[:l.id:]" ng-repeat="l in SBase._.location.city | filter: {parent_id: SIns.current_row.province_id}:true">
                                 [:l.name:]
                             </md-option>
                     </select>

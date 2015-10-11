@@ -27,7 +27,6 @@
                                     <div class="col-md-1">
                                         <md-select
                                                 name="province_id"
-                                                ng-init="SIns.current_row.province_id = SIns.current_row.province_id || options[0].id"
                                                 ng-model="SIns.cond.where.province_id"
                                                 required>
                                             <md-option value="[:l.id:]" ng-repeat="l in SBase._.location.province">[:l.name:]</option>
@@ -36,10 +35,9 @@
                                     <div class="col-md-1">
                                         <md-select
                                                 name="city_id"
-                                                ng-init="SIns.current_row.city_id = SIns.current_row.city_id || options[0].id"
                                                 ng-model="SIns.cond.where.city_id"
                                                 required>
-                                            <md-option value="[:l.id:]" ng-repeat="l in SBase._.location.city| filter: {parent_id: SIns.cond.where.province_id}">[:l.name:]</option>
+                                            <md-option value="[:l.id:]" ng-repeat="l in SIns.cond.where.province_id&&SBase._.location.city|| []| filter: {parent_id: SIns.cond.where.province_id}:true">[:l.name:]</option>
                                         </md-select>
                                     </div>
                                 </div>

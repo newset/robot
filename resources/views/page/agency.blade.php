@@ -40,7 +40,7 @@
                                     <md-select 
                                             ng-model="SIns.cond.where.province_id"
                                             required class="" style="margin: 0px;">
-                                        <option value="" selected>所在省份</option>
+                                        <md-option value="">所在省</md-option>
 
                                         <md-option ng-repeat="l in SBase._.location.province" value="[:l.id:]">
                                           [:l.name:]
@@ -51,13 +51,14 @@
                                         <md-select 
                                                 ng-model="SIns.cond.where.city_id"
                                                 required class="" style="margin: 0px;">
-                                            <option value="" selected>所在市区</option>
-                                            <md-option ng-repeat="l in SBase._.location.city|filter: {parent_id: SIns.current_row.province_id}:true" value="[:l.id:]">
+                                                <md-option value="">所在市</md-option>
+                                            <md-option ng-repeat="l in SIns.cond.where.province_id&&SBase._.location.city || []|filter: {parent_id: SIns.cond.where.province_id}:true" value="[:l.id:]">
                                               [:l.name:]
                                             </md-option>
                                           </md-select>
                                     </div>
                                 </div>
+                                [::]
                                 {{--<div class="form-group">--}}
                                 {{--<div>--}}
                                 {{--代理类型：--}}
