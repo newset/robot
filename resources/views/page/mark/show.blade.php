@@ -23,15 +23,16 @@
 				<dd>[:SIns.current_row.cust_id:]</dd>
 				<dt>销售状态</dt>
 				<dd>
-					<span ng-if="!SIns.current_row.sold_at">未卖出</span>
-	                <span ng-if="SIns.current_row.sold_at">已卖出</span>
+					<span ng-if="row.agency_id==-1 && row.hospital_id==-1">在库</span>
+                	<span ng-if="row.agency_id!=-1 && row.hospital_id==-1"">出货</span>
+                	<span ng-if="row.hospital_id != -1">已售</span>
 			    </dd>
 				<dt>使用状态</dt>
 				<dd>
-					<span ng-if="SIns.current_row.damaged_at">已损坏</span>
-	                <span ng-if="SIns.current_row.archive_at && !SIns.current_row.damaged_at">已归档</span>
-	                <span ng-if="SIns.current_row.used_at && !SIns.current_row.damaged_at && !SIns.current_row.archive_at">已使用</span>
-	                <span ng-if="!SIns.current_row.used_at && !SIns.current_row.damaged_at && !SIns.current_row.archive_at">未使用</span>
+	                <span ng-if="SIns.current_row.status == 1">未使用</span>
+                    <span ng-if="SIns.current_row.status == 2">使用完毕</span>
+                    <span ng-if="SIns.current_row.status == 3">损坏报废</span>
+                    <span ng-if="SIns.current_row.status == 4">损坏更新</span>
 				</dd>
 				<dt>更换Mark</dt>
 	            <dd>
@@ -52,10 +53,10 @@
 				
 				<dt>使用状态</dt>
 				<dd>
-					<span ng-if="SIns.current_row.damaged_at">已损坏</span>
-	                <span ng-if="SIns.current_row.archive_at && !SIns.current_row.damaged_at">已归档</span>
-	                <span ng-if="SIns.current_row.used_at && !SIns.current_row.damaged_at && !SIns.current_row.archive_at">已使用</span>
-	                <span ng-if="!SIns.current_row.used_at && !SIns.current_row.damaged_at && !SIns.current_row.archive_at">未使用</span>
+					<span ng-if="SIns.current_row.status == 1">未使用</span>
+                    <span ng-if="SIns.current_row.status == 2">使用完毕</span>
+                    <span ng-if="SIns.current_row.status == 3">损坏报废</span>
+                    <span ng-if="SIns.current_row.status == 4">损坏更新</span>
 				</dd>
 				<dt>使用者</dt>
 	            <dd>

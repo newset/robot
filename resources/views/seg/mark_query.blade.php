@@ -260,8 +260,9 @@
                                 <td>[:row.cust_id:]</td>
                                 @if(he_is('employee'))
                                     <td>
-                                        <span ng-if="row.sold == 0">未卖出</span>
-                                        <span ng-if="row.sold != 0">已卖出</span>
+	                					<span ng-if="row.agency_id==-1 && row.hospital_id==-1">在库</span>
+	                					<span ng-if="row.agency_id!=-1 && row.hospital_id==-1"">出货</span>
+	                					<span ng-if="row.hospital_id != -1">已售</span>
                                     </td>
                                 @endif
                                 @if(he_is('agency'))
@@ -275,7 +276,6 @@
                                     <span ng-if="row.status == 2">使用完毕</span>
                                     <span ng-if="row.status == 3">损坏报废</span>
                                     <span ng-if="row.status == 4">损坏更新</span>
-                                    <span ng-if="row.status == 5">已绑定</span>
                                 </td>
                                 @if(!he_is('department'))
                                     <td class="edit col-md-2">
