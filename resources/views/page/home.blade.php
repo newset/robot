@@ -67,7 +67,7 @@
 		<a ui-sref="base.employee({with_search: 1})">
 			<div class="dashboard-tile detail tile-purple">
 				 <div class="content">
-					<h1><img src="../assets/img/grid/05.png" alt="">日志查看</h1>
+					<h1><img src="../assets/img/grid/08.png" alt="">日志查看</h1>
 				</div>
 			</div>
 		</a>
@@ -76,7 +76,7 @@
 		<a ui-sref="base.employee({with_search: 1})">
 			<div class="dashboard-tile detail tile-yellow">
 				 <div class="content">
-					<h1><img src="../assets/img/grid/05.png" alt="">系统配置</h1>
+					<h1><img src="../assets/img/grid/09.png" alt="">系统配置</h1>
 				</div>
 			</div>
 		</a>

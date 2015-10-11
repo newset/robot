@@ -315,7 +315,10 @@
                     Resolve.with_search = 1;
                 }
 
-                console.log('resfresh:', Resolve.refresh());
+                 $scope.$watch('cond', function()
+                {
+                    Resolve.refresh();
+                }, true)
             }
         ])
         .controller('CPageRobotNew', [
@@ -417,6 +420,10 @@
                 {
                     SMark.with_search = 1;
                 }
+
+                $scope.$watch('cond', function(){
+                    SMark.refresh();
+                }, true)
 
             }
         ])
