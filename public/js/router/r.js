@@ -65,45 +65,23 @@
                     .state('base.robot',
                     {
                         url: '/robot',
-                        templateUrl: 'templates/robot/index.html',
-                        resolve : {
-                            Robot : function(SRobot){
-                                return SRobot.refresh().then(function(){
-                                    return SRobot;
-                                })
-                            }
-                        }
+                        templateUrl: 'templates/robot/index.html'
                     })
                     .state('base.robot.list',
                     {
                         url: '/list?page_num&limit&with_search',
                         templateUrl: shot('page/robot'),
-                        controller: 'CPageRobot as cPageRobot', 
-                        resolve : {
-                            'Resolve' : function(Robot){
-                                return Robot
-                            }
-                        }
+                        controller: 'CPageRobot as cPageRobot'
                     })
                     .state('base.robot.query',{
                         url : '/query/:type',
                         templateUrl : shot('page/robot_query'),
-                        controller: 'CPageRobot as cPageRobot', 
-                        resolve : {
-                            'Resolve' : function(Robot){
-                                return Robot
-                            }
-                        }
+                        controller: 'CPageRobot as cPageRobot'
                     })
                     .state('base.robot.new',{
                         url : '/new',
                         templateUrl : shot('seg/robot_new_form'),
-                        controller: 'CPageRobotNew as cPageRobot',
-                        resolve : {
-                            'Resolve' : function(Robot){
-                                return Robot
-                            }
-                        }
+                        controller: 'CPageRobotNew as cPageRobot'
                     })
                     .state('base.hospital',
                     {
@@ -154,15 +132,7 @@
                     {
                         url: '/mark?page_num&limit&with_search',
                         // templateUrl: shot('page/mark'),
-                        templateUrl: 'templates/mark/index.html',
-                        // template : '<div ui-view></div>'
-                        resolve : {
-                            'iBase' : function(SMark){
-                                return SMark.refresh().then(function(){
-                                    return SMark;
-                                })
-                            }
-                        }
+                        templateUrl: 'templates/mark/index.html'
                     })
                     .state('base.mark_checkout',
                     {
@@ -184,12 +154,7 @@
                     }).state('base.mark.query',{
                         url : '/query',
                         templateUrl : shot('seg/mark_query'),
-                        controller : 'CPageMark as CPageMark',
-                        resolve : {
-                            SMark : function(iBase){
-                                return iBase;
-                            }
-                        }
+                        controller : 'CPageMark as CPageMark'
                     })
                     .state('base.mark.show', {
                         url : '/show/:id',
