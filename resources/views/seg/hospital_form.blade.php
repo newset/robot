@@ -17,7 +17,7 @@
             </div>
             <div class="form-group md-select-group">
                 <label class="control-label col-md-3">所在省市</label>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <md-select
                             name="province_id"
                             ng-init="SIns.current_row.province_id = SIns.current_row.province_id || options[0].id"
@@ -27,7 +27,7 @@
                         <md-option value="[:l.id:]" ng-repeat="l in SBase._.location.province">[:l.name:]</md-option>
                     </select>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     {{--[:SIns.current_row:]--}}
                     <md-select
                             name="city_id"
