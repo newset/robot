@@ -29,5 +29,6 @@
       <!-- style sheet -->
     <link rel="stylesheet" href="{{base_url()}}vendor/angular-material/angular-material.css">
     <link rel="stylesheet" href="{{base_url()}}css/base.css">
+    <link rel="stylesheet" href="{{base_url()}}vendor/angularjs-datepicker/src/css/angular-datepicker.css">
 
 </head>

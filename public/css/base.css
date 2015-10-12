@@ -354,13 +354,21 @@ label.error
   color: #428bca;
 }
 
+
 .ngdialog.ngdialog-theme-default .ngdialog-content {
 padding: 0em;
 }
 .panel-default > .panel-heading {
-  border-color: #eff2f7;
-  background: #CCCCCC;
-  color: #767676;
+    border-color: #eff2f7;
+    background: #CCCCCC;
+    color: #767676;
+}
+/** 
+ * datepicker
+ */
+
+._720kb-datepicker-calendar{
+    width: 300px!important;
 }
 .panel-title {
     text-align: center;
