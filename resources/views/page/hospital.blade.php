@@ -30,7 +30,7 @@
                                                 name="province_id"
                                                 ng-model="SIns.cond.where.province_id"
                                                 ng-options="l.id as l.name for l in SBase._.location.province"
-                                                required>
+                                                >
                                             <option value="" selected>所在省份</option>
                                         </select>
                                         <select class="form-control"
@@ -38,7 +38,7 @@
                                                 ng-options="l.id as l.name for l in SBase._.location.city
                                                             | filter: {parent_id: SIns.cond.where.province_id}"
                                                 name="province"
-                                                required>
+                                                >
                                             <option value="" selected>所在市区</option>
                                         </select>
                                     </div>
@@ -60,6 +60,9 @@
                                                ng-model="SIns.cond.where_has.doctor.name"
                                                placeholder="">
                                     </div>
+                                                            <div class="col-md-1 pull-right">
+                                                                    <button class="btn btn-default fr" ng-click="hospitalQuery()">查询</button>
+                                                            </div>
                                 </div>
 
                                 {{--<div class="form-group">--}}
@@ -79,18 +82,11 @@
                                 {{--</label>--}}
                                 {{--</div>--}}
                                 {{--</div>--}}
+                    <div class="form-group">
+
+                    </div>
                             </form>
                         </div>
-                        {{-- <div class="row">
-                        <div class="col-md-12">
-                        <div class="dataTables_length" id="example_length">
-                        <button class="btn btn-default fr"
-                        ng-click="SIns.popup_edit(null,0)">创建
-                        </button>
-                        </div>
-                        </div>
-                        </div> --}}
-
                     </div>
                 </div>
                 <table id="example"  class="table  table-striped  table-bordered dataTable  no-footer" aria-describedby="example_info">
