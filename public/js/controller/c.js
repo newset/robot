@@ -172,9 +172,10 @@
                 $scope.cond = SHospital.cond;
                 SHospital.show_search_panel = $stateParams.with_search;
                 h.prepare_location_data();
-                $scope.eq=function(e){
 
-};
+                $scope.equalsId=function(a,b){
+                    return a==b;
+                };
                 $scope.$watch('cond', function()
                 {
                     SHospital.refresh();
