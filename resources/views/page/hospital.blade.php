@@ -71,7 +71,7 @@
                             <div class="col-md-12">
                                 <div class="dataTables_length" id="example_length">
                                     <button class="btn btn-default fr"
-                                            ng-click="SIns.popup_edit(null)">创建
+                                            ng-click="SIns.popup_edit(null,0)">创建
                                     </button>
                                 </div>
                             </div>
