@@ -6,6 +6,7 @@
         'ui.router',
         'ui.bootstrap.tpls',
         'ui.bootstrap.tabs',
+        'ui.bootstrap.pagination',
         'ngDialog',
         'angular.filter',
         'ngFileUpload',

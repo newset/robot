@@ -188,7 +188,7 @@
         [
             '$scope',
             'SBase',
-            'SDoctor',
+            'sDoctor',
             'h',
             '$stateParams',
             function ($scope,
@@ -200,16 +200,13 @@
             {
                 $scope.SBase = SBase;
                 $scope.SIns = SDoctor;
+                console.log('sDoctor', SDoctor);
+                // 根据医院进行筛选
                 $scope.SIns.cond.where.hospital_id = $stateParams.hid;
                 SDoctor.init();
                 $scope.cond = SDoctor.cond;
-                SDoctor.show_search_panel = $stateParams.with_search;
-                h.prepare_location_data();
+                // h.prepare_location_data();
 
-                $scope.$watch('cond', function()
-                {
-                    SDoctor.refresh();
-                }, true)
             }
         ])
           //科室controller
@@ -283,7 +280,7 @@
         [
             '$scope',
             '$stateParams',
-            'Resolve',
+            'SRobot',
             'SHospital',
             'SAgency',
             'SEmployee',
@@ -291,7 +288,7 @@
             'h',
             function ($scope
                 , $stateParams
-                , Resolve
+                , SRobot
                 , SHospital
                 , SAgency
                 , SEmployee
@@ -304,29 +301,29 @@
                 $scope.SEmployee = SEmployee;
                 $scope.SHospital = SHospital;
                 $scope.SAgency = SAgency;
-                $scope.SIns = Resolve;
-                $scope.current_row = Resolve.current_row;
+                $scope.SIns = SRobot;
+                $scope.current_row = SRobot.current_row;
                 $scope.SIns.cond.where.hospital_id = $stateParams.hid;
-                // Resolve.init();
-                $scope.cond = Resolve.cond;
+                SRobot.init();
+                $scope.cond = SRobot.cond;
                 $scope.with_search = $stateParams.with_search;
                 h.prepare_location_data();
 
                 if($stateParams.with_search)
                 {
-                    Resolve.with_search = 1;
+                    SRobot.with_search = 1;
                 }
 
                 //  $scope.$watch('cond', function()
                 // {
-                //     Resolve.refresh();
+                //     SRobot.refresh();
                 // }, true)
             }
         ])
         .controller('CPageRobotNew', [
             '$scope',
             '$stateParams',
-            'Resolve',
+            'SRobot',
             'SHospital',
             'SAgency',
             'SEmployee',
@@ -335,7 +332,7 @@
             '$state',
             function ($scope
                 , $stateParams
-                , Resolve
+                , SRobot
                 , SHospital
                 , SAgency
                 , SEmployee
@@ -346,7 +343,7 @@
                 $scope.SEmployee = SEmployee;
                 $scope.SHospital = SHospital;
                 $scope.SAgency = SAgency;
-                $scope.SIns = Resolve;
+                $scope.SIns = SRobot;
 
                 $scope.save = function(){
                     $scope.SIns.cu($scope.SIns.current_row).then(function(res){

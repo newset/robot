@@ -364,6 +364,7 @@ padding: 0em;
     border-color: #eff2f7;
     background: #CCCCCC;
     color: #767676;
+    position: relative;
 }
 /**
  * datepicker

@@ -31,6 +31,8 @@ class IDepartment extends BaseModel
         ];
     }
 
+    protected $hidden = ['password'];
+
     /**
      * 关联医生
      */

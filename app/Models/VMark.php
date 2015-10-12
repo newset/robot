@@ -20,33 +20,37 @@ class VMark extends IMark
     }
 
     public function r_() {
-        $sql = 'select * from i_mark where 1=1 ';
+        $sql = 'select * from v_mark where 1=1 ';
         $where = [];
 
         if(Input::has('where.cust_id')) {
-            $sql .= ' and i_mark.cust_id = ?';
-            $where[] = Input::get('where.cust_id');
+            $sql .= ' and v_mark.cust_id like ?';
+            $where[] = '%'.Input::get('where.cust_id').'%';
         }
         $status = Input::get('where.status');
         if(!empty($status)) {
             $id = array_map('intval',$status);
             $id = implode(",",$id);
-            $sql .= ' and i_mark.status in ('.$id.')';
+            $sql .= ' and v_mark.status in ('.$id.')';
         }
-        $selling_status = Input::get('where.selling_status');
+        $selling_status = Input::get('where.sold');
+
         if(!empty($selling_status)) {
-            $sub_sql = ' and ( 1=1 ';
-            if(in_array(1,$selling_status)) {
-                $sub_sql .= ' or sold = 0';
-            }
-            if(in_array(1,$selling_status)) {
-                $sub_sql .= ' or agency_id > 0';
-            }
-            if(in_array(2,$selling_status)) {
-                $sub_sql .= ' or hospital_id > 0';
-            }
-            $sub_sql .= ')';
+            $subtracted = array_map(function ($x) { return $x-1; } , $selling_status);
+            $sub_sql = ' and sold in (' . implode(',', $subtracted).')' ;
             $sql .= $sub_sql;
+        }
+
+        $agency_id = Input::get('where.agency_id');
+        if ($agency_id) {
+            $sql .= 'and v_mark.agency_id = ?';
+            $where[] = $agency_id;
+        }
+
+        $hospital_id = Input::get('where.hospital_id');
+        if ($hospital_id) {
+            $sql .= 'and v_mark.hospital_id = ?';
+            $where[] = $hospital_id;
         }
 
         $pagination = Input::get("pagination",1);
@@ -57,6 +61,7 @@ class VMark extends IMark
         $r = [
             'count' => count($result),
             'main'  => array_slice($result,($pagination - 1) * $perpage,$perpage),
+            'where' => $sql
         ];
 
         return ss($r);

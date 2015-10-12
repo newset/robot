@@ -42,7 +42,7 @@ left join i_agency on i_robot_lease_log.agency_id = i_agency.id where 1=1 ';
         $where = [];
 
         if(Input::has("where.cust_id")) {
-            $sql .= ' and i_robot.cust_id like "'.Input::get('where.cust_id').'%"';
+            $sql .= ' and i_robot.cust_id like "%'.Input::get('where.cust_id').'%"';
             //$where[] = Input::get('where.cust_id');
         }
         if(Input::has("where.province_id")) {

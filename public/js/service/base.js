@@ -219,8 +219,7 @@
                         me.cond)
                         .then(function (r)
                         {
-                            if (!me.total_items)
-                                me.total_items = r.data.d.count;
+                            me.total_items = r.data.d.count;
                             me.current_page_data = r.data.d.main;
                             console.log('me.current_page_data: ', me.current_page_data);
                             return r;
@@ -237,6 +236,11 @@
 
                 function init()
                 {
+                    me.cond = {
+                        relation: ['robotLeaseLog', 'employee', 'mark', 'robotLog', /*'hospital', 'agency'*/],
+                        where: {},
+                        where_has: {},
+                    };
                     //h.get_all_hospital()
                     //    .then(function(r)
                     //    {
@@ -490,8 +494,7 @@
                         me.cond2)
                         .then(function (r)
                         {
-                            if (!me.total_items)
-                                me.total_items = r.data.d.count;
+                           me.total_items = r.data.d.count;
 
                             me.current_page_data = r.data.d.main;
                             console.log('me.current_page_data: ', me.current_page_data);
@@ -517,6 +520,11 @@
 
                 function init()
                 {
+                    me.cond = {
+                        relation: [],
+                        where: {},
+                        where_has: {},
+                    };
                     //h.get_all_hospital()
                     //    .then(function(r)
                     //    {
@@ -631,8 +639,7 @@
                         me.cond)
                         .then(function (r)
                         {
-                            if (!me.total_items)
-                                me.total_items = r.data.d.count;
+                            me.total_items = r.data.d.count;
                             me.current_page_data = r.data.d.main;
                             console.log('me.current_page_data: ', me.current_page_data);
 
@@ -656,6 +663,11 @@
                     //        me.all_hospital = r.data.d.main;
                     //    })
                     //me.refresh()
+                    me.cond = {
+                        relation: [/*'robotLeaseLog', 'mark', 'robotLog', *//*'hospital', 'agency'*/],
+                        where: {},
+                        where_has: {},
+                    };
                 }
             }
         ])
