@@ -58,11 +58,9 @@
                            class="form-control"></textarea>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="col-md-offset-3 col-md-8">
-                    <button type="submit" class="btn btn-primary pull" ng-disabled="form_hospital.$invalid">提交</button>
-                </div>
-            </div>
         </form>
+    </div>
+    <div class="panel-footer" ng-controller="CPageHospital as cPageHospital">
+        <button  class="btn  pull-right" ng-disabled="form_hospital.$invalid" ng-click="SIns.cu(SIns.current_row)">提交</button>
     </div>
 </div>

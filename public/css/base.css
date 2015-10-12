@@ -362,3 +362,22 @@ padding: 0em;
   background: #CCCCCC;
   color: #767676;
 }
+.panel-title {
+    text-align: center;
+  color:#000;
+}
+.ngdialog.ngdialog-theme-default .ngdialog-close:before {
+  background: transparent;
+  border-radius: 3px;
+  color: #000;
+  content: '\00D7';
+  font-size: 36px;
+  font-weight: 400;
+  height: inherit;
+  line-height: 26px;
+  position: absolute;
+  right: 3px;
+  text-align: center;
+  top: 9px;
+  width: 30px;
+}

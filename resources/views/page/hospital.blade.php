@@ -89,10 +89,10 @@
                                 style="width: 100%;">
                             <thead>
                             <tr role="row">
-                                <th>id</th>
-                                <th>所在地区</th>
-                                <th>医院</th>
-                                <th>医生人数</th>
+                                <th>编号</th>
+                                <th>地区</th>
+                                <th>医院名称</th>
+                                <th>医生</th>
                                 <th>科室数</th>
                                 <th>代理数</th>
                                 <th>备注</th>
