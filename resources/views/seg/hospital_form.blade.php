@@ -8,7 +8,7 @@
               class="form-horizontal"
               ng-controller="CPageHospital as cPageHospital">
             <div class="form-group">
-                <label class="control-label col-md-3">名称</label>
+                <label class="control-label col-md-3">医院名称</label>
                 <div class="col-md-8">
                     <input ng-model="SIns.current_row.name"
                        class="form-control"

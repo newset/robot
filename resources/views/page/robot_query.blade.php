@@ -12,7 +12,6 @@
                 <div class="panel-body">
                     <div role="grid" id="example_wrapper" class="dataTables_wrapper form-inline no-footer">
                         <div class="row col-md-12 search_panel">
-                            
                             <form class="form-horizontal" id="robot_query">
                                 <div class="form-group">
                                     <label class="control-label col-md-1">编号</label>
@@ -26,18 +25,18 @@
                                     <label class="control-label col-md-1">地区</label>
                                     <div class="col-md-1">
                                         <md-select
-                                                name="province_id"
-                                                ng-model="SIns.cond.where.province_id"
-                                                required>
+                                            name="province_id"
+                                            ng-model="SIns.cond.where.province_id"
+                                            required>
                                             <md-option value="">不限</md-option>
                                             <md-option value="[:l.id:]" ng-repeat="l in SBase._.location.province">[:l.name:]</option>
                                         </md-select>
                                     </div>
                                     <div class="col-md-1">
                                         <md-select
-                                                name="city_id"
-                                                ng-model="SIns.cond.where.city_id"
-                                                required>
+                                            name="city_id"
+                                            ng-model="SIns.cond.where.city_id"
+                                            required>
                                             <md-option value="">不限</md-option>
                                             <md-option value="[:l.id:]" ng-repeat="l in SIns.cond.where.province_id&&SBase._.location.city|| []| filter: {parent_id: SIns.cond.where.province_id}:true">[:l.name:]</option>
                                         </md-select>
@@ -46,10 +45,10 @@
 
                                 <div class="form-group">
                                     <label class="control-label col-md-1">销售状态</label>
-                                     <label class="checkbox-inline"><input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.lease_type_id[0]">在库</label>
-                                     <label class="checkbox-inline"><input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.lease_type_id[1]">已租出</label>
-                                     <label class="checkbox-inline"><input type="checkbox" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.lease_type_id[2]">已售出</label>
-                                     <label class="checkbox-inline"><input type="checkbox" value="number:4" ng-true-value="4" ng-model="SIns.cond.where.lease_type_id[3]">免费合作中</label>
+                                    <label class="checkbox-inline"><input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.lease_type_id[0]">在库</label>
+                                    <label class="checkbox-inline"><input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.lease_type_id[1]">已租出</label>
+                                    <label class="checkbox-inline"><input type="checkbox" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.lease_type_id[2]">已售出</label>
+                                    <label class="checkbox-inline"><input type="checkbox" value="number:4" ng-true-value="4" ng-model="SIns.cond.where.lease_type_id[3]">免费合作中</label>
                                 </div>
 
                                 <div class="form-group">
@@ -63,15 +62,15 @@
                                     <label class="control-label col-md-1">代理商</label>
                                     <div class="col-md-2">
                                         <md-autocomplete
-                                              md-selected-item="selectedAgency"
-                                              md-search-text="agencySearch"
-                                              md-selected-item-change="SIns.cond.where.agency_id = item.id"
-                                              md-items="l in SAgency.all_rec|filter : {name: agencySearch}"
-                                              md-item-text="l.name"
-                                              md-min-length="0"
-                                              placeholder="不限">
+                                            md-selected-item="selectedAgency"
+                                            md-search-text="agencySearch"
+                                            md-selected-item-change="SIns.cond.where.agency_id = item.id"
+                                            md-items="l in SAgency.all_rec|filter : {name: agencySearch}"
+                                            md-item-text="l.name"
+                                            md-min-length="0"
+                                            placeholder="不限">
                                             <md-item-template md-highlight-text="agencySearch" md-highlight-flags="^i">
-                                              <span>[:l.name:]</span>
+                                                <span>[:l.name:]</span>
                                             </md-item-template>
                                         </md-autocomplete>
                                     </div>
@@ -80,15 +79,15 @@
                                     <label class="control-label col-md-1">医院</label>
                                     <div class="col-md-2">
                                         <md-autocomplete
-                                              md-selected-item="selectedHospital"
-                                              md-search-text="hostpitalSearch"
-                                              md-selected-item-change="SIns.cond.where.hospital_id = item.id"
-                                              md-items="l in SHospital.all_rec|filter : {name: hostpitalSearch}"
-                                              md-item-text="l.name"
-                                              md-min-length="0"
-                                              placeholder="不限">
+                                            md-selected-item="selectedHospital"
+                                            md-search-text="hostpitalSearch"
+                                            md-selected-item-change="SIns.cond.where.hospital_id = item.id"
+                                            md-items="l in SHospital.all_rec|filter : {name: hostpitalSearch}"
+                                            md-item-text="l.name"
+                                            md-min-length="0"
+                                            placeholder="不限">
                                             <md-item-template md-highlight-text="hostpitalSearch" md-highlight-flags="^i">
-                                              <span>[:l.name:]</span>
+                                                <span>[:l.name:]</span>
                                             </md-item-template>
                                         </md-autocomplete>
                                     </div>
@@ -122,18 +121,18 @@
                             </form>
                         </div>
                         <div class="col-md-12">
-                                <table
-                                        id="example"
-                                        class="table
+                            <table
+                                id="example"
+                                class="table
                                        table-striped
                                        table-bordered
                                        dataTable
                                        no-footer"
-                                        cellspacing="0"
-                                        width="100%"
-                                        aria-describedby="example_info"
-                                        style="width: 100%;">
-                                    <thead>
+                                cellspacing="0"
+                                width="100%"
+                                aria-describedby="example_info"
+                                style="width: 100%;">
+                                <thead>
                                     <tr role="row">
                                         <th>编号</th>
                                         <th>设备状态</th>
@@ -144,8 +143,8 @@
                                         <th>维护记录</th>
                                         <th></th>
                                     </tr>
-                                    </thead>
-                                    <tbody>
+                                </thead>
+                                <tbody>
                                     <tr class="odd"
                                         ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
                                         <td>[:row.cust_id:]</td>
@@ -184,27 +183,27 @@
                                         </td>
                                         {{--<td>[:row.updated_at:]</td>--}}
                                     </tr>
-                                    </tbody>
-                                </table>
+                                </tbody>
+                            </table>
                         </div>
                         <div class="row">
                             <div class="col-xs-6">
                             </div>
                             <div class="pagination_wrapper">
                                 <pagination
-                                        boundary-links="true"
-                                        total-items="SIns.total_items"
-                                        items-per-page="SIns.items_per_page"
-                                        ng-model="SIns.cond.pagination"
-                                        ng-change="SIns.change_page(SIns.cond.pagination)"
-                                        class="pagination-md"
-                                        previous-text="<"
-                                        max-size="10"
-                                        next-text=">"
-                                        first-text="第一页"
-                                        {{--items-per-page="5"--}}
-                                        last-text="最后一页"
-                                        >
+                                    boundary-links="true"
+                                    total-items="SIns.total_items"
+                                    items-per-page="SIns.items_per_page"
+                                    ng-model="SIns.cond.pagination"
+                                    ng-change="SIns.change_page(SIns.cond.pagination)"
+                                    class="pagination-md"
+                                    previous-text="<"
+                                    max-size="10"
+                                    next-text=">"
+                                    first-text="第一页"
+                                    {{--items-per-page="5"--}}
+                                    last-text="最后一页"
+                                >
                                 </pagination>
                             </div>
                         </div>
