@@ -202,6 +202,7 @@ td.edit
 .pagination
 {
     padding: 10px;
+    margin-right:33px;
 }
 
 .dropdown-toggle
@@ -389,3 +390,8 @@ padding: 0em;
   top: 9px;
   width: 30px;
 }
+
+/*//修复ｍｏｄａｌ里面下拉框看不见*/
+.md-select-menu-container {
+  z-index: 10000;
+  }
