@@ -78,7 +78,7 @@
                     {
                         url: '/list?page_num&limit&with_search',
                         templateUrl: shot('page/robot'),
-                        controller: 'CPageRobot as cPageRobot', 
+                        controller: 'CPageRobot as cPageRobot',
                         resolve : {
                             'Resolve' : function(Robot){
                                 return Robot
@@ -88,7 +88,7 @@
                     .state('base.robot.query',{
                         url : '/query/:type',
                         templateUrl : shot('page/robot_query'),
-                        controller: 'CPageRobot as cPageRobot', 
+                        controller: 'CPageRobot as cPageRobot',
                         resolve : {
                             'Resolve' : function(Robot){
                                 return Robot
@@ -111,17 +111,17 @@
                         //controller: 'CPageHospital as cPageHospital',
                         template: '<div ui-view></div>',
                     })
-                    .state('base.hospital.new',{
+                    .state('base.hospital.new',{//新建医院
                         url : '/new',
                         templateUrl : shot('seg/hospital_form')
                     })
-                    .state('base.hospital.list', {
+                    .state('base.hospital.list', {//医院列表页
                         url: '/list?page_num&limit&with_search',
                         controller: 'CPageHospital as cPageHospital',
                         templateUrl: shot('page/hospital'),
                     })
                     .state('base.department_doctor',
-                    {
+                    {//医院详情页
                         url: '/department_doctor?page_num&limit&with_search&hid',
                         templateUrl: shot('page/department_doctor'),
                     })
@@ -194,7 +194,7 @@
                     .state('base.mark.show', {
                         url : '/show/:id',
                         templateUrl : shot('page/mark/show'),
-                        controller : 'CMarkDetail', 
+                        controller : 'CMarkDetail',
                         resolve : {
                             iMark : function(SMark, $stateParams, $state){
                                 return SMark.h.r($stateParams.id, SMark, ['hospital', 'agency', 'doctor', 'robot']).then(function(res){
