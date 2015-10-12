@@ -132,12 +132,12 @@
 </div>
         <td class="edit col-md-2">
             <span class="tool_wrapper">
-                <button class="btn btn-default" href="" ng-click="SIns.popup_edit(row,0)">
-                    编辑
-                </button>
                 <button class="btn btn-default" href=""
                         ui-sref="base.department_doctor({hid: row.id})">
-                    科室/医生
+                    管理科室/医生
+                </button>
+                <button class="btn btn-default" href="" ng-click="SIns.popup_edit(row,0)">
+                    编辑
                 </button>
                 {{--<span href="" class="curp delete"--}}
                       {{--ng-click="SIns.d(row.id)">删除</span>--}}
@@ -149,6 +149,7 @@
 <div class="row">
     <div class="col-xs-6">
     </div>
+    <div class="pull-right">
     <pagination
             {{--boundary-links="true"--}}
             total-items="SIns.total_items"
@@ -163,6 +164,7 @@
             last-text="最后一页"
             >
     </pagination>
+</div>
 </div>
             </div>
         </div>
