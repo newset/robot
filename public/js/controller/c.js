@@ -81,6 +81,8 @@
                 {
                     me.user_type = user_type;
                     me.auth_type = auth_type;
+                    me.vals.username = "";
+                    me.vals.password = "";
                 }
 
                 me.set_ins_conf = function (type, login_or_signup)
