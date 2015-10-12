@@ -24,11 +24,10 @@
     <link rel="stylesheet" href="{{base_url()}}vendor/toastr/toastr.min.css">
     <link rel="stylesheet" href="{{base_url()}}assets/css/animate.css">
     <link rel="stylesheet" href="{{base_url()}}assets/css/main.css">
-
-    <link rel="stylesheet" href="{{base_url()}}css/base.css">
     <link rel="stylesheet" href="{{base_url()}}vendor/ng-dialog/css/ngDialog.css">
     <link rel="stylesheet" href="{{base_url()}}vendor/ng-dialog/css/ngDialog-theme-default.css">
       <!-- style sheet -->
     <link rel="stylesheet" href="{{base_url()}}vendor/angular-material/angular-material.css">
+    <link rel="stylesheet" href="{{base_url()}}css/base.css">
 
 </head>

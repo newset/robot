@@ -353,3 +353,12 @@ label.error
 .pagination > li > span {
   color: #428bca;
 }
+
+.ngdialog.ngdialog-theme-default .ngdialog-content {
+padding: 0em;
+}
+.panel-default > .panel-heading {
+  border-color: #eff2f7;
+  background: #CCCCCC;
+  color: #767676;
+}
