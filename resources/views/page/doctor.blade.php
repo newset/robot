@@ -90,8 +90,7 @@
                 </thead>
                 <tbody>
 
-                <tr class="odd"
-                    ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
+                <tr class="odd"  ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
                     <td ng-repeat="t in SIns.status_type | filter:{'id':  row.status}:true">
                         [:t.name:]
                     </td>

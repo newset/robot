@@ -3,7 +3,7 @@
     'use strict';
     angular.module('base_app.service')
         .service('SDepartment',
-        [
+        [//科室service
             'H',
             'h',
             'ngDialog',

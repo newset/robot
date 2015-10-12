@@ -212,7 +212,7 @@
                 }, true)
             }
         ])
-
+          //科室controller
         .controller('CPageDepartment',
         [
             '$scope',
