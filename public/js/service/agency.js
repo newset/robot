@@ -36,7 +36,7 @@
 
                 me.get_all_rec = function()
                 {
-                    H.p(cook('agency/r'), {'limit' : 0})
+                    H.p(cook('agency/r'), {'limit' : 0, 'order_by' : 'id'})
                         .then(function(r)
                         {
                             me.all_rec = r.data.d.main;
