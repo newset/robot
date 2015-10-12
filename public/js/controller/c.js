@@ -168,18 +168,16 @@
             {
                 $scope.SBase = SBase;
                 $scope.SIns = SHospital;
-                $scope.SIns.init();
-                $scope.condTmp = $scope.SIns.cond;
-
-                $scope.SIns.show_search_panel = $stateParams.with_search;
+                SHospital.init();
+                $scope.cond = SHospital.cond;
+                SHospital.show_search_panel = $stateParams.with_search;
                 h.prepare_location_data();
-                $scope.hospitalQuery=function(){
-                        //人工点击的时候才对被监视的条件变量进行深拷贝，实现搜索
-                        $scope.cond=JSON.parse(JSON.stringify($scope.condTmp));//深拷贝
-                };
+                $scope.eq=function(e){
+
+};
                 $scope.$watch('cond', function()
                 {
-                    $scope.SIns.refresh();
+                    SHospital.refresh();
                 }, true)
             }
         ])
@@ -188,7 +186,7 @@
         [
             '$scope',
             'SBase',
-            'sDoctor',
+            'SDoctor',
             'h',
             '$stateParams',
             function ($scope,
@@ -200,16 +198,19 @@
             {
                 $scope.SBase = SBase;
                 $scope.SIns = SDoctor;
-                console.log('sDoctor', SDoctor);
-                // 根据医院进行筛选
                 $scope.SIns.cond.where.hospital_id = $stateParams.hid;
                 SDoctor.init();
                 $scope.cond = SDoctor.cond;
-                // h.prepare_location_data();
+                SDoctor.show_search_panel = $stateParams.with_search;
+                h.prepare_location_data();
 
+                $scope.$watch('cond', function()
+                {
+                    SDoctor.refresh();
+                }, true)
             }
         ])
-          //科室controller
+
         .controller('CPageDepartment',
         [
             '$scope',

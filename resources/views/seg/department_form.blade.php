@@ -26,8 +26,9 @@
                 </div>
             </div>
             <div class="form-group">
-                <button type="button" class="btn btn-default" ng-click="change_password = !change_password">密码</button>
-                <div ng-if="change_password">
+                {{-- <button type="button" class="btn btn-default" ng-click="change_password = !change_password">密码</button> --}}
+                {{-- <div ng-if="change_password"> --}}
+                        <div>
                     <label class="control-label col-md-3">密码</label>
                     <div class="col-md-8">
                         <input ng-model="SIns.current_row.password"
@@ -58,9 +59,9 @@
                               class="form-control"></textarea>
                 </div>
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <button type="submit" class="btn btn-primary" ng-disabled="form_hospital.$invalid">提交</button>
-            </div>
+            </div> --}}
         </form>
     </div>　{{--   panel-body --}}
     <div class="panel-footer" ng-controller="CPageDepartment as cPageDepartment">
