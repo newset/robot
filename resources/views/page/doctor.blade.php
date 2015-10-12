@@ -1,10 +1,13 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">医生管理</h3>
+        <div class="actions pull-right">
+            <i class="fa fa-chevron-down" i-toggle data-toggle="collapse" data-target="#doctor_query" aria-expanded="false" aria-controls="collapseExample"></i>
+        </div>
     </div>
     <div class="panel-body">
         <div role="grid" id="example_wrapper" class="dataTables_wrapper no-footer">
-            <div class="col-md-12 search_panel">
+            <div class="col-md-12 search_panel" id="doctor_query">
                 <form class="form-horizontal">
                     <div class="form-group">
                         <label for="" class="control-label col-md-1">医院</label>
