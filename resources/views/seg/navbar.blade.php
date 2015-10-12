@@ -113,13 +113,30 @@
             </li> -->
             <li>
                 当前登录用户:
+            <!--      <md-menu md-position-mode="target-right target" ng-cloak>
+                  <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                    {{username()}} <i class="fa fa-angle-down"></i>
+                  </md-button>
+                  <md-menu-content width="4" >
+                    <md-menu-item>
+                      <md-button>
+                        <a href="" ui-sref="base.me"><i class="fa fa-user"></i>个人设置</a>
+                      </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                      <md-button>
+                        <a href="{{url('logout')}}"><i class="fa fa-power-off"></i> 登出</a>
+                      </md-button>
+                    </md-menu-item>
+                  </md-menu-content>
+                </md-menu> -->
             </li>
+           
             <li class="dropdown settings" dropdown is-open="isopen">
-                <a class="dropdown-toggle" dropdown-toggle>
+                <a class="dropdown-toggle" data-toggle="dropdown">
                     {{username()}} <i class="fa fa-angle-down"></i>
                 </a>
                 <ul class="dropdown-menu animated fadeInDown">
-                   
                     <li>
                         <a href="" ui-sref="base.me"><i class="fa fa-user"></i>个人设置</a>
                     </li>

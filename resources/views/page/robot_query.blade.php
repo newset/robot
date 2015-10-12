@@ -103,11 +103,15 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-1">生产日期</label>
                                     <div style="display: inline-block;">
-                                      <md-datepicker ng-model="SIns.cond.where.created_start" md-placeholder="生产日期"></md-datepicker>
+                                        <datepicker date-format="yyyy-MM-dd" date-max-limit="[:SIns.cond.where.created_end:]" date-set="[:SIns.cond.where.created_start:]">
+                                            <input type="text" ng-model="SIns.cond.where.created_start" class="form-control">
+                                        </datepicker>
                                     </div>
-                                    到
+                                    <span style="display: inline-block;vertical-align: top;margin-top: 9px;">到</span>
                                     <div style="display: inline-block;">
-                                      <md-datepicker ng-model="SIns.cond.where.created_end" md-placeholder="生产日期"></md-datepicker>
+                                        <datepicker date-format="yyyy-MM-dd" date-set="[:SIns.cond.where.created_end:]" date-min-limit="[:SIns.cond.where.created_start:]">
+                                            <input type="text" ng-model="SIns.cond.where.created_end" class="form-control">
+                                        </datepicker>
                                     </div>
                                 </div>
 

@@ -35,11 +35,13 @@
                     </div>
                     <div class="col-md-4 pull-right">
                         <label class="pull-left" style="margin-top: 10px;">生产日期</label>
-                        <md-datepicker ng-model="SIns.cu_bat_data.production_date" md-placeholder="生产日期"></md-datepicker>
+                        <div class="col-md-2">
+                          <datepicker date-format="yyyy-MM-dd" date-set="[:SIns.cu_bat_data.production_date:]">
+                            <input type="text" ng-model="SIns.cu_bat_data.production_date" class="form-control">
+                          </datepicker>
+                        </div>
                     </div>
-                    
                 </div>
-
             </div>
             <div class="form-group">
 

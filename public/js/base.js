@@ -4,7 +4,8 @@
 
     angular.module('base_app', [
         'ui.router',
-        // 'ui.bootstrap',
+        'ui.bootstrap.tpls',
+        'ui.bootstrap.tabs',
         'ngDialog',
         'angular.filter',
         'ngFileUpload',
