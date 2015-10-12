@@ -184,7 +184,7 @@
         [
             '$scope',
             'SBase',
-            'SDoctor',
+            'sDoctor',
             'h',
             '$stateParams',
             function ($scope,
@@ -196,16 +196,13 @@
             {
                 $scope.SBase = SBase;
                 $scope.SIns = SDoctor;
+                console.log('sDoctor', SDoctor);
+                // 根据医院进行筛选
                 $scope.SIns.cond.where.hospital_id = $stateParams.hid;
                 SDoctor.init();
                 $scope.cond = SDoctor.cond;
-                SDoctor.show_search_panel = $stateParams.with_search;
-                h.prepare_location_data();
+                // h.prepare_location_data();
 
-                $scope.$watch('cond', function()
-                {
-                    SDoctor.refresh();
-                }, true)
             }
         ])
 

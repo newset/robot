@@ -184,7 +184,15 @@
                     })
                     .state('base.doctor.list', {
                         url : '/list',
-                        template : ''
+                        templateUrl : shot('page/doctor'),
+                        controller : "CPageDoctor as cPageDoctor",
+                        resolve : {
+                            sDoctor : function(SDoctor){
+                                return SDoctor.init().then(function(res){
+                                    return SDoctor;
+                                })
+                            }
+                        }
                     })
                     .state('base.patient', {
                         url : '/patient',

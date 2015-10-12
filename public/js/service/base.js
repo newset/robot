@@ -494,7 +494,7 @@
                         me.cond2)
                         .then(function (r)
                         {
-                            me.total_items = r.data.d.count;
+                           me.total_items = r.data.d.count;
 
                             me.current_page_data = r.data.d.main;
                             console.log('me.current_page_data: ', me.current_page_data);
@@ -639,8 +639,7 @@
                         me.cond)
                         .then(function (r)
                         {
-                            if (!me.total_items)
-                                me.total_items = r.data.d.count;
+                            me.total_items = r.data.d.count;
                             me.current_page_data = r.data.d.main;
                             console.log('me.current_page_data: ', me.current_page_data);
 

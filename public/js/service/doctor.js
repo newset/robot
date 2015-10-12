@@ -26,7 +26,7 @@
                 me.items_per_page = 50;
                 me.ins_name = 'doctor';
                 me.cond = {
-                    relation: [],
+                    relation: ['hospital', 'department'],
                     where: {},
                     where_has: {},
                 };
@@ -88,8 +88,7 @@
                         me.cond)
                         .then(function (r)
                         {
-                            if (!me.total_items)
-                                me.total_items = r.data.d.count;
+                            me.total_items = r.data.d.count;
                             me.current_page_data = r.data.d.main;
                             console.log(' me.cond: ', me.cond);
                             return r;
@@ -106,12 +105,13 @@
 
                 function init()
                 {
-                    h.get_all_hospital()
-                        .then(function(r)
+                    var promise = h.get_all_hospital()
+                        promise.then(function(r)
                         {
                             me.all_hospital = r.data.d.main;
-                        })
-                    me.refresh()
+                        });
+
+                    return promise;
                 }
             }
         ])

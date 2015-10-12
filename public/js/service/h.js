@@ -206,7 +206,7 @@
 
                 function get_all_hospital()
                 {
-                    return H.p(cook('hospital/r'), {limit: 'no_limit'})
+                    return H.p(cook('hospital/r'), {limit: '0', 'order_by' : 'id'})
                         .then(me.return_r);
                 }
 

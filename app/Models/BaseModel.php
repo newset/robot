@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use DB;
 
 use Validator, Schema, Carbon\Carbon;
 
@@ -202,7 +203,6 @@ class BaseModel extends Model
     {
         $rq = $in ? $in : rq();
         $builder = $this;
-        $default_limit = 50;
 
         if ( ! empty(rq('relation')))
         {
@@ -233,6 +233,16 @@ class BaseModel extends Model
             }
 
             $builder = $builder->where($where);
+        }
+
+        if ( ! empty(rq('whereLike')))
+        {
+            $where = $rq['whereLike'];
+            foreach ($where as $k => $v)
+            {
+                $builder = $builder->where($k, 'like', '%'.$v.'%');
+            }
+
         }
 
         if ( ! empty(rq('super_where')))
@@ -287,6 +297,14 @@ class BaseModel extends Model
             //$builder = $builder->orderBy('id', 'desc');
         }
 
+        return $builder;
+    }
+
+    public function p_builder($builder)
+    {
+        $rq = rq();
+        $default_limit = 50;
+
         if ( ! empty(rq('pagination')))
         {
             $limit = ! empty(rq('limit')) ? $rq['limit'] : $default_limit;
@@ -323,16 +341,19 @@ class BaseModel extends Model
      */
     public function r()
     {
+        DB::enableQueryLog();
 
         $builder = $this->r_builder(rq());
+        // 先获取统计
+        $count = $builder->count();
+
+        $builder = $this->p_builder($builder);
         $builder = $builder->whereNull('deleted_at');
         $main = isset($ret) ? $ret : $builder->get()->toArray();
         //$date_fields = $this->get_all_date_type($main);
-
         $r = [
             'main'  => $main,
-            'count' => $builder->count(),
-            'builder' => $builder
+            'count' => $count
         ];
 
         return ss($r);
