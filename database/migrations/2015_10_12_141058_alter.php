@@ -15,7 +15,7 @@ class Alter extends Migration
         Schema::table(table_name('mark'), function($table){
             // 添加 cmid
             $table->string('cmid')->after('status');
-
+            $table->string('ddid_usb')->after('robot_id');
         });
     }
 
