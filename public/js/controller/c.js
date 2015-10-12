@@ -303,7 +303,7 @@
                 $scope.SIns = Resolve;
                 $scope.current_row = Resolve.current_row;
                 $scope.SIns.cond.where.hospital_id = $stateParams.hid;
-                // Resolve.init();
+                Resolve.init();
                 $scope.cond = Resolve.cond;
                 $scope.with_search = $stateParams.with_search;
                 h.prepare_location_data();

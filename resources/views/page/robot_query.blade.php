@@ -137,7 +137,7 @@
                                     <tr role="row">
                                         <th>编号</th>
                                         <th>设备状态</th>
-                                        <th>销售方式</th>
+                                        <th>销售状态</th>
                                         <th>医院</th>
                                         <th>代理商</th>
                                         <th>负责人</th>
@@ -154,7 +154,7 @@
                                         </td>
                                         <td>
                                             <span ng-if="!row.lease_type_id">-</span>
-                                            <span>[: SIns.lease_type[row.lease_type_id - 1].name :]</span>
+                                            <span>[: SIns.robot_status_type[row.lease_type_id - 1].name :]</span>
                                         </td>
                                         
                                         {{--<td>--}}

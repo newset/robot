@@ -237,6 +237,11 @@
 
                 function init()
                 {
+                    me.cond = {
+                        relation: ['robotLeaseLog', 'employee', 'mark', 'robotLog', /*'hospital', 'agency'*/],
+                        where: {},
+                        where_has: {},
+                    };
                     //h.get_all_hospital()
                     //    .then(function(r)
                     //    {
@@ -517,6 +522,11 @@
 
                 function init()
                 {
+                    me.cond = {
+                        relation: [],
+                        where: {},
+                        where_has: {},
+                    };
                     //h.get_all_hospital()
                     //    .then(function(r)
                     //    {
@@ -656,6 +666,11 @@
                     //        me.all_hospital = r.data.d.main;
                     //    })
                     //me.refresh()
+                    me.cond = {
+                        relation: [/*'robotLeaseLog', 'mark', 'robotLog', *//*'hospital', 'agency'*/],
+                        where: {},
+                        where_has: {},
+                    };
                 }
             }
         ])
