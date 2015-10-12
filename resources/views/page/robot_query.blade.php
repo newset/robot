@@ -13,7 +13,7 @@
                     <div role="grid" id="example_wrapper" class="dataTables_wrapper form-inline no-footer">
                         <div class="row col-md-12 search_panel">
                             
-                            <form class="form-horizontal collapse" id="robot_query">
+                            <form class="form-horizontal" id="robot_query">
                                 <div class="form-group">
                                     <label class="control-label col-md-1">编号</label>
                                     <input class="form-control"
@@ -117,7 +117,7 @@
 
 
                                 <div class="form-group">
-                                    <button class="btn btn-primary" style="float: right">查询</button>
+                                    <button class="btn btn-primary" style="float: right" ng-click="SIns.refresh()">查询</button>
                                 </div>
                             </form>
                         </div>

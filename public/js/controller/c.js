@@ -268,10 +268,6 @@
                     SAgency.with_search = 1;
                 }
 
-                $scope.$watch('cond', function()
-                {
-                    SAgency.refresh();
-                }, true)
                 //$scope.$watch('current_row', function()
                 //{
                 //    h.prepare_current_row.call(me);
@@ -317,10 +313,10 @@
                     Resolve.with_search = 1;
                 }
 
-                 $scope.$watch('cond', function()
-                {
-                    Resolve.refresh();
-                }, true)
+                //  $scope.$watch('cond', function()
+                // {
+                //     Resolve.refresh();
+                // }, true)
             }
         ])
         .controller('CPageRobotNew', [
@@ -423,9 +419,9 @@
                     SMark.with_search = 1;
                 }
 
-                $scope.$watch('cond', function(){
-                    SMark.refresh();
-                }, true)
+                // $scope.$watch('cond', function(){
+                //     SMark.refresh();
+                // }, true)
 
             }
         ])

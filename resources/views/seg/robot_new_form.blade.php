@@ -43,12 +43,12 @@
               <label class="control-label col-md-2">生产日期</label>
               <div class="col-md-6">
                 <datepicker date-format="yyyy-MM-dd" date-set="[:SIns.current_row.production_date:]">
-                  <input ng-model="SIns.current_row.production_date" type="text" class="form-control" />
+                  <input ng-model="SIns.current_row.production_date" type="text" class="form-control" required/>
                 </datepicker>
               </div>
           </div>
           <div class="form-group">
-              <button type="submit" ng-click="save()" class="btn btn-primary pull-right" ng-disabled="form_hospital.$invalid">提交</button>
+              <button type="submit" ng-click="save()" class="btn btn-primary pull-right" ng-disabled="form_robot.$invalid">提交</button>
           </div>
       </form>
       

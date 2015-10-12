@@ -12,7 +12,7 @@
                 <div class="panel-body">
                     <div role="grid" id="example_wrapper" class="dataTables_wrapper form-inline no-footer">
                         <div class="row col-md-12 search_panel" ng-if="SIns.with_search">
-                            <form class="form-horizontal collapse" id="agency_query">
+                            <form class="form-horizontal" id="agency_query">
                                 <div class="form-group">
                                         <label class="control-label col-md-1">编号</label>
                                     <input class="form-control"
@@ -76,6 +76,9 @@
                                 {{--</label>--}}
                                 {{--</div>--}}
                                 {{--</div>--}}
+                                <div class="form-group">
+                                    <button class="btn btn-primary" style="float: right" ng-click="SIns.refresh()">查询</button>
+                                </div>
                             </form>
                         </div>
                         
