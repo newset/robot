@@ -284,21 +284,34 @@
         .controller('CDepartmentEdit',[
               '$scope',
                 'H',
+                'SDepartment',
               '$stateParams',
               function($scope,
               H,
+              SDepartment,
               $stateParams){
               $scope.department_id=parseInt($stateParams.did);
               $scope.department={};
-
+              $scope.department_old={};
                 //获取科室
                 H.p(cook('department/r'), {'limit': 0, 'order_by': 'id',
                         where:{'id': $scope.department_id}
                         }).then(function (r){
-                        $scope.department = r.data.d.main[0];
+                        $scope.department_old = r.data.d.main[0];
+                        $scope.department=angular.copy($scope.department_old);
                         $scope.hospital_id=$scope.department.hospital_id;
-                        console.log($scope.department);
+                        console.log($scope.department_old);
                   });
+                $scope.cancel=function(){
+                         $scope.department.name=$scope.department_old.name;
+                          $scope.department.username=$scope.department_old.username;
+                          $scope.department.password=$scope.department_old.password;
+                          $scope.department.memo=$scope.department_old.memo;
+                  };
+                $scope.submit=function(){
+                          console.log($scope.department);
+                          SDepartment.cu($scope.department);
+                };
         }])
         .controller('CPageAgency',
         [
