@@ -95,14 +95,12 @@
                             <td>[:row.cust_id:]</td>
                             <td>[:row.phone:]</td>
                             <td>[:row.email:]</td>
-                            <td class="edit col-md-1">
-                                            <span class="tool_wrapper">
-                                                <button class="btn btn-default" href="" ng-click="SIns.popup_edit(row)">
-                                                    编辑
-                                                </button>
-                                                <span href="" class="curp delete"
-                                                      ng-click="SIns.d(row.id)">删除</span>
-                                            </span>
+                            <td class="edit col-md-2">
+                                <span class="tool_wrapper">
+                                    <button class="btn btn-primary btn-sm" href="" ng-click="SIns.popup_edit(row)">
+                                        编辑
+                                    </button>
+                                </span>
                             </td>
                         </tr>
                         </tbody>

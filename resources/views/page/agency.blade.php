@@ -121,7 +121,7 @@
                                 <td>[:row.ended_at:]</td>
                                 <td class="edit col-md-2">
                                     <span class="tool_wrapper">
-                                        <button class="btn btn-default" href="" ng-click="SIns.h.popup_detail(row, SIns, 'agency/r', {relation: ['robotLeaseLog', 'mark', 'hospital'], where: {id: row.id}})">
+                                        <button class="btn btn-info btn-sm" href="" ng-click="SIns.h.popup_detail(row, SIns, 'agency/r', {relation: ['robotLeaseLog', 'mark', 'hospital'], where: {id: row.id}})">
                                             详细
                                         </button>
                                     </span>
