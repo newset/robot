@@ -111,8 +111,24 @@
                     })
                     .state('base.department_doctor',
                     {//医院详情页
+                        controller:'CHospitalDetail',
                         url: '/department_doctor?page_num&limit&with_search&hid',
                         templateUrl: shot('page/department_doctor'),
+                    })
+                    .state('base.department',
+                    {
+                        url: '/department',
+                        //controller: 'CPagedepartment as cPagedepartment',
+                        template: '<div ui-view></div>',
+                    })
+                    .state('base.department.new',{//新建科室
+                        url : '/new',
+                        templateUrl : shot('seg/department_form')
+                    })
+                    .state('base.department.edit',{//编辑科室
+                        url : '/edit/:did',
+                        controller:'CDepartmentEdit',
+                        templateUrl : shot('seg/department_edit_form')
                     })
                     .state('base.agency',
                     {

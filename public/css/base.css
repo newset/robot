@@ -367,9 +367,13 @@ padding: 0em;
 }
 .panel-default > .panel-heading {
     border-color: #eff2f7;
-    background: #CCCCCC;
+    /*background: #CCCCCC;*/
     color: #767676;
-    position: relative;
+}
+.panel-default > .panel-heading-border {
+    border-color: black;
+    /*background: #CCCCCC;*/
+    color: #767676;
 }
 /**
  * datepicker
@@ -380,7 +384,7 @@ padding: 0em;
 }
 
 .panel-title {
-    text-align: center;
+    /*text-align: center;*/
   color:#000;
 }
 .ngdialog.ngdialog-theme-default .ngdialog-close:before {
@@ -403,32 +407,46 @@ padding: 0em;
 .md-select-menu-container {
   z-index: 10000;
   }
-
 /*表格线条的颜色*/
 .table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
-    border: 1px solid #808080;
+    border: 1px solid black;
 }
 .table>caption+thead>tr:first-child>th, .table>colgroup+thead>tr:first-child>th, .table>thead:first-child>tr:first-child>th, .table>caption+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>td, .table>thead:first-child>tr:first-child>td {
-    border: 1px solid #808080;
+    border: 1px solid black;
 }
 
 .panel>.table-bordered>tbody>tr>td:first-child{
-    border-left: 1px solid #808080;
+border-left: 1px solid black;
 }
 .panel>.table-bordered>tbody>tr:first-child>td{
-    border-bottom: 1px solid #808080;
+border-bottom: 1px solid black;
 }
 .panel>.table-bordered>tbody>tr>td:last-child{
-    border-right: 1px solid #808080;
+border-right: 1px solid black;
 }
 
-td.edit{
-    text-align: center;
+.black-border{
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
 }
-.tool_wrapper{
-    overflow: hidden;
-    display: inline-block;
-    margin: 0 auto;
-    margin-top: 5px;
+.btn-custom{
+  border:1px solid black;
+  border-radius: 0px;
+  color:black;
+  padding: 1px 20px;
 }
-
+thead{
+background-color: #cccccc;
+}
+.table>tbody>tr>td{
+vertical-align: inherit;
+}
+.btn-custom-delete{
+/*删除按钮*/
+  border:1px solid black;
+  border-radius: 0px;
+  color:black;
+  background-color: pink;
+  padding: 1px 20px;
+}
