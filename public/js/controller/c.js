@@ -172,10 +172,14 @@
                 $scope.cond = $scope.SIns.cond;
                 $scope.SIns.show_search_panel = $stateParams.with_search;
                 h.prepare_location_data();
+
                 if($stateParams.with_search)
                 {
                     SHospital.with_search = 1;
-                }
+                };
+                $scope.equalsId=function(a,b){
+                        return a==b;
+                  }
             }
         ])
 
@@ -342,7 +346,9 @@
                 {
                     SAgency.with_search = 1;
                 }
-
+                $scope.equalsId=function(a,b){
+                      return a==b;
+                   }
                 //$scope.$watch('current_row', function()
                 //{
                 //    h.prepare_current_row.call(me);

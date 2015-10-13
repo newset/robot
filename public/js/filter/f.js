@@ -24,17 +24,6 @@
             };
         })
 
-        .filter('eq',function(){
-                return function(inputArray,id){
-                  var array = [];
-                  for(var i=0;i<inputArray.length;i++){
-                  if(inputArray[i].id==id){
-                      array.push(inputArray[i]);
-                  }
-              };
-              return array;
-            };
-        })
         //.filter('laDate', function($filter) {
         //    var angularDateFilter = $filter('date');
         //    return function(theDate) {

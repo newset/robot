@@ -30,6 +30,29 @@ controller:
                                 {{--ng-model="SIns.cond.where_has.doctor.name"--}}
                                 {{--placeholder="名称搜索">--}}
                                 {{--</div>--}}
+                                <div class="form-group ">
+                                    <label class="control-label col-md-1">地区</label>
+                                    <div class="col-md-1">
+                                        <md-select
+                                            ng-model="SIns.cond.where.province_id"
+                                            >
+                                            <md-option value="">不限</md-option>
+                                            <md-option ng-repeat="l in SBase._.location.province" value="[:l.id:]">
+                                                [:l.name:]
+                                            </md-option>
+                                        </md-select>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <md-select
+                                            ng-model="SIns.cond.where.city_id"
+                                            >
+                                            <md-option value="">不限</md-option>
+                                            <md-option ng-repeat="l in SIns.cond.where.province_id&&SBase._.location.city || []|filter: {parent_id: SIns.cond.where.province_id}:true" value="[:l.id:]">
+                                                [:l.name:]
+                                            </md-option>
+                                        </md-select>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-1">名称</label>
                                     <input class="form-control"
@@ -38,29 +61,7 @@ controller:
                                            placeholder="名称">
                                 </div>
 
-                                <div class="form-group col-md-6">
-                                    <label class="control-label col-md-2">所在省市</label>
-                                    <div class="col-md-3">
-                                        <md-select
-                                            ng-model="SIns.cond.where.province_id"
-                                            required class="" style="margin: 0px;">
-                                            <md-option value="">所在省</md-option>
-                                            <md-option ng-repeat="l in SBase._.location.province" value="[:l.id:]">
-                                                [:l.name:]
-                                            </md-option>
-                                        </md-select>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <md-select
-                                            ng-model="SIns.cond.where.city_id"
-                                            required class="" style="margin: 0px;">
-                                            <md-option value="">所在市</md-option>
-                                            <md-option ng-repeat="l in SIns.cond.where.province_id&&SBase._.location.city || []|filter: {parent_id: SIns.cond.where.province_id}:true" value="[:l.id:]">
-                                                [:l.name:]
-                                            </md-option>
-                                        </md-select>
-                                    </div>
-                                </div>
+
 
                                 {{--<div class="form-group">--}}
                                 {{--<div>--}}
@@ -116,9 +117,9 @@ controller:
                         <td>[:row.id:]</td>
                         <td>[:row.name:]</td>
                         <td>
-                            <span ng-repeat="l in SBase._.location.province |filter:{id: row.province_id}:true">[:l.name:]</span>
+                            <span ng-repeat="l in SBase._.location.province |filter:{id: row.province_id}:equalsId">[:l.name:]</span>
                             •
-                            <span ng-repeat="l in SBase._.location.city |filter:{id: row.city_id }:true">[:l.name :]</span>
+                            <span ng-repeat="l in SBase._.location.city |filter:{id: row.city_id }:equalsId">[:l.name :]</span>
                         </td>
                         <td>[:SIns.status(row):]</td>
                         <td>[:row.started_at:]</td>

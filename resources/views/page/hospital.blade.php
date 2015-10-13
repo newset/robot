@@ -18,7 +18,7 @@ url:
                 <div class="panel-body">
                     <div role="grid" id="example_wrapper" class="dataTables_wrapper form-inline no-footer">
                         <div class="row col-md-12 search_panel" ng-if="SIns.with_search">
-                            <form class="collapse form-horizontal" id="form_query">
+                            <form class=" form-horizontal" id="form_query">
                                 <div class="form-group">
                                     <label class="control-label col-md-1">编号</label>
                                     <div class="col-md-8">
@@ -92,8 +92,8 @@ url:
                         ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
                         <td class="sorting_1">[:row.id:]</td>
                         <td>
-                            <span ng-repeat="l in SBase._.location.province |filter:{id:row.province_id}:equalsId as results">[:l.name:]</span>
-                            <span ng-repeat="l in SBase._.location.city |filter:{id: row.city_id }:equalsId">[:l.name :]</span>
+                            <span ng-repeat="l in SBase._.location.province |filter:{id:row.province_id}:equalsId">[:l.name:]</span>
+                            •<span ng-repeat="l in SBase._.location.city |filter:{id: row.city_id }:equalsId">[:l.name :]</span>
                         </td>
                         <td>[:row.name:]</td>
                         <td>[:row.doctor.length:]</td>
