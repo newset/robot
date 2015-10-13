@@ -105,7 +105,7 @@
                     </thead>
                     <tbody>
                         <tr class="odd"
-                            ng-repeat="row in SIns.current_page_data | orderBy: row.id " ng-init="nTrue=true;">
+                            ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
                             <td class="sorting_1">[:row.id:]</td>
                             <td>
                                 <span ng-repeat="l in SBase._.location.province |filter:{id:row.province_id}:equalsId as results">[:l.name:]</span>
@@ -146,8 +146,8 @@
                             {{--boundary-links="true"--}}
                             total-items="SIns.total_items"
                             items-per-page="SIns.items_per_page"
-                            ng-model="SIns.cond.pagination"
-                            ng-change="SIns.change_page(SIns.cond.pagination)"
+                            ng-model="SIns.condTmp.pagination"
+                            ng-change="SIns.change_page(SIns.condTmp.pagination)"
                             class="pagination-md"
                             previous-text="<"
                             next-text=">"

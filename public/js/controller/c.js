@@ -168,10 +168,14 @@
             {
                 $scope.SBase = SBase;
                 $scope.SIns = SHospital;
-                SHospital.init();
-                $scope.cond = SHospital.cond;
-                SHospital.show_search_panel = $stateParams.with_search;
+                $scope.SIns.init();
+                $scope.condTmp = $scope.SIns.cond;
+                $scope.SIns.show_search_panel = $stateParams.with_search;
                 h.prepare_location_data();
+                $scope.hospitalQuery=function(){
+                        //人工点击的时候才对被监视的条件变量进行深拷贝，实现搜索
+                       $scope.cond=JSON.parse(JSON.stringify($scope.condTmp));//深拷贝
+                };
 
                 $scope.equalsId=function(a,b){
                     return a==b;

@@ -104,8 +104,8 @@
                                           me.cond)
                                    .then(function (r)
                                          {
-                                             if (!me.total_items)
-                                                 me.total_items = r.data.d.count;
+                                            //  if (!me.total_items)
+                                            me.total_items = r.data.d.count;
                                              me.current_page_data = r.data.d.main;
                                              console.log(' me.cond: ', me.cond);
                                              return r;
