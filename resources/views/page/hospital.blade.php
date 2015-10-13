@@ -90,23 +90,23 @@ url:
                 <tbody>
                     <tr class="odd"
                         ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
-                        <td class="sorting_1">[:row.id:]</td>
-                        <td>
+                        <td class="sorting_1 col-md-1">[:row.id:]</td>
+                        <td class="col-md-2">
                             <span ng-repeat="l in SBase._.location.province |filter:{id:row.province_id}:equalsId">[:l.name:]</span>
                             •<span ng-repeat="l in SBase._.location.city |filter:{id: row.city_id }:equalsId">[:l.name :]</span>
                         </td>
-                        <td>[:row.name:]</td>
-                        <td>[:row.department.length:]</td>
-                        <td>[:row.doctor.length:]</td>
-                        <td>[:row.agency.length:]</td>
-                        <td title="[:row.memo:]" >
+                        <td  class="col-md-2">[:row.name:]</td>
+                        <td class="col-md-1">[:row.doctor.length:]</td>
+                        <td class="col-md-1">[:row.department.length:]</td>
+                        <td class="col-md-1">[:row.agency.length:]</td>
+                        <td class="col-md-1" title="[:row.memo:]" >
                             <button href="" ng-if="row.memo.length>0"  ng-click="SIns.popup_edit(row,1)">
                                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                 {{-- <i class="icon-file-alt"></i> --}}
                             </button>
                             <a href="#modal" ng-if="row.memo.length==0">             </a>
                         </td>
-                        <td class="edit col-md-2">
+                        <td class="edit col-md-3">
                             <span class="tool_wrapper">
                                 <button class="btn-custom" href=""
                                         ui-sref="base.department_doctor({hid: row.id})">
