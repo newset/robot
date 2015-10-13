@@ -115,7 +115,7 @@
                         templateUrl : shot('seg/department_form')
                     })
                     .state('base.department.edit',{//编辑科室
-                        url : '/edit/:did',
+                        url : '/edit?did',
                         controller:'CDepartmentEdit',
                         templateUrl : shot('seg/department_edit_form')
                     })

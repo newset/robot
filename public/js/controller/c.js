@@ -284,10 +284,12 @@
         .controller('CDepartmentEdit',[
               '$scope',
                 'H',
+                '$state',
                 'SDepartment',
               '$stateParams',
               function($scope,
               H,
+              $state,
               SDepartment,
               $stateParams){
               $scope.department_id=parseInt($stateParams.did);
@@ -300,17 +302,21 @@
                         $scope.department_old = r.data.d.main[0];
                         $scope.department=angular.copy($scope.department_old);
                         $scope.hospital_id=$scope.department.hospital_id;
-                        console.log($scope.department_old);
                   });
-                $scope.cancel=function(){
+                $scope.cancel=function(){//重置
                          $scope.department.name=$scope.department_old.name;
                           $scope.department.username=$scope.department_old.username;
                           $scope.department.password=$scope.department_old.password;
                           $scope.department.memo=$scope.department_old.memo;
                   };
-                $scope.submit=function(){
+                $scope.submit=function(){//编辑
                           console.log($scope.department);
                           SDepartment.cu($scope.department);
+                          $state.go('base.department_doctor',{hid:$scope.hospital_id});//返回医院详情页
+                };
+                $scope.delete=function(){//删除科室
+                        SDepartment.d($scope.department.id);
+                        $state.go('base.department_doctor',{hid:$scope.hospital_id});//返回医院详情页
                 };
         }])
         .controller('CPageAgency',
