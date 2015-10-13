@@ -36,7 +36,7 @@ class IRobot extends BaseModel
     //    //$this->get_lease_type($d[0]['id']);
     //}
 
-    public function r() {
+    public function nr() {
         $sql = 'select * from i_robot left join i_robot_lease_log on i_robot.id = i_robot_lease_log.robot_id left join i_robot_log on i_robot.id = i_robot_log.robot_id
 left join i_agency on i_robot_lease_log.agency_id = i_agency.id where 1=1 ';
         $where = [];
@@ -175,6 +175,20 @@ left join i_agency on i_robot_lease_log.agency_id = i_agency.id where 1=1 ';
     {
         return $this->hasMany('App\Models\IRobotLog', 'robot_id');
     }
+
+    // todo
+    // public function usedMark()
+    // {
+    //     return $this->hasMany('App\Models\IMark', 'robot_id')->where('');
+    // }
+
+    // /**
+    //  * 关联机器人记录 -- 最新
+    //  */
+    // public function robotLogNow()
+    // {
+    //     return $this->hasMany('App\Models\IRobotLog', 'robot_id')->where('');
+    // }
 
     /**
      * 关联机器人销售记录

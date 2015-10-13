@@ -23,9 +23,11 @@ class BaseModel extends Model
     public $createRule = [];
     public $updateRule = [];
 
-    public function __construct()
+    public function __construct($prefix = 'i')
     {
-        $this->table = table_name($this->ins_name);
+        $this->table = table_name($this->ins_name, $prefix);
+
+        // dd($this->table, $prefix);
     }
 
     /**
@@ -242,6 +244,16 @@ class BaseModel extends Model
             {
                 $builder = $builder->where($k, 'like', '%'.$v.'%');
             }
+        }
+
+        // whereIn
+         if ( ! empty(rq('whereIn')))
+        {
+            $where = $rq['whereIn'];
+            foreach ($where as $k => $v)
+            {
+                $builder = $builder->where($k, 'in', $v);
+            }
 
         }
 
@@ -305,6 +317,11 @@ class BaseModel extends Model
         $rq = rq();
         $default_limit = 50;
 
+        if (rq('id'))
+        {
+            $ret = $builder->findOrFail($rq['id']);
+        }
+
         if ( ! empty(rq('pagination')))
         {
             $limit = ! empty(rq('limit')) ? $rq['limit'] : $default_limit;
@@ -324,11 +341,6 @@ class BaseModel extends Model
                 $builder = $builder->take($rq['limit']);
         } else
             $builder = $builder->take($default_limit);
-
-        if (rq('id'))
-        {
-            $ret = $builder->findOrFail($rq['id']);
-        }
 
         return $builder;
     }
@@ -353,7 +365,8 @@ class BaseModel extends Model
         //$date_fields = $this->get_all_date_type($main);
         $r = [
             'main'  => $main,
-            'count' => $count
+            'count' => $count,
+            'table' => $this->table
         ];
 
         return ss($r);

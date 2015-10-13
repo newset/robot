@@ -21,6 +21,14 @@ class IRobotLeaseLog extends BaseModel
     }
 
     /**
+     * 关联医院
+     */
+    public function hospital()
+    {
+        return $this->belongsToMany('App\Models\IHospital', 'hospital_id');
+    }
+
+    /**
      * 关联机器人
      */
     public function robot()

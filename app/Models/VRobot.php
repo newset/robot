@@ -14,4 +14,14 @@ class VRobot extends IRobot
     {
         $this->table = table_name($this->ins_name, 'v');
     }
+
+    public function lastAgency()
+    {
+    	return $this->belongsTo('App\Models\IAgency', 'agency_id');
+    }
+
+    public function lastHospital()
+    {
+    	return $this->belongsTo('App\Models\IHospital', 'hospital_id');
+    }
 }

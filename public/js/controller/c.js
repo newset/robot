@@ -209,10 +209,10 @@
                 SDoctor.show_search_panel = $stateParams.with_search;
                 h.prepare_location_data();
 
-                $scope.$watch('cond', function()
-                {
-                    SDoctor.refresh();
-                }, true)
+                // $scope.$watch('cond', function()
+                // {
+                //     SDoctor.refresh();
+                // }, true)
             }
         ])
 
@@ -312,6 +312,7 @@
                 $scope.SIns.cond.where.hospital_id = $stateParams.hid;
                 SRobot.init();
                 $scope.cond = SRobot.cond;
+
                 $scope.with_search = $stateParams.with_search;
                 h.prepare_location_data();
 
@@ -358,6 +359,11 @@
                         console.log('创建成功: ', res.data.d);
                     });
                 }
+
+        }])
+        .controller('CPageRobotDetail', ['$scope', 'sIns', function ($scope, sIns) {
+            $scope.SIns = sIns;
+
 
         }])
         .controller('CPageMark',
