@@ -2,7 +2,7 @@
 编辑科室页面
 router:base.department.new
 url: /#/department/new
-controller:CPageDepartment
+controller:CDepartmentEdit
 --}}
 <div class="panel panel-default">
     <div class="panel-body black-border">
@@ -17,7 +17,7 @@ controller:CPageDepartment
     </div>
 </div>
 <br/>
-<form ng-submit="SIns.cu(department)" class="form-horizontal">
+<form name="form_department" class="form-horizontal">
     {{-- <span ng-if="department.hospital_id" ng-repeat="h in SIns.all_hospital | filter: {id: department.hospital_id}:true">医院：[:h.name:]</span> --}}
     <div class="form-group">
         <label class="control-label col-md-2">科室名</label>
@@ -60,9 +60,10 @@ controller:CPageDepartment
         </div>
     </div>
     <div class="form-group">
-        <div class="col-md-2 col-md-offset-10" ng-controller="CPageDepartment as cPageDepartment">
-            <button  class="btn-custom  " ng-disabled="form_hospital.$invalid" ng-click="SIns.cu(department)">提交</button>
-            <button  class="btn-custom  " ng-disabled="form_hospital.$invalid" ng-click="SIns.cu(department)">提交</button>
+        <div class="col-md-3 col-md-offset-9">
+            <button  class="btn-custom-delete  " ng-disabled="form_department.$invalid" ng-click="delete()">删除该科室</button>
+            <button  class="btn-custom  " ng-disabled="form_department.$invalid" ng-click="cancel()">取消</button>
+            <button  class="btn-custom  " ng-disabled="form_department.$invalid" ng-click="submit()">提交</button>
         </div>
     </div>
     <br/>
