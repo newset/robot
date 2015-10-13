@@ -238,7 +238,7 @@
             }
         ])
     //医院详情controller
-  .controller('HospitalDetailController',
+  .controller('CHospitalDetail',
   [
       '$scope',
       'SBase',
@@ -256,12 +256,50 @@
         $scope.departments={};
         $scope.doctors={};
 
+        //获取医院信息
         H.p(cook('hospital/r'), {'limit': 0, 'order_by': 'id','id':
               $scope.hospital_id}).then(function (r){
                 $scope.hospital = r.data.d.main[0];
-                console.log($scope.hospital);
           });
+        //获取科室
+        H.p(cook('department/r'), {'limit': 0, 'order_by': 'id',
+                where:{'hospital_id': $scope.hospital_id}
+                }).then(function (r){
+                $scope.departments = r.data.d.main;
+          });
+        //获取医生
+        H.p(cook('doctor/r'), {'limit': 0, 'order_by': 'id',
+                where:{'hospital_id': $scope.hospital_id}
+              }).then(function (r){
+                $scope.doctors = r.data.d.main;
+                  console.log(($scope.doctors));
+          });
+        $scope.delete_department=function(department){
+          console.log(department);
+              SDepartment.d(department.id);
+            $scope.departments.splice($scope.departments.indexOf(department), 1);
+      };
       }])
+
+        .controller('CDepartmentEdit',[
+              '$scope',
+                'H',
+              '$stateParams',
+              function($scope,
+              H,
+              $stateParams){
+              $scope.department_id=parseInt($stateParams.did);
+              $scope.department={};
+
+                //获取科室
+                H.p(cook('department/r'), {'limit': 0, 'order_by': 'id',
+                        where:{'id': $scope.department_id}
+                        }).then(function (r){
+                        $scope.department = r.data.d.main[0];
+                        $scope.hospital_id=$scope.department.hospital_id;
+                        console.log($scope.department);
+                  });
+        }])
         .controller('CPageAgency',
         [
             '$scope',

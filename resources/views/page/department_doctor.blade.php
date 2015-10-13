@@ -7,7 +7,7 @@ controller:CPageDepartment
         <div class="panel-body black-border">
             <div class="row col-md-12">
                 <div class="col-md-6">
-                    <span>当前医院:</span>
+                    <span>当前医院: [:hospital.name:] (编号 [:hospital.id:])</span>
                 </div>
                 <div class="col-md-2　col-md-offset-10 pull-right">
                     <button class=" btn-custom black-border"
@@ -18,40 +18,6 @@ controller:CPageDepartment
         </div>
     </div>
     <div role="grid" id="example_wrapper"         class="dataTables_wrapper form-inline no-footer"    >
-        <div class="row col-md-12 search_panel" ng-if="SIns.show_search_panel">
-            <form>
-                <div class="form-group">
-                    <input class="form-control"
-                           ng-model-options="{debounce: 300}"
-                           ng-model="search_by.id"
-                           placeholder="编号搜索">
-                    <input class="form-control"
-                           ng-model="search_by.r_doctor"
-                           placeholder="医生">
-                    <input class="form-control"
-                           ng-model="search_by.name"
-                           placeholder="名称">
-                </div>
-                <div class="form-group">
-                    <select class="form-control"
-                            name="province_id"
-                            ng-model="search_by.province_id"
-                            ng-options="l.id as l.name for l in SBase._.location.province"
-                            required>
-                        <option value="" selected>所在省份</option>
-                    </select>
-                    <select class="form-control"
-                            ng-model="search_by.city_id"
-                            ng-options="l.id as l.name for l in SBase._.location.city
-                                        | filter: {parent_id: search_by.province_id}"
-                            name="province"
-                            required>
-                        <option value="" selected>所在市区</option>
-                    </select>
-                </div>
-            </form>
-        </div>
-
         <table
             id="example"
             class="table table-striped table-bordered dataTable no-footer"
@@ -64,23 +30,23 @@ controller:CPageDepartment
                     <th>科室名</th>
                     <th>人员数量</th>
                     <th>登录名</th>
-                    <th>操作</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="odd" ng-repeat="row in doctors | orderBy: row.id ">
+                <tr class="odd" ng-repeat="row in departments | orderBy: row.id ">
                     {{--<td class="sorting_1">[:row.id:]</td>--}}
                     <td>[:row.name:]</td>
                     <td>[:row.doctor.length:]</td>
                     <td>[:row.username:]</td>
                     <td class="row col-md-2">
-                            <button class="btn-custom-delete "  ng-click="SIns.d(row.id)">删除</button>
-                            <button class="btn-custom" ng-click="SIns.popup_edit(row)">  编辑  </button>
+                            <button class="btn-custom-delete "  ng-click="delete_department(row)">删除</button>
+                            <button class="btn-custom" ui-sref="base.department.edit({did: row.id})">  编辑  </button>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <div ng-if="!SIns.current_page_data.length">暂无结果</div>
+        <div ng-if="departments.length<=0">暂无结果</div>
 
         {{--<div class="row pagination_wrapper">--}}
         {{--<pagination max-size="10"--}}
@@ -132,24 +98,6 @@ controller:CPageDepartment
                         <option value="" selected>所在市区</option>
                     </select>
                 </div>
-                {{--<div class="form-group">--}}
-                {{--<div>--}}
-                {{--代理类型：--}}
-
-                {{--<label for="agency_type_any">不限--}}
-                {{--<input id="agency_type_any" type="radio" name="agency_type" value="1"--}}
-                {{--checked>--}}
-                {{--</label>--}}
-
-                {{--<label for="agency_type_self">自营--}}
-                {{--<input id="agency_type_self" type="radio" name="agency_type" value="2">--}}
-                {{--</label>--}}
-
-                {{--<label for="agency_type_agency">代理--}}
-                {{--<input id="agency_type_agency" type="radio" name="agency_type" value="3">--}}
-                {{--</label>--}}
-                {{--</div>--}}
-                {{--</div>--}}
             </form>
         </div>
         <div class="row">
@@ -180,13 +128,16 @@ controller:CPageDepartment
                     <th>授权码</th>
                     <th>电话</th>
                     <th>Email</th>
-                    <th>操作</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="odd"  ng-repeat="row in doctors | orderBy: row.id ">
-                    <td ng-repeat="t in SIns.status_type | filter:{'id':  row.status}:true">
-                        [:t.name:]
+                    <td ng-switch="row.status">
+                        <span ng-switch-when="1">未培训</span>
+                        <span ng-switch-when="2">已毕业</span>
+                        <span ng-switch-when="3">绑定微信</span>
+                        <span ng-switch-when="4">禁用</span>
                     </td>
                     <td>[:row.name:]</td>
                     <td>
@@ -200,16 +151,16 @@ controller:CPageDepartment
                     <td>[:row.email:]</td>
                     <td class="edit col-md-1">
                         <span class="tool_wrapper">
-                            <button class="btn btn-default" href="" ng-click="SIns.popup_edit(row)">
+                            <button class="btn-custom" href="" ng-click="SIns.popup_edit(row)">
                                 编辑
                             </button>
-                            <span href="" class="curp delete"  ng-click="SIns.d(row.id)">删除</span>
+                            {{-- <span href="" class="btn-custom-delete"  ng-click="SIns.d(row.id)">删除</span> --}}
                         </span>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <div ng-if="!SIns.current_page_data.length">暂无结果</div>
+            <div ng-if="doctors.length<=0">暂无结果</div>
         {{-- <div class="row pagination_wrapper">
         <pagination max-size="10"
         boundary-links="true"

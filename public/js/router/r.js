@@ -100,7 +100,7 @@
                     })
                     .state('base.department_doctor',
                     {//医院详情页
-                        controller:'HospitalDetailController',
+                        controller:'CHospitalDetail',
                         url: '/department_doctor?page_num&limit&with_search&hid',
                         templateUrl: shot('page/department_doctor'),
                     })
@@ -115,7 +115,8 @@
                         templateUrl : shot('seg/department_form')
                     })
                     .state('base.department.edit',{//编辑科室
-                        url : '/edit/:hid',
+                        url : '/edit/:did',
+                        controller:'CDepartmentEdit',
                         templateUrl : shot('seg/department_edit_form')
                     })
                     .state('base.agency',
