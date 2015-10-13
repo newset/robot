@@ -436,3 +436,11 @@ background-color: #cccccc;
 .table>tbody>tr>td{
 vertical-align: inherit;
 }
+.btn-custom-delete{
+/*删除按钮*/
+  border:1px solid black;
+  border-radius: 0px;
+  color:black;
+  background-color: pink;
+  padding: 1px 20px;
+}

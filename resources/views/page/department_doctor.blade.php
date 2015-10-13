@@ -1,4 +1,7 @@
-{{-- 医院详情页 --}}
+{{-- 医院详情页
+router:
+controller:CPageDepartment
+--}}
 <section id="main-content">
     <div class="panel panel-default">
         <div class="panel-body black-border">
@@ -7,15 +10,14 @@
                     <span>当前医院:</span>
                 </div>
                 <div class="col-md-2　col-md-offset-10 pull-right">
-                    <button class=" btn-custom black-border"  ng-click="SIns.popup_edit(null)">新建科室</button>
+                    <button class=" btn-custom black-border"
+                        href="#/department/new" ui-sref-opts="{reload:true}" ui-sref="base.department.new" title="新建科室">新建科室</button>
                     <button class="btn-custom  black-border"  ng-click="SIns.popup_edit(null)">新建医生  </button>
                 </div>
             </div>
         </div>
     </div>
-    <div role="grid" id="example_wrapper"
-         class="dataTables_wrapper form-inline no-footer"
-         ng-controller="CPageDepartment as cPageDepartment">
+    <div role="grid" id="example_wrapper"         class="dataTables_wrapper form-inline no-footer"    >
         <div class="row col-md-12 search_panel" ng-if="SIns.show_search_panel">
             <form>
                 <div class="form-group">
@@ -47,34 +49,12 @@
                         <option value="" selected>所在市区</option>
                     </select>
                 </div>
-                {{--<div class="form-group">--}}
-                {{--<div>--}}
-                {{--代理类型：--}}
-
-                {{--<label for="agency_type_any">不限--}}
-                {{--<input id="agency_type_any" type="radio" name="agency_type" value="1"--}}
-                {{--checked>--}}
-                {{--</label>--}}
-
-                {{--<label for="agency_type_self">自营--}}
-                {{--<input id="agency_type_self" type="radio" name="agency_type" value="2">--}}
-                {{--</label>--}}
-
-                {{--<label for="agency_type_agency">代理--}}
-                {{--<input id="agency_type_agency" type="radio" name="agency_type" value="3">--}}
-                {{--</label>--}}
-                {{--</div>--}}
-                {{--</div>--}}
             </form>
         </div>
 
         <table
             id="example"
-            class="table
-                   table-striped
-                   table-bordered
-                   dataTable
-                   no-footer"
+            class="table table-striped table-bordered dataTable no-footer"
             cellspacing="0"
             width="100%"
             aria-describedby="example_info"
@@ -88,14 +68,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="odd"
-                    ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
+                <tr class="odd" ng-repeat="row in doctors | orderBy: row.id ">
                     {{--<td class="sorting_1">[:row.id:]</td>--}}
                     <td>[:row.name:]</td>
                     <td>[:row.doctor.length:]</td>
                     <td>[:row.username:]</td>
                     <td class="row col-md-2">
-                            <button class="btn-custom "  ng-click="SIns.d(row.id)">删除</button>
+                            <button class="btn-custom-delete "  ng-click="SIns.d(row.id)">删除</button>
                             <button class="btn-custom" ng-click="SIns.popup_edit(row)">  编辑  </button>
                     </td>
                 </tr>
@@ -205,8 +184,7 @@
                 </tr>
             </thead>
             <tbody>
-
-                <tr class="odd"  ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
+                <tr class="odd"  ng-repeat="row in doctors | orderBy: row.id ">
                     <td ng-repeat="t in SIns.status_type | filter:{'id':  row.status}:true">
                         [:t.name:]
                     </td>
@@ -225,8 +203,7 @@
                             <button class="btn btn-default" href="" ng-click="SIns.popup_edit(row)">
                                 编辑
                             </button>
-                            <span href="" class="curp delete"
-                                  ng-click="SIns.d(row.id)">删除</span>
+                            <span href="" class="curp delete"  ng-click="SIns.d(row.id)">删除</span>
                         </span>
                     </td>
                 </tr>

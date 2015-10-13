@@ -1,4 +1,8 @@
-{{-- 医院列表页 --}}
+{{-- 医院列表页
+router:
+controller:CPageHospital
+url:
+ --}}
 <section id="main-content">
     <!--tiles start-->
     <div class="row">

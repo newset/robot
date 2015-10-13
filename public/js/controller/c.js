@@ -170,19 +170,16 @@
                 $scope.SIns = SHospital;
                 $scope.SIns.init();
                 $scope.condTmp = $scope.SIns.cond;
+
                 $scope.SIns.show_search_panel = $stateParams.with_search;
                 h.prepare_location_data();
                 $scope.hospitalQuery=function(){
                         //人工点击的时候才对被监视的条件变量进行深拷贝，实现搜索
-                       $scope.cond=JSON.parse(JSON.stringify($scope.condTmp));//深拷贝
-                };
-
-                $scope.equalsId=function(a,b){
-                    return a==b;
+                        $scope.cond=JSON.parse(JSON.stringify($scope.condTmp));//深拷贝
                 };
                 $scope.$watch('cond', function()
                 {
-                    SHospital.refresh();
+                    $scope.SIns.refresh();
                 }, true)
             }
         ])
@@ -191,7 +188,7 @@
         [
             '$scope',
             'SBase',
-            'SDoctor',
+            'sDoctor',
             'h',
             '$stateParams',
             function ($scope,
@@ -203,19 +200,15 @@
             {
                 $scope.SBase = SBase;
                 $scope.SIns = SDoctor;
+                console.log('sDoctor', SDoctor);
+                // 根据医院进行筛选
                 $scope.SIns.cond.where.hospital_id = $stateParams.hid;
                 SDoctor.init();
                 $scope.cond = SDoctor.cond;
-                SDoctor.show_search_panel = $stateParams.with_search;
-                h.prepare_location_data();
-
-                $scope.$watch('cond', function()
-                {
-                    SDoctor.refresh();
-                }, true)
+                // h.prepare_location_data();
             }
         ])
-
+          //科室controller
         .controller('CPageDepartment',
         [
             '$scope',
@@ -244,7 +237,31 @@
                 }, true)
             }
         ])
+    //医院详情controller
+  .controller('HospitalDetailController',
+  [
+      '$scope',
+      'SBase',
+      'SDepartment',
+      'h',
+      'H',
+      '$stateParams',
+      function ($scope,
+                SBase,
+                SDepartment,
+                h,H,
+                $stateParams ){
+        $scope.hospital_id=parseInt($stateParams.hid);
+        $scope.hospital={};
+        $scope.departments={};
+        $scope.doctors={};
 
+        H.p(cook('hospital/r'), {'limit': 0, 'order_by': 'id','id':
+              $scope.hospital_id}).then(function (r){
+                $scope.hospital = r.data.d.main[0];
+                console.log($scope.hospital);
+          });
+      }])
         .controller('CPageAgency',
         [
             '$scope',
