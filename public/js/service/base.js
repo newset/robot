@@ -226,7 +226,7 @@
                 function refresh()
                 {
                     h.prepare_cond.call(me);
-                    return H.p(cook(me.ins_name + '/r'),
+                    return H.p(cook(me.ins_name + '/nr'),
                         me.cond)
                         .then(function (r)
                         {

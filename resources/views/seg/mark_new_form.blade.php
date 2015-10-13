@@ -48,7 +48,7 @@
             </div>
             <div class="form-group">
                 <textarea ng-model="SIns.cu_bat_data.mark_block"
-                          class="form-control"
+                          class="form-control mt20"
                           rows="12"
                           name="mark_list"
                           style="width:100%" 
