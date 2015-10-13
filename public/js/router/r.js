@@ -113,6 +113,10 @@
                         url : '/new',
                         templateUrl : shot('seg/department_form')
                     })
+                    .state('base.department.edit',{//编辑科室
+                        url : '/edit',
+                        templateUrl : shot('seg/department_edit_form')
+                    })
                     .state('base.agency',
                     {
                         url: '/agency?page_num&limit&with_search',
