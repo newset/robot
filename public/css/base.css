@@ -362,7 +362,7 @@ padding: 0em;
 }
 .panel-default > .panel-heading {
     border-color: #eff2f7;
-    background: #CCCCCC;
+    /*background: #CCCCCC;*/
     color: #767676;
 }
 /**
@@ -373,7 +373,7 @@ padding: 0em;
     width: 300px!important;
 }
 .panel-title {
-    text-align: center;
+    /*text-align: center;*/
   color:#000;
 }
 .ngdialog.ngdialog-theme-default .ngdialog-close:before {
@@ -426,7 +426,7 @@ border-right: 1px solid black;
   padding: 1px 20px;
 }
 thead{
-background-color: #808080;
+background-color: #cccccc;
 }
 .table>tbody>tr>td{
 vertical-align: inherit;
