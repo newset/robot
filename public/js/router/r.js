@@ -88,7 +88,7 @@
                         controller : 'CPageRobotDetail as ctrl',
                         resolve : {
                             sIns : function(SRobot, $stateParams){
-                                return SRobot.h.r($stateParams.id, SRobot, ['robotLog', 'robotLeaseLog', 'employee', 'lastAgency', 'lastHospital']).then(function(){
+                                return SRobot.h.r($stateParams.id, SRobot, ['robotLog.employee', 'robotLeaseLog.agency', 'robotLeaseLog.hospital', 'employee', 'lastAgency', 'lastHospital']).then(function(){
                                     return SRobot;
                                 });
                             }

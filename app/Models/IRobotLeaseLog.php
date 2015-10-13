@@ -17,7 +17,7 @@ class IRobotLeaseLog extends BaseModel
      */
     public function agency()
     {
-        return $this->belongsToMany('App\Models\IAgency', 'agency_id');
+        return $this->belongsTo('App\Models\IAgency', 'agency_id');
     }
 
     /**
@@ -25,7 +25,7 @@ class IRobotLeaseLog extends BaseModel
      */
     public function hospital()
     {
-        return $this->belongsToMany('App\Models\IHospital', 'hospital_id');
+        return $this->belongsTo('App\Models\IHospital', 'hospital_id');
     }
 
     /**

@@ -125,6 +125,17 @@
                     }
                 ];
 
+                me.robot_fix_type = [
+                    {
+                        id : 1,
+                        name : 'USB数据导出损坏'
+                    },
+                    {
+                        id : 2,
+                        name : '客户报修'
+                    }
+                ]
+
                 me.status = get_status;
 
                 me.cu_ = function ()
