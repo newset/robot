@@ -60,9 +60,9 @@
                                                ng-model="SIns.cond.where_has.doctor.name"
                                                placeholder="">
                                     </div>
-                                                            <div class="col-md-1 pull-right">
-                                                                    <button class="btn btn-default fr" ng-click="hospitalQuery()">查询</button>
-                                                            </div>
+                                    <div class="col-md-1 pull-right">
+                                        <button class="btn btn-default fr" ng-click="hospitalQuery()">查询</button>
+                                    </div>
                                 </div>
 
                                 {{--<div class="form-group">--}}
@@ -96,11 +96,11 @@
                             <th>编号</th>
                             <th>地区</th>
                             <th>医院名称</th>
+                            <th>科室</th>
                             <th>医生</th>
-                            <th>科室数</th>
-                            <th>代理数</th>
+                            <th>代理商</th>
                             <th>备注</th>
-                            <th>操作</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -112,8 +112,8 @@
                                 <span ng-repeat="l in SBase._.location.city |filter:{id: row.city_id }:equalsId">[:l.name :]</span>
                             </td>
                             <td>[:row.name:]</td>
-                            <td>[:row.doctor.length:]</td>
                             <td>[:row.department.length:]</td>
+                            <td>[:row.doctor.length:]</td>
                             <td>[:row.agency.length:]</td>
                             <td title="[:row.memo:]" >
                                 <button href="" ng-if="row.memo.length>0"  ng-click="SIns.popup_edit(row,1)">
