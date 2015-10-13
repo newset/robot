@@ -85,7 +85,7 @@
                         me.cond)
                         .then(function (r)
                         {
-                            if (!me.total_items)
+                            // if (!me.total_items)//带条件查询时，导航条不更新
                                 me.total_items = r.data.d.count;
                             me.current_page_data = r.data.d.main;
                             console.log('me.current_page_data: ', me.current_page_data);

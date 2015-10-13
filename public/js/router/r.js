@@ -136,12 +136,13 @@
                         // templateUrl: shot('page/agency'),
                         template : '<div ui-view></div>'
                     })
-                    .state('base.agency.new', {
+                    .state('base.agency.new', {//新建代理商
                         url : '/new',
                         templateUrl : shot('page/agency_new')
                     })
-                    .state('base.agency.list', {
+                    .state('base.agency.list', {//代理商查询页
                         url : '/list',
+                        controller:'CPageAgency',
                         templateUrl: shot('page/agency'),
                     })
                     .state('base.employee',

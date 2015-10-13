@@ -17,7 +17,7 @@ url:
                 </div>
                 <div class="panel-body">
                     <div role="grid" id="example_wrapper" class="dataTables_wrapper form-inline no-footer">
-                        <div class="row col-md-12 search_panel" ng-if="SIns.show_search_panel">
+                        <div class="row col-md-12 search_panel" ng-if="SIns.with_search">
                             <form class="collapse form-horizontal" id="form_query">
                                 <div class="form-group">
                                     <label class="control-label col-md-1">编号</label>
@@ -66,7 +66,7 @@ url:
                                                placeholder="">
                                     </div>
                                     <div class="col-md-1 pull-right">
-                                        <button class="btn-custom" ng-click="hospitalQuery()">查询</button>
+                                        <button class="btn-custom" ng-click="SIns.refresh()">查询</button>
                                     </div>
                                 </div>
                             </form>
@@ -130,8 +130,8 @@ url:
                         {{--boundary-links="true"--}}
                         total-items="SIns.total_items"
                         items-per-page="SIns.items_per_page"
-                        ng-model="SIns.condTmp.pagination"
-                        ng-change="SIns.change_page(SIns.condTmp.pagination)"
+                        ng-model="SIns.cond.pagination"
+                        ng-change="SIns.change_page(SIns.cond.pagination)"
                         class="pagination-md"
                         previous-text="<"
                         next-text=">"

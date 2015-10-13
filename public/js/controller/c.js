@@ -169,18 +169,13 @@
                 $scope.SBase = SBase;
                 $scope.SIns = SHospital;
                 $scope.SIns.init();
-                $scope.condTmp = $scope.SIns.cond;
-
+                $scope.cond = $scope.SIns.cond;
                 $scope.SIns.show_search_panel = $stateParams.with_search;
                 h.prepare_location_data();
-                $scope.hospitalQuery=function(){
-                        //人工点击的时候才对被监视的条件变量进行深拷贝，实现搜索
-                        $scope.cond=JSON.parse(JSON.stringify($scope.condTmp));//深拷贝
-                };
-                $scope.$watch('cond', function()
+                if($stateParams.with_search)
                 {
-                    $scope.SIns.refresh();
-                }, true)
+                    SHospital.with_search = 1;
+                }
             }
         ])
 
@@ -304,10 +299,7 @@
                         $scope.hospital_id=$scope.department.hospital_id;
                   });
                 $scope.cancel=function(){//重置
-                         $scope.department.name=$scope.department_old.name;
-                          $scope.department.username=$scope.department_old.username;
-                          $scope.department.password=$scope.department_old.password;
-                          $scope.department.memo=$scope.department_old.memo;
+                        $scope.department=angular.copy($scope.department_old);
                   };
                 $scope.submit=function(){//编辑
                           console.log($scope.department);
@@ -319,6 +311,8 @@
                         $state.go('base.department_doctor',{hid:$scope.hospital_id});//返回医院详情页
                 };
         }])
+
+//代理商查询/列表
         .controller('CPageAgency',
         [
             '$scope',
