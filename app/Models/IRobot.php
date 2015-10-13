@@ -37,12 +37,11 @@ class IRobot extends BaseModel
     //}
 
     public function nr() {
-        $sql = 'select * from i_robot left join i_robot_lease_log on i_robot.id = i_robot_lease_log.robot_id left join i_robot_log on i_robot.id = i_robot_log.robot_id
-left join i_agency on i_robot_lease_log.agency_id = i_agency.id where 1=1 ';
+        $sql = 'select v_robot.*,i_hospital.name as hospital_name, i_agency.name as agency_name, i_employee.name as employee_name from v_robot left join i_agency on v_robot.agency_id = i_agency.id left join i_hospital on v_robot.agency_id = i_hospital.id left join i_employee on v_robot.employee_id=i_employee.id where 1=1';
         $where = [];
 
         if(Input::has("where.cust_id")) {
-            $sql .= ' and i_robot.cust_id like "%'.Input::get('where.cust_id').'%"';
+            $sql .= ' and v_robot.cust_id like "%'.Input::get('where.cust_id').'%"';
             //$where[] = Input::get('where.cust_id');
         }
         if(Input::has("where.province_id")) {
@@ -58,32 +57,32 @@ left join i_agency on i_robot_lease_log.agency_id = i_agency.id where 1=1 ';
         if(Input::has("where.lease_type_id") && !empty($lease_type_id)) {
             $id = array_map('intval',$lease_type_id);
             $id = implode(",",$id);
-            $sql .= ' and i_robot_lease_log.lease_type_id in ('.$id.')';
+            $sql .= ' and v_robot.lease_type_id in ('.$id.')';
         }
 
         $action_type_id = Input::get('where.action_type_id');
         if(Input::has("where.action_type_id") && !empty($action_type_id)) {
             $id = array_map('intval',$action_type_id);
             $id = implode(",",$id);
-            $sql .= ' and i_robot_log.action_type_id in ('.$id.')';
+            $sql .= ' and v_robot.action_type_id in ('.$id.')';
         }
 
         if(Input::has("where.agency_id")) {
-            $sql .= ' and i_robot_lease_log.agency_id = ?';
+            $sql .= ' and v_robot.agency_id = ?';
             $where[] = Input::get('where.agency_id');
         }
         if(Input::has("where.hospital_id")) {
-            $sql .= ' and i_robot_lease_log.hospital_id = ?';
+            $sql .= ' and v_robot.hospital_id = ?';
             $where[] = Input::get('where.hospital_id');
         }
 
         if(Input::has('where.created_start') && Input::has("where.created_end")) {
-            $sql .= ' and production_date between (?,?)';
+            $sql .= ' and v_robot.production_date between (?,?)';
             $where[] = Input::get('where.created_start');
             $where[] = Input::get('where.created_end');
         }
 
-        $sql .= ' group by i_robot.cust_id';
+        $sql .= ' group by v_robot.cust_id';
 
         $pagination = Input::get("pagination",1);
         $offset = 0;

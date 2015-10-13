@@ -144,8 +144,6 @@
                                         <td>[:row.cust_id:]</td>
                                         <td>
                                             <span>[: SIns.robot_action_type[row.action_type_id - 1].name:]</span>
-
-                                            [:row.action_type_id:]
                                         </td>
                                         <td>
                                             <span ng-if="!row.lease_type_id">-</span>
@@ -158,13 +156,13 @@
                                         {{--</td>--}}
                                         <td>
                                             <span ng-if="!row.log_lease_agency_id">-</span>
-                                            <span ng-repeat="rec in SHospital.all_rec | where:{id: row.log_lease_hospital_id}:true">[: rec.name :]</span>
+                                            <span >[: row.agency_name :]</span>
                                         </td>
                                         <td>
                                             <span ng-if="!row.log_lease_agency_id">-</span>
-                                            <span ng-repeat="rec in SAgency.all_rec | where:{id: row.log_lease_agency_id}:true">[: rec.name :]</span>
+                                            <span>[: row.hospital_name :]</span>
                                         </td>
-                                        <td>[:row.employee.name:]</td>
+                                        <td>[:row.employee_name:]</td>
                                         <td>[:row.robot_lease_log.length:]</td>
                                         <td class="edit col-md-2">
                                             <span class="tool_wrapper">

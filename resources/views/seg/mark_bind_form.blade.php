@@ -34,9 +34,9 @@
                    name="bind_amount"
                    required>
         </div>
-        <div class="form-group col-md-12">
+        <div class="form-group">
             <textarea ng-model="SIns.cu_bat_data.mark_block"
-                      class="form-control col-md-12"
+                      class="form-control col-md-12 mt20"
                       rows="10"
                       name="mark_list"
                       style="width:100%" 
