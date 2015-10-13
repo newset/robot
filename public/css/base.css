@@ -428,3 +428,6 @@ border-right: 1px solid black;
 thead{
 background-color: #808080;
 }
+.table>tbody>tr>td{
+vertical-align: inherit;
+}
