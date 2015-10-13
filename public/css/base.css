@@ -365,6 +365,11 @@ padding: 0em;
     /*background: #CCCCCC;*/
     color: #767676;
 }
+.panel-default > .panel-heading-border {
+    border-color: black;
+    /*background: #CCCCCC;*/
+    color: #767676;
+}
 /**
  * datepicker
  */

@@ -103,6 +103,16 @@
                         url: '/department_doctor?page_num&limit&with_search&hid',
                         templateUrl: shot('page/department_doctor'),
                     })
+                    .state('base.department',
+                    {
+                        url: '/department',
+                        //controller: 'CPagedepartment as cPagedepartment',
+                        template: '<div ui-view></div>',
+                    })
+                    .state('base.department.new',{//新建科室
+                        url : '/new',
+                        templateUrl : shot('seg/department_form')
+                    })
                     .state('base.agency',
                     {
                         url: '/agency?page_num&limit&with_search',
