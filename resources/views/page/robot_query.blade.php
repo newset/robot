@@ -6,7 +6,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">查询条件</h3>
                     <div class="actions pull-right">
-                        <i class="fa fa-chevron-down" i-toggle data-toggle="collapse" data-target="#robot_query" aria-expanded="false" aria-controls="collapseExample"></i>
+                        <i class="fa fa-chevron-down" i-toggle data-toggle="collapse" data-target="#robot_query" aria-expanded="true" aria-controls="collapseExample"></i>
                     </div>
                 </div>
                 <div class="panel-body">
@@ -45,17 +45,17 @@
 
                                 <div class="form-group">
                                     <label class="control-label col-md-1">销售状态</label>
-                                    <label class="checkbox-inline"><input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.lease_type_id[0]">在库</label>
-                                    <label class="checkbox-inline"><input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.lease_type_id[1]">已租出</label>
-                                    <label class="checkbox-inline"><input type="checkbox" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.lease_type_id[2]">已售出</label>
-                                    <label class="checkbox-inline"><input type="checkbox" value="number:4" ng-true-value="4" ng-model="SIns.cond.where.lease_type_id[3]">免费合作中</label>
+                                    <label class="checkbox-inline"><input type="checkbox" value="1" ng-true-value="1" ng-model="SIns.cond.where.lease_type_id[0]">在库</label>
+                                    <label class="checkbox-inline"><input type="checkbox" value="2" ng-true-value="2" ng-model="SIns.cond.where.lease_type_id[1]">已租出</label>
+                                    <label class="checkbox-inline"><input type="checkbox" value="3" ng-true-value="3" ng-model="SIns.cond.where.lease_type_id[2]">已售出</label>
+                                    <label class="checkbox-inline"><input type="checkbox" value="4" ng-true-value="4" ng-model="SIns.cond.where.lease_type_id[3]">免费合作中</label>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label col-md-1">设备状态</label>
-                                    <label class="checkbox-inline"><input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.action_type_id[0]">正常</label>
-                                    <label class="checkbox-inline"><input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.action_type_id[1]">维修</label>
-                                    <label class="checkbox-inline"><input type="checkbox" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.action_type_id[2]">作废</label>
+                                    <label class="checkbox-inline"><input type="checkbox" value="1" ng-true-value="1" ng-model="SIns.cond.where.action_type_id[0]">正常</label>
+                                    <label class="checkbox-inline"><input type="checkbox" value="2" ng-true-value="2" ng-model="SIns.cond.where.action_type_id[1]">维修</label>
+                                    <label class="checkbox-inline"><input type="checkbox" value="3" ng-true-value="3" ng-model="SIns.cond.where.action_type_id[2]">作废</label>
                                 </div>
 
                                 <div class="form-group">
@@ -114,7 +114,6 @@
                                     </div>
                                 </div>
 
-
                                 <div class="form-group">
                                     <button class="btn btn-primary" style="float: right" ng-click="SIns.refresh()">查询</button>
                                 </div>
@@ -122,69 +121,63 @@
                         </div>
 
                         <div class="col-md-12" ng-show="SIns.total_items != undefined">
-                        <table
-
-                                    id="example"
-                                    class="table
-                                   table-striped
-                                   table-bordered
-                                   dataTable
-                                   no-footer"
-                                    cellspacing="0"
-                                    width="100%"
-                                    aria-describedby="example_info"
-                                    style="width: 100%;">
+                            <table id="example" class="table table-striped table-bordered dataTable no-footer"
+                                        cellspacing="0"
+                                        width="100%"
+                                        aria-describedby="example_info"
+                                        style="width: 100%;">
                                 <thead>
-                                <tr role="row">
-                                    <th>编号</th>
-                                    <th>设备状态</th>
-                                    <th>销售状态</th>
-                                    <th>医院</th>
-                                    <th>代理商</th>
-                                    <th>负责人</th>
-                                    <th>维护记录</th>
-                                    <th></th>
-                                </tr>
+                                    <tr role="row">
+                                        <th>编号</th>
+                                        <th>设备状态</th>
+                                        <th>销售状态</th>
+                                        <th>医院</th>
+                                        <th>代理商</th>
+                                        <th>负责人</th>
+                                        <th>维护记录</th>
+                                        <th></th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="odd"
-                                    ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
-                                    <td>[:row.cust_id:]</td>
-                                    <td>
-                                        <span>[: SIns.robot_action_type[row.action_type_id - 1].name:]</span>
-                                    </td>
-                                    <td>
-                                        <span ng-if="!row.lease_type_id">-</span>
-                                        <span>[: SIns.robot_status_type[row.lease_type_id - 1].name :]</span>
-                                    </td>
+                                    <tr class="odd"
+                                        ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
+                                        <td>[:row.cust_id:]</td>
+                                        <td>
+                                            <span>[: SIns.robot_action_type[row.action_type_id - 1].name:]</span>
 
-                                    {{--<td>--}}
-                                    {{--<span ng-if="!row.log_lease_hospital_id">-</span>--}}
-                                    {{--<span>[: SHospital.all_rec[row.log_lease_hospital_id - 1].name:]</span>--}}
-                                    {{--</td>--}}
-                                    <td>
-                                        <span ng-if="!row.log_lease_agency_id">-</span>
-                                        <span ng-repeat="rec in SHospital.all_rec | where:{id: row.log_lease_hospital_id}:true">[: rec.name :]</span>
-                                    </td>
-                                    <td>
-                                        <span ng-if="!row.log_lease_agency_id">-</span>
-                                        <span ng-repeat="rec in SAgency.all_rec | where:{id: row.log_lease_agency_id}:true">[: rec.name :]</span>
-                                    </td>
-                                    <td>[:row.employee.name:]</td>
-                                    <td>[:row.robot_lease_log.length:]</td>
-                                    <td class="edit col-md-2">
-                                        <span class="tool_wrapper">
-                                            <button class="btn btn-primary btn-sm" href="" ng-click="SIns.popup_edit(row)">
-                                                设置销售状态
-                                            </button>
-                                            <button class="btn btn-default btn-sm" href=""
-                                                    ng-click="SIns.h.popup_detail()">
-                                                查看
-                                            </button>
-                                        </span>
-                                    </td>
-                                    {{--<td>[:row.updated_at:]</td>--}}
-                                </tr>
+                                            [:row.action_type_id:]
+                                        </td>
+                                        <td>
+                                            <span ng-if="!row.lease_type_id">-</span>
+                                            <span>[: SIns.robot_status_type[row.lease_type_id - 1].name :]</span>
+                                        </td>
+
+                                        {{--<td>--}}
+                                        {{--<span ng-if="!row.log_lease_hospital_id">-</span>--}}
+                                        {{--<span>[: SHospital.all_rec[row.log_lease_hospital_id - 1].name:]</span>--}}
+                                        {{--</td>--}}
+                                        <td>
+                                            <span ng-if="!row.log_lease_agency_id">-</span>
+                                            <span ng-repeat="rec in SHospital.all_rec | where:{id: row.log_lease_hospital_id}:true">[: rec.name :]</span>
+                                        </td>
+                                        <td>
+                                            <span ng-if="!row.log_lease_agency_id">-</span>
+                                            <span ng-repeat="rec in SAgency.all_rec | where:{id: row.log_lease_agency_id}:true">[: rec.name :]</span>
+                                        </td>
+                                        <td>[:row.employee.name:]</td>
+                                        <td>[:row.robot_lease_log.length:]</td>
+                                        <td class="edit col-md-2">
+                                            <span class="tool_wrapper">
+                                                <!-- <button class="btn btn-primary btn-sm" href="" ng-click="SIns.popup_edit(row)">
+                                                    设置销售状态
+                                                </button> -->
+                                                <a class="btn btn-default btn-sm" ui-sref="base.robot.detail({id : row.id})">
+                                                    查看
+                                                </a>
+                                            </span>
+                                        </td>
+                                        {{--<td>[:row.updated_at:]</td>--}}
+                                    </tr>
                                 </tbody>
                             </table>
 

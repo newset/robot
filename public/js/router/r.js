@@ -61,7 +61,6 @@
                             parent: 'base.home'
                         }
                     })
-
                     .state('base.robot',
                     {
                         url: '/robot',
@@ -82,6 +81,18 @@
                         url : '/new',
                         templateUrl : shot('seg/robot_new_form'),
                         controller: 'CPageRobotNew as cPageRobot'
+                    })
+                    .state('base.robot.detail', {
+                        url : '/detail/:id',
+                        templateUrl : shot('page/robot/detail'),
+                        controller : 'CPageRobotDetail as ctrl',
+                        resolve : {
+                            sIns : function(SRobot, $stateParams){
+                                return SRobot.h.r($stateParams.id, SRobot, ['robotLog', 'robotLeaseLog', 'employee']).then(function(){
+                                    return SRobot;
+                                });
+                            }
+                        }
                     })
                     .state('base.hospital',
                     {

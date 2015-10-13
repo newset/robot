@@ -95,7 +95,8 @@
                     // row, SIns, 'agency/r', {relation: ['robotLeaseLog', 'mark', 'hospital'], where: {id: row.id}
                     var condition = {
                         'relation' : rel,
-                        where : {'id' : id}
+                        'where' : {},
+                        'id' : id
                     },
                     url = ins.ins_name+'/r';
                     var promise = H.p(cook(url), condition)

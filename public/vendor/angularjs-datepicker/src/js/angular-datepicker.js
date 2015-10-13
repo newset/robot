@@ -582,7 +582,6 @@
           $scope.year = Number($filter('date')(date, 'yyyy'));//2014 like
         }
         $scope.months = datetime.MONTH;
-        console.log('months: ', $scope.months, datetime);
         $scope.daysInString = ['0', '1', '2', '3', '4', '5', '6'].map(function mappingFunc(el) {
 
           return $filter('date')(new Date(new Date('06/08/2014').valueOf() + A_DAY_IN_MILLISECONDS * el), 'EEE');
