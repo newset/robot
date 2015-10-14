@@ -3,16 +3,18 @@ router:
 controller:
 url:
  --}}
-<div class="panel panel-default">
+<div class="col-md-8 col-md-offset-2">
+<div class="container panel-default panel" style="padding:0px">
+    <div class="panel-heading">
+                {{-- <div class="row col-md-12"> --}}
+
+                            <h3 class="panel-title pull-right">                    当前医院: [:hospital.name:]</h3>
+
+                        <h3 class="panel-title">新建科室</h3>
+
+    </div>
     <div class="panel-body black-border">
-        <div class="row col-md-12">
-            <div class="col-md-2 pull-right">
-                <span>当前医院: [:hospital.name:]</span>
-            </div>
-            <div class="col-md-1　col-md-offset-10 pull-left">
-                <h3 class="panel-title">新建科室</h3>
-            </div>
-        </div>
+
     </div>
     <br/>
     <form   name="form_department"  class="form-horizontal">
@@ -20,13 +22,13 @@ url:
         <div class="form-group">
             <label class="control-label col-md-2">科室名称</label>
             <div class="col-md-8">
-                <input ng-model="department.name">
+                <input class="form-control" ng-model="department.name">
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-md-2">登录名</label>
             <div class="col-md-8">
-                <input ng-model="department.username">
+                <input  class="form-control" ng-model="department.username">
             </div>
         </div>
         <div class="form-group">
@@ -37,7 +39,7 @@ url:
                     <input ng-model="department.password"
                            ng-init="department.password = ''"
                            type="password"
-                           class="">
+                            class="form-control" >
                 </div>
         </div>
         {{-- <div class="form-group">
@@ -55,16 +57,16 @@ url:
         </div> --}}
         <div class="form-group">
             <label class="control-label col-md-2">备注</label>
-            <div class="col-md-3">
+            <div class="col-md-8">
                 <textarea name="memo"
                           ng-model="department.memo"
                           class="form-control"></textarea>
             </div>
         </div>
         <div class="form-group">
-            <div class="col-md-2 col-md-offset-10">
-                <button  class="btn-custom  " ng-disabled="form_department.$invalid" ng-click="cancel()">取消</button>
-                <button  class="btn-custom  " ng-disabled="form_department.$invalid" ng-click="submit()">确定</button>
+            <div class="col-md-3 col-md-offset-8">
+                <button  class="btn-custom btn btn-default  " ng-disabled="form_department.$invalid" ng-click="cancel()">取消</button>
+                <button  class="btn-custom btn btn-primary " ng-disabled="form_department.$invalid" ng-click="submit()">确定</button>
             </div>
         </div>
         <br/>
@@ -72,6 +74,6 @@ url:
         <button type="submit" class="btn btn-primary" ng-disabled="form_hospital.$invalid">提交</button>
         </div> --}}
     </form>
-
+</div>
 
 </div>
