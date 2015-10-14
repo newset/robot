@@ -28,7 +28,7 @@
 		</a>
 	</div>
 	<div class="col-md-4 col-sm-6">
-		<a ui-sref="base.hospital">
+		<a ui-sref-opts="{reload:true}" ui-sref="base.hospital.list({with_search: 1})">
 			<div class="dashboard-tile detail tile-default">
 				<div class="content">
 					<h1><img src="../assets/img/grid/04.png" alt="">医院管理 </h1>
@@ -37,7 +37,7 @@
 		</a>
 	</div>
 	<div class="col-md-4 col-sm-6">
-		<a ui-sref="base.doctor">
+		<a ui-sref-opts="{reload:true}" ui-sref="base.doctor.list({with_search: 1})" >
 		<div class="dashboard-tile detail tile-blue">
 			<div class="content">
 				<h1><img src="../assets/img/grid/05.png" alt="">医生管理</h1>
