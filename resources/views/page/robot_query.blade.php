@@ -148,6 +148,7 @@
                                         <td>
                                             <span ng-if="!row.lease_type_id">-</span>
                                             <span>[: SIns.robot_status_type[row.lease_type_id - 1].name :]</span>
+                                            <span ng-bind="row.lease_type_id"></span>
                                         </td>
 
                                         {{--<td>--}}
@@ -163,7 +164,7 @@
                                             <span>[: row.hospital_name :]</span>
                                         </td>
                                         <td>[:row.employee_name:]</td>
-                                        <td>[:row.robot_lease_log.length:]</td>
+                                        <td>[:row.log_count || 0:]</td>
                                         <td class="edit col-md-2">
                                             <span class="tool_wrapper">
                                                 <!-- <button class="btn btn-primary btn-sm" href="" ng-click="SIns.popup_edit(row)">
