@@ -116,7 +116,7 @@ url:
                                     ui-sref="base.hospital.department_doctor({hid: row.id})">
                                 管理科室/医生
                             </button>
-                            <button class="btn-primary btn-custom btn btn-sm" href="" ng-click="SIns.popup_edit(row,0)">
+                            <button class="btn-primary btn-custom btn btn-sm"  ui-sref="base.hospital.edit({hid:row.id})">
                                 编辑
                             </button>
                             {{--<span href="" class="curp delete"--}}

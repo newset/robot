@@ -182,7 +182,33 @@
                   }
             }
         ])
-
+        .controller('CHospitalEdit',
+        [//医院编辑
+            '$scope',
+            'SBase',
+            'SHospital',
+            'h','H',
+            '$stateParams',
+            function ($scope,
+                      SBase,
+                      SHospital,
+                      h,H,
+                      $stateParams
+            )
+            {
+                $scope.SBase = SBase;
+                $scope.SIns = SHospital;
+                $scope.hospital_id=parseInt($stateParams.hid);
+                $scope.hospital ={};
+                h.prepare_location_data();
+                //获取医院信息
+                H.p(cook('hospital/r'), {'limit': 0, 'order_by': 'id','id':
+                        $scope.hospital_id}).then(function (r){
+                        $scope.hospital = r.data.d.main[0];
+                        $scope.SIns.current_row=$scope.hospital;
+                  });
+            }
+        ])
         .controller('CPageDoctor',
         [
             '$scope',
