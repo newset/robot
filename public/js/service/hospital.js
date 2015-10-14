@@ -48,8 +48,7 @@
                                              {//创建成功
                                                  ngDialog.closeAll();
                                                  me.refresh()  ;
-
-                                                 window.location.href='/#/department_doctor?hid='+r.data.d.id;
+                                                 window.location.href='/#/hospital/department_doctor?hid='+r.data.d.id;//TODO
                                              }
                                          }, function ()
                                          {

@@ -1,3 +1,4 @@
+<div class="col-md-offset-2 col-md-8">
 <div class="container panel-default panel" style="padding:0px">
     <div class="panel-heading">
         <h3 class="panel-title">新建医院</h3>
@@ -58,9 +59,14 @@
                            class="form-control"></textarea>
                 </div>
             </div>
+            <div class="form-group">
+                <div class="col-md-offset-3 col-md-8">
+                    <button  class="btn btn-primary  pull-right" ng-disabled="form_hospital.$invalid" ng-click="SIns.cu(SIns.current_row)">提交</button>
+            </div>
         </form>
     </div>
-    <div class="panel-footer" ng-controller="CPageHospital as cPageHospital">
+    {{-- <div class="panel-footer" ng-controller="CPageHospital as cPageHospital">
         <button  class="btn  pull-right" ng-disabled="form_hospital.$invalid" ng-click="SIns.cu(SIns.current_row)">提交</button>
-    </div>
+    </div> --}}
+</div>
 </div>
