@@ -121,7 +121,7 @@ controller:
                         <td>[:row.ended_at:]</td>
                         <td class="edit col-md-2">
                             <span class="tool_wrapper">
-                                <button class="btn-primary btn-custom btn btn-sm" href="" ng-click="SIns.h.popup_detail(row, SIns, 'agency/r', {relation: ['robotLeaseLog', 'mark', 'hospital'], where: {id: row.id}})">
+                                <button class="btn-primary btn-custom btn btn-sm" ui-sref="base.agency.detail({aid:row.id})">
                                     查看
                                 </button>
                             </span>

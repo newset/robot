@@ -423,7 +423,42 @@
                 //}, true)
             }
         ])
+                .controller('CAgencyDetail',[
+                        '$scope',
+                        'SBase',
+                        'SAgency',
+                        'h','H',
+                        '$stateParams',
+                        function ($scope,
+                                  SBase,
+                                  SAgency,
+                                  h,H,
+                                  $stateParams
+                        ){
+                        var me = this;
+                        $scope.h = h;
+                        $scope.SBase = SBase;
+                        $scope.SIns = SAgency;
+                        $scope.agency={};
+// $scope.current_row = SAgency.current_row;
+// $scope.SIns.cond.where.hospital_id = $stateParams.hid;
+// SAgency.init();
+// $scope.cond = SAgency.cond;
+// SAgency.show_search_panel = $stateParams.with_search;
+                        h.prepare_location_data();
 
+                        $scope.agency_id=parseInt($stateParams.aid);
+                      H.p(cook('agency/r'), {
+                        where:{'id':$scope.agency_id},
+                        relation: ['robotLeaseLog', 'mark', 'hospital']}
+                      ).then(function (r){
+                      $scope.agency = r.data.d.main[0];
+                      console.log($scope.agency);
+                      $scope.equalsId=function(a,b){
+                                            return a==b;
+                                         }
+                    });
+                }])
         .controller('CPageRobot',
         [
             '$scope',
@@ -573,11 +608,9 @@
                 {
                     SMark.with_search = 1;
                 }
-
                 // $scope.$watch('cond', function(){
                 //     SMark.refresh();
                 // }, true)
-
             }
         ])
         .controller('CMarkDetail', ['$scope', 'iMark', function ($scope, iMark) {
@@ -694,6 +727,4 @@
                 //}, true)
             }
         ])
-
-
 })();

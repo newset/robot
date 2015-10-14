@@ -154,7 +154,7 @@
                     .state('base.agency.detail', {//代理商详情页
                         url : '/detail?aid',
                         controller:'CAgencyDetail',
-                        templateUrl: shot('page/agency'),
+                        templateUrl: shot('seg/agency_detail'),
                     })
                     .state('base.employee',
                     {
