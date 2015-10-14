@@ -26,6 +26,11 @@ body.auth-body{
     margin-bottom: ;: 20px;
 }
 
+label.absolute-label {
+    position: absolute;
+    width: 100%;
+}
+
 #login-wrapper
 {
     width: 33%;

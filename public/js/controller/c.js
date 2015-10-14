@@ -233,6 +233,59 @@
                 // h.prepare_location_data();
             }
         ])
+        .controller('CPageDoctorNew',
+        [
+            '$scope',
+            '$state',
+            'SBase',
+            'SDoctor',
+            'SHospital',
+            'SDepartment',
+            'h',
+            '$stateParams',
+            function ($scope,
+                      $state,
+                      SBase,
+                      SDoctor,
+                      SHospital,
+                      SDepartment,
+                      h,
+                      $stateParams
+            )
+            {
+                $scope.SBase = SBase;
+                $scope.SIns = SDoctor;
+                SDoctor.init();
+                
+                $scope.getLastId = function(){
+                    SDoctor.lastId().then(function(res){
+                        $scope.SIns.current_row.cust_id = Number(res.data)+1;
+                    })
+                }
+                $scope.getLastId();
+
+                $scope.save = function(data){
+                    $scope.SIns.cu(data).then(function(res){
+                        $state.go('base.hospital.department_doctor', {hid : data.hospital_id});
+                        SDoctor.current_row = {};
+                    }, function(){
+                        // 外键错误 todo
+                        
+                    });
+                }
+
+                $scope.get_department = function(){
+                    if ($scope.SIns.current_row.hospital_id) {
+                        SDoctor.h.get_all_department($scope.SIns.current_row.hospital_id).then(function(res){
+                            console.log('deps: ', res.data);
+                            $scope.SIns.departments = res.data.d.main;
+                        });
+                    }else{
+                        $scope.SIns.departments = [];
+                    };
+                }
+            }
+        ])
           //科室controller
         .controller('CPageDepartment',
         [

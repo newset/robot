@@ -18,6 +18,11 @@ class IDoctor extends BaseModel
         return $d;
     }
 
+    public function lastId()
+    {
+        return M('doctor')->max('cust_id');
+    }
+
     /**
      * 关联Mark
      */

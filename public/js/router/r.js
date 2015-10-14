@@ -219,7 +219,8 @@
                     })
                     .state('base.doctor.new', {
                         url : '/new',
-                        template : ''
+                        controller : "CPageDoctorNew",
+                        templateUrl : shot('seg/doctor_form')
                     })
                     .state('base.doctor.list', {
                         url : '/list',

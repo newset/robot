@@ -20,6 +20,7 @@
                 me.popup_edit = popup_edit;
                 me.cu = cu;
                 me.d = d;
+                me.h = h;
                 me.current_page_data = null;
                 //me.current_page = 1;
                 me.total_items = null;
@@ -43,10 +44,14 @@
                         })
                 }
 
+                me.lastId = function(){
+                    return H.g(base_url + 'a/doctor');
+                }
+
                 function cu(d)
                 {
-                    return H.cu(me.ins_name, d)
-                        .then(function (r)
+                    var promise = H.cu(me.ins_name, d);
+                    promise.then(function (r)
                         {
                             if (r.data.d)
                             {
@@ -55,7 +60,8 @@
                             }
                         }, function ()
                         {
-                        })
+                        });
+                    return promise;
                 }
 
                 function d(id)

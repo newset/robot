@@ -35,6 +35,7 @@ Route::any('doctor', function ()
 //Common routes.
 Route::any('$/{p1?}/{p2?}/{p3?}', 'CookController@leader');
 Route::any('_/{p1?}/{p2?}/{p3?}/{p4?}/{p5?}', 'ShotController@leader');
+Route::get('a/{p1?}', 'CookController@lastId');
 
 if (debugging())
 {

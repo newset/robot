@@ -66,6 +66,8 @@
                 me.prepare_cond = prepare_cond;
                 me.popup_form = popup_form;
                 me.get_all_hospital = get_all_hospital;
+                me.get_all_department = get_all_department;
+                
                 me.return_r = return_r;
                 me.prepare_current_row = prepare_current_row;
                 me.cu = cu;
@@ -209,6 +211,11 @@
                 {
                     return H.p(cook('hospital/r'), {limit: '0', 'order_by' : 'id'})
                         .then(me.return_r);
+                }
+
+                function get_all_department(hospital)
+                {
+                    return H.p(cook('department/r'), {limit: '0', where : {'hospital_id' : hospital}});
                 }
 
                 function prepare_location_data()

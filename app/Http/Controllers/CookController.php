@@ -51,6 +51,19 @@ class CookController extends Controller
         return $ins->$action_name();
     }
 
+    public function lastId($p1 = null)
+    {
+        if (!$p1) {
+            return ee(2, 'ins_not_exists');
+        }
+
+        if (class_exists(MName($p1, 'i'))) {
+            $ins = M($p1, 'i');
+        }
+
+        return $ins->lastId();
+    }
+
     public function has_permission($ins_name, $action_name)
     {
         if (in_array($ins_name, config('permission.public_ins'))) return true; // for user login or signup.
