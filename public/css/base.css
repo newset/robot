@@ -211,13 +211,18 @@ td.edit
 .pagination_wrapper
 {
     width: 100%;
-    text-align: center;
+    text-align: right;
+}
+
+.pagination_wrapper span{
+    margin-top: 30px;
 }
 
 .pagination
 {
     padding: 10px;
-    margin-right:33px;
+    margin-right: 0px;
+    padding-right: 0px;
 }
 
 .dropdown-toggle

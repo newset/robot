@@ -1,17 +1,20 @@
-<div class="container">
-    
+<div class="col-md-12">
   <div class="panel panel-default">
-    <div class="panel-heading">
+    <div class="panel-body">
       <h3 class="panel-title">
-         创建设备
+         新建设备
       </h3>
     </div>
+  </div>
+  <div class="panel panel-default">
     <div class="panel-body">
       <form
             name="form_robot"
             ng-init="SEmployee.r({limit: 0}); SIns.current_row = {}"
-            class="col-md-6 form-horizontal" style="float:none; margin:0 auto">
-          <div class="form-group">
+            class="col-md-12 form-horizontal" style="float:none;">
+  
+          <div class="row">
+            <div class="form-group col-md-6">
               <label class="control-label col-md-2">编号</label>
               <div class="col-md-6">
                 <input class="form-control"
@@ -21,8 +24,11 @@
                      required>
               </div>
               <label class="error" ng-if="form_robot.cust_id.$error.laExist">编号已存在</label>
+            </div>
           </div>
-          <div class="form-group">
+  
+          <div class="row">
+            <div class="form-group col-md-6">
               <label class="control-label col-md-2">负责人</label>
               <div class="col-md-4">
                 <md-select ng-model="SIns.current_row.employee_id" required class="" style="margin: 0px;">
@@ -38,17 +44,22 @@
                       ng-options="l.id as l.name for l in SEmployee.all"
                       required>
               </select> -->
+            </div>
           </div>
-          <div class="form-group">
+          
+          <div class="row">
+            <div class="form-group col-md-6">
               <label class="control-label col-md-2">生产日期</label>
               <div class="col-md-6">
                 <datepicker date-format="yyyy-MM-dd" date-set="[:SIns.current_row.production_date:]">
                   <input ng-model="SIns.current_row.production_date" type="text" class="form-control" required/>
                 </datepicker>
               </div>
+            </div>
           </div>
+
           <div class="form-group">
-              <button type="submit" ng-click="save()" class="btn btn-info pull-right" ng-disabled="form_robot.$invalid">提交</button>
+              <button type="submit" ng-click="save()" class="btn btn-info pull-right" ng-disabled="form_robot.$invalid">新建</button>
           </div>
       </form>
       

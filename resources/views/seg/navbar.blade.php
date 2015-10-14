@@ -8,9 +8,9 @@
              <ul class="nav nav-pills">
                 <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.robot.new')]">
                     <a href="" ui-sref-opts="{reload:true}" ui-sref="base.robot.new" title="">新增设备</a></li>
-                <li  ><a href="" title="">设备销售</a></li>
-                <li  ><a href="" title="">设备作废</a></li>
-                <li><a href="" title="">终止合作</a></li>
+                <li><a ui-sref-opts="{reload:true}" ui-sref="base.robot.query({type : 'sale'})">设备销售</a></li>
+                <li><a ui-sref-opts="{reload:true}" ui-sref="base.robot.query({type : 'abort'})">设备作废</a></li>
+                <li><a ui-sref-opts="{reload:true}" ui-sref="base.robot.query({type : 'end'})">中止合作</a></li>
                 <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.robot.query')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.robot.query" title="">设备查询</a></li>
                  <li role="presentation" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">

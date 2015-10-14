@@ -21,6 +21,20 @@
                 console.log('md date controller:', controller);
             }
         };
+    }])
+    .directive('multiCheck', [function () {
+        return {
+            restrict: 'A',
+            require : 'ngModel',
+            link: function (scope, elm, attr, ngModel) {
+                var value = ngModel.$viewValue || [];
+
+                elm.attr('checked', value.indexOf(attr.value) != -1);
+                elm.on('click', function(evt){
+                    console.log(ngModel.$viewValue)
+                });
+            }
+        };
     }]);
 
     angular.module('material.components.datepicker').config(function($provide) {

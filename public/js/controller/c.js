@@ -490,8 +490,30 @@
                 SRobot.init();
                 $scope.cond = SRobot.cond;
 
+
                 $scope.with_search = $stateParams.with_search;
                 h.prepare_location_data();
+
+                $scope.simpleQuery = true;
+                
+                switch($stateParams.type){
+                    case 'sale' : 
+                        SRobot.cond.where.lease_type_id = [1];
+                        SRobot.cond.where.action_type_id = [1];
+                        $scope.SIns.refresh();
+                        break;
+                    case 'abort' :
+                        SRobot.cond.where.lease_type_id = [1];
+                        SRobot.cond.where.action_type_id = [1, 2];
+                        $scope.SIns.refresh();
+                        break;
+                    case 'end' :
+                        SRobot.cond.where.lease_type_id = [0,0,0,4];
+                        $scope.SIns.refresh();
+                        break;
+                    default : 
+                        $scope.simpleQuery = false;
+                }
 
                 if($stateParams.with_search)
                 {
