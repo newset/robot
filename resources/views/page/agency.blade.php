@@ -19,11 +19,13 @@ controller:
                             <form class="form-horizontal" id="agency_query">
                                 <div class="form-group">
                                     <label class="control-label col-md-1">编号</label>
+<div class="col-md-8">
                                     <input class="form-control"
                                            ng-model-options="{debounce: 300}"
                                            ng-model="SIns.cond.where.id"
                                            placeholder="编号">
                                 </div>
+</div>
                                 {{--<div class="form-group">--}}
                                 {{--<input class="form-control"--}}
                                 {{--ng-model-options="{debounce: 300}"--}}
@@ -32,34 +34,27 @@ controller:
                                 {{--</div>--}}
                                 <div class="form-group ">
                                     <label class="control-label col-md-1">地区</label>
-                                    <div class="col-md-1">
-                                        <md-select
+                                    <div class="col-md-8">
+                                        <select class="form-control"
                                             ng-model="SIns.cond.where.province_id"
-                                            >
-                                            <md-option value="">不限</md-option>
-                                            <md-option ng-repeat="l in SBase._.location.province" value="[:l.id:]">
-                                                [:l.name:]
-                                            </md-option>
-                                        </md-select>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <md-select
+                                            ng-options="l.id as l.name for l in SBase._.location.province">
+                                            <option value="" selected>所在省份</option>
+                                        </select>
+                                        <select class="form-control"
                                             ng-model="SIns.cond.where.city_id"
-                                            >
-                                            <md-option value="">不限</md-option>
-                                            <md-option ng-repeat="l in SIns.cond.where.province_id&&SBase._.location.city || []|filter: {parent_id: SIns.cond.where.province_id}:true" value="[:l.id:]">
-                                                [:l.name:]
-                                            </md-option>
-                                        </md-select>
+                                            ng-options="l.id as l.name for l in SIns.cond.where.province_id&&SBase._.location.city || []|filter: {parent_id: SIns.cond.where.province_id}:true">
+                                            <option value="" selected>所在市区</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-1">名称</label>
+<div class="col-md-8">
                                     <input class="form-control"
                                            ng-model-options="{debounce: 300}"
                                            ng-model="SIns.cond.where.name"
                                            placeholder="名称">
-                                </div>
+                                </div></div>
 
 
 
