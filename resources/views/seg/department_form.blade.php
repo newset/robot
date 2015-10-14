@@ -18,7 +18,7 @@ url:
     <form   name="form_department"  class="form-horizontal">
         {{-- <span ng-if="department.hospital_id" ng-repeat="h in SIns.all_hospital | filter: {id: department.hospital_id}:true">医院：[:h.name:]</span> --}}
         <div class="form-group">
-            <label class="control-label col-md-2">科室名</label>
+            <label class="control-label col-md-2">科室名称</label>
             <div class="col-md-8">
                 <input ng-model="department.name">
             </div>
