@@ -6,7 +6,7 @@ url:
 <section id="main-content">
     <!--tiles start-->
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="panel panel-default black-border">
                 <div class="panel-heading">
                     <h3 class="panel-title">查询条件</h3>
@@ -18,10 +18,14 @@ url:
                 <div class="panel-body">
                     <div role="grid" id="example_wrapper" class="dataTables_wrapper form-inline no-footer">
                         <div class="row col-md-12 search_panel" ng-if="SIns.with_search">
+
+                        </div>
+                    </div>
+                </div>
                             <form class=" form-horizontal" id="form_query">
                                 <div class="form-group">
                                     <label class="control-label col-md-1">编号</label>
-                                    <div class="col-md-8">
+                                    <div class="col-md-6">
                                         <input class="form-control"
                                                ng-model-options="{debounce: 300}"
                                                ng-model="SIns.cond.where.id"
@@ -30,14 +34,14 @@ url:
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-1">地区</label>
-                                    <div class="col-md-8">
+                                    <div class="col-md-3">
                                         <select class="form-control"
                                                 name="province_id"
                                                 ng-model="SIns.cond.where.province_id"
                                                 ng-options="l.id as l.name for l in SBase._.location.province"
                                         >
                                             <option value="" selected>所在省份</option>
-                                        </select>
+                                        </select></div><div class="col-md-3">
                                         <select class="form-control"
                                                 ng-model="SIns.cond.where.city_id"
                                                 ng-options="l.id as l.name for l in SBase._.location.city
@@ -50,7 +54,7 @@ url:
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-1">名称</label>
-                                    <div class="col-md-8">
+                                    <div class="col-md-6">
                                         <input class="form-control"
                                                ng-model-options="{debounce: 300}"
                                                ng-model="SIns.cond.where.name"
@@ -59,7 +63,7 @@ url:
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-1">医生</label>
-                                    <div class="col-md-8">
+                                    <div class="col-md-6">
                                         <input class="form-control"
                                                ng-model-options="{debounce: 300}"
                                                ng-model="SIns.cond.where_has.doctor.name"
@@ -70,9 +74,6 @@ url:
                                     </div>
                                 </div>
                             </form>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

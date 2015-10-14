@@ -4,37 +4,32 @@ router:base.department.new
 url: /#/department/new
 controller:CDepartmentEdit
 --}}
-<div class="panel panel-default">
-    <div class="panel-body black-border">
-        <div class="row col-md-12">
-            <div class="col-md-2 pull-right">
-                <span>当前医院:</span>
-            </div>
-            <div class="col-md-1　col-md-offset-10 pull-left">
-                <h3 class="panel-title">编辑科室</h3>
-            </div>
+<div class="col-md-8 col-md-offset-2">
+    <div class="container panel-default panel" style="padding:0px">
+        <div class="panel-heading">
+            {{-- <div class="row col-md-12"> --}}
+            <h3 class="panel-title pull-right">当前医院: [:hospital.name:]</h3>
+            <h3 class="panel-title">编辑科室</h3>
         </div>
+    <div class="panel-body black-border">
     </div>
-</div>
-<br/>
 <form name="form_department" class="form-horizontal">
-    {{-- <span ng-if="department.hospital_id" ng-repeat="h in SIns.all_hospital | filter: {id: department.hospital_id}:true">医院：[:h.name:]</span> --}}
-    <div class="form-group">
+            <div class="form-group">
         <label class="control-label col-md-2">科室名</label>
         <div class="col-md-8">
-            <input ng-model="department.name"  required>
+            <input class="form-control" ng-model="department.name"  required>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">登录名</label>
         <div class="col-md-8">
-            <input ng-model="department.username"  required>
+            <input  class="form-control" ng-model="department.username"  required>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">密码</label>
         <div class="col-md-8">
-            <input ng-model="department.password"
+            <input  class="form-control" ng-model="department.password"
                    ng-init="department.password = ''"
                    type="password"
                    class="">
@@ -55,15 +50,15 @@ controller:CDepartmentEdit
     </div> --}}
     <div class="form-group">
         <label class="control-label col-md-2">备注</label>
-        <div class="col-md-3">
+        <div class="col-md-8">
             <textarea name="memo"   ng-model="department.memo"  class="form-control"></textarea>
         </div>
     </div>
     <div class="form-group">
-        <div class="col-md-3 col-md-offset-9">
-            <button  class="btn-custom-delete  " ng-disabled="form_department.$invalid" ng-click="delete()">删除该科室</button>
-            <button  class="btn-custom  " ng-disabled="form_department.$invalid" ng-click="cancel()">取消</button>
-            <button  class="btn-custom  " ng-disabled="form_department.$invalid" ng-click="submit()">提交</button>
+        <div class="col-md-4 col-md-offset-6">
+            <button  class="btn-custom btn btn-default  " ng-disabled="form_department.$invalid" ng-click="delete()">删除该科室</button>
+            <button  class="btn-custom btn btn-primary  " ng-disabled="form_department.$invalid" ng-click="cancel()">取消</button>
+            <button  class="btn-custom btn btn-primary  " ng-disabled="form_department.$invalid" ng-click="submit()">提交</button>
         </div>
     </div>
     <br/>
@@ -71,3 +66,8 @@ controller:CDepartmentEdit
     <button type="submit" class="btn btn-primary" ng-disabled="form_hospital.$invalid">提交</button>
     </div> --}}
 </form>
+</div>
+<br/>
+
+    {{-- <span ng-if="department.hospital_id" ng-repeat="h in SIns.all_hospital | filter: {id: department.hospital_id}:true">医院：[:h.name:]</span> --}}
+</div>

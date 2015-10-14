@@ -7,11 +7,8 @@ url:
     <div class="container panel-default panel" style="padding:0px">
         <div class="panel-heading">
             {{-- <div class="row col-md-12"> --}}
-
             <h3 class="panel-title pull-right">                    当前医院: [:hospital.name:]</h3>
-
             <h3 class="panel-title">新建科室</h3>
-
         </div>
         <div class="panel-body black-border">
         </div>
