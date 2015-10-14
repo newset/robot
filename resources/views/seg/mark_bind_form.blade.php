@@ -46,7 +46,7 @@
                       required>
                 </textarea>
         </div>
-        <div class="form-group" id="resultLog">
+        <div class="form-group pull-left col-md-8" id="resultLog">
         
         </div>
         @if(he_is('employee'))
