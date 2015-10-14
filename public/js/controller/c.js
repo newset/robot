@@ -280,7 +280,7 @@
       };
       }])
 
-        .controller('CDepartmentEdit',[
+        .controller('CDepartmentEdit',[//科室编辑
               '$scope',
                 'H',
                 '$state',
@@ -315,7 +315,41 @@
                         $state.go('base.department_doctor',{hid:$scope.hospital_id});//返回医院详情页
                 };
         }])
+          .controller('CDepartmentNew',[//新建科室
+                '$scope',
+                  'H',
+                  '$state',
+                  'SDepartment',
+                '$stateParams',
+                function($scope,
+                H,
+                $state,
+                SDepartment,
+                $stateParams){
+                $scope.hospital_id=parseInt($stateParams.hid);
+                $scope.hospital={};
+                $scope.department={};
+                $scope.department.hospital_id=$scope.hospital_id;
+                  //获取科室
+                H.p(cook('hospital/r'), {'limit': 0, 'order_by': 'id',
+                      'id':$scope.hospital_id})
+                      .then(function (r){
+                      $scope.hospital = r.data.d.main[0];
+                      console.log('aaa'+$scope.hospital_id+$scope.hospital);
+                });
 
+                  $scope.cancel=function(){//重置
+                          $scope.department.name="";
+                          $scope.department.username="";
+                          $scope.department.password="";
+                          $scope.department.memo="";
+                    };
+                  $scope.submit=function(){//编辑
+                            console.log($scope.department);
+                            SDepartment.cu($scope.department);
+                            $state.go('base.department_doctor',{hid:$scope.hospital_id});//返回医院详情页
+                  };
+          }])
 //代理商查询/列表
         .controller('CPageAgency',
         [

@@ -11,7 +11,7 @@ controller:CPageDepartment
                 </div>
                 <div class="col-md-2　col-md-offset-10 pull-right">
                     <button class=" btn-custom black-border"
-                        href="#/department/new" ui-sref-opts="{reload:true}" ui-sref="base.department.new" title="新建科室">新建科室</button>
+                        ui-sref="base.department.new({hid:hospital.id})" title="新建科室">新建科室</button>
                     <button class="btn-custom  black-border"  ng-click="SIns.popup_edit(null)">新建医生  </button>
                 </div>
             </div>
