@@ -131,7 +131,7 @@
 			    </label>
 			  </div>
 		    <div class="form-group">
-		        <button type="submit" class="btn btn-primary pull-right" style="margin-right:40px" ng-disabled="form_hospital.$invalid">确认注册</button>
+		        <button type="submit" class="btn btn-info pull-right" style="margin-right:40px" ng-disabled="form_hospital.$invalid">确认注册</button>
 		    </div>
 		</form>
 	</div>

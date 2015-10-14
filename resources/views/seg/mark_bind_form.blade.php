@@ -50,7 +50,7 @@
         @if(he_is('employee'))
             <div class="form-group pull-right">
                 <label class="control-label">
-                  <button type="submit" class="btn btn-primary" ng-disabled="form_mark_bind.$invalid">绑定</button>
+                  <button type="submit" class="btn btn-info" ng-disabled="form_mark_bind.$invalid">绑定</button>
                 </label>
                 <select class="form-control"
                         name="agency_id"

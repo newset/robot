@@ -44,7 +44,7 @@
                 </textarea>
         </div>
         <div class="form-group pull-right">
-            <button type="submit" class="btn btn-primary" ng-disabled="form_mark_unbind.$invalid">解除绑定</button>
+            <button type="submit" class="btn btn-info" ng-disabled="form_mark_unbind.$invalid">解除绑定</button>
         </div>
     </form>
 

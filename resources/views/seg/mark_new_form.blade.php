@@ -60,7 +60,7 @@
             </div>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary pull-right" ng-disabled="form_mark_unbind.$invalid">提交</button>
+            <button type="submit" class="btn btn-info pull-right" ng-disabled="form_mark_unbind.$invalid">提交</button>
         </div>
     </form>
     

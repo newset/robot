@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="button" class="btn btn-primary pull-right" ng-click="SIns.refresh()">查询</button>
+                        <button type="button" class="btn btn-info pull-right" ng-click="SIns.refresh()">查询</button>
                     </div>
                 </form>
             </div>
