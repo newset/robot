@@ -43,8 +43,8 @@
         </div>
         <div class="page-nav pull-left" ng-if="$state.includes('base.hospital')" ng-cloak>
             <ul class="nav nav-pills">
-                <li><a href="" ui-sref-opts="{reload:true}" ui-sref="base.hospital.new" title="">新建医院</a></li>
-                <li><a href="" ui-sref-opts="{reload:true}" ui-sref="base.hospital.list({with_search: 1})" title="">医院查询</a></li>
+                <li ng-class="{true:'active',false:'inactive'}[$state.includes('base.hospital.new')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.hospital.new" title="">新建医院</a></li>
+                <li ng-class="{true:'active',false:'inactive'}[$state.includes('base.hospital.list')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.hospital.list({with_search: 1})" title="">医院查询</a></li>
                 <li role="presentation" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
                         报表 <span class="caret"></span>
@@ -58,8 +58,8 @@
         </div>
         <div class="page-nav pull-left" ng-if="$state.includes('base.department')" ng-cloak>
             <ul class="nav nav-pills">
-                <li><a href="" ui-sref-opts="{reload:true}" ui-sref="base.hospital.new" title="">新建医院</a></li>
-                <li><a href="" ui-sref-opts="{reload:true}" ui-sref="base.hospital.list({with_search: 1})" title="">医院查询</a></li>
+                <li ng-class="{true:'active',false:'inactive'}[$state.includes('base.hospital.new')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.hospital.new" title="">新建医院</a></li>
+                <li ng-class="{true:'active',false:'inactive'}[$state.includes('base.hospital.list')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.hospital.list({with_search: 1})" title="">医院查询</a></li>
                 <li role="presentation" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
                         报表 <span class="caret"></span>
@@ -73,8 +73,8 @@
         </div>
         <div class="page-nav pull-left" ng-if="$state.includes('base.doctor')" ng-cloak>
             <ul class="nav nav-pills">
-                <li><a href="" ui-sref-opts="{reload:true}" ui-sref="base.doctor.new" title="">新建医生</a></li>
-                <li><a href="" ui-sref-opts="{reload:true}" ui-sref="base.doctor.list({with_search: 1})" title="">医生查询</a></li>
+                <li ng-class="{true:'active',false:'inactive'}[$state.includes('base.doctor.new')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.doctor.new" title="">新建医生</a></li>
+                <li ng-class="{true:'active',false:'inactive'}[$state.includes('base.doctor.new')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.doctor.list({with_search: 1})" title="">医生查询</a></li>
                 <li role="presentation" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
                         报表 <span class="caret"></span>
@@ -88,7 +88,7 @@
         <div class="page-nav pull-left" ng-if="$state.includes('base.agency')" ng-cloak>
             <ul class="nav nav-pills">
                 {{-- <li><a href="" ui-sref-opts="{reload:true}" ui-sref="base.agency.new" title="">新建代理商</a></li> --}}
-                <li><a href="" ui-sref-opts="{reload:true}" ui-sref="base.agency.list({with_search: 1})" title="">代理商查询</a></li>
+                <li ng-class="{true:'active',false:'inactive'}[$state.includes('base.agency.list')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.agency.list({with_search: 1})" title="">代理商查询</a></li>
                 <li role="presentation" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
                         报表 <span class="caret"></span>

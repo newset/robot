@@ -10,9 +10,9 @@ controller:CPageDepartment
                     <span>当前医院: [:hospital.name:] (编号 [:hospital.id:])</span>
                 </div>
                 <div class="col-md-2　col-md-offset-10 pull-right">
-                    <button class=" btn-custom black-border"
+                    <button class=" btn btn-custom btn-primary black-border"
                         ui-sref="base.department.new({hid:hospital.id})" title="新建科室">新建科室</button>
-                    <button class="btn-custom  black-border"  ng-click="SIns.popup_edit(null)">新建医生  </button>
+                    {{-- <button class="btn btn-custom btn-primary  black-border"  ng-click="SIns.popup_edit(null)">新建医生  </button> --}}
                 </div>
             </div>
         </div>
@@ -40,8 +40,8 @@ controller:CPageDepartment
                     <td>[:row.doctor.length:]</td>
                     <td>[:row.username:]</td>
                     <td class="row col-md-2">
-                            <button class="btn-custom-delete "  ng-click="delete_department(row)">删除</button>
-                            <button class="btn-custom" ui-sref="base.department.edit({did: row.id})">  编辑  </button>
+                            <button class="btn btn-custom btn-default "  ng-click="delete_department(row)">删除</button>
+                            <button class="btn btn-custom btn-primary" ui-sref="base.department.edit({did: row.id})">  编辑  </button>
                     </td>
                 </tr>
             </tbody>
@@ -151,7 +151,7 @@ controller:CPageDepartment
                     <td>[:row.email:]</td>
                     <td class="edit col-md-1">
                         <span class="tool_wrapper">
-                            <button class="btn-custom" href="" ng-click="SIns.popup_edit(row)">
+                            <button class="btn btn-custom btn-primary" href="" ng-click="SIns.popup_edit(row)">
                                 编辑
                             </button>
                             {{-- <span href="" class="btn-custom-delete"  ng-click="SIns.d(row.id)">删除</span> --}}

@@ -458,3 +458,11 @@ vertical-align: inherit;
   background-color: pink;
   padding: 1px 20px;
 }*/
+
+/*header 被選中樣式*/
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color: #fff;
+    border-left: solid 4px #337AB7;
+    background-color: #337AB7;
+    border-radius: 3px;
+}
