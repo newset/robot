@@ -188,7 +188,7 @@
 									</div> -->
 
 									<div class="form-group">
-										<button class="btn btn-primary" style="float: right" ng-click="SIns.refresh()">查询</button>
+										<button class="btn btn-info" style="float: right" ng-click="SIns.refresh()">查询</button>
 									</div>
 								</form>
 							</div>
