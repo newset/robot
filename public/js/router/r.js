@@ -179,12 +179,15 @@
                         templateUrl: shot('page/mark_checkout'),
                     }).state('base.mark.new',{
                         url : '/new',
+                        controller : 'CPageMarkNew',
                         templateUrl : shot('seg/mark_new_form')
                     }).state('base.mark.bind',{
                         url : '/bind',
+                        controller : 'CPageMarkNew',
                         templateUrl : shot('seg/mark_bind_form')
                     }).state('base.mark.unbind',{
                         url : '/unbind',
+                        controller : 'CPageMarkNew',
                         templateUrl : shot('seg/mark_unbind_form')
                     })
                     .state('base.mark.usb',{

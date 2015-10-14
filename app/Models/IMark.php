@@ -4,6 +4,7 @@ namespace App\Models;
 use Input;
 use Illuminate\Database\Eloquent\Model;
 use Session;
+use Requests;
 
 class IMark extends BaseModel
 {
@@ -49,7 +50,14 @@ class IMark extends BaseModel
 
         $url = $baseUrl.http_build_query($params);
 
-        return $params;
+        $data = rq('data');
+        $response = Requests::post($url, [], $data);
+        // dd($response->body);
+
+        return [
+            'url' => $url,
+            'data' => $data
+        ];
     }
 
     public function bat_cu($in = [])

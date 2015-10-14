@@ -693,7 +693,7 @@
                 // }, true)
             }
         ])
-        .controller('CPageMark',
+        .controller('CPageMarkNew',
         [
             '$scope',
             '$stateParams',
@@ -717,6 +717,11 @@
 
             $scope.add = function(){
 
+                SMark.bat_mark('add', {
+                    a : SMark.cu_bat_data.a,
+                    b : SMark.cu_bat_data.b,
+                    c : SMark.cu_bat_data.c,
+                });
             }
 
             $scope.bind = function(){
@@ -724,7 +729,7 @@
             }
 
             $scope.unbind = function(){
-                
+
             }
 
         }])
