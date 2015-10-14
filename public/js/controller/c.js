@@ -319,7 +319,7 @@
               $stateParams){
               $scope.department_id=parseInt($stateParams.did);
               $scope.department={};
-              $scope.hospital_id=1;
+              // $scope.hospital_id=1;
               $scope.hospital={};
               $scope.department_old={};
                 //获取科室
@@ -329,14 +329,13 @@
                         $scope.department_old = r.data.d.main[0];
                         $scope.department=angular.copy($scope.department_old);
                         $scope.hospital_id=$scope.department_old.hospital_id;
-                        console.log($scope.department);
-                  });
-        //获取医院信息
-        H.p(cook('hospital/r'), {'limit': 0, 'order_by': 'id','id':
-              $scope.hospital_id}).then(function (r){
-                $scope.hospital = r.data.d.main[0];
-                  console.log($scope.hospital);
-          });
+                        //获取医院信息
+                        H.p(cook('hospital/r'), {'limit': 0, 'order_by': 'id','id':
+                        $scope.hospital_id}).then(function (r){
+                        $scope.hospital = r.data.d.main[0];
+                        });
+                });
+
                 $scope.cancel=function(){//重置
                         $scope.department=angular.copy($scope.department_old);
                   };
