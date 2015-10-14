@@ -21,7 +21,7 @@
 			<dl class="dl-horizontal">
 				<dt>编号</dt>
 				<dd>[:SIns.current_row.cust_id:]</dd>
-				<dt>销售状态1</dt>
+				<dt>销售状态</dt>
 				<dd>
 					<span ng-if="row.agency_id==-1 && row.hospital_id==-1">在库</span>
                 	<span ng-if="row.agency_id!=-1 && row.hospital_id==-1"">出货</span>
