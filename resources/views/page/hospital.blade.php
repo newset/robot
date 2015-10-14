@@ -112,10 +112,10 @@ url:
                     </td>
                     <td class="edit col-md-3">
                         <span class="tool_wrapper">
-                            <button class="btn-primary btn-custom btn btn-sm" href=""
-                                    ui-sref="base.hospital.department_doctor({hid: row.id})">
+                            <a class="btn-primary btn-custom btn btn-sm" target="_blank"
+                                    href="#/hospital/department_doctor?hid=[:row.id:]">
                                 管理科室/医生
-                            </button>
+                            </a>
                             <button class="btn-primary btn-custom btn btn-sm"  ui-sref="base.hospital.edit({hid:row.id})">
                                 编辑
                             </button>
