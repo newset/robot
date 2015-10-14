@@ -87,7 +87,7 @@
         </div>
         <div class="page-nav pull-left" ng-if="$state.includes('base.agency')" ng-cloak>
             <ul class="nav nav-pills">
-                <li><a href="" ui-sref-opts="{reload:true}" ui-sref="base.agency.new" title="">新建代理商</a></li>
+                {{-- <li><a href="" ui-sref-opts="{reload:true}" ui-sref="base.agency.new" title="">新建代理商</a></li> --}}
                 <li><a href="" ui-sref-opts="{reload:true}" ui-sref="base.agency.list({with_search: 1})" title="">代理商查询</a></li>
                 <li role="presentation" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">

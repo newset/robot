@@ -146,6 +146,11 @@
                         controller:'CPageAgency',
                         templateUrl: shot('page/agency'),
                     })
+                    .state('base.agency.detail', {//代理商详情页
+                        url : '/detail?aid',
+                        controller:'CAgencyDetail',
+                        templateUrl: shot('page/agency'),
+                    })
                     .state('base.employee',
                     {
                         url: '/employee?page_num&limit&with_search',
