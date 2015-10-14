@@ -308,11 +308,11 @@
                 $scope.submit=function(){//编辑
                           console.log($scope.department);
                           SDepartment.cu($scope.department);
-                          $state.go('base.department_doctor',{hid:$scope.hospital_id});//返回医院详情页
+                          $state.go('base.hospital.department_doctor',{hid:$scope.hospital_id});//返回医院详情页
                 };
                 $scope.delete=function(){//删除科室
                         SDepartment.d($scope.department.id);
-                        $state.go('base.department_doctor',{hid:$scope.hospital_id});//返回医院详情页
+                        $state.go('base.hospital.department_doctor',{hid:$scope.hospital_id});//返回医院详情页
                 };
         }])
           .controller('CDepartmentNew',[//新建科室
@@ -347,7 +347,7 @@
                   $scope.submit=function(){//编辑
                             console.log($scope.department);
                             SDepartment.cu($scope.department);
-                            $state.go('base.department_doctor',{hid:$scope.hospital_id});//返回医院详情页
+                            $state.go('base.hospital.department_doctor',{hid:$scope.hospital_id});//返回医院详情页
                   };
           }])
 //代理商查询/列表

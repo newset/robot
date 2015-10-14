@@ -1,6 +1,6 @@
 <header id="header">
     <div class="toggle-navigation toggle-left">
-        <a class="btn btn-default pull-left" id="toggle-left" data-toggle="tooltip" data-placement="right" href="#/" 
+        <a class="btn btn-default pull-left" id="toggle-left" data-toggle="tooltip" data-placement="right" href="#/"
                 title="Toggle Navigation" style="line-height: 30px;margin-right: 10px;">
             <i class="fa fa-home"></i>
         </a>
@@ -56,6 +56,21 @@
                 </li>
             </ul>
         </div>
+        <div class="page-nav pull-left" ng-if="$state.includes('base.department')" ng-cloak>
+            <ul class="nav nav-pills">
+                <li><a href="" ui-sref-opts="{reload:true}" ui-sref="base.hospital.new" title="">新建医院</a></li>
+                <li><a href="" ui-sref-opts="{reload:true}" ui-sref="base.hospital.list({with_search: 1})" title="">医院查询</a></li>
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
+                        报表 <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="" title="">设备状态清单</a></li>
+                        <li><a href="" title="">销售情况表</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
         <div class="page-nav pull-left" ng-if="$state.includes('base.doctor')" ng-cloak>
             <ul class="nav nav-pills">
                 <li><a href="" ui-sref-opts="{reload:true}" ui-sref="base.doctor.new" title="">新建医生</a></li>
@@ -86,11 +101,11 @@
             </ul>
         </div>
     </div>
- 
+
     <div class="user-nav">
         <ul>
             <!-- <li class="reg_item"><a href="">首页</a></li> -->
-            
+
             <!-- <li class="reg_item"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark({with_search: 1})">Mark管理</a></li> -->
             @if(he_is('agency'))
             <!-- <li class="reg_item"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark_checkout">Mark归档</a></li> -->
@@ -131,7 +146,7 @@
                   </md-menu-content>
                 </md-menu> -->
             </li>
-           
+
             <li class="dropdown settings" dropdown is-open="isopen">
                 <a class="dropdown-toggle" data-toggle="dropdown">
                     {{username()}} <i class="fa fa-angle-down"></i>

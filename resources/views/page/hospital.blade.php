@@ -109,7 +109,7 @@ url:
                         <td class="edit col-md-3">
                             <span class="tool_wrapper">
                                 <button class="btn-custom" href=""
-                                        ui-sref="base.department_doctor({hid: row.id})">
+                                        ui-sref="base.hospital.department_doctor({hid: row.id})">
                                     管理科室/医生
                                 </button>
                                 <button class="btn-custom" href="" ng-click="SIns.popup_edit(row,0)">

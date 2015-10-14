@@ -109,7 +109,7 @@
                         controller: 'CPageHospital as cPageHospital',
                         templateUrl: shot('page/hospital'),
                     })
-                    .state('base.department_doctor',
+                    .state('base.hospital.department_doctor',
                     {//医院详情页
                         controller:'CHospitalDetail',
                         url: '/department_doctor?page_num&limit&with_search&hid',
