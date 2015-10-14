@@ -693,6 +693,41 @@
                 // }, true)
             }
         ])
+        .controller('CPageMark',
+        [
+            '$scope',
+            '$stateParams',
+            'SMark',
+            'SBase',
+            'Upload',
+            'SDoctor',
+            'h',
+            function ($scope
+                , $stateParams
+                , SMark
+                , SBase
+                , Upload
+                , SDoctor
+                , h
+            )
+            {
+            $scope.h = h;
+            $scope.SBase = SBase;
+            $scope.SIns = SMark;
+
+            $scope.add = function(){
+
+            }
+
+            $scope.bind = function(){
+
+            }
+
+            $scope.unbind = function(){
+                
+            }
+
+        }])
         .controller('CMarkDetail', ['$scope', 'iMark', function ($scope, iMark) {
             $scope.SIns = iMark;
             console.log(iMark.current_row);

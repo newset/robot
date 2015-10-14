@@ -3,6 +3,7 @@
 namespace App\Models;
 use Input;
 use Illuminate\Database\Eloquent\Model;
+use Session;
 
 class IMark extends BaseModel
 {
@@ -27,6 +28,28 @@ class IMark extends BaseModel
             return ee(2, $exists_id);
         else
             return ss();
+    }
+
+    public function bat_mark()
+    {
+        // action data 必须
+
+        $baseUrl = 'http://www.remebot.cn/isapi/remeisapi.dll/';
+        $user = Session::get('uid');
+        $row = M('employee')->select('password')->where('id', $user)->first();
+        $pass = substr($row->password, -4);
+        $time = time();
+
+        $params = [
+            'a' => rq('action'),
+            'b' => $time,
+            'c' => $user * 3 * substr($time, -4),
+            'd' => $pass
+        ];
+
+        $url = $baseUrl.http_build_query($params);
+
+        return $params;
     }
 
     public function bat_cu($in = [])

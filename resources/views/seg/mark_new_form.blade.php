@@ -25,7 +25,7 @@
                     <div class="col-md-4">
                       <label>Mark编号列表</label>
                     </div>
-                    <div class="col-md-4 pull-right">
+                    <div class="col-md-4 pull-right text-right">
                         <label>Mark输入总数</label>
                         <input ng-model="SIns.cu_bat_data.unbind_amount"
                                class="form-control"

@@ -378,6 +378,10 @@
                         })
                 }
 
+                me.bat_mark = function(action, data){
+                    return H.p(cook('mark/bat_mark'), {'action' : action, 'data' : data});
+                }
+
                 me.cu_bat = function ()
                 {
                     H.p(cook('mark/bat_exists'), me.cu_bat_data.mark_list)
