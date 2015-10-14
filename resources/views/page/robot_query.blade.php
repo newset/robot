@@ -12,7 +12,7 @@
                 <div class="panel-body">
                     <div role="grid" id="example_wrapper" class="dataTables_wrapper form-inline no-footer">
                         <div class="row col-md-12 search_panel">
-                            <form class="form-horizontal collapse in" id="robot_query" aria-expanded="true">
+                            <form class="form-horizontal" ng-class="{'collapse': simpleQuery}" id="robot_query" aria-expanded="true">
                                 <div class="form-group">
                                     <label class="control-label col-md-1">编号</label>
                                     <input class="form-control"
@@ -45,17 +45,12 @@
 
                                 <div class="form-group">
                                     <label class="control-label col-md-1">销售状态</label>
-                                    <label class="checkbox-inline"><input type="checkbox" value="1" ng-true-value="1"  ng-model="SIns.cond.where.lease_type_id[0]" />在库</label>
-                                    <label class="checkbox-inline"><input type="checkbox" value="2" ng-true-value="2"  ng-model="SIns.cond.where.lease_type_id[1]" />已租出</label>
-                                    <label class="checkbox-inline"><input type="checkbox" value="3" ng-true-value="3"  ng-model="SIns.cond.where.lease_type_id[2]" />已售出</label>
-                                    <label class="checkbox-inline"><input type="checkbox" value="4" ng-true-value="4"  ng-model="SIns.cond.where.lease_type_id[3]" />免费合作中</label>
+                                    <label class="checkbox-inline" ng-repeat="lease in SIns.robot_status_type"><input type="checkbox" value="[:$index+1:]" multi-check index="[:$index:]" holder="SIns.cond.where.lease_type_id" />[:lease.name:]</label>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label col-md-1">设备状态</label>
-                                    <label class="checkbox-inline"><input type="checkbox" value="1" ng-true-value="1" ng-model="SIns.cond.where.action_type_id[0]" />正常</label>
-                                    <label class="checkbox-inline"><input type="checkbox" value="2" ng-true-value="2" ng-model="SIns.cond.where.action_type_id[1]" />维修</label>
-                                    <label class="checkbox-inline"><input type="checkbox" value="3" ng-true-value="3" ng-model="SIns.cond.where.action_type_id[2]" />作废</label>
+                                    <label class="checkbox-inline" ng-repeat="lease in SIns.robot_action_type"><input type="checkbox" value="[:$index+1:]" multi-check index="[:$index:]" holder="SIns.cond.where.action_type_id" />[:lease.name:]</label>
                                 </div>
 
                                 <div class="form-group">

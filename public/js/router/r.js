@@ -73,7 +73,7 @@
                         controller: 'CPageRobot as cPageRobot'
                     })
                     .state('base.robot.query',{
-                        url : '/query/:type',
+                        url : '/query/:type?',
                         templateUrl : shot('page/robot_query'),
                         controller: 'CPageRobot as cPageRobot'
                     })

@@ -462,6 +462,7 @@
         .controller('CPageRobot',
         [
             '$scope',
+            '$state',
             '$stateParams',
             'SRobot',
             'SHospital',
@@ -469,7 +470,8 @@
             'SEmployee',
             'SBase',
             'h',
-            function ($scope
+            function ($scope,
+                $state
                 , $stateParams
                 , SRobot
                 , SHospital
@@ -512,14 +514,17 @@
                         $scope.SIns.refresh();
                         break;
                     default : 
+                        SRobot.cond.where.lease_type_id = []
+                        SRobot.cond.where.action_type_id = []
                         $scope.simpleQuery = false;
+                        break;
                 }
 
                 if($stateParams.with_search)
                 {
                     SRobot.with_search = 1;
                 }
-
+                console.log('state: ', $state);
                 //  $scope.$watch('cond', function()
                 // {
                 //     SRobot.refresh();

@@ -22,17 +22,34 @@
             }
         };
     }])
-    .directive('multiCheck', [function () {
+    .directive('multiCheck', ['$parse', function ($parse) {
         return {
             restrict: 'A',
-            require : 'ngModel',
             link: function (scope, elm, attr, ngModel) {
-                var value = ngModel.$viewValue || [];
+                var getter = $parse(attr.holder),
+                    value = Number(attr.value),
+                    holder = getter(scope) || [];
 
-                elm.attr('checked', value.indexOf(attr.value) != -1);
-                elm.on('click', function(evt){
-                    console.log(ngModel.$viewValue)
-                });
+                $(elm).prop('checked', holder.indexOf(value) != -1);
+                function parse(){
+                    var holder = getter(scope),
+                        setter = getter.assign;
+
+                    var checked = holder.indexOf(value) == -1
+                    $(elm).prop('checked', checked);
+                    if (checked) {
+                        holder.push(value);
+                    }else{
+                        holder.splice(holder.indexOf(value), 1);
+                    };
+
+                    scope.$apply(function (scope) {
+                          // Change bound variable
+                        setter(scope, holder);
+                    });
+                }
+
+                elm.on('click', parse);
             }
         };
     }]);
