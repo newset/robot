@@ -12,7 +12,7 @@ class AddShippedAtToMarkTable extends Migration
      */
     public function up()
     {
-        Schema::table('mark', function (Blueprint $table) {
+        Schema::table('i_mark', function (Blueprint $table) {
             //
           $table->dateTime('shipped_at');
         });
