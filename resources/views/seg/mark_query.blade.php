@@ -261,10 +261,10 @@
 								  <td>[:row.cust_id:]</td>
 								  @if(he_is('employee'))
 									  <td>
-													<span ng-if="row.sold==0">在库</span>
-										<span ng-if="row.sold==1">出货</span>
-													<span ng-if="row.sold==2">已售</span>
-									  </td>
+											<span ng-if="row.agency_id==-1 && row.hospital_id==-1">在库</span>
+						                	<span ng-if="row.agency_id!=-1 && row.hospital_id==-1"">出货</span>
+						                	<span ng-if="row.hospital_id != -1">已售</span>
+							  		  </td>
 								  @endif
 								  @if(he_is('agency'))
 									  <td>[:row.hospital_name:]</td>
