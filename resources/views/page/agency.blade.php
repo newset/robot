@@ -6,7 +6,8 @@ controller:
     <!--tiles start-->
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-default  black-border">
+            <div class="col-md-8">
+                <div class="panel panel-default  black-border">
                 <div class="panel-heading">
                     <h3 class="panel-title">查询条件</h3>
                     <div class="actions pull-right">
@@ -19,71 +20,67 @@ controller:
                             <form class="form-horizontal" id="agency_query">
                                 <div class="form-group">
                                     <label class="control-label col-md-1">编号</label>
-<div class="col-md-8">
-                                    <input class="form-control"
-                                           ng-model-options="{debounce: 300}"
-                                           ng-model="SIns.cond.where.id"
-                                           placeholder="编号">
+                                    <div class="col-md-8">
+                                        <input class="form-control"
+                                               ng-model-options="{debounce: 300}"
+                                               ng-model="SIns.cond.where.id"
+                                               placeholder="编号">
+                                    </div>
                                 </div>
-</div>
-                                {{--<div class="form-group">--}}
-                                {{--<input class="form-control"--}}
-                                {{--ng-model-options="{debounce: 300}"--}}
-                                {{--ng-model="SIns.cond.where_has.doctor.name"--}}
-                                {{--placeholder="名称搜索">--}}
-                                {{--</div>--}}
                                 <div class="form-group ">
                                     <label class="control-label col-md-1">地区</label>
                                     <div class="col-md-8">
                                         <select class="form-control"
-                                            ng-model="SIns.cond.where.province_id"
-                                            ng-options="l.id as l.name for l in SBase._.location.province">
+                                                ng-model="SIns.cond.where.province_id"
+                                                ng-options="l.id as l.name for l in SBase._.location.province">
                                             <option value="" selected>所在省份</option>
                                         </select>
                                         <select class="form-control"
-                                            ng-model="SIns.cond.where.city_id"
-                                            ng-options="l.id as l.name for l in SIns.cond.where.province_id&&SBase._.location.city || []|filter: {parent_id: SIns.cond.where.province_id}:true">
+                                                ng-model="SIns.cond.where.city_id"
+                                                ng-options="l.id as l.name for l in SIns.cond.where.province_id&&SBase._.location.city || []|filter: {parent_id: SIns.cond.where.province_id}:true">
                                             <option value="" selected>所在市区</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-1">名称</label>
-<div class="col-md-8">
-                                    <input class="form-control"
-                                           ng-model-options="{debounce: 300}"
-                                           ng-model="SIns.cond.where.name"
-                                           placeholder="名称">
-                                </div></div>
+                                    <div class="col-md-8">
+                                        <input class="form-control"
+                                               ng-model-options="{debounce: 300}"
+                                               ng-model="SIns.cond.where.name"
+                                               placeholder="名称">
+                                    </div></div>
 
 
 
-                                {{--<div class="form-group">--}}
-                                {{--<div>--}}
-                                {{--代理类型：--}}
-                                {{--<label for="agency_type_any">不限--}}
-                                {{--<input ng-model="SIns.cond.where_has.agency." id="agency_type_any" type="radio" name="agency_type" value="1"--}}
-                                {{--checked>--}}
-                                {{--</label>--}}
+                                    {{--<div class="form-group">--}}
+                                    {{--<div>--}}
+                                    {{--代理类型：--}}
+                                    {{--<label for="agency_type_any">不限--}}
+                                    {{--<input ng-model="SIns.cond.where_has.agency." id="agency_type_any" type="radio" name="agency_type" value="1"--}}
+                                    {{--checked>--}}
+                                    {{--</label>--}}
 
-                                {{--<label for="agency_type_self">自营--}}
-                                {{--<input ng-model="SIns.cond.where_has.agency." id="agency_type_self" type="radio" name="agency_type" value="2">--}}
-                                {{--</label>--}}
+                                    {{--<label for="agency_type_self">自营--}}
+                                    {{--<input ng-model="SIns.cond.where_has.agency." id="agency_type_self" type="radio" name="agency_type" value="2">--}}
+                                    {{--</label>--}}
 
-                                {{--<label for="agency_type_agency">代理--}}
-                                {{--<input ng-model="SIns.cond.where_has.agency." id="agency_type_agency" type="radio" name="agency_type" value="3">--}}
-                                {{--</label>--}}
-                                {{--</div>--}}
-                                {{--</div>--}}
-                                <div class="form-group">
-                                    <button class="btn-custom" style="float: right" ng-click="SIns.refresh()">查询</button>
-                                </div>
+                                    {{--<label for="agency_type_agency">代理--}}
+                                    {{--<input ng-model="SIns.cond.where_has.agency." id="agency_type_agency" type="radio" name="agency_type" value="3">--}}
+                                    {{--</label>--}}
+                                    {{--</div>--}}
+                                    {{--</div>--}}
+                                    <div class="form-group">
+                                        <button class="btn-primary btn  btn-custom" style="float: right" ng-click="SIns.refresh()">查询</button>
+                                    </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <table
+            </div>  {{--col-md-8 --}}
+        <div class="col-md-12">
+    <table
                 id="example"
                 class="table
                        table-striped
@@ -121,7 +118,7 @@ controller:
                         <td>[:row.ended_at:]</td>
                         <td class="edit col-md-2">
                             <span class="tool_wrapper">
-                                <button class="btn-custom" href="" ng-click="SIns.h.popup_detail(row, SIns, 'agency/r', {relation: ['robotLeaseLog', 'mark', 'hospital'], where: {id: row.id}})">
+                                <button class="btn-primary btn-custom btn btn-sm" href="" ng-click="SIns.h.popup_detail(row, SIns, 'agency/r', {relation: ['robotLeaseLog', 'mark', 'hospital'], where: {id: row.id}})">
                                     查看
                                 </button>
                             </span>
@@ -152,4 +149,5 @@ controller:
             </div>
         </div>
     </div>
+</div>
 </section>
