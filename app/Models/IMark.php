@@ -52,8 +52,8 @@ class IMark extends BaseModel
 
         $data = rq('data');
         $response = Requests::post($url, [], $data);
-        // dd($response->body);
-
+        return $response->body;
+        
         return [
             'url' => $url,
             'data' => $data
