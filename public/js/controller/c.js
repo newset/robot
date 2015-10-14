@@ -168,7 +168,7 @@
             {
                 $scope.SBase = SBase;
                 $scope.SIns = SHospital;
-                $scope.SIns.init();
+                // $scope.SIns.init();
                 $scope.cond = $scope.SIns.cond;
                 $scope.SIns.show_search_panel = $stateParams.with_search;
                 h.prepare_location_data();
