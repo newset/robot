@@ -6,11 +6,12 @@
         </a>
         <div class="page-nav pull-left" ng-if="$state.includes('base.robot')" ng-cloak>
              <ul class="nav nav-pills">
-                <li><a href="" ui-sref-opts="{reload:true}" ui-sref="base.robot.new" title="">新增设备</a></li>
-                <li><a href="" title="">设备销售</a></li>
-                <li><a href="" title="">设备作废</a></li>
+                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.robot.new')]">
+                    <a href="" ui-sref-opts="{reload:true}" ui-sref="base.robot.new" title="">新增设备</a></li>
+                <li  ><a href="" title="">设备销售</a></li>
+                <li  ><a href="" title="">设备作废</a></li>
                 <li><a href="" title="">终止合作</a></li>
-                <li><a href="" ui-sref-opts="{reload:true}" ui-sref="base.robot.query" title="">设备查询</a></li>
+                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.robot.query')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.robot.query" title="">设备查询</a></li>
                  <li role="presentation" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
                       报表 <span class="caret"></span>
@@ -24,11 +25,11 @@
         </div>
         <div class="page-nav pull-left" ng-if="$state.includes('base.mark')" ng-cloak>
             <ul class="nav nav-pills">
-                <li><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.new" title="">新增Mark</a></li>
-                <li><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.query" title="">Mark查询</a></li>
-                <li><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.bind" title="">Mark绑定</a></li>
-                <li><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.unbind" title="">Mark解绑</a></li>
-                <li><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.usb" title="">USB数据上传</a></li>
+                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.new')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.new" title="">新增Mark</a></li>
+                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.query')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.query" title="">Mark查询</a></li>
+                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.bind')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.bind" title="">Mark绑定</a></li>
+                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.unbind')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.unbind" title="">Mark解绑</a></li>
+                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.usb')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.usb" title="">USB数据上传</a></li>
                 <li role="presentation" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
                         报表 <span class="caret"></span>
@@ -74,7 +75,7 @@
         <div class="page-nav pull-left" ng-if="$state.includes('base.doctor')" ng-cloak>
             <ul class="nav nav-pills">
                 <li ng-class="{true:'active',false:'inactive'}[$state.includes('base.doctor.new')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.doctor.new" title="">新建医生</a></li>
-                <li ng-class="{true:'active',false:'inactive'}[$state.includes('base.doctor.new')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.doctor.list({with_search: 1})" title="">医生查询</a></li>
+                <li ng-class="{true:'active',false:'inactive'}[$state.includes('base.doctor.list')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.doctor.list({with_search: 1})" title="">医生查询</a></li>
                 <li role="presentation" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
                         报表 <span class="caret"></span>
