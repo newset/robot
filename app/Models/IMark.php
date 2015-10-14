@@ -35,7 +35,7 @@ class IMark extends BaseModel
     {
         // action data 必须
 
-        $baseUrl = 'http://www.remebot.cn/isapi/remeisapi.dll/';
+        $baseUrl = 'http://www.remebot.cn/isapi/remeisapi.dll/?';
         $user = Session::get('uid');
         $row = M('employee')->select('password')->where('id', $user)->first();
         $pass = substr($row->password, -4);
@@ -49,15 +49,10 @@ class IMark extends BaseModel
         ];
 
         $url = $baseUrl.http_build_query($params);
-
         $data = rq('data');
+
         $response = Requests::post($url, [], $data);
         return $response->body;
-        
-        return [
-            'url' => $url,
-            'data' => $data
-        ];
     }
 
     public function bat_cu($in = [])

@@ -1,6 +1,6 @@
 <div class="panel container">
   <div class="panel-body">
-    <form ng-submit="SIns.u(SIns.current_row)"
+    <form
           name="form_mark_unbind"
           class="form-inline" 
           ng-init="SAgency.get_all_rec();
@@ -9,8 +9,7 @@
           @elseif(he_is('agency'))
                   SIns.cu_bat_data.hospital_id = 1
           @endif
-                  "
-          ng-controller="CPageMark">
+                  ">
         {{--[:SIns.current_row:]--}}
         <div class="error form-group">
             <p class="error"
@@ -24,27 +23,30 @@
         </div>
         <div class="form-group pull-right">
             <label>Mark输入总数</label>
-            <input ng-model="SIns.cu_bat_data.unbind_amount"
+            <input ng-model="SIns.cu_bat_data.a"
                    class="form-control"
                    type="number"
                    name="unbind_amount"
                    required>
         </div>
         <div class="form-group">
-            <textarea ng-model="SIns.cu_bat_data.mark_block"
+            <textarea ng-model="SIns.cu_bat_data.b"
                       class="form-control mt20"
                       rows="10"
                       cols="175"
                       style="width:100%" 
                       name="mark_list"
                       array-receiver="SIns.cu_bat_data.mark_list"
-                      la-row-num-match="SIns.cu_bat_data.unbind_amount"
+                      la-row-num-match="SIns.cu_bat_data.a"
                       placeholder="每行一条Mark编号，行数需与总数相等，总数尽量不超过1000条"
                       required>
                 </textarea>
         </div>
+        <div class="form-group" id="resultLog">
+        
+        </div>
         <div class="form-group pull-right">
-            <button type="submit" class="btn btn-info" ng-disabled="form_mark_unbind.$invalid">解除绑定</button>
+            <button type="submit" class="btn btn-info" ng-disabled="form_mark_unbind.$invalid" ng-click="unbind()">解除绑定</button>
         </div>
     </form>
 

@@ -698,6 +698,7 @@
             '$scope',
             '$stateParams',
             'SMark',
+            'SAgency',
             'SBase',
             'Upload',
             'SDoctor',
@@ -705,6 +706,7 @@
             function ($scope
                 , $stateParams
                 , SMark
+                , SAgency
                 , SBase
                 , Upload
                 , SDoctor
@@ -714,6 +716,11 @@
             $scope.h = h;
             $scope.SBase = SBase;
             $scope.SIns = SMark;
+            $scope.SAgency = SAgency;
+
+            SMark.cu_bat_data.a = undefined;
+            SMark.cu_bat_data.b = undefined;
+            SMark.cu_bat_data.c = undefined;
 
             $scope.add = function(){
 
@@ -721,15 +728,28 @@
                     a : SMark.cu_bat_data.a,
                     b : SMark.cu_bat_data.b,
                     c : SMark.cu_bat_data.c,
+                }).then(function(res){
+                    $('#resultLog').html(res.data);
                 });
             }
 
             $scope.bind = function(){
-
+                SMark.bat_mark('bind', {
+                    a : SMark.cu_bat_data.a,
+                    b : SMark.cu_bat_data.b,
+                    c : SMark.cu_bat_data.agency_id,
+                }).then(function(res){
+                    $('#resultLog').html(res.data);
+                });
             }
 
             $scope.unbind = function(){
-
+                SMark.bat_mark('unbind', {
+                    a : SMark.cu_bat_data.a,
+                    b : SMark.cu_bat_data.b,
+                }).then(function(res){
+                    $('#resultLog').html(res.data);
+                });
             }
 
         }])

@@ -59,6 +59,9 @@
                     </textarea>
             </div>
         </div>
+        <div class="form-group" id="resultLog">
+        
+        </div>
         <div class="form-group">
             <button type="submit" class="btn btn-info pull-right" ng-disabled="form_mark_new.$invalid" ng-click="add()">提交</button>
         </div>

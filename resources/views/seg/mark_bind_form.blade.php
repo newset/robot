@@ -1,10 +1,9 @@
 <div class="container panel">
   <div class="panel-body">
       
-    <form ng-submit="SIns.cu_bat(SIns.current_row)"
+    <form 
           name="form_mark_bind"
-          class="form-inline" 
-          ng-controller="CPageMark">
+          class="form-inline" >
         @if(he_is('agency'))
             <input type="hidden" ng-init="SIns.cu_bat_data.agency_id = {{uid()}}">
         @elseif(he_is('employee'))
@@ -28,29 +27,32 @@
         </div>
         <div class="form-group pull-right">
             <label class="control-label">Mark输入总数</label>
-            <input ng-model="SIns.cu_bat_data.bind_amount"
+            <input ng-model="SIns.cu_bat_data.a"
                    class="form-control"
                    type="number"
                    name="bind_amount"
                    required>
         </div>
         <div class="form-group">
-            <textarea ng-model="SIns.cu_bat_data.mark_block"
+            <textarea ng-model="SIns.cu_bat_data.b"
                       class="form-control col-md-12 mt20"
                       rows="10"
                       name="mark_list"
                       style="width:100%" 
                       cols="175"
                       array-receiver="SIns.cu_bat_data.mark_list"
-                      la-row-num-match="SIns.cu_bat_data.bind_amount"
+                      la-row-num-match="SIns.cu_bat_data.a"
                       placeholder="每行一条Mark编号，行数需与总数相等，总数尽量不超过1000条"
                       required>
                 </textarea>
         </div>
+        <div class="form-group" id="resultLog">
+        
+        </div>
         @if(he_is('employee'))
             <div class="form-group pull-right">
                 <label class="control-label">
-                  <button type="submit" class="btn btn-info" ng-disabled="form_mark_bind.$invalid">绑定</button>
+                  <button type="submit" class="btn btn-info" ng-disabled="form_mark_bind.$invalid" ng-click="bind()">绑定</button>
                 </label>
                 <select class="form-control"
                         name="agency_id"
