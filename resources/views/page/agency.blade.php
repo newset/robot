@@ -32,18 +32,22 @@ controller:
                     <div class="form-group ">
                         <label class="control-label col-md-1">地区</label>
                         <div class="col-md-3">
-                            <select class="form-control"
-                                    ng-model="SIns.cond.where.province_id"
-                                    ng-options="l.id as l.name for l in SBase._.location.province">
-                                <option value="" selected>所在省份</option>
-                            </select>
+                            <md-select
+                                name="province_id"
+                                ng-model="SIns.cond.where.province_id"
+                            >
+                                <md-option value="">所在省份</md-option>
+                                <md-option value="[:l.id:]" ng-repeat="l in SBase._.location.province">[:l.name:]</option>
+                            </md-select>
                         </div>
                         <div class="col-md-3">
-                            <select class="form-control"
-                                    ng-model="SIns.cond.where.city_id"
-                                    ng-options="l.id as l.name for l in SIns.cond.where.province_id&&SBase._.location.city || []|filter: {parent_id: SIns.cond.where.province_id}:true">
-                                <option value="" selected>所在市区</option>
-                            </select>
+                            <md-select
+                                name="city_id"
+                                ng-model="SIns.cond.where.city_id"
+                                required>
+                                <md-option value="">所在市区</md-option>
+                                <md-option value="[:l.id:]" ng-repeat="l in SIns.cond.where.province_id&&SBase._.location.city|| []| filter: {parent_id: SIns.cond.where.province_id}:true">[:l.name:]</option>
+                            </md-select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -54,9 +58,9 @@ controller:
                                    ng-model="SIns.cond.where.name"
                                    placeholder="名称">
                         </div>
-                                <div class="col-md-1 pull-right">
-                                    <button class="btn-primary btn  btn-custom" ng-click="SIns.refresh()">查询</button>
-                                </div>
+                        <div class="col-md-1 pull-right">
+                            <button class="btn-primary btn  btn-custom" ng-click="SIns.refresh()">查询</button>
+                        </div>
                     </div>
                     <br/>
                     {{--<div class="form-group">--}}
