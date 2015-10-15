@@ -77,7 +77,11 @@
 	            <dt>经销商</dt>
 	            <dd>[:SIns.current_row.agency.name:]</dd>
 	            <dt>销售状态</dt>
-	            <dd>销售在库</dd>
+	            <dd>
+					<span ng-if="SIns.current_row.agency_id==-1 && SIns.current_row.hospital_id==-1">在库</span>
+                	<span ng-if="SIns.current_row.agency_id!=-1 && SIns.current_row.hospital_id==-1"">出货</span>
+                	<span ng-if="SIns.current_row.hospital_id != -1">已售</span>
+			    </dd>
 	            <dt>销售医院</dt>
 	            <dd>[:SIns.current_row.hospital_name:]</dd>
 	            <dt>销售日期</dt>
