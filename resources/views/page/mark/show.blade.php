@@ -23,9 +23,9 @@
 				<dd>[:SIns.current_row.cust_id:]</dd>
 				<dt>销售状态</dt>
 				<dd>
-					<span ng-if="row.agency_id==-1 && row.hospital_id==-1">在库</span>
-                	<span ng-if="row.agency_id!=-1 && row.hospital_id==-1"">出货</span>
-                	<span ng-if="row.hospital_id != -1">已售</span>
+					<span ng-if="SIns.current_row.agency_id==-1 && SIns.current_row.hospital_id==-1">在库</span>
+                	<span ng-if="SIns.current_row.agency_id!=-1 && SIns.current_row.hospital_id==-1"">出货</span>
+                	<span ng-if="SIns.current_row.hospital_id != -1">已售</span>
 			    </dd>
 				<dt>使用状态</dt>
 				<dd>
