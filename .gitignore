@@ -1,7 +1,0 @@
-Homestead.yaml
-.env
-/vendor
-.phpintel
-storage
-resources/raw_tpl/HTML_version/
-.idea
