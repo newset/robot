@@ -1,0 +1,9 @@
+diff a/.gitignore b/.gitignore	(rejected hunks)
+@@ -1,7 +0,0 @@
+-Homestead.yaml
+-.env
+-/vendor
+-.phpintel
+-storage
+-resources/raw_tpl/HTML_version/
+-.idea
