@@ -58,7 +58,7 @@ label.absolute-label {
 }
 
 #login-wrapper a:link, #login-wrapper a:visited {
-    color: #00B388;
+    color: #337ab7;
 }
 
 #login-wrapper .btn-primary[disabled],
