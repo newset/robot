@@ -161,7 +161,7 @@
                 <a class="dropdown-toggle" data-toggle="dropdown">
                     {{username()}} <i class="fa fa-angle-down"></i>
                 </a>
-                <ul class="dropdown-menu animated fadeInDown">
+                <ul class="dropdown-menu animated fadeInDown dropdown-menu-right">
                     <li>
                         <a href="" ui-sref-opts="{reload:true}" ui-sref="base.me"><i class="fa fa-user"></i>个人设置</a>
                     </li>
