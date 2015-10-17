@@ -27,15 +27,18 @@
                         {
                             Init:
                                 [
-                                    'SBase',
-                                    function(SBase)
+                                    'SBase', '$q',
+                                    function(SBase, $q)
                                     {
+                                        var defer = $q.defer();
                                         SBase.init()
                                             .success(function(r)
                                             {
+                                                window._robot = r;
                                                 console.log('r: ', r);
+                                                defer.resolve(SBase);
                                             })
-                                        return SBase;
+                                        return defer.promise;
                                     }
                                 ]
                         }
@@ -45,7 +48,11 @@
                         url: '/',
                         controller: 'CHome as cHome',
                         templateUrl: shot('page/home'),
-                        sticky: 1,
+                        resolve : {
+                            Role : ['$q', 'Init', 'H', '$timeout', function($q, Init, H, $timeout){
+                                return Init;
+                            }]
+                        },
                         ncyBreadcrumb: {
                             label: '首页',
                         }

@@ -1,3 +1,4 @@
+@if(he_is('employee'))
 <!--tiles start-->
 <div class="row">
 	<div class="col-md-4 col-sm-6">
@@ -83,3 +84,11 @@
 	</div>
 </div>
 <!--tiles end-->
+@endif
+
+@if(he_is('department'))
+	@include('page.home.department')
+@endif
+@if(he_is('agency'))
+	@include('page.home.agency')
+@endif
