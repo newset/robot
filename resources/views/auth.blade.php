@@ -5,7 +5,7 @@
 	<div class="">
 		<div class="col-md-3" id="login-wrapper">
 			<div class="row auth-title">
-				<h1>睿米医疗机器人</h1>
+				<h1>Remebot医疗机器人</h1>
 				<h2>运营管理系统</h2>
 			</div>
 			<div class="panel panel-primary animated flipInY">

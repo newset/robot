@@ -5,7 +5,7 @@
         </a>
 
         <div class="main-title pull-left"  ng-if="$state.includes('base.home')" ng-cloak >
-            <h1>睿米医疗机器人运营管理系统</h1>
+            <h1>Remebot医疗机器人运营管理系统</h1>
         </div>
 
         <div class="page-nav pull-left" ng-if="$state.includes('base.robot')" ng-cloak>
