@@ -1,12 +1,17 @@
 @include('includes.head')
 <body class="animated fadeIn auth-body" ng-app="base_app">
 <section id="login-container">
+	<img src="/assets/img/login-logo.png" alt="logo" class="auth-logo pull-right">
 	<div class="">
 		<div class="col-md-3" id="login-wrapper">
+			<div class="row auth-title">
+				<h1>睿米医疗机器人</h1>
+				<h2>运营管理系统</h2>
+			</div>
 			<div class="panel panel-primary animated flipInY">
 				<div class="panel-heading">
 					<h3 class="panel-title">
-						睿米医疗机器人运营管理系统
+						登录
 					</h3>
 				</div>
 				<div class="panel-body" ng-cloak>

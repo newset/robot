@@ -1,9 +1,13 @@
 <header id="header">
     <div class="toggle-navigation toggle-left">
-        <a class="btn btn-default pull-left" id="toggle-left" data-toggle="tooltip" data-placement="right" href="#/"
-                title="Toggle Navigation" style="line-height: 30px;margin-right: 10px;">
-            <i class="fa fa-home"></i>
+        <a id="toggle-left" data-toggle="tooltip" data-placement="right" href="#/" title="Toggle Navigation">
+            <img class="pull-left" src="/assets/img/main-logo.png" alt="logo">
         </a>
+
+        <div class="main-title pull-left"  ng-if="$state.includes('base.home')" ng-cloak >
+            <h1>睿米医疗机器人运营管理系统</h1>
+        </div>
+
         <div class="page-nav pull-left" ng-if="$state.includes('base.robot')" ng-cloak>
              <ul class="nav nav-pills">
                 <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.robot.new')]">
