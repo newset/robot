@@ -5,7 +5,7 @@ if ( ! function_exists('add_chara'))
     {
         return Session::push('his_chara', $chara);
     }
-} else dd('function set_chara exists.' . __FILE__ . ':' . __LINE__);
+} else dd('function add_chara exists.' . __FILE__ . ':' . __LINE__);
 
 if ( ! function_exists('log_him_in'))
 {
