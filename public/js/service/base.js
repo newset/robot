@@ -362,6 +362,18 @@
                         templateUrl: shot('seg/mark_unbind_form')
                     })
                 }
+                //mark结算
+                me.getbill =  function(){
+                	H.p(cook(me.ins_name + '/getbill'), {date:me.cu_bat_data.date})
+                    .then(function (r)
+                    {
+                        if (r.data.status == 1)
+                        {
+                        	me.current_page_data = r.data.d.main;
+                        	return r;
+                        }
+                    })
+                }
 
                 me.status = get_status;
 

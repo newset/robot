@@ -205,6 +205,12 @@
                         templateUrl : shot('seg/mark_query'),
                         controller : 'CPageMark as CPageMark'
                     })
+                    .state('base.mark.bill',{ //mark 结账
+                        url : '/bill',
+                        templateUrl : shot('seg/mark_bill'),
+                        controller : 'CPageMark'
+                    })
+                    
                     .state('base.mark.show', {
                         url : '/show/:id',
                         templateUrl : shot('page/mark/show'),

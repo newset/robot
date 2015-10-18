@@ -47,6 +47,24 @@
 											</div>
 										</div>
 									@endif
+									@if(he_is('agency'))
+									   <div class="form-group">
+											<label class="control-label col-md-2">销售状态</label>
+											<div>
+												<label class="checkbox-inline"><input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.sold[0]">在销售</label>
+												<label class="checkbox-inline"><input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.sold[1]">已销售</label>
+											</div>
+										</div>
+										
+										<div class="form-group">
+											<label class="control-label col-md-2">归档状态</label>
+											<div>
+												<label class="checkbox-inline"><input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.sold[0]">已归档</label>
+												<label class="checkbox-inline"><input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.sold[1]">未归档</label>
+											</div>
+										</div>
+									@endif
+									@if(!he_is('agency'))
 									<div class="form-group">
 										<label class="control-label col-md-2">代理商</label>
 										 <div class="col-md-2">
@@ -64,6 +82,7 @@
 										</md-autocomplete>
 									  </div>
 									</div>
+									@endif
 									<div class="form-group">
 										<label class="control-label col-md-2">医院</label>
 										 <div class="col-md-2">
