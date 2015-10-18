@@ -82,6 +82,11 @@ a:link, a:visited {
     color: #fff;
     background-color: #337ab7;
 }
+.btn-primary:disabled,  .btn-primary[disabled]{
+    background-color: #428bca;
+    border-color: #357ebd;
+}
+
 
 .error
 {

@@ -13,8 +13,14 @@ class IRobot extends BaseModel
     protected $ins_name = 'robot';
 
     public $createRule = [
-        'cust_id' => 'required|unique:i_robot'
+        'cust_id' => 'required|unique:i_robot|regex:/[1-9]{2}[A-Z][0-9]{4}/'
     ];
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->messages['regex'] = '字段 :attribute 格式错误';
+    }
 
     //public function r_($rq = [])
     //{
