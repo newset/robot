@@ -7,7 +7,7 @@
         @if(he_is('agency'))
             <input type="hidden" ng-init="SIns.cu_bat_data.agency_id = {{uid()}}">
         @elseif(he_is('employee'))
-            <input type="hidden" ng-init="SAgency.get_all_rec()">
+            <input type="hidden" ng-init="SHospital.get_all_rec()">
         @endif
 
         {{--[:SIns.current_row:]--}}
@@ -63,16 +63,20 @@
                 </select>
             </div>
         @endif
-        <!-- <div class="form-group">
-            <label>医院</label>
-            <select class="form-control"
-                    name="hospital_id"
-                    ng-init="SIns.cu_bat_data.hospital_id = 1"
-                    ng-model="SIns.cu_bat_data.hospital_id"
-                    ng-options="l.id as l.name for l in SHospital.all_rec | orderBy: 'id'"
-                    required>
-            </select>
-        </div> -->
+        @if(he_is('agency'))
+            <div class="form-group pull-right">
+                <label class="control-label">
+                  <button type="submit" class="btn btn-info" ng-disabled="form_mark_bind.$invalid" ng-click="bind()">绑定</button>
+                </label>
+                <select class="form-control"
+                        name="agency_id"
+                        ng-init="SIns.cu_bat_data.hospital_id = 1"
+                        ng-model="SIns.cu_bat_data.hospital_id"
+                        ng-options="l.id as l.name for l in SHospital.all_rec | orderBy: 'id'"
+                        required>
+                </select>
+            </div>
+        @endif
     </form>
   </div>
 </div>

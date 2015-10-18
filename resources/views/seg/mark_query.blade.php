@@ -59,8 +59,8 @@
 										<div class="form-group">
 											<label class="control-label col-md-2">归档状态</label>
 											<div>
-												<label class="checkbox-inline"><input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.sold[0]">已归档</label>
-												<label class="checkbox-inline"><input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.sold[1]">未归档</label>
+												<label class="checkbox-inline"><input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.archive[0]">已归档</label>
+												<label class="checkbox-inline"><input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.archive[1]">未归档</label>
 											</div>
 										</div>
 									@endif
@@ -268,6 +268,9 @@
 								  @if(he_is('agency') || he_is('department'))
 									  <th>医生</th>
 								  @endif
+								  @if(he_is('agency'))
+								    <th>销售时间</th>
+								  @endif
 								  <th>使用状态</th>
 								  @if(!he_is('department'))
 									  <th>操作</th>
@@ -290,6 +293,9 @@
 								  @endif
 								  @if(he_is('agency') || he_is('department'))
 									  <td>[:row.doctor_name || '-' :]</td>
+								  @endif
+								  @if(he_is('agency'))
+								    <td>[:row.sold:]</td>
 								  @endif
 								  <td>
 									  <span ng-if="row.status == 1">未使用</span>

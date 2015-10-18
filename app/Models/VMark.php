@@ -20,6 +20,9 @@ class VMark extends IMark
     }
 
     public function r_() {
+        if (he_is('agency')){
+            return $this->__r_();
+        }
         $sql = 'select * from v_mark where 1=1 ';
         $where = [];
 
@@ -33,6 +36,7 @@ class VMark extends IMark
             $id = implode(",",$id);
             $sql .= ' and v_mark.status in ('.$id.')';
         }
+        //销售状态
         $selling_status = Input::get('where.sold');
 
         if(!empty($selling_status)) {
@@ -40,7 +44,6 @@ class VMark extends IMark
             $sub_sql = ' and sold in (' . implode(',', $subtracted).')' ;
             $sql .= $sub_sql;
         }
-
         $agency_id = Input::get('where.agency_id');
         if ($agency_id) {
             $sql .= 'and v_mark.agency_id = ?';
@@ -74,13 +77,18 @@ class VMark extends IMark
             return $this->r();
 
         //$builder = $this->r_builder();
+        if (!he_is('agency')){
+            if (rq('where') || he_is('employee')){
+                return $this->r_();
+            }
+        }
         $builder = $this;
         $rq = rq();
         if (rq('where') || he_is('agency'))
         {
             if (he_is('agency'))
             {
-                $builder = $builder->where('agency_id', uid());
+              $builder = $builder->where('agency_id', uid());
             }
 
             $where = $rq['where'];
@@ -199,6 +207,24 @@ class VMark extends IMark
             {
                 $builder = $builder->where('archive_at', '<', Carbon::parse($where['to_archive_at']));
             }
+            //归档状态
+            if (!empty($where['archive'])){
+                if (in_array(1, $where['archive'])  && !in_array(2, $where['archive'])){
+                    $builder = $builder->whereNotNull('archive_at');
+                }
+                if (in_array(2, $where['archive']) && !in_array(1, $where['archive'])){
+                    $builder = $builder->whereNull('archive_at');
+                }
+            }
+            //销售状态
+            if (!empty($where['sold'])){
+                if (in_array(1, $where['sold'])  && !in_array(2, $where['sold'])){
+                    $builder = $builder->where('hospital_id','=',0);
+                }
+                if (in_array(2, $where['sold']) && !in_array(1, $where['sold'])){
+                    $builder = $builder->where('hospital_id','>',0);
+                }
+            }
 
             if ( ! empty($where['from_surgery_at']) && ! empty($where['to_surgery_at']))
             {
@@ -234,12 +260,47 @@ class VMark extends IMark
                 $q->where('id', $dep_ins->hospital_id);
             });
         }
+        DB::enableQueryLog();
 
         $builder = $builder->limit(50);
         $main = $builder->get();
-
+        $sql = DB::getQueryLog();
+        //print_r($sql);
         return ss([
             'main'  => $main,
+            'count' => $builder->count(),
+        ]);
+    }
+    //mark结账
+    public function getbill(){
+        $builder = $this;
+        $rq = rq();
+        if (he_is('agency')){
+            //$builder = $builder->where('agency_id', uid());
+        }
+        if ($rq['date']){
+            //$builder = $builder->where('sold_at', '<=', Carbon::parse($rq['date']) );
+        }
+        /*
+        $limit=50;
+        $builder = $builder->limit($limit);
+        */
+        $builder->groupBy('v_mark.doctor_id');
+        $builder->leftJoin('i_hospital', 'i_hospital.id', '=', 'v_mark.hospital_id');
+        $builder->leftJoin('i_doctor', 'i_doctor.id', '=', 'v_mark.doctor_id');
+        $builder->select('i_hospital.name as hospital_name','i_doctor.name as doctor_name','v_mark.doctor_id','v_mark.hospital_id','v_mark.id');
+        $main = $builder->get();
+        if ($main){
+            foreach ($main as $v){
+                $tmp = $v;
+                $tmp['historybill'] = 1;
+                $tmp['bill'] = 2;
+                $list[] = $v;
+            }
+        }
+        
+        return ss([
+            'main'  => $list,
             'count' => $builder->count(),
         ]);
     }
