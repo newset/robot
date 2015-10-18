@@ -148,6 +148,25 @@
                     <i class="fa fa-envelope"></i>
                 </button>
             </li> -->
+            @if(he_is('department'))
+                 
+                <li class="dropdown settings" dropdown is-open="isopen" style="list-style: none;"> 
+                    <a class="dropdown-toggle" data-toggle="dropdown" style="color: grey;"> 
+                        海军总医院：心脑血管外科<i class="fa fa-angle-down">
+
+                        </i> 
+                    </a> 
+                    <ul class="dropdown-menu animated fadeInDown dropdown-menu-right">
+                        <li>
+                            <a href="" ui-sref-opts="{reload:true}" ui-sref="base.me"><i class="fa fa-user"></i>修改密码</a>
+                        </li>
+                        <li>
+                            <a href="{{url('logout')}}"><i class="fa fa-power-off"></i> 退出</a>
+                        </li>
+                    </ul>
+                     
+                </li>
+            @else
             <li>
                 当前登录用户:
             <!--      <md-menu md-position-mode="target-right target" ng-cloak>
@@ -169,27 +188,7 @@
                 </md-menu> -->
             </li>
 
-            @if(he_is('department'))
-                 
-                <li class="dropdown settings" dropdown is-open="isopen" style="list-style: none;"> 
-                    <a class="dropdown-toggle" data-toggle="dropdown" style="color: grey;"> 
-                        海军总医院：心脑血管外科<i class="fa fa-angle-down">
 
-                        </i> 
-                    </a> 
-                    <ul class="dropdown-menu animated fadeInDown"> 
-                        <li> 
-                            <a href="" ui-sref-opts="{reload:true}" ui-sref="base.me">
-                                <i class="fa fa-user"></i>修改密码</a> 
-                        </li>
-                        <li> 
-                            <a href="{{url('logout')}}"><i class="fa fa-power-off"></i> 退出</a> 
-                        </li>
-                         
-                    </ul>
-                     
-                </li>
-            @else
             <li class="dropdown settings" dropdown is-open="isopen">
                 <a class="dropdown-toggle" data-toggle="dropdown">
                     {{username()}} <i class="fa fa-angle-down"></i>
