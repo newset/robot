@@ -307,7 +307,7 @@
 							  </tr>
 							  </tbody>
 						  </table>
-						  <div class="row">
+						  <div class="">
 							  <div class="col-xs-6">
 							  </div>
 							  <div class="pagination_wrapper">

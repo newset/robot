@@ -94,19 +94,20 @@
                     }];
                 me.robot_status_type = [
                     {
-                        id: 1,
+                        id: -1,
                         name: '在库'
+                    },
+                    null,
+                    {
+                        id: 1,
+                        name: '卖出'
                     },
                     {
                         id: 2,
-                        name: '已租出'
+                        name: '租赁'
                     },
                     {
                         id: 3,
-                        name: '已售出'
-                    },
-                    {
-                        id: 4,
                         name: '免费合作中'
                     }
                 ];
@@ -193,7 +194,7 @@
                     if (row.status == 0)
                         return '已冻结';
                     if (moment().isBetween(row.started_at, row.ended_at))
-                        return 'OK';
+                        return '正常';
                     return '已过期';
                 }
 

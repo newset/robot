@@ -45,7 +45,7 @@
 
                                 <div class="form-group">
                                     <label class="control-label col-md-1">销售状态</label>
-                                    <label class="checkbox-inline" ng-repeat="lease in SIns.robot_status_type"><input type="checkbox" value="[:$index+1:]" multi-check index="[:$index:]" holder="SIns.cond.where.lease_type_id" />[:lease.name:]</label>
+                                    <label class="checkbox-inline" ng-if="lease" ng-repeat="lease in SIns.robot_status_type"><input type="checkbox" value="[:lease.id:]" multi-check index="[:$index:]" holder="SIns.cond.where.lease_type_id" />[:lease.name:]</label>
                                 </div>
 
                                 <div class="form-group">
@@ -138,24 +138,27 @@
                                         ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
                                         <td>[:row.cust_id:]</td>
                                         <td>
+                                            <span ng-if="!row.action_type_id">
+                                                正常
+                                            </span>
                                             <span>[: SIns.robot_action_type[row.action_type_id - 1].name:]</span>
                                         </td>
                                         <td>
                                             <span ng-if="!row.lease_type_id">-</span>
-                                            <span>[: SIns.robot_status_type[row.lease_type_id - 1].name :]</span>
+                                            <span>[: SIns.robot_status_type[row.lease_type_id+1].name :]</span>
                                         </td>
 
                                         {{--<td>--}}
-                                        {{--<span ng-if="!row.log_lease_hospital_id">-</span>--}}
+                                        {{--<span ng-if="!row.log_lease_hospital_id">无</span>--}}
                                         {{--<span>[: SHospital.all_rec[row.log_lease_hospital_id - 1].name:]</span>--}}
                                         {{--</td>--}}
                                         <td>
-                                            <span ng-if="!row.log_lease_agency_id">-</span>
-                                            <span >[: row.agency_name :]</span>
+                                            <span ng-if="!row.log_lease_hospital_id">无</span>
+                                            <span >[: row.hospital_name :]</span>
                                         </td>
                                         <td>
-                                            <span ng-if="!row.log_lease_agency_id">-</span>
-                                            <span>[: row.hospital_name :]</span>
+                                            <span ng-if="!row.log_lease_agency_id">无</span>
+                                            <span>[: row.agency_name :]</span>
                                         </td>
                                         <td>[:row.employee_name:]</td>
                                         <td>[:row.log_count || 0:]</td>

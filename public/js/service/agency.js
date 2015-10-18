@@ -48,7 +48,7 @@
                     if (row.status == 0)
                         return '已冻结';
                     if (moment().isBetween(row.started_at, row.ended_at))
-                        return 'OK';
+                        return '正常';
                     return '已过期';
                 }
 
