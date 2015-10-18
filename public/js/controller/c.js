@@ -614,6 +614,10 @@
                         // 跳转到详情 todo
                         $scope.SIns.current_row = {};
                         console.log('创建成功: ', res.data.d);
+
+                        if (res.data.status ==1 ) {
+                            $state.go('base.robot.detail', {'id' : res.data.d.id});
+                        };
                     });
                 }
 

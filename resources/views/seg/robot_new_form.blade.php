@@ -19,9 +19,10 @@
               <div class="col-md-6">
                 <input class="form-control"
                      name="cust_id"
+                     ng-model-options="{ updateOn: 'blur' }"
                      ng-model="SIns.current_row.cust_id"
                      la-exist="robot.cust_id"
-                     required>
+                     >
               </div>
               <label class="error" ng-if="form_robot.cust_id.$error.laExist">编号已存在</label>
             </div>
@@ -31,7 +32,7 @@
             <div class="form-group col-md-6">
               <label class="control-label col-md-2">负责人</label>
               <div class="col-md-4">
-                <md-select ng-model="SIns.current_row.employee_id" required class="" style="margin: 0px;">
+                <md-select ng-model="SIns.current_row.employee_id" class="" style="margin: 0px;">
                   <md-option ng-repeat="l in SEmployee.all" value="[:l.id:]">
                     [:l.name:]
                   </md-option>
@@ -52,7 +53,7 @@
               <label class="control-label col-md-2">生产日期</label>
               <div class="col-md-6">
                 <datepicker date-format="yyyy-MM-dd" date-set="[:SIns.current_row.production_date:]">
-                  <input ng-model="SIns.current_row.production_date" type="text" class="form-control" required/>
+                  <input ng-model="SIns.current_row.production_date" type="text" class="form-control"/>
                 </datepicker>
               </div>
             </div>
