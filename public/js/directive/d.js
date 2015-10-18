@@ -78,9 +78,20 @@
                         }
                     newLink.apply(this, arguments);
                 }
-            }
 
+            }
             return $delegate;
+
         });
     });
+
+    angular.module('720kb.datepicker')
+        .config(['$provide', function ($provide) {
+            $provide.decorator('datepickerDirective', ['$delegate', function($delegate){
+                var directive = $delegate[0];
+
+                console.log(directive);
+                return $delegate
+            }])
+        }])
 })();

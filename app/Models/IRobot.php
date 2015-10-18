@@ -12,6 +12,10 @@ class IRobot extends BaseModel
     protected $softDelete = false;
     protected $ins_name = 'robot';
 
+    public $createRule = [
+        'cust_id' => 'required|unique:i_robot'
+    ];
+
     //public function r_($rq = [])
     //{
     //    $ins = $this->r_builder(rq());

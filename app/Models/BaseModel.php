@@ -23,6 +23,11 @@ class BaseModel extends Model
     public $createRule = [];
     public $updateRule = [];
 
+    public $messages = [
+        'required' => '字段:attribute不能为空.',
+        'unique' => '字段:attribute值已被占用.',
+    ];
+
     public function __construct($prefix = 'i')
     {
         $this->table = table_name($this->ins_name, $prefix);
@@ -98,7 +103,7 @@ class BaseModel extends Model
         {
             $rq = rq();
         }
-        $validator = Validator::make($rq, $this->createRule);
+        $validator = Validator::make($rq, $this->createRule, $this->messages);
 
         if ($validator->passes())
         {

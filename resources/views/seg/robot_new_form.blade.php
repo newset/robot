@@ -52,15 +52,16 @@
             <div class="form-group col-md-6">
               <label class="control-label col-md-2">生产日期</label>
               <div class="col-md-6">
-                <datepicker date-format="yyyy-MM-dd" date-set="[:SIns.current_row.production_date:]">
-                  <input ng-model="SIns.current_row.production_date" type="text" class="form-control"/>
+                <datepicker date-format="yyyy-MM-dd" date-set="[:SIns.current_row.production_date:]" selector="form-control">
+                  <div class="input-group">
+                      <input ng-model="SIns.current_row.production_date" type="text" placeholder="yyyy-MM-dd" class="form-control"/>
+                  </div>
                 </datepicker>
               </div>
             </div>
           </div>
-
           <div class="form-group">
-              <button type="submit" ng-click="save()" class="btn btn-info pull-right" ng-disabled="form_robot.$invalid">新建</button>
+              <button type="submit" ng-click="save()" class="btn btn-info pull-right">新建</button>
           </div>
       </form>
       
