@@ -3,11 +3,11 @@
         <a id="toggle-left" data-toggle="tooltip" data-placement="right" href="#/" title="Toggle Navigation">
             <img class="pull-left" src="/assets/img/main-logo.png" alt="logo">
         </a>
-
+        @if(!he_is('agency'))
         <div class="main-title pull-left"  ng-if="$state.includes('base.home')" ng-cloak >
             <h1>Remebot医疗机器人运营管理系统</h1>
         </div>
-
+        @endif
         <div class="page-nav pull-left" ng-if="$state.includes('base.robot')" ng-cloak>
              <ul class="nav nav-pills">
                 <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.robot.new')]">
@@ -32,6 +32,17 @@
                   </li>
             </ul>
         </div>
+        @if(he_is('agency'))
+        <div class="page-nav pull-left" ng-if="$state.includes('base.mark') || $state.includes('base.home')" ng-cloak>
+            <ul class="nav nav-pills">
+                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.query')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.query" title="">Mark查询</a></li>
+                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.bind')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.bind" title="">Mark绑定</a></li>
+                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.unbind')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.unbind" title="">Mark解绑</a></li>
+                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.bill')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.bill" title="">Mark结账</a></li>
+                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.historybill')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.historybill" title="">历史结账清单</a></li>
+            </ul>
+        </div>
+        @else
         <div class="page-nav pull-left" ng-if="$state.includes('base.mark')" ng-cloak>
             <ul class="nav nav-pills">
                 <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.new')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.new" title="">新增Mark</a></li>
@@ -51,6 +62,7 @@
                 </li>
             </ul>
         </div>
+        @endif
         <div class="page-nav pull-left" ng-if="$state.includes('base.hospital')" ng-cloak>
             <ul class="nav nav-pills">
                 <li ng-class="{true:'active',false:'inactive'}[$state.includes('base.hospital.new')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.hospital.new" title="">新建医院</a></li>
