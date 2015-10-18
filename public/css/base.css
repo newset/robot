@@ -507,3 +507,7 @@ vertical-align: inherit;
 .auth-logo{
     margin:50px 50px 0 0;
 }
+
+.home-hr{
+    border: 1px solid gray;
+}
