@@ -37,7 +37,6 @@ class IMark extends BaseModel
         // action data 必须
         if (he_is('agency')){
             $user = uid();
-            $user = 2;
             $row = M('agency')->select('password')->where('id', $user)->first();
             if ($action == 'checkout'){
                 $action='checkout';
@@ -189,6 +188,36 @@ class IMark extends BaseModel
             ->update(['archive_at'=>date("Y-m-d H:i:s")]);
             return  ss('归档成功'); 
         }  
+    }
+    /**
+     * 归档历史
+     * 
+     * @author tanqing
+     * @date 2015年10月19日
+     */
+    public function ck_mark_history(){
+        if (he_is('agency')){
+            
+            $pagination = Input::get("pagination",1);
+            $offset = 0;
+            $perpage = 50;
+            DB::enableQueryLog();
+            $ins = M($this->ins_name);
+            $ins = $ins->select('archive_at',DB::raw('count(1) as mark_count'))
+            //->where('agency_id',uid())
+            //->whereNotNull('archive_at')
+            ->groupBy('archive_at')
+            ->orderBy('archive_at','DESC');
+            $ins->limit(50);
+           $main =$ins-> get();
+           $sql = DB::getQueryLog();
+            $r = [
+                'count' => $ins->count(),
+                'main'  => $main,
+                'where' => $sql
+            ];
+            return ss($r);
+        }
     }
 
     public function doctor()
