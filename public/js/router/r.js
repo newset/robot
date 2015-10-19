@@ -250,6 +250,11 @@
                         templateUrl : shot('seg/mark_checkout'),
                         controller : 'CPageMarkNew'
                     })
+                    .state('base.mark.ck_mark_history',{ //mark 结账
+                        url : '/ck_mark_history',
+                        templateUrl : shot('seg/mark_checkout_history'),
+                        controller : 'CPageMark'
+                    })
                     
                     .state('base.mark.show', {
                         url : '/show/:id',

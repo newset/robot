@@ -43,6 +43,7 @@ return [
                     'bat_exists',
                     'bat_mark',
                     'ck_mark',
+                    'ck_mark_history'
                 ],
             'hospital' =>
                 [

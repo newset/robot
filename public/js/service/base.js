@@ -387,6 +387,7 @@
                 me.bat_mark = function(action, data){
                     return H.p(cook('mark/bat_mark'), {'action' : action, 'data' : data});
                 }
+                
 
                 me.cu_bat = function ()
                 {
@@ -431,8 +432,8 @@
                         })
                 }
 
-                SHospital.get_all_rec();
-                SAgency.get_all_rec();
+                //SHospital.get_all_rec();
+                //SAgency.get_all_rec();
 
                 function popup_new()
                 {
@@ -529,6 +530,13 @@
                             }
                             return r;
                         })
+                }
+                me.mark_checkout_history =  mark_checkout_history;
+                function mark_checkout_history(){
+                	return H.p(cook(me.ins_name + '/ck_mark_history'),me.cond2).then(function (r){
+                                me.history_items = r.data.d.count;
+                                me.history_page_data = r.data.d.main;
+                            });
                 }
 
                 function change_page(pagination)

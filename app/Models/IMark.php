@@ -197,22 +197,17 @@ class IMark extends BaseModel
      */
     public function ck_mark_history(){
         if (he_is('agency')){
-            
             $pagination = Input::get("pagination",1);
-            $offset = 0;
-            $perpage = 50;
             DB::enableQueryLog();
-            $ins = M($this->ins_name);
-            $ins = $ins->select('archive_at',DB::raw('count(1) as mark_count'))
-            //->where('agency_id',uid())
-            //->whereNotNull('archive_at')
+            $main = DB::table('i_mark')->select('archive_at',DB::raw('count(1) as mark_count'))
+            ->where('agency_id',uid())
+            ->whereNotNull('archive_at')
             ->groupBy('archive_at')
-            ->orderBy('archive_at','DESC');
-            $ins->limit(50);
-           $main =$ins-> get();
+            ->orderBy('archive_at','DESC')->get();
+           $main2 = DB::select(DB::raw('select count(1) as total from (select count(1) as mark_count from `i_mark` where agency_id = '.uid().' and  archive_at is not null group by `archive_at` order by `archive_at` desc) as c'));
            $sql = DB::getQueryLog();
             $r = [
-                'count' => $ins->count(),
+                'count' => $main2[0]->total,
                 'main'  => $main,
                 'where' => $sql
             ];

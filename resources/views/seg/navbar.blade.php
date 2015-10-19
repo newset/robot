@@ -39,7 +39,7 @@
                 <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.bind')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.bind({with_search: 1})" title="">Mark绑定</a></li>
                 <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.unbind')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.unbind({with_search: 1})" title="">Mark解绑</a></li>
                 <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.checkout')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.checkout({with_search: 1})" title="">Mark结账</a></li>
-                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.historybill')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.historybill({with_search: 1})" title="">历史结账清单</a></li>
+                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.ck_mark_history')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.ck_mark_history({with_search: 1})" title="">历史结账清单</a></li>
             </ul>
         </div>
         @else
