@@ -59,7 +59,7 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat="log in SIns.current_row.robot_log">
-							<td>[:log.created_at:]</td>
+							<td>[:log.created_at | laDate :]</td>
 							<td>[:SIns.robot_fix_type[log.action_type-1].name:]</td>
 							<td>[:log.employee.name:]</td>
 							<td>[:log.memo | limitTo: 20:]</td>
@@ -84,16 +84,28 @@
 				<table class="table table-bordered table-hover">
 					<thead>
 						<tr>
-							<th>时间</th>
+							<th class="col-md-3">时间</th>
 							<th>类型</th>
-							<th>代理商</th>
-							<th>医院</th>
+							<th class="col-md-3">代理商</th>
+							<th class="col-md-3">医院</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr ng-repeat="log in SIns.current_row.robot_lease_log">
-							<td>[:log.lease_started_at:] 到 [:log.lease_ended_at:]</td>
-							<td>[:SIns.lease_type[log.lease_type_id-1].name:]</td>
+							<td>
+								<span ng-if="log.lease_type_id == 2 || log.lease_type_id == 3">
+									[:log.lease_started_at | laDate :] 到 [:log.lease_ended_at | laDate :]
+								</span>
+								<span ng-if="(log.lease_type_id * log.lease_type_id) == 1">
+									[:log.created_at | laDate :]
+								</span>
+							</td>
+							<td>
+								<span ng-if="log.lease_type_id == -1">返回库存</span>
+								<span ng-if="log.lease_type_id == 1">出售</span>
+								<span ng-if="log.lease_type_id == 2">出租</span>
+								<span ng-if="log.lease_type_id == 3">免费合作</span>
+							</td>
 							<td>[:log.agency.name:]</td>
 							<td>[:log.hospital.name:]</td>
 						</tr>

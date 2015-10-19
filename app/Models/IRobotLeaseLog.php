@@ -12,6 +12,26 @@ class IRobotLeaseLog extends BaseModel
     protected $ins_name = 'robot_lease_log';
     protected $table = 'i_robot_lease_log';
 
+    public $createRule = [
+        'robot_id' => 'required',
+        'lease_type_id' => 'required|digits_between:-1,3'
+    ];
+
+    public function c($rq = null)
+    {
+        $rq = rq();
+        $new = parent::c($rq);
+        if ($new['status'] == 1) {
+              // 设置
+            $query = $this->where('robot_id', $rq['robot_id']);
+            $query->update(['recent'=> 0]);
+            $query->where('id', $new['d']['id'])->update(['recent'=> 1]);
+        }
+      
+        return $new;
+
+    }
+
     /**
      * 关联代理商
      */

@@ -24,10 +24,12 @@
             };
         })
 
-        //.filter('laDate', function($filter) {
-        //    var angularDateFilter = $filter('date');
-        //    return function(theDate) {
-        //        return angularDateFilter(theDate, 'yyyy-MM-dd');
-        //    }
-        //});
+        .filter('laDate', function($filter) {
+           var angularDateFilter = $filter('date');
+           return function(theDate, format) {
+                var format = format || 'yyyy-MM-dd',
+                    date = new Date(theDate);
+               return angularDateFilter(date, format);
+           }
+        });
 })();
