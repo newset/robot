@@ -102,7 +102,7 @@
 			</div>
 
 			<div class="col-md-12">
-				<button type="button" class="btn btn-primary pull-right">设置销售状态</button>
+				<a class="btn btn-primary pull-right" ui-sref="base.robot.lease({id: SIns.current_row.id})">设置销售状态</a>
 			</div>
 		</div>
 	</div>

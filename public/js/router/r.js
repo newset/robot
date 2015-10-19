@@ -115,6 +115,19 @@
                             }
                         }
                     })
+                    .state('base.robot.lease',{
+                        url : '/lease/:id',
+                        templateUrl : shot('page/robot/lease'),
+                        controller: 'CPageRobotLog as cPageRobot',
+                        resolve : {
+                            sIns : function(SRobot, $stateParams){
+                                return SRobot.h.r($stateParams.id, SRobot, []).then(function(res){
+                                    SRobot.current_row = res.data.d.main[0];
+                                    return SRobot;
+                                });
+                            }
+                        }
+                    })
                     .state('base.robot.detail', {
                         url : '/detail/:id',
                         templateUrl : shot('page/robot/detail'),
