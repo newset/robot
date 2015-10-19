@@ -60,7 +60,7 @@
 					<tbody>
 						<tr ng-repeat="log in SIns.current_row.robot_log">
 							<td>[:log.created_at:]</td>
-							<td>[:SIns.robot_fix_type[log.action_type_id-1].name:]</td>
+							<td>[:SIns.robot_fix_type[log.action_type-1].name:]</td>
 							<td>[:log.employee.name:]</td>
 							<td>[:log.memo | limitTo: 20:]</td>
 						</tr>
@@ -68,7 +68,7 @@
 				</table>
 			</div>
 			<div class="col-md-12">
-				<button type="button" class="btn btn-primary pull-right">新建记录</button>
+				<a class="btn btn-primary pull-right" ui-sref="base.robot.log({id: SIns.current_row.id})">新建记录</a>
 			</div>
 		</div>
 	</div>

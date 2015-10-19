@@ -1,8 +1,12 @@
 <div class="col-md-12">
   <div class="panel panel-default">
     <div class="panel-body">
-      <h3 class="panel-title">
+      <h3 class="panel-title" ng-if="!SIns.current_row.id">
          新建设备
+      </h3>
+      <h3 class="panel-title" ng-if="SIns.current_row.id">
+         编辑设备信息
+         <a ui-sref="base.robot.detail({id: SIns.current_row.id})" class="pull-right"> 编号 : [:SIns.current_row.cust_id:]</a>
       </h3>
     </div>
   </div>
@@ -68,7 +72,7 @@
               </div>
             </div>
           </div>
-          <div class="row">
+          <div class="row" ng-if="SIns.current_row.id">
             <div class="form-group col-md-6">
               <label for="" class="control-label col-md-2">状态</label>
               <div class="col-md-4">
@@ -79,9 +83,10 @@
               </div>
             </div>
           </div>
-          <div class="form-group">
-              <button type="submit" ng-click="save()" class="btn btn-info pull-right" ng-if="!SIns.current_row.id">新建</button>
-              <button type="submit" ng-click="save()" class="btn btn-info pull-right" ng-if="SIns.current_row.id">保存</button>
+          <div class="form-group text-right">
+              <button type="submit" ng-click="save()" class="btn btn-info" ng-if="!SIns.current_row.id">新建</button>
+              <a ui-sref="base.robot.detail({id: SIns.current_row.id})" class="btn btn-default" ng-if="SIns.current_row.id">取消</a>
+              <button type="submit" ng-click="save()" class="btn btn-info" ng-if="SIns.current_row.id">保存</button>
           </div>
       </form>
       

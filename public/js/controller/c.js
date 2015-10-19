@@ -611,6 +611,8 @@
 
                 if (!$stateParams.id) {
                     SRobot.current_row = {};
+                }else{
+                    // 如果没有数据，则先获取
                 };
 
                 $scope.save = function(){
@@ -636,8 +638,23 @@
         }])
         .controller('CPageRobotDetail', ['$scope', 'sIns', function ($scope, sIns) {
             $scope.SIns = sIns;
+        }])
+        .controller('CPageRobotLog', ['$scope', 'SRobot', '$state', 'H', function ($scope, SRobot, $state, H) {
+            $scope.SIns = SRobot;
+            $scope.data = {
+                robot_id : SRobot.current_row.id, 
+                action_type : 1
+            }
 
+            $scope.save = function () {
+                H.p(cook('robotLog/c'), $scope.data).then(function(res){
+                    if (res.data.status == 1) {
+                        $state.go('base.robot.detail', {id : SRobot.current_row.id});
+                    }else{
 
+                    };
+                });
+            }
         }])
         .controller('CPageMark',
         [

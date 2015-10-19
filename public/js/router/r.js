@@ -94,9 +94,21 @@
                         templateUrl : shot('seg/robot_new_form'),
                         controller: 'CPageRobotNew as cPageRobot',
                         resolve : {
-                            Item : function(SRobot, $stateParams){
+                            sIns : function(SRobot, $stateParams){
                                 return SRobot.h.r($stateParams.id, SRobot, []).then(function(res){
-                                    // 根据 status 返回
+                                    SRobot.current_row = res.data.d.main[0];
+                                    return SRobot;
+                                });
+                            }
+                        }
+                    })
+                    .state('base.robot.log',{
+                        url : '/log/:id',
+                        templateUrl : shot('page/robot/log'),
+                        controller: 'CPageRobotLog as cPageRobot',
+                        resolve : {
+                            sIns : function(SRobot, $stateParams){
+                                return SRobot.h.r($stateParams.id, SRobot, []).then(function(res){
                                     SRobot.current_row = res.data.d.main[0];
                                     return SRobot;
                                 });
@@ -110,7 +122,7 @@
                         resolve : {
                             sIns : function(SRobot, $stateParams){
                                 return SRobot.h.r($stateParams.id, SRobot, ['robotLog.employee', 'robotLeaseLog.agency', 'robotLeaseLog.hospital', 'employee', 'lastAgency', 'lastHospital']).then(function(res){
-                                 
+                                    SRobot.current_row = res.data.d.main[0];
                                     return SRobot;
                                 });
                             }
