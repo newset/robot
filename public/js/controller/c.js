@@ -828,7 +828,8 @@
             $scope.ck_mark = function(){
             	H.p(cook('mark/ck_mark'), {d: SMark.cu_bat_data.a}).then(function(res){
                     if (res.data.status == 1) {
-                        $state.go('base.robot.detail');
+                        //$state.go('base.robot.detail');
+                    	alert('归档成功');
                     }else{
 
                     };
