@@ -89,13 +89,28 @@
                         templateUrl : shot('seg/robot_new_form'),
                         controller: 'CPageRobotNew as cPageRobot'
                     })
+                    .state('base.robot.edit',{
+                        url : '/edit/:id',
+                        templateUrl : shot('seg/robot_new_form'),
+                        controller: 'CPageRobotNew as cPageRobot',
+                        resolve : {
+                            Item : function(SRobot, $stateParams){
+                                return SRobot.h.r($stateParams.id, SRobot, []).then(function(res){
+                                    // 根据 status 返回
+                                    SRobot.current_row = res.data.d.main[0];
+                                    return SRobot;
+                                });
+                            }
+                        }
+                    })
                     .state('base.robot.detail', {
                         url : '/detail/:id',
                         templateUrl : shot('page/robot/detail'),
                         controller : 'CPageRobotDetail as ctrl',
                         resolve : {
                             sIns : function(SRobot, $stateParams){
-                                return SRobot.h.r($stateParams.id, SRobot, ['robotLog.employee', 'robotLeaseLog.agency', 'robotLeaseLog.hospital', 'employee', 'lastAgency', 'lastHospital']).then(function(){
+                                return SRobot.h.r($stateParams.id, SRobot, ['robotLog.employee', 'robotLeaseLog.agency', 'robotLeaseLog.hospital', 'employee', 'lastAgency', 'lastHospital']).then(function(res){
+                                 
                                     return SRobot;
                                 });
                             }

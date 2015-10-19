@@ -609,8 +609,19 @@
                 $scope.SAgency = SAgency;
                 $scope.SIns = SRobot;
 
+                if (!$stateParams.id) {
+                    SRobot.current_row = {};
+                };
+
                 $scope.save = function(){
-                    $scope.SIns.cu($scope.SIns.current_row).then(function(res){
+                    var data = {
+                        id : $scope.SIns.current_row.id,
+                        cust_id : $scope.SIns.current_row.cust_id,
+                        employee_id : $scope.SIns.current_row.employee_id,
+                        production_date : $scope.SIns.current_row.production_date,
+                        status : Number($scope.SIns.current_row.status)
+                    }
+                    $scope.SIns.cu(data).then(function(res){
                         // 跳转到详情 todo
                         if (res.data.status ==1 ) {
                             $state.go('base.robot.detail', {'id' : res.data.d.id});

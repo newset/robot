@@ -10,10 +10,10 @@
     <div class="panel-body">
       <form
             name="form_robot"
-            ng-init="SEmployee.r({limit: 0}); SIns.current_row = {}"
+            ng-init="SEmployee.r({limit: 0}); "
             class="col-md-12 form-horizontal" style="float:none;">
   
-          <div class="row">
+          <div class="row"  ng-if="!SIns.current_row.id">
             <div class="form-group col-md-6">
               <label class="control-label col-md-2">编号</label>
               <div class="col-md-4 col-sm-12">
@@ -68,8 +68,20 @@
               </div>
             </div>
           </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="" class="control-label col-md-2">状态</label>
+              <div class="col-md-4">
+                <label class="radio-inline"><input type="radio" value="0" ng-checked="SIns.current_row.status ==0"
+                  ng-model="SIns.current_row.status" />正常</label>
+                <label class="radio-inline"><input type="radio" value="2" ng-checked="SIns.current_row.status ==2"
+                  ng-model="SIns.current_row.status" />作废</label>
+              </div>
+            </div>
+          </div>
           <div class="form-group">
-              <button type="submit" ng-click="save()" class="btn btn-info pull-right">新建</button>
+              <button type="submit" ng-click="save()" class="btn btn-info pull-right" ng-if="!SIns.current_row.id">新建</button>
+              <button type="submit" ng-click="save()" class="btn btn-info pull-right" ng-if="SIns.current_row.id">保存</button>
           </div>
       </form>
       

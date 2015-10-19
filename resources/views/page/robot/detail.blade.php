@@ -19,7 +19,7 @@
 					<dt>编号</dt>
 					<dd>[:SIns.current_row.cust_id:]</dd>
 					<dt>状态</dt>
-					<dd>[:SIns.lease_type[SIns.current_row.lease_type_id-1].name:]</dd>
+					<dd>[:SIns.lease_type[SIns.current_row.lease_type_id+1].name:]</dd>
 					<dt>生产日期</dt>
 					<dd>[:SIns.current_row.production_date | date : 'yyyy-MM-dd':]</dd>
 					<dt>代理商</dt>
@@ -27,7 +27,7 @@
 					<dt>医院</dt>
 					<dd>[:SIns.current_row.last_hospital.name:]</dd>
 					<dt>已用Mark</dt>
-					<dd>[:SIns.current_row.employee.name:]</dd>
+					<dd>0</dd>
 					<dt>负责人</dt>
 					<dd>[:SIns.current_row.employee.name:]</dd>
 					<dt>提示</dt>
@@ -35,7 +35,7 @@
 				</dl>
 			</div>
 			<div class="col-md-12">
-				<button type="button" class="btn btn-primary pull-right">修改设备信息</button>
+				<a class="btn btn-primary pull-right" ui-sref="base.robot.edit({id : SIns.current_row.id})">修改设备信息</a>
 			</div>
 		</div>
 	</div>

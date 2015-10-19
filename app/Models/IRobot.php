@@ -18,10 +18,13 @@ class IRobot extends BaseModel
         'production_date' => 'required|date'
     ];
 
+    public $fillable = ['cust_id', 'employee_id', 'production_date', 'status'];
+
     public function __construct()
     {
         parent::__construct();
         $this->messages['regex'] = '字段 :attribute 格式错误';
+        // $this->updateRule = $this->createRule;
     }
 
     //public function r_($rq = [])

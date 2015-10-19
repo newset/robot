@@ -139,6 +139,11 @@
 
                 me.status = get_status;
 
+                // 根据数据信息，返回对应的状态
+                me.getInfo = function(data){
+                    
+                }
+
                 me.cu_ = function ()
                 {
                     H.p(cook(me.ins_name + '/cu_'), me.current_row)
