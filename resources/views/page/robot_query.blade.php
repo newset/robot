@@ -138,10 +138,7 @@
                                         ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
                                         <td>[:row.cust_id:]</td>
                                         <td>
-                                            <span ng-if="!row.action_type_id">
-                                                正常
-                                            </span>
-                                            <span>[: SIns.robot_action_type[row.action_type_id - 1].name:]</span>
+                                            <span>[: SIns.robot_action_type[row.status].name:]</span>
                                         </td>
                                         <td>
                                             <span ng-if="!row.lease_type_id">-</span>

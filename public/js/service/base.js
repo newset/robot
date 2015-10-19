@@ -113,15 +113,15 @@
                 ];
                 me.robot_action_type = [
                     {
-                        id: 1,
+                        id: 0,
                         name: '正常'
                     },
                     {
-                        id: 2,
-                        name: '维修'
+                        id: 1,
+                        name: '维修中'
                     },
                     {
-                        id: 3,
+                        id: 2,
                         name: '作废'
                     }
                 ];
