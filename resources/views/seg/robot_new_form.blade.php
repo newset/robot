@@ -16,13 +16,15 @@
           <div class="row">
             <div class="form-group col-md-6">
               <label class="control-label col-md-2">编号</label>
-              <div class="col-md-6">
+              <div class="col-md-4 col-sm-12">
                 <input class="form-control"
                      name="cust_id"
                      ng-model-options="{ updateOn: 'blur' }"
                      ng-model="SIns.current_row.cust_id"
-                     la-exist="robot.cust_id"
                      >
+                <p ng-repeat="error in errors.cust_id" class="text-danger">
+                  [:error:]
+                </p>
               </div>
               <label class="error" ng-if="form_robot.cust_id.$error.laExist">编号已存在</label>
             </div>
@@ -37,6 +39,9 @@
                     [:l.name:]
                   </md-option>
                 </md-select>
+                <p ng-repeat="error in errors.employee_id" class="text-danger">
+                  [:error:]
+                </p>
               </div>
               
              <!--  <select class="form-control"
@@ -57,6 +62,9 @@
                       <input ng-model="SIns.current_row.production_date" type="text" placeholder="yyyy-MM-dd" class="form-control"/>
                   </div>
                 </datepicker>
+                <p ng-repeat="error in errors.production_date" class="text-danger">
+                  [:error:]
+                </p>
               </div>
             </div>
           </div>

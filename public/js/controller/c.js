@@ -617,7 +617,7 @@
                             $scope.SIns.current_row = {};
                             console.log('创建成功: ', res.data.d);
                         }else{
-                            
+                            $scope.errors = res.data.d.additional_info;
                         };
                     });
                 }
