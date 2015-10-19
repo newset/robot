@@ -636,11 +636,25 @@
                 }
 
         }])
-        .controller('CPageRobotDetail', ['$scope', 'sIns', 'SAgency', 'SHospital', function ($scope, sIns, SAgency, SHospital) {
+        .controller('CPageRobotDetail', ['$scope', 'sIns', 'SAgency', 'SHospital', 'H', '$state', function ($scope, sIns, SAgency, SHospital, H, $state) {
             $scope.SIns = sIns;
             
             $scope.SAgency = SAgency;            
-            $scope.SHospital = SHospital;            
+            $scope.SHospital = SHospital;
+
+            $scope.data = {
+                robot_id : $scope.SIns.current_row.id
+            } 
+
+            $scope.lease = function(){
+                H.p(cook('robotLeaseLog/c'), $scope.data).then(function(res){
+                    if(res.data.status == 1){
+                        $state.go('base.robot.detail', {id : $scope.SIns.current_row.id});
+                    }else{
+
+                    }
+                })
+            }           
         }])
         .controller('CPageRobotLog', ['$scope', 'SRobot', '$state', 'H', function ($scope, SRobot, $state, H) {
             $scope.SIns = SRobot;
