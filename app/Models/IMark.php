@@ -24,7 +24,6 @@ class IMark extends BaseModel
                 $exists_id[] = $cust_id;
             }
         }
-
         if (count($exists_id))
             return ee(2, $exists_id);
         else
@@ -33,16 +32,34 @@ class IMark extends BaseModel
 
     public function bat_mark()
     {
+        $action = rq('action');
         // action data 必须
+        if (he_is('agency')){
+            $user = uid();
+            $user = 2;
+            $row = M('agency')->select('password')->where('id', $user)->first();
+            if ($action == 'checkout'){
+                $action='checkout';
+            }else{
+                $action ='a'.$action;
+                if (!in_array($action, array('abind','aunbind'))){
+                    return '非法操作';
+                }
+            }
+        }else{
+            $user = Session::get('uid');
+            $row = M('employee')->select('password')->where('id', $user)->first();
+            if (!in_array($action, array('bind','unbind','add'))){
+                return '非法操作';
+            }
+        }
 
         $baseUrl = 'http://www.remebot.cn/isapi/remeisapi.dll/?';
-        $user = Session::get('uid');
-        $row = M('employee')->select('password')->where('id', $user)->first();
         $pass = substr($row->password, -4);
         $time = time();
 
         $params = [
-            'a' => rq('action'),
+            'a' => $action,
             'b' => $time,
             'c' => $user * 3 * substr($time, -4),
             'd' => $pass

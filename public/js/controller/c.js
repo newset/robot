@@ -790,6 +790,22 @@
                     $('#resultLog').html(res.data);
                 });
             }
+            $scope.checkout = function(){
+                SMark.bat_mark('checkout', {
+                    a : SMark.cu_bat_data.a,
+                }).then(function(res){
+                	if(res.data.data){
+                		$scope.current_page_data = res.data.data;
+                		$('#resultLog').html(res.data.msg);
+                	}else{
+                		if(res.data.msg){
+                			$('#resultLog').html(res.data.msg);
+                		}else{
+                			$('#resultLog').html(res.data.data);
+                		}
+                	}
+                });
+            }
 
         }])
         .controller('CMarkDetail', ['$scope', 'iMark', function ($scope, iMark) {

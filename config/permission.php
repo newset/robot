@@ -41,6 +41,7 @@ return [
                     'cu_',
                     'cu',
                     'bat_exists',
+                    'bat_mark',
                 ],
             'hospital' =>
                 [

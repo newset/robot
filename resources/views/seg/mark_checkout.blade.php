@@ -12,20 +12,19 @@
 										<label class="control-label col-md-2">时间</label>
 										 <div class="col-md-2">
 										 <datepicker class="pull-left text-left" style="width:auto;" date-set="{{date('Y-m-d')}}"  date-format="yyyy-MM-dd">
-        									<input ng-model="SIns.cu_bat_data.date"
+        									<input ng-model="SIns.cu_bat_data.a"
         												 type="text"
         												 class="form-control"
         												 required>
         								</datepicker>
 									  </div>
-										  <button class="btn btn-info" style="float: right" ng-click="SIns.getbill(null)">生成结账清单</button>
+										  <button class="btn btn-info" style="float: right" ng-click="checkout()">生成结账清单</button>
 									</div>
 								</form>
 							</div>
 						@endif
-						
-						
-						<div class="col-md-12" ng-show="SIns.current_page_data">
+						<div id="resultLog" class="form-group pull-left col-md-8"></div>
+						<div class="col-md-12"  ng-show="current_page_data">
 						  <table
 								  id="example"
 								  class="table
@@ -47,11 +46,11 @@
 							  </thead>
 							  <tbody>
 							  <tr class="odd"
-								  ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
-								  <td>[:row.hospital_name:]</td>
-								  <td>[:row.doctor_name:]</td>
-								  <td>[:row.historybill:]</td>
-								  <td>[:row.bill:]</td>
+								  ng-repeat="row in current_page_data | orderBy: row.id ">
+								  <td>[:row.a:]</td>
+								  <td>[:row.b:]</td>
+								  <td>[:row.c:]</td>
+								  <td>[:row.d:]</td>
 							  </tr>
 							  </tbody>
 						  </table>
@@ -59,22 +58,7 @@
 							  <div class="col-xs-6">
 							  </div>
 							  <div class="pagination_wrapper">
-								  <pagination
-										  boundary-links="true"
-										  total-items="SIns.total_items"
-										  items-per-page="SIns.items_per_page"
-										  ng-model="SIns.cond.pagination"
-										  ng-change="SIns.change_page(SIns.cond.pagination)"
-										  class="pagination-md"
-										  rotate="false"
-										  max-size="10"
-										  previous-text="<"
-										  next-text=">"
-										  first-text="第一页"
-										  {{--items-per-page="5"--}}
-										  last-text="最后一页"
-										  >
-								  </pagination>
+							     <button class="btn btn-info" style="float: right" ng-click="checkout2()">确认归档</button>
 							  </div>
 						  </div>
 						</div>

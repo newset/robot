@@ -271,37 +271,4 @@ class VMark extends IMark
             'count' => $builder->count(),
         ]);
     }
-    //mark结账
-    public function getbill(){
-        $builder = $this;
-        $rq = rq();
-        if (he_is('agency')){
-            //$builder = $builder->where('agency_id', uid());
-        }
-        if ($rq['date']){
-            //$builder = $builder->where('sold_at', '<=', Carbon::parse($rq['date']) );
-        }
-        /*
-        $limit=50;
-        $builder = $builder->limit($limit);
-        */
-        $builder->groupBy('v_mark.doctor_id');
-        $builder->leftJoin('i_hospital', 'i_hospital.id', '=', 'v_mark.hospital_id');
-        $builder->leftJoin('i_doctor', 'i_doctor.id', '=', 'v_mark.doctor_id');
-        $builder->select('i_hospital.name as hospital_name','i_doctor.name as doctor_name','v_mark.doctor_id','v_mark.hospital_id','v_mark.id');
-        $main = $builder->get();
-        if ($main){
-            foreach ($main as $v){
-                $tmp = $v;
-                $tmp['historybill'] = 1;
-                $tmp['bill'] = 2;
-                $list[] = $v;
-            }
-        }
-        
-        return ss([
-            'main'  => $list,
-            'count' => $builder->count(),
-        ]);
-    }
 }
