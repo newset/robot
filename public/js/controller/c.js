@@ -708,6 +708,7 @@
             'Upload',
             'SDoctor',
             'h',
+            'SHospital',
             function ($scope
                 , $stateParams
                 , SMark
@@ -716,12 +717,14 @@
                 , Upload
                 , SDoctor
                 , h
+                , SHospital
             )
             {
             $scope.h = h;
             $scope.SBase = SBase;
             $scope.SIns = SMark;
             $scope.SAgency = SAgency;
+            $scope.SHospital = SHospital;
 
             SMark.cu_bat_data.a = undefined;
             SMark.cu_bat_data.b = undefined;
