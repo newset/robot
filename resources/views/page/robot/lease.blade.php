@@ -37,9 +37,48 @@
 				</div>
 				<div class="row">
 					<div class="form-group">
-						<label class="control-label col-md-2">维修类型</label>
+						<label class="control-label col-md-2">代理商</label>
+						<div class="col-md-2">
+							<select name="agency" data-placeholder="" class="form-control" ng-model="data.angency_id" chosen ng-options="l.id as l.name for l in SAgency.all_rec">
+								<option value="">不限</option>
+							</select>
+						</div>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="form-group">
+						<label class="control-label col-md-2">医院</label>
+						<div class="col-md-2">
+							<select name="agency" data-placeholder="" class="form-control" ng-model="data.hopital_id" chosen ng-options="l.id as l.name for l in SHospital.all_rec">
+								<option value="">不限</option>
+							</select>
+						</div>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="form-group">
+						<label class="control-label col-md-2">起租时间</label>
+						<div class="col-md-8">
+							<div style="display: inline-block;">
+	                            <datepicker date-format="yyyy-MM-dd" date-max-limit="[:SIns.cond.where.created_end:]" selector="form-control" date-set="[:SIns.cond.where.created_start:]">
+	                                <div class="input-group"><input type="text" ng-model="data.lease_started_at" class="form-control"></div>
+	                            </datepicker>
+	                        </div>
+	                        <span style="display: inline-block;vertical-align: top;margin-top: 9px;">到</span>
+	                        <div style="display: inline-block;">
+	                            <datepicker date-format="yyyy-MM-dd" date-set="[:SIns.cond.where.created_end:]" selector="form-control" date-min-limit="[:SIns.cond.where.created_start:]">
+	                                <div class="input-group"><input type="text" ng-model="data.lease_ended_at" class="form-control"></div>
+	                            </datepicker>
+	                        </div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group">
+						<label class="control-label col-md-2">备注</label>
 						<div class="col-md-6">
-							<textarea name="" ng-model="data.memo" class="col-md-6 form-control" rows="12"></textarea>
+							<textarea name="" ng-model="data.memo" class="col-md-6 form-control" rows="8"></textarea>
 						</div>
 					</div>
 				</div>

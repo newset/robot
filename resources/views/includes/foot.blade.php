@@ -1,6 +1,7 @@
 <!--main content end-->
 <!--Global JS-->
 <script type="text/javascript" src="{{base_url() . 'vendor/jquery/dist/jquery.js'}}"></script>
+<script type="text/javascript" src="{{base_url() . 'vendor/chosen/chosen.jquery.min.js'}}"></script>
 <script type="text/javascript" src="{{base_url() . 'vendor/angular/angular.js'}}"></script>
 <script type="text/javascript" src="{{base_url() . 'vendor/nprogress/nprogress.js'}}"></script>
 <script type="text/javascript" src="{{base_url() . 'vendor/toastr/toastr.js'}}"></script>

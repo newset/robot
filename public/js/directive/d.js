@@ -52,6 +52,24 @@
                 elm.on('click', parse);
             }
         };
+    }])
+    .directive('chosen', [function chosen() {
+      return {
+        restrict: 'EA',
+        link: function (scope, element, attrs) {
+          // update the select when data is loaded
+          scope.$watch(attrs.chosen, function () {
+            element.trigger('chosen:updated');
+          });
+
+          // update the select when the model changes
+          scope.$watch(attrs.ngModel, function () {
+            element.trigger('chosen:updated');
+          });
+
+          element.chosen({disable_search_threshold: 1});
+        }
+      };
     }]);
 
     angular.module('material.components.datepicker').config(function($provide) {
@@ -93,5 +111,5 @@
                 console.log(directive);
                 return $delegate
             }])
-        }])
+        }]);
 })();

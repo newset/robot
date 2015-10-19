@@ -22,6 +22,7 @@
     <!-- Font Icons -->
     <link rel="stylesheet" href="{{base_url()}}assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{base_url()}}vendor/toastr/toastr.min.css">
+    <link rel="stylesheet" href="{{base_url()}}vendor/chosen/chosen.min.css">
     <link rel="stylesheet" href="{{base_url()}}assets/css/animate.css">
 
     <link rel="stylesheet" href="{{base_url()}}vendor/ng-dialog/css/ngDialog.css">

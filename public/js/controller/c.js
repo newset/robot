@@ -636,8 +636,11 @@
                 }
 
         }])
-        .controller('CPageRobotDetail', ['$scope', 'sIns', function ($scope, sIns) {
+        .controller('CPageRobotDetail', ['$scope', 'sIns', 'SAgency', 'SHospital', function ($scope, sIns, SAgency, SHospital) {
             $scope.SIns = sIns;
+            
+            $scope.SAgency = SAgency;            
+            $scope.SHospital = SHospital;            
         }])
         .controller('CPageRobotLog', ['$scope', 'SRobot', '$state', 'H', function ($scope, SRobot, $state, H) {
             $scope.SIns = SRobot;
