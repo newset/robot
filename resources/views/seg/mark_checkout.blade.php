@@ -58,7 +58,7 @@
 							  <div class="col-xs-6">
 							  </div>
 							  <div class="pagination_wrapper">
-							     <button class="btn btn-info" style="float: right" ng-click="checkout2()">确认归档</button>
+							     <button class="btn btn-info" style="float: right" ng-click="ck_mark()">确认归档</button>
 							  </div>
 						  </div>
 						</div>

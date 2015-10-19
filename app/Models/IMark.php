@@ -5,6 +5,7 @@ use Input;
 use Illuminate\Database\Eloquent\Model;
 use Session;
 use Requests;
+use DB;
 
 class IMark extends BaseModel
 {
@@ -171,6 +172,23 @@ class IMark extends BaseModel
         {
             $cond['where']['agency_id'] = uid();
         }
+    }
+    /**
+     * mark归档
+     * @author tanqing
+     * @date 2015年10月19日
+     */
+    public function ck_mark(){
+        if (he_is('agency')){
+            $time = rq('d');
+            $time = date("Y-m-d H:i:s",strtotime($time .'+1 days')-1);
+            $ins = M($this->ins_name);
+            $ins->where('agency_id',uid())
+            ->where('doctor_id','>',0)
+            ->where(DB::raw('CAST(used_at as datetime)') ,'<=',$time)
+            ->update(['archive_at'=>date("Y-m-d H:i:s")]);
+            return  ss('归档成功'); 
+        }  
     }
 
     public function doctor()
