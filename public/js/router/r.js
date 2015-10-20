@@ -214,7 +214,6 @@
                         templateUrl: shot('seg/agency_detail'),
                         resolve : {
                             'deps' : function(SAgency, H, $stateParams, $q, h){
-
                                 return H.p(cook('agency/r'), {
                                     where:{'id': parseInt($stateParams.aid)},
                                     relation: ['robotLeaseLog', 'mark', 'hospital']}
@@ -224,6 +223,21 @@
                                 });
                             }
                         }
+                    })
+                    .state('base.agency.edit', {
+                        url : '/edit/:id',
+                        controller: 'CAgencyDetail',
+                        templateUrl : shot('page/agency/edit'),
+                        resolve : {
+                            'deps' : function(H, $stateParams, SAgency){
+                                return H.p(cook('agency/r'), {
+                                    id : $stateParams.id
+                                }).then(function(res){
+                                    SAgency.current_row = res.data.d.main[0];
+                                    return SAgency;
+                                })
+                            }
+                        }                        
                     })
                     .state('base.employee',
                     {

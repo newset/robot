@@ -45,7 +45,7 @@
             </dl>
         </div>
         <div class="col-md-12 text-right">
-            <a href="" title="修改" class="btn btn-primary">修改</a>
+            <a ui-sref="base.agency.edit({id : SIns.current_row.id})" title="修改" class="btn btn-primary">修改</a>
         </div>
     </div>
         
