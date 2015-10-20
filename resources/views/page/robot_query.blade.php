@@ -86,8 +86,9 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <button class="btn btn-info" style="float: right" ng-click="SIns.refresh()">查询</button>
+                                <div class="form-group text-right">
+                                    <!-- <button class="btn btn- default" ng-click="SIns.cond.where = {}">重置</button> -->
+                                    <button class="btn btn-info" ng-click="SIns.refresh()">查询</button>
                                 </div>
                             </form>
                         </div>

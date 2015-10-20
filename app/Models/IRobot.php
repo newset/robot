@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 use Input;
 use DB;
 
@@ -52,72 +53,68 @@ class IRobot extends BaseModel
     //}
 
     public function nr() {
-        $sql = 'select v_robot.*,i_hospital.name as hospital_name, i_agency.name as agency_name, i_employee.name as employee_name from v_robot left join i_agency on v_robot.agency_id = i_agency.id left join i_hospital on v_robot.hospital_id = i_hospital.id left join i_employee on v_robot.employee_id=i_employee.id where 1=1';
+        $builder = $this;
+
+        $sql = 'select v_robot.*,i_hospital.name as hospital_name, i_agency.name as agency_name, i_employee.name as employee_name from v_robot left join i_employee on v_robot.employee_id=i_employee.id';
+        
+        $builder = DB::table('v_robot')->select('v_robot.*', 'i_hospital.name as hospital_name', 'i_agency.name as agency_name', 'i_employee.name as employee_name')
+            ->leftJoin('i_agency', 'v_robot.agency_id', '=', 'i_agency.id')
+            ->leftJoin('i_hospital', 'v_robot.hospital_id', '=', 'i_hospital.id')
+            ->leftJoin('i_employee', 'v_robot.employee_id', '=', 'i_employee.id');
+
         $where = [];
 
         if(Input::has("where.cust_id")) {
-            $sql .= ' and v_robot.cust_id like "%'.Input::get('where.cust_id').'%"';
+            // $sql .= ' and v_robot.cust_id like "%'.Input::get('where.cust_id').'%"';
+            $builder = $builder->where('v_robot.cust_id', 'like', Input::get('where.cust_id'));
             //$where[] = Input::get('where.cust_id');
         }
+
         if(Input::has("where.province_id")) {
-            $sql .= ' and i_agency.province_id = ?';
-            $where[] = Input::get('where.province_id');
+            $builder->where('v_robot.province_id', Input::get('where.province_id'));
         }
         if(Input::has("where.city_id")) {
-            $sql .= ' and i_agency.city_id = ?';
-            $where[] = Input::get('where.city_id');
+            $builder->where('v_robot.city_id', Input::get('where.city_id'));
         }
 
         $lease_type_id = Input::get('where.lease_type_id');
         if(Input::has("where.lease_type_id") && !empty($lease_type_id)) {
             $id = array_map('intval',$lease_type_id);
-            $id = implode(",",$id);
-            $sql .= ' and v_robot.lease_type_id in ('.$id.')';
+            $builder->whereIn('v_robot.lease_type_id', $id);
         }
 
         $action_type_id = Input::get('where.action_type_id');
         if(Input::has("where.action_type_id") && !empty($action_type_id)) {
             $id = array_map('intval',$action_type_id);
-            $id = implode(",",$id);
-            $sql .= ' and v_robot.action_type_id in ('.$id.')';
+            $builder->whereIn('v_robot.action_type', $id);
         }
 
         if(Input::has("where.agency_id")) {
-            $sql .= ' and v_robot.agency_id = ?';
-            $where[] = Input::get('where.agency_id');
+            $builder->where('v_robot.agency_id', Input::get('where.agency_id'));
         }
         if(Input::has("where.hospital_id")) {
-            $sql .= ' and v_robot.hospital_id = ?';
-            $where[] = Input::get('where.hospital_id');
+            $builder->where('v_robot.hospital_id', Input::get('where.hospital_id'));
         }
 
         if(Input::has('where.created_start')) {
-            $sql .= " and `v_robot`.`production_date` > '".Input::get('where.created_start')."'";
-            $where[] = Input::get('where.created_start');
+            $builder = $builder->where('v_robot.production_date', '>', Carbon::createFromFormat('Y-m-d', Input::get('where.created_start')));
         }
 
         if(Input::has("where.created_end")) {
-            $sql .= " and `v_robot`.`production_date` < '".Input::get('where.created_end')."'";
+            $builder = $builder->where('v_robot.production_date', '<', Carbon::createFromFormat('Y-m-d', Input::get('where.created_end')));
         }
-
-        $sql .= ' group by v_robot.cust_id';
 
         $pagination = Input::get("pagination", 1);
         $offset = 0;
         $perpage = 50;
-
-        DB::enableQueryLog();
-        $result = DB::select(DB::raw($sql), $where);
+        $result = $builder->groupBy('v_robot.cust_id')->skip(($pagination - 1) * $perpage)->take($perpage)->get();
 
         $r = [
             'count' => count($result),
-            'main'  => array_slice($result, ($pagination - 1) * $perpage, $perpage),
-            'sql' => $sql,
-            'res' => $result
+            'main'  => $result,
+            'sql' => $builder->toSql()
         ];
 
-        $query = DB::getQueryLog();
-        //dd($query);
         return ss($r);
     }
 

@@ -412,6 +412,9 @@ padding: 0em;
 ._720kb-datepicker-calendar{
     width: 300px!important;
 }
+._720kb-datepicker-calendar-days-header div {
+    width: 14.2%;
+}
 
 .panel-title {
     /*text-align: center;*/

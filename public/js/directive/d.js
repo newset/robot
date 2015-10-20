@@ -27,8 +27,13 @@
             restrict: 'A',
             link: function (scope, elm, attr, ngModel) {
                 var getter = $parse(attr.holder),
-                    value = Number(attr.value),
-                    holder = getter(scope) || [];
+                    value = Number(attr.value);
+
+                if (!getter(scope)) {
+                    ngModel.$modelValue = [];
+                    ngModel.$viewValue = [];
+                };
+                var holder = getter(scope) || [];
 
                 $(elm).prop('checked', holder.indexOf(value) != -1);
                 function parse(){
