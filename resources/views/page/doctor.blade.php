@@ -108,8 +108,8 @@
                     </table>
                 </div>
                 <div ng-if="!SIns.current_page_data.length" class="col-md-12">暂无结果</div>
-                <div class="row pagination_wrapper">
-                    <span class="pull-left">记录: [:(SIns.cond.pagination+1-1)* SIns.items_per_page +  (SIns.total_items/SIns.total_items) || 0:] / [:SIns.total_items:]</span>
+                <div class="pagination_wrapper">
+                    <span class="pull-left" style="margin-left: 15px;">记录: [:(SIns.cond.pagination+1-1)* SIns.items_per_page +  (SIns.total_items/SIns.total_items) || 0:] / [:SIns.total_items:]</span>
 
                     <pagination max-size="10"
                                 boundary-links="true"
