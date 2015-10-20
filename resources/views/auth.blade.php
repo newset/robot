@@ -121,13 +121,13 @@
 													   autofocus>
 
 												<div class="error"
-													 ng-if="formAuth.username.$error.laExist && formAuth.username.$touched">
+													 ng-if="formAuth.username.$error.laExist && formAuth.username.$touched &&c_form_auth.auth_type == 'signu' ">
 													用户名已存在
 												</div>
 												<div class="error"
-													 ng-if="formAuth.username.$invalid && formAuth.username.$touched"
+													 ng-if="formAuth.username.$invalid && formAuth.username.$touched && c_form_auth.auth_type == 'signup' "
 														>用户名长度应在{{conf('v_rule.user_name.min_length')}}
-													位至{{conf('v_rule.user_name.max_length')}}之间，由数字或字母组成
+													位至{{conf('v_rule.user_name.max_length')}}之间，由数字或字母组成，且不能使用大写字母
 												</div>
 											</div>
 										</div>
@@ -146,7 +146,7 @@
 													   required>
 
 												<div class="error"
-													 ng-if="formAuth.password.$invalid && formAuth.password.$touched"
+													 ng-if="formAuth.password.$invalid && formAuth.password.$touched && c_form_auth.auth_type == 'signup' "
 														>密码长度应在{{conf('v_rule.password.min_length')}}
 													位至{{conf('v_rule.password.max_length')}}之间，由数字或字母组成，至少包含一个字母
 												</div>
