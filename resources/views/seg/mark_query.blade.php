@@ -284,7 +284,7 @@
 								  @if(he_is('employee'))
 									  <td>
 											<span ng-if="row.agency_id==-1 && row.hospital_id==-1">在库</span>
-						                	<span ng-if="row.agency_id!=-1 && row.hospital_id==-1"">出货</span>
+						                	<span ng-if="row.agency_id!=-1 && row.hospital_id==-1">出货</span>
 						                	<span ng-if="row.hospital_id != -1">已售</span>
 							  		  </td>
 								  @endif
@@ -333,10 +333,11 @@
 							  </tbody>
 						  </table>
 						  <div class="">
-							  <div class="col-xs-6">
-							  </div>
 							  <div class="pagination_wrapper">
-								  <pagination
+								  
+                                	<span class="pull-left">记录: [:(SIns.cond.pagination+1-1)* SIns.items_per_page +  (SIns.total_items/SIns.total_items) || 0:] / [:SIns.total_items:]</span>
+
+								  	<pagination
 										  boundary-links="true"
 										  total-items="SIns.total_items"
 										  items-per-page="SIns.items_per_page"
