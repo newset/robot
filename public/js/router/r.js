@@ -71,7 +71,12 @@
                     .state('base.robot',
                     {
                         url: '/robot',
-                        templateUrl: 'templates/robot/index.html'
+                        templateUrl: 'templates/robot/index.html',
+                        resolve : {
+                            deps : function(SRobot) {
+                                return SRobot.deps;
+                            }
+                        }
                     })
                     .state('base.robot.list',
                     {
@@ -82,7 +87,12 @@
                     .state('base.robot.query',{
                         url : '/query/:type?',
                         templateUrl : shot('page/robot_query'),
-                        controller: 'CPageRobot as cPageRobot'
+                        controller: 'CPageRobot as cPageRobot',
+                        resolve : {
+                            'deps' : function(deps, h){
+                                return h.prepare_location_data();
+                            }
+                        }
                     })
                     .state('base.robot.new',{
                         url : '/new',
@@ -255,7 +265,6 @@
                         templateUrl : shot('seg/mark_checkout_history'),
                         controller : 'CPageMark'
                     })
-                    
                     .state('base.mark.show', {
                         url : '/show/:id',
                         templateUrl : shot('page/mark/show'),

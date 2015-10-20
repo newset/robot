@@ -541,19 +541,22 @@
                 $scope.SAgency = SAgency;
                 $scope.SIns = SRobot;
                 $scope.current_row = SRobot.current_row;
+                // 医院id
                 $scope.SIns.cond.where.hospital_id = $stateParams.hid;
                 SRobot.init();
                 $scope.cond = SRobot.cond;
 
                 $scope.with_search = $stateParams.with_search;
-                h.prepare_location_data();
+
+                console.log('all hos', SBase._.location);
+
 
                 $scope.simpleQuery = true;
                 
                 switch($stateParams.type){
                     case 'sale' : 
-                        SRobot.cond.where.lease_type_id = [1];
-                        SRobot.cond.where.action_type_id = [1];
+                        SRobot.cond.where.lease_type_id = [-1];
+                        SRobot.cond.where.action_type_id = [0];
                         $scope.SIns.refresh();
                         break;
                     case 'abort' :

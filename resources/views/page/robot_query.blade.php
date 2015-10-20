@@ -10,36 +10,31 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <div role="grid" id="example_wrapper" class="dataTables_wrapper form-inline no-footer">
+                    <div role="grid" id="example_wrapper" class="dataTables_wrapperno-footer">
                         <div class="row col-md-12 search_panel">
                             <form class="form-horizontal" ng-class="{'collapse': simpleQuery}" id="robot_query" aria-expanded="true">
                                 <div class="form-group">
                                     <label class="control-label col-md-1">编号</label>
-                                    <input class="form-control"
+                                    <div class="col-md-2 row">
+                                        <input class="form-control"
                                            ng-model-options="{debounce: 300}"
                                            ng-model="SIns.cond.where.cust_id"
                                            placeholder="编号">
+                                    </div>
+                                    
                                 </div>
 
                                 <div class="form-group md-select-group">
                                     <label class="control-label col-md-1">地区</label>
-                                    <div class="col-md-1">
-                                        <md-select
-                                            name="province_id"
-                                            ng-model="SIns.cond.where.province_id"
-                                            required>
-                                            <md-option value="">不限</md-option>
-                                            <md-option value="[:l.id:]" ng-repeat="l in SBase._.location.province">[:l.name:]</option>
-                                        </md-select>
+                                    <div class="col-md-2 row">
+                                        <select name="provice" class="form-control" chosen ng-model="SIns.cond.where.province_id" ng-options="l.id as l.name for l in SBase._.location.province">
+                                            <option value="">不限</option>
+                                        </select>
                                     </div>
-                                    <div class="col-md-1">
-                                        <md-select
-                                            name="city_id"
-                                            ng-model="SIns.cond.where.city_id"
-                                            required>
-                                            <md-option value="">不限</md-option>
-                                            <md-option value="[:l.id:]" ng-repeat="l in SIns.cond.where.province_id&&SBase._.location.city|| []| filter: {parent_id: SIns.cond.where.province_id}:true">[:l.name:]</option>
-                                        </md-select>
+                                    <div class="col-md-2">
+                                        <select name="provice" class="form-control" chosen ng-model="SIns.cond.where.city_id" ng-options="l.id as l.name for l in SBase._.location.city || []|filter: {parent_id: SIns.cond.where.province_id}:true">
+                                            <option value="">不限</option>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -55,29 +50,19 @@
 
                                 <div class="form-group">
                                     <label class="control-label col-md-1">代理商</label>
-                                    <div class="col-md-2">
-                                        <md-autocomplete
-                                            md-selected-item="selectedAgency"
-                                            md-search-text="agencySearch"
-                                            md-selected-item-change="SIns.cond.where.agency_id = item.id"
-                                            md-items="l in SAgency.all_rec|filter : {name: agencySearch}"
-                                            md-item-text="l.name"
-                                            md-min-length="0"
-                                            placeholder="不限">
-                                            <md-item-template md-highlight-text="agencySearch" md-highlight-flags="^i">
-                                                <span>[:l.name:]</span>
-                                            </md-item-template>
-                                        </md-autocomplete>
+                                    <div class="col-md-2 row">
+                                        <select name="hospital_id" chosen class="form-control" ng-model="SIns.cond.where.agency_id" ng-options="l.id as l.name for l in SAgency.all_rec">
+                                            <option value="">不限</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-1">医院</label>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2 row">
                                         <select name="hospital_id" chosen class="form-control" ng-model="SIns.cond.where.hospital_id" ng-options="l.id as l.name for l in SHospital.all_rec">
                                             <option value="">不限</option>
                                         </select>
                                     </div>
-                                    [:SIns.cond.where:]
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-1">维修记录</label>

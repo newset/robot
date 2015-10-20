@@ -53,7 +53,7 @@
             }
         };
     }])
-    .directive('chosen', [function chosen() {
+    .directive('chosen', ['$timeout', function chosen($timeout) {
       return {
         restrict: 'EA',
         link: function (scope, element, attrs) {
@@ -67,49 +67,12 @@
             element.trigger('chosen:updated');
           });
 
+          // $timeout(function() {
+          //   element.trigger('chosen:updated');
+          // }, 0);
+
           element.chosen({disable_search_threshold: 1});
         }
       };
     }]);
-
-    angular.module('material.components.datepicker').config(function($provide) {
-        // calendar
-        $provide.decorator('mdCalendarDirective', function($delegate, $controller) {
-            var directive = $delegate[0],
-                link = directive.link;
-            // directive.require.push('^mdDatepicker');
-            // directive.template = '<div><a href="" class="pre-day btn"><</a>header</div>' + directive.template;
-            directive.compile = function(){
-                return function(scope, elm, attrs, controllers){
-                    // 添加方法 切换
-
-                    var newLink = function(scope, elm, attrs, controllers){
-                            link.apply(this, arguments);
-                            var cal = controllers[1], ngmodel = controllers[0];
-
-                            // var $mdUtil = cal.$mdUtil;
-
-                            // if (ngmodel.$viewValue) {
-                            //     console.log('preious:', $mdUtil.getDateInPreviousMonth(ngmodel.$viewValue));
-                            // };
-                            console.log('cs : ', cal, ngmodel);
-                        }
-                    newLink.apply(this, arguments);
-                }
-
-            }
-            return $delegate;
-
-        });
-    });
-
-    angular.module('720kb.datepicker')
-        .config(['$provide', function ($provide) {
-            $provide.decorator('datepickerDirective', ['$delegate', function($delegate){
-                var directive = $delegate[0];
-
-                console.log(directive);
-                return $delegate
-            }])
-        }]);
 })();
