@@ -43,7 +43,7 @@
 									@if(he_is('employee'))
 										<div class="form-group">
 											<label class="control-label col-md-2">销售状态</label>
-											<div class="col-md-2">
+											<div class="col-md-4">
 												<label class="checkbox-inline"><input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.sold[0]">在库</label>
 												<label class="checkbox-inline"><input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.sold[1]">出货(卖给代理商)</label>
 												<label class="checkbox-inline"><input type="checkbox" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.sold[2]">已售(卖给医院)</label>
@@ -71,18 +71,13 @@
 									<div class="form-group">
 										<label class="control-label col-md-2">代理商</label>
 										 <div class="col-md-2">
-										<md-autocomplete
-											  md-selected-item="selectedAgency"
-											  md-search-text="agencySearch"
-											  md-selected-item-change="SIns.cond.where.agency_id = selectedAgency.id"
-											  md-items="l in SAgency.all_rec|filter : {name: agencySearch}"
-											  md-item-text="l.name"
-											  md-min-length="0"
-											  placeholder="不限">
-											<md-item-template md-highlight-text="agencySearch" md-highlight-flags="^i">
-											  <span>[:l.name:]</span>
-											</md-item-template>
-										</md-autocomplete>
+										 <select 
+									 		chosen
+									 		class="form-control" 
+									 		ng-options="l.id as l.name for l in SAgency.all_rec"
+									 		ng-model="SIns.cond.where.agency_id">
+									 		<option value="">不限</option>
+									 	</select>
 									  </div>
 									</div>
 									@endif
