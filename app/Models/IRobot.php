@@ -91,10 +91,13 @@ class IRobot extends BaseModel
             $where[] = Input::get('where.hospital_id');
         }
 
-        if(Input::has('where.created_start') && Input::has("where.created_end")) {
-            $sql .= ' and v_robot.production_date between (?,?)';
+        if(Input::has('where.created_start')) {
+            $sql .= " and `v_robot`.`production_date` > '".Input::get('where.created_start')."'";
             $where[] = Input::get('where.created_start');
-            $where[] = Input::get('where.created_end');
+        }
+
+        if(Input::has("where.created_end")) {
+            $sql .= " and `v_robot`.`production_date` < '".Input::get('where.created_end')."'";
         }
 
         $sql .= ' group by v_robot.cust_id';
@@ -109,7 +112,8 @@ class IRobot extends BaseModel
         $r = [
             'count' => count($result),
             'main'  => array_slice($result, ($pagination - 1) * $perpage, $perpage),
-            'sql' => $sql
+            'sql' => $sql,
+            'res' => $result
         ];
 
         $query = DB::getQueryLog();
