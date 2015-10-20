@@ -96,7 +96,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="log in SIns.current_row.robot_lease_log" ng-class="{'bg-primary' : log.recent}">
+						<tr ng-repeat="log in SIns.current_row.robot_lease_log" ng-class="{'bg-info' : log.recent}">
 							<td>
 								<span ng-if="log.lease_type_id == 2 || log.lease_type_id == 3">
 									[:log.lease_started_at | laDate :] 到 [:log.lease_ended_at | laDate :]
