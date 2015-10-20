@@ -29,7 +29,7 @@ return
             [
                 'min_length' => 4,
                 'max_length' => 48,
-                'pattern'    => '^[a-z0-9_-]+$',
+                'pattern'    => '^[a-zA-Z0-9_-]+$',
             ],
 
         'company_name'    =>

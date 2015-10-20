@@ -115,8 +115,6 @@
 													   placeholder="用户名"
 													   ng-model="c_form_auth.vals.username"
 													   ng-model-options="{debounce: 300}"
-													   ng-model-options="{debounce: 600}"
-													   ng-model-options="{debounce: 300}"
 													   required
 													   autofocus>
 
@@ -127,7 +125,7 @@
 												<div class="error"
 													 ng-if="formAuth.username.$invalid && formAuth.username.$touched && c_form_auth.auth_type == 'signup' "
 														>用户名长度应在{{conf('v_rule.user_name.min_length')}}
-													位至{{conf('v_rule.user_name.max_length')}}之间，由数字或字母组成，且不能使用大写字母
+													位至{{conf('v_rule.user_name.max_length')}}之间，由数字或字母组成
 												</div>
 											</div>
 										</div>
