@@ -13,13 +13,7 @@
           >
         <div class="form-group">
             {{--[:SIns.current_row:]--}}
-            <div class="error form-group">
-                <p class="error"
-                   ng-if="form_mark_new.mark_list.$error.laRowNumMatch && form_mark_new.mark_list.$touched && SIns.cu_bat_data.new_amount">
-                    编号总数与行数不匹配</p>
-
-                <p class="error" ng-if="form_mark_new.mark_list.$invalid && form_mark_new.$touched">请检查表单输入</p>
-            </div>
+            
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-4">
@@ -29,7 +23,7 @@
                         <label>Mark输入总数</label>
                         <input ng-model="SIns.cu_bat_data.a"
                                class="form-control"
-                               type="number"
+                               type="text"
                                name="new_amount"
                                required>
                     </div>
@@ -63,7 +57,7 @@
         
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-info pull-right" ng-disabled="form_mark_new.$invalid" ng-click="add()">提交</button>
+            <button type="submit" class="btn btn-info pull-right" ng-click="add()">提交</button>
         </div>
     </form>
     

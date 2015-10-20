@@ -279,6 +279,7 @@
             'ngDialog',
             'SEmployee',
             'SAgency',
+            '$q',
             function (SBase
                 , h
                 , $filter
@@ -286,7 +287,8 @@
                 , SHospital
                 , ngDialog
                 , SEmployee
-                , SAgency)
+                , SAgency
+                , $q)
             {
                 var me = this;
                 me.ins_name = 'mark';
@@ -433,8 +435,7 @@
                         })
                 }
 
-                //SHospital.get_all_rec();
-                //SAgency.get_all_rec();
+                me.deps = $q.all([SHospital.get_all_rec(), SAgency.get_all_rec()]);
 
                 function popup_new()
                 {

@@ -11,13 +11,7 @@
           @endif
                   ">
         {{--[:SIns.current_row:]--}}
-        <div class="error form-group">
-            <p class="error"
-               ng-if="form_mark_unbind.mark_list.$error.laRowNumMatch && form_mark_unbind.mark_list.$touched">
-                编号总数与行数不匹配</p>
-
-            <p class="error" ng-if="form_mark_unbind.mark_list.$invalid && form_mark_unbind.$touched">请检查表单输入</p>
-        </div>
+       
         <div class="form-group pull-left">
             <label>Mark编号列表</label>
         </div>
@@ -25,7 +19,7 @@
             <label>Mark输入总数</label>
             <input ng-model="SIns.cu_bat_data.a"
                    class="form-control"
-                   type="number"
+                   type="text"
                    name="unbind_amount"
                    required>
         </div>
@@ -46,7 +40,7 @@
         
         </div>
         <div class="form-group pull-right">
-            <button type="submit" class="btn btn-info" ng-disabled="form_mark_unbind.$invalid" ng-click="unbind()">解除绑定</button>
+            <button type="submit" class="btn btn-info" ng-click="unbind()">解除绑定</button>
         </div>
     </form>
 

@@ -228,7 +228,12 @@
                     {
                         url: '/mark?page_num&limit&with_search',
                         // templateUrl: shot('page/mark'),
-                        templateUrl: 'templates/mark/index.html'
+                        templateUrl: 'templates/mark/index.html',
+                        resolve : {
+                            deps : function(SMark) {
+                                return SMark.deps;
+                            }
+                        }
                     })
                     .state('base.mark_checkout',
                     {
