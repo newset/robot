@@ -84,6 +84,9 @@
                                             <input type="text" ng-model="SIns.cond.where.created_end" class="form-control">
                                         </datepicker>
                                     </div>
+                                    <div style="display:inline-block">
+                                        <button type="button" class="btn btn-default" style="margin-top: -22px;" ng-click="SIns.cond.where.created_start =null;SIns.cond.where.created_end=null">清除</button>
+                                    </div>
                                 </div>
 
                                 <div class="form-group text-right">
