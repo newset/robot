@@ -61,7 +61,7 @@ url:
             </div>
             <div class="form-group">
                 <div class="col-md-3 col-md-offset-8">
-                    <button  class="btn-custom btn btn-default  " ng-disabled="form_department.$invalid" ng-click="cancel()">取消</button>
+                    <a class="btn-custom btn btn-default" ui-sref="base.hospital.department_doctor({'hid' : hospital_id})">取消</a>
                     <button  class="btn-custom btn btn-primary " ng-disabled="form_department.$invalid" ng-click="submit()">确定</button>
                 </div>
             </div>
