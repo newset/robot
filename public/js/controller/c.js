@@ -503,7 +503,13 @@
             // SAgency.show_search_panel = $stateParams.with_search;
             $scope.agency_id=parseInt($stateParams.aid);
            
-
+            $scope.toggle = function(){
+                H.p(cook('agency/toggle'), {s : $scope.SIns.current_row.status, id : $scope.agency_id}).then(function(res){
+                    if (res.data.status == 1) {
+                        $scope.SIns.current_row.status = res.data.d;
+                    };
+                });
+            }
         }])
         .controller('CPageRobot',
         [

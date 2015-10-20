@@ -75,7 +75,7 @@ label.absolute-label {
 a:link, a:visited {
     text-decoration: none;
     outline: none;
-    color: #337ab7;
+    /*color: #337ab7;*/
 }
 
 .btn-primary, a.btn-primary:link, a.btn-primary:visited {

@@ -56,6 +56,16 @@ class IAgency extends BaseModel
         return parent::c($rq);
     }
 
+    public function toggle()
+    {
+        $s = !rq('s');
+        $agency = rq('id');
+        return [
+            'status' => $this->where('id', $agency)->update(['status'=> $s]),
+            'd'=> $s
+        ];
+    }
+
     /**
      * 更新
      */

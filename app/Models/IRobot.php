@@ -111,8 +111,7 @@ class IRobot extends BaseModel
 
         $r = [
             'count' => count($result),
-            'main'  => $result,
-            'sql' => $builder->toSql()
+            'main'  => $result
         ];
 
         return ss($r);

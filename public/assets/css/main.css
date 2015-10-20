@@ -19,7 +19,7 @@ a:link,
 a:visited {
   text-decoration: none;
   outline: none;
-  color: #1abc9c;
+  /*color: #1abc9c;*/
 }
 a:hover,
 a:active {

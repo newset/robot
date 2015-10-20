@@ -1,9 +1,12 @@
 <div class="panel panel-default" >
     <div class="panel-body">
         <!-- <h3 class="panel-title pull-right">[:SIns.status(agency):]</h3> -->
-        <h3 class="panel-title">[:SIns.current_row.name:]</h3>
-
+        <h3 class="panel-title pull-left">[:SIns.current_row.name:]</h3>
         <!-- 禁用 -->
+        <a href="" ng-click="toggle()" class="btn pull-right" ng-class="{'btn-danger': SIns.current_row.status == 1, 'btn-primary': SIns.current_row.status != 1}">
+            <span ng-show="SIns.current_row.status == 1">禁用</span>
+            <span ng-show="SIns.current_row.status != 1">启用</span>
+        </a>
     </div>
 </div>
 
@@ -27,25 +30,22 @@
                 </dd>
                 <dt class="tar">联系人</dt>
                 <dd>[:SIns.current_row.name_in_charge:]</dd>
-                {{-- <tr>
-                    <dt class="tar">编号</dt>
-                    <dd>[:SIns.current_row.id:]</dd>
-                </tr> --}}
                 <dt class="tar">电话</dt>
                 <dd>[:SIns.current_row.phone:]</dd>
-            
                 <dt class="tar">Email</dt>
                 <dd>[:SIns.current_row.email:]</dd>
-            
                 <dt  class="tar">状态</dt>
                 <dd> [:SIns.status(agency):]</dd>
-            
                 <dt class="tar">代理权</dt>
-                <dd>[:SIns.current_row.started_at:]－－[:SIns.current_row.ended_at:]</dd>
-            
+                <dd>[:SIns.current_row.started_at:]--[:SIns.current_row.ended_at:]</dd>
+                @if(he_is('employee'))
                 <dt class="tar">备注</dt>
                 <dd title="[:row.memo:]">[:row.memo | cut:true:10 :]</dd>
+                @endif
             </dl>
+        </div>
+        <div class="col-md-12 text-right">
+            <a href="" title="修改" class="btn btn-primary">修改</a>
         </div>
     </div>
         
