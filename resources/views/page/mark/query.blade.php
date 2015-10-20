@@ -10,16 +10,19 @@
 					</div>
 				</div>
 				<div class="panel-body">
-					<div role="grid" id="example_wrapper" class="dataTables_wrapper form-inline no-footer">
+					<div role="grid" id="example_wrapper" class="dataTables_wrapper no-footer">
 						@if(!he_is('department'))
 							<div class="row col-md-12 search_panel" ng-if="SIns.with_search">
 								<form class="form-horizontal" id="mark_query">
 									<div class="form-group">
 										<label class="control-label col-md-2">编号</label>
-										<input class="form-control"
+										<div class="col-md-2">
+											<input class="form-control"
 											   ng-model-options="{debounce: 300}"
 											   ng-model="SIns.cond.where.cust_id"
 											   placeholder="编号">
+										</div>
+
 									</div>
 									{{--<div class="form-group">--}}
 									{{--<input class="form-control"--}}
@@ -29,7 +32,7 @@
 									{{--</div>--}}
 									<div class="form-group">
 										<label class="control-label col-md-2">Mark状态</label>
-										<div>
+										<div class="col-md-5">
 											<label class="checkbox-inline"><input type="checkbox" value="number:1" ng-true-value="1" ng-false-value="" ng-model="SIns.cond.where.status[0]">未使用</label>
 											<label class="checkbox-inline"><input type="checkbox" value="number:2" ng-true-value="2" ng-false-value="" ng-model="SIns.cond.where.status[1]">已使用</label>
 											<label class="checkbox-inline"><input type="checkbox" value="number:3" ng-true-value="5" ng-false-value="" ng-model="SIns.cond.where.status[2]">已绑定</label>
@@ -40,7 +43,7 @@
 									@if(he_is('employee'))
 										<div class="form-group">
 											<label class="control-label col-md-2">销售状态</label>
-											<div>
+											<div class="col-md-2">
 												<label class="checkbox-inline"><input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.sold[0]">在库</label>
 												<label class="checkbox-inline"><input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.sold[1]">出货(卖给代理商)</label>
 												<label class="checkbox-inline"><input type="checkbox" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.sold[2]">已售(卖给医院)</label>
@@ -50,7 +53,7 @@
 									@if(he_is('agency'))
 									   <div class="form-group">
 											<label class="control-label col-md-2">销售状态</label>
-											<div>
+											<div class="col-md-2">
 												<label class="checkbox-inline"><input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.sold[0]">在销售</label>
 												<label class="checkbox-inline"><input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.sold[1]">已销售</label>
 											</div>
@@ -58,7 +61,7 @@
 										
 										<div class="form-group">
 											<label class="control-label col-md-2">归档状态</label>
-											<div>
+											<div class="col-md-2">
 												<label class="checkbox-inline"><input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.archive[0]">已归档</label>
 												<label class="checkbox-inline"><input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.archive[1]">未归档</label>
 											</div>
@@ -83,21 +86,16 @@
 									  </div>
 									</div>
 									@endif
-									<div class="form-group">
+									<div class="form-group row">
 										<label class="control-label col-md-2">医院</label>
 										 <div class="col-md-2">
-										  <md-autocomplete
-												md-selected-item="selectedHospital"
-												md-search-text="hostpitalSearch"
-												md-selected-item-change="SIns.cond.where.hospital_id = selectedHospital.id"
-												md-items="l in SHospital.all_rec|filter : {name: hostpitalSearch}"
-												md-item-text="l.name"
-												md-min-length="0"
-												placeholder="不限">
-											  <md-item-template md-highlight-text="hostpitalSearch" md-highlight-flags="^i">
-												<span>[:l.name:]</span>
-											  </md-item-template>
-										  </md-autocomplete>
+										 	<select 
+										 		chosen
+										 		class="form-control" 
+										 		ng-options="l.id as l.name for l in SHospital.all_rec"
+										 		ng-model="SIns.cond.where.hospital_id">
+										 		<option value="">不限</option>
+										 	</select>
 									  </div>
 									</div>
 
@@ -262,19 +260,15 @@
 								  <th>编号</th>
 								  @if(he_is('employee'))
 									  <th>销售状态</th>
-								  @endif
-								  @if(he_is('agency'))
-									  <th>医院</th>
-								  @endif
-								  @if(he_is('agency') || he_is('department'))
-									  <th>医生</th>
-								  @endif
-								  @if(he_is('agency'))
-								    <th>销售时间</th>
-								  @endif
-								  <th>使用状态</th>
-								  @if(!he_is('department'))
+								  	  <th>使用状态</th>
 									  <th>操作</th>
+								  @endif
+								  @if(he_is('agency'))
+								  	  <th>状态</th>
+									  <th>医院</th>
+									  <th>医生</th>
+								      <th>销售时间</th>
+								      <th>后续Mark编号</th>
 								  @endif
 							  </tr>
 							  </thead>
@@ -288,48 +282,34 @@
 						                	<span ng-if="row.agency_id!=-1 && row.hospital_id==-1">出货</span>
 						                	<span ng-if="row.hospital_id != -1">已售</span>
 							  		  </td>
+										<td>
+										  <span ng-if="row.status == 1">未使用</span>
+										  <span ng-if="row.status == 2">使用完毕</span>
+										  <span ng-if="row.status == 3">损坏报废</span>
+										  <span ng-if="row.status == 4">损坏更新</span>
+									  	</td>
+									  	<td class="edit col-md-2">
+										  <span class="tool_wrapper">
+											  
+												 <a class="btn btn-default btn-sm" ui-sref="base.mark.show({id : row.id})">
+												  查看
+												  </a>
+												   
+										  </span>
+									  	</td>
 								  @endif
 								  @if(he_is('agency'))
-									  <td>[:row.hospital_name:]</td>
-								  @endif
-								  @if(he_is('agency') || he_is('department'))
-									  <td>[:row.doctor_name || '-' :]</td>
-								  @endif
-								  @if(he_is('agency'))
-								    <td>[:row.sold:]</td>
-								  @endif
-								  <td>
-									  <span ng-if="row.status == 1">未使用</span>
-									  <span ng-if="row.status == 2">使用完毕</span>
-									  <span ng-if="row.status == 3">损坏报废</span>
-									  <span ng-if="row.status == 4">损坏更新</span>
-								  </td>
-								  @if(!he_is('department'))
-									  <td class="edit col-md-2">
-									  <span class="tool_wrapper">
-										  {{--<button class="btn btn-default" href="" ng-click="SIns.popup_edit(row)">--}}
-										  {{--编辑--}}
-										  {{--</button>--}}
-										  <a class="btn btn-default btn-sm" ui-sref="base.mark.show({id : row.id})">
-											  查看
-										  </a>
-										  <!-- <a class="btn btn-default btn-sm" ng-click="SIns.h.popup_detail(row, SIns, 'agency/r', {relation: ['robotLeaseLog', 'mark', 'hospital'], where: {id: row.id}})">
-											  查看
-										  </a> -->
-										  <!-- <button class="btn btn-default" ng-click="SIns.popup_edit(row)" -->
-										  @if(he_is('agency'))
-												  <!-- ng-if="row.used_at && !row.damaged_at && !row.archive_at && !row.doctor_id" -->
-												  @endif
-												  <!-- > -->
-											  <!-- 编辑 -->
-										  </button>
-										  @if(he_is('employee'))
-											  <!-- <span class="curp delete" ng-click="SIns.d(row.id)">删除</span> -->
-										  @endif
-									  </span>
+									  <td>
+										  <span ng-if="row.status == 1">未使用</span>
+										  <span ng-if="row.status == 2">使用完毕</span>
+										  <span ng-if="row.status == 3">损坏报废</span>
+										  <span ng-if="row.status == 4">损坏更新</span>
 									  </td>
+									  <td>[:row.hospital_name:]</td>
+									  <td>[:row.doctor_name || '-' :]</td>
+								      <td>[:row.sold_at:]</td>
+								      <td></td>
 								  @endif
-								  {{--<td>[:row.updated_at:]</td>--}}
 							  </tr>
 							  </tbody>
 						  </table>

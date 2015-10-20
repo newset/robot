@@ -32,7 +32,7 @@
 								  <td>[:row.mark_count:]</td>
 								  <td class="edit col-md-2">
                                     <span class="tool_wrapper">
-                                        <button class="btn btn-primary btn-sm" href="" ng-click="SIns.popup_edit(row)">
+                                        <button class="btn btn-primary btn-sm" href="" >
                                             查看
                                         </button>
                                     </span>
