@@ -38,11 +38,9 @@
             <div class="form-group col-md-6">
               <label class="control-label col-md-2">负责人</label>
               <div class="col-md-4">
-                <md-select ng-model="SIns.current_row.employee_id" class="" style="margin: 0px;">
-                  <md-option ng-repeat="l in SEmployee.all" value="[:l.id:]">
-                    [:l.name:]
-                  </md-option>
-                </md-select>
+                <select class="form-control" chosen ng-options="l.id as l.name for l in SEmployee.all">
+                  <option value="">请选择</option>
+                </select>
                 <p ng-repeat="error in errors.employee_id" class="text-danger">
                   [:error:]
                 </p>
@@ -60,9 +58,9 @@
           <div class="row">
             <div class="form-group col-md-6">
               <label class="control-label col-md-2">生产日期</label>
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <datepicker date-format="yyyy-MM-dd" date-set="[:SIns.current_row.production_date:]" selector="form-control">
-                  <div class="input-group">
+                  <div class="">
                       <input ng-model="SIns.current_row.production_date" type="text" placeholder="yyyy-MM-dd" class="form-control"/>
                   </div>
                 </datepicker>

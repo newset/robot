@@ -62,6 +62,12 @@
       return {
         restrict: 'EA',
         link: function (scope, element, attrs) {
+          var update = attrs.update;
+          if (update) {
+            scope.$watch(update, function(n, o){
+                element.trigger('chosen:updated');
+            });
+          };
           // update the select when data is loaded
           scope.$watch(attrs.chosen, function () {
             element.trigger('chosen:updated');
