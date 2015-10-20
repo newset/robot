@@ -212,6 +212,18 @@
                         url : '/detail?aid',
                         controller:'CAgencyDetail',
                         templateUrl: shot('seg/agency_detail'),
+                        resolve : {
+                            'deps' : function(SAgency, H, $stateParams, $q, h){
+
+                                return H.p(cook('agency/r'), {
+                                    where:{'id': parseInt($stateParams.aid)},
+                                    relation: ['robotLeaseLog', 'mark', 'hospital']}
+                                ).then(function (r){
+                                    SAgency.current_row = r.data.d.main[0];
+                                    return SAgency;
+                                });
+                            }
+                        }
                     })
                     .state('base.employee',
                     {

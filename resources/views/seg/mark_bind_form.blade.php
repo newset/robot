@@ -65,6 +65,7 @@
                         ng-init="SIns.cu_bat_data.hospital_id = 1"
                         ng-model="SIns.cu_bat_data.hospital_id"
                         ng-options="l.id as l.name for l in SHospital.all_rec | orderBy: 'id'"
+                        style="width: 200px" 
                         required>
                 </select>
             </div>
