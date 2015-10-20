@@ -38,7 +38,10 @@
             <div class="form-group col-md-6">
               <label class="control-label col-md-2">负责人</label>
               <div class="col-md-4">
-                <select class="form-control" chosen ng-options="l.id as l.name for l in SEmployee.all">
+                <select class="form-control" 
+                  ng-model="SIns.current_row.employee_id"
+                  chosen
+                  ng-options="l.id as l.name for l in employees">
                   <option value="">请选择</option>
                 </select>
                 <p ng-repeat="error in errors.employee_id" class="text-danger">

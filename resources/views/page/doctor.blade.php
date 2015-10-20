@@ -12,18 +12,14 @@
                     <div class="form-group">
                         <label for="" class="control-label col-md-1">医院</label>
                         <div class="col-md-2">
-                            <md-autocomplete
-                                md-selected-item="selectedHospital"
-                                md-search-text="hostpitalSearch"
-                                md-selected-item-change="SIns.cond.where.hospital_id = selectedHospital.id"
-                                md-items="l in SIns.all_hospital |filter : {name: hostpitalSearch}"
-                                md-item-text="l.name"
-                                md-min-length="0"
-                                placeholder="不限">
-                              <md-item-template md-highlight-text="hostpitalSearch" md-highlight-flags="^i">
-                                <span>[:l.name:]</span>
-                              </md-item-template>
-                          </md-autocomplete>
+                          <select 
+                            class="form-control"
+                            chosen
+                            update="SIns.all_hospital"
+                            ng-options="l.id as l.name for l in SIns.all_hospital"
+                            ng-model="SIns.cond.where.hospital_id">
+                              <option value="">请选择医院</option>
+                          </select>
                         </div>
                     </div>
                     <div class="form-group">

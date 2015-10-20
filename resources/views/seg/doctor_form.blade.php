@@ -8,8 +8,7 @@
 <div class="col-md-12">
 	<div class="panel-default panel" style="padding:0px">
 		<div class="panel-body">
-			<form name="form_doctor"
-				  class="form-horizontal col-md-8">
+			<form name="form_doctor" class="form-horizontal col-md-8">
 
 				<div class="row">
 					<div class="form-group col-md-6">
@@ -21,8 +20,9 @@
 								   required>
 							<select class="form-control"
 								ng-model="SIns.current_row.gender"
+								chosen
 								ng-options="l.id as l.name for l in [{id: 1, name: '男'}, {id: 0, name: '女'}]"
-								ng-init="SIns.current_row.gender = SIns.current_row.gender" style="display: inline-block;width: auto;" required>
+								ng-init="SIns.current_row.gender = SIns.current_row.gender" style="display: inline-block;width: 60px;" required>
 							</select> 
 						</div>
 					</div>
@@ -50,11 +50,12 @@
 						<div class="col-md-8">
 							<select class="form-control"
 									name="city_id"
+									chosen
 									ng-change="get_department()"
 									ng-model="SIns.current_row.hospital_id"
 									ng-options="l.id as l.name for l in SIns.all_hospital"
 									required>
-								{{--<option value="">所在省份</option>--}}
+								<option value="">选择医院</option>
 							</select>
 						</div>    
 					</div>
@@ -66,6 +67,8 @@
 						<div class="col-md-8">
 							<select class="form-control"
 									name="city_id"
+									chosen
+									update="SIns.departments"
 									ng-model="SIns.current_row.department_id"
 									ng-options="l.id as l.name for l in SIns.departments"
 									required>
@@ -79,6 +82,7 @@
 					<div class="form-group col-md-6">
 						<label class="control-label col-md-3">级别</label> <div class="col-md-8">
 						<select class="form-control"
+								chosen
 								ng-model="SIns.current_row.level"
 								ng-options="l.id as l.name for l in
 									[
@@ -88,7 +92,9 @@
 										{id: 4, name: '4级'},
 										{id: 5, name: '5级'},
 									]">
-						</select>    </div>
+							<option value="">请选择</option>
+						</select>    
+						</div>
 					</div>
 				</div>
 

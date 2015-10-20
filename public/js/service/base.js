@@ -686,6 +686,8 @@
                     me.refresh();
                 }
 
+                me.refresh();
+
                 function init()
                 {
                     //h.get_all_hospital()
@@ -693,7 +695,6 @@
                     //    {
                     //        me.all_hospital = r.data.d.main;
                     //    })
-                    //me.refresh()
                     me.cond = {
                         relation: [/*'robotLeaseLog', 'mark', 'robotLog', *//*'hospital', 'agency'*/],
                         where: {},

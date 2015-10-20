@@ -97,7 +97,15 @@
                     .state('base.robot.new',{
                         url : '/new',
                         templateUrl : shot('seg/robot_new_form'),
-                        controller: 'CPageRobotNew as cPageRobot'
+                        controller: 'CPageRobotNew as cPageRobot',
+                        resolve : {
+                            deps : function(SEmployee){
+                                return SEmployee.refresh().then(function(res){
+                                    SEmployee.all = res.data.d.main
+                                    return SEmployee;
+                                });
+                            }
+                        }
                     })
                     .state('base.robot.edit',{
                         url : '/edit/:id',

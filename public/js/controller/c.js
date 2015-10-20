@@ -608,7 +608,9 @@
                 $scope.SHospital = SHospital;
                 $scope.SAgency = SAgency;
                 $scope.SIns = SRobot;
-
+                console.log('em: ', SEmployee.all);
+                $scope.employees = SEmployee.all;
+                
                 if (!$stateParams.id) {
                     SRobot.current_row = {};
                 }else{
