@@ -69,14 +69,16 @@
                     class="table
                                table-striped
                                table-bordered
+                               table-hover
                                dataTable
-                               no-footer"
+                               no-footer
+                               "
                     cellspacing="0"
                     width="100%"
                     aria-describedby="example_info"
                     style="width: 100%;">
                 <thead>
-                <tr role="row">
+                <tr role="row" class="info">
                     <th>科室名</th>
                     <th>人员数量</th>
                     <th>登录名</th>

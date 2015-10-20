@@ -23,13 +23,14 @@
                                table-striped
                                table-bordered
                                dataTable
+                               table-hover
                                no-footer"
                                 cellspacing="0"
                                 width="100%"
                                 aria-describedby="example_info"
                                 style="width: 100%;">
                             <thead>
-                            <tr role="row">
+                            <tr role="row" class="info">
                                 <th>登录名</th>
                                 <th>姓名</th>
                                 <th>电话</th>

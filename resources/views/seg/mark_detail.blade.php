@@ -1,5 +1,5 @@
 <div class="seg agency_detial" ng-controller="CPageMark">
-    <table class="table table-striped table-hover">
+    <table class="table table-striped">
         <tbody>
         <tr>
             <th>编号</th>

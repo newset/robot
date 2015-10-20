@@ -56,13 +56,14 @@
                                table-striped
                                table-bordered
                                dataTable
-                               no-footer"
+                               no-footer
+                               table-hover"
                     cellspacing="0"
                     width="100%"
                     aria-describedby="example_info"
                     style="width: 100%;">
                     <thead>
-                        <tr role="row">
+                        <tr role="row" class="info">
                             <th>状态</th>
                             <th>医院</th>
                             <th>科室</th>

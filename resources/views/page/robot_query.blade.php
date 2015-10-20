@@ -97,13 +97,13 @@
                         </div>
 
                         <div class="col-md-12" ng-show="SIns.total_items != undefined">
-                            <table id="example" class="table table-striped table-bordered dataTable no-footer"
+                            <table id="example" class="table table-striped table-bordered dataTable no-footer table-hover"
                                         cellspacing="0"
                                         width="100%"
                                         aria-describedby="example_info"
                                         style="width: 100%;">
                                 <thead>
-                                    <tr role="row">
+                                    <tr role="row" class="info">
                                         <th>编号</th>
                                         <th>设备状态</th>
                                         <th>销售状态</th>

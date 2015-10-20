@@ -218,13 +218,14 @@
                                table-striped
                                table-bordered
                                dataTable
-                               no-footer"
+                               no-footer
+                               table-hover"
                                 cellspacing="0"
                                 width="100%"
                                 aria-describedby="example_info"
                                 style="width: 100%;">
                             <thead>
-                            <tr role="row">
+                            <tr role="row" class="info">
                                 <th>编号</th>
                                 @if(he_is('employee'))
                                     <th>销售状态</th>

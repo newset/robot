@@ -81,9 +81,9 @@ url:
     </div>
     <div class="row">
         <div class="col-md-12">
-            <table id="example"  class="table  table-striped  table-bordered dataTable  no-footer" aria-describedby="example_info">
+            <table id="example"  class="table  table-striped  table-bordered dataTable table-hover no-footer" aria-describedby="example_info">
                 <thead>
-                    <tr role="row">
+                    <tr role="row" class="info">
                         <th>编号</th>
                         <th>地区</th>
                         <th>医院名称</th>

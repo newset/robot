@@ -16,9 +16,9 @@
 		</div>
 		<hr>
 		<div class="" style="margin-bottom: 50px">
-			<table class="table table-bordered">
+			<table class="table table-bordered table-hover table-striped">
 				<thead>
-					<tr>
+					<tr class="info">
 						<th> 编号</th>
 						<th> 异常信息</th>
 					</tr>

@@ -20,13 +20,13 @@ controller:CPageDepartment
     <div role="grid" id="example_wrapper"         class="dataTables_wrapper form-inline no-footer"    >
         <table
             id="example"
-            class="table table-striped table-bordered dataTable no-footer"
+            class="table table-striped table-bordered dataTable no-footer table-hover"
             cellspacing="0"
             width="100%"
             aria-describedby="example_info"
             style="width: 100%;">
             <thead>
-                <tr role="row">
+                <tr role="row" class="info">
                     <th>科室名</th>
                     <th>人员数量</th>
                     <th>登录名</th>
@@ -113,13 +113,14 @@ controller:CPageDepartment
                    table-striped
                    table-bordered
                    dataTable
-                   no-footer"
+                   no-footer
+                   table-hover"
             cellspacing="0"
             width="100%"
             aria-describedby="example_info"
             style="width: 100%;">
             <thead>
-                <tr role="row">
+                <tr role="row" class="info">
                     <th>状态</th>
                     <th>姓名</th>
                     <th>性别</th>

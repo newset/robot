@@ -86,9 +86,9 @@
     </div>
     <div class="panel-body">
         <div class="col-md-12">
-            <table class="table table-striped table-bordered dataTable no-footer">
+            <table class="table table-striped table-bordered table-hover dataTable no-footer">
                 <thead>
-                <tr role="row">
+                <tr role="row" class="info">
                     <th class="col-md-1">编号</th>
                     <th class="col-md-1">地区</th>
                     <th class="col-md-1">名称</th>
@@ -115,9 +115,9 @@
     </div>
     <div class="panel-body">
         <div class="col-md-12">
-            <table  class="table  table-striped  table-bordered dataTable  no-footer">
+            <table  class="table  table-striped  table-bordered table-hover dataTable  no-footer">
                 <thead>
-                <tr role="row">
+                <tr role="row" class="info">
                     <th class="col-md-1">编号</th>
                     <th class="col-md-1">销售方式</th>
                     {{--<th class="col-md-1">销售状态</th>--}}

@@ -30,6 +30,7 @@
 								  class="table
 								 table-striped
 								 table-bordered
+								 table-hover
 								 dataTable
 								 no-footer"
 								  cellspacing="0"
@@ -37,7 +38,7 @@
 								  aria-describedby="example_info"
 								  style="width: 100%;">
 							  <thead>
-							  <tr role="row">
+							  <tr role="row" class="info">
 								  <th>医院</th>
 								  <th>医生名字</th>
 								  <th>历史结账</th>
