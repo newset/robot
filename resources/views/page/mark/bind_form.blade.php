@@ -46,9 +46,9 @@
                 </label>
                 <select class="form-control"
                         name="agency_id"
-                        ng-init="SIns.cu_bat_data.agency_id = 1"
-                        ng-model="SIns.cu_bat_data.agency_id"
+                        ng-model="SIns.cu_bat_data.c"
                         chosen
+                        data-placeholder="请选择代理商"
                         ng-options="l.id as l.name for l in SAgency.all_rec | orderBy: 'id'"
                         required>
                 </select>
@@ -57,13 +57,14 @@
         @if(he_is('agency'))
             <div class="form-group pull-right">
                 <label class="control-label">
-                  <button type="submit" class="btn btn-info" ng-click="bind()">绑定</button>
+                  <button type="submit" class="btn btn-info" ng-click="bind('a')">绑定</button>
                 </label>
+                [:SIns.cu_bat_data.hospital_id:]
                 <select class="form-control"
                         name="agency_id"
                         chosen
-                        ng-init="SIns.cu_bat_data.hospital_id = 1"
-                        ng-model="SIns.cu_bat_data.hospital_id"
+                        data-placeholder="请选择代医院"
+                        ng-model="SIns.cu_bat_data.c"
                         ng-options="l.id as l.name for l in SHospital.all_rec | orderBy: 'id'"
                         style="width: 200px" 
                         required>

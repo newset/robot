@@ -272,18 +272,18 @@
                     }).state('base.mark.bind',{
                         url : '/bind',
                         controller : 'CPageMarkNew',
-                        templateUrl : shot('seg/mark_bind_form')
+                        templateUrl : shot('page/mark/bind_form')
                     }).state('base.mark.unbind',{
                         url : '/unbind',
                         controller : 'CPageMarkNew',
-                        templateUrl : shot('seg/mark_unbind_form')
+                        templateUrl : shot('page/mark/unbind_form')
                     })
                     .state('base.mark.usb',{
                         url : '/usb',
-                        templateUrl : shot('seg/mark_usb')
+                        templateUrl : shot('page/mark/usb')
                     }).state('base.mark.query',{
                         url : '/query',
-                        templateUrl : shot('seg/mark_query'),
+                        templateUrl : shot('page/mark/query'),
                         controller : 'CPageMark as CPageMark'
                     })
                     .state('base.mark.checkout',{ //mark 结账

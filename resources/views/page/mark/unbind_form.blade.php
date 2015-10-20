@@ -5,9 +5,9 @@
           class="form-inline" 
           ng-init="SAgency.get_all_rec();
           @if(he_is('employee'))
-                  SIns.cu_bat_data.agency_id = 1
+              SIns.cu_bat_data.agency_id = 1
           @elseif(he_is('agency'))
-                  SIns.cu_bat_data.hospital_id = 1
+              SIns.cu_bat_data.hospital_id = 1
           @endif
                   ">
         {{--[:SIns.current_row:]--}}
@@ -40,7 +40,11 @@
         
         </div>
         <div class="form-group pull-right">
+          @if(he_is('employee'))
             <button type="submit" class="btn btn-info" ng-click="unbind()">解除绑定</button>
+          @elseif(he_is('agency'))
+            <button type="submit" class="btn btn-info" ng-click="unbind('a')">解除绑定</button>
+          @endif
         </div>
     </form>
 

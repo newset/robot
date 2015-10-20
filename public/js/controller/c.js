@@ -790,17 +790,17 @@
                 });
             }
 
-            $scope.bind = function(){
+            $scope.bind = function(prefix){
                 SMark.bat_mark('bind', {
                     a : SMark.cu_bat_data.a,
                     b : SMark.cu_bat_data.b,
-                    c : SMark.cu_bat_data.agency_id,
+                    c : SMark.cu_bat_data.c,
                 }).then(function(res){
                     $('#resultLog').html(res.data);
                 });
             }
 
-            $scope.unbind = function(){
+            $scope.unbind = function(prefix){
                 SMark.bat_mark('unbind', {
                     a : SMark.cu_bat_data.a,
                     b : SMark.cu_bat_data.b,
@@ -829,7 +829,7 @@
             	H.p(cook('mark/ck_mark'), {d: SMark.cu_bat_data.a}).then(function(res){
                     if (res.data.status == 1) {
                         //$state.go('base.robot.detail');
-                    	alert('归档成功');
+                        toastr.success('归档成功');
                     }else{
 
                     };
