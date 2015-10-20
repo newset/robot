@@ -52,7 +52,7 @@ class IRobot extends BaseModel
     //}
 
     public function nr() {
-        $sql = 'select v_robot.*,i_hospital.name as hospital_name, i_agency.name as agency_name, i_employee.name as employee_name from v_robot left join i_agency on v_robot.agency_id = i_agency.id left join i_hospital on v_robot.agency_id = i_hospital.id left join i_employee on v_robot.employee_id=i_employee.id where 1=1';
+        $sql = 'select v_robot.*,i_hospital.name as hospital_name, i_agency.name as agency_name, i_employee.name as employee_name from v_robot left join i_agency on v_robot.agency_id = i_agency.id left join i_hospital on v_robot.hospital_id = i_hospital.id left join i_employee on v_robot.employee_id=i_employee.id where 1=1';
         $where = [];
 
         if(Input::has("where.cust_id")) {
@@ -99,16 +99,17 @@ class IRobot extends BaseModel
 
         $sql .= ' group by v_robot.cust_id';
 
-        $pagination = Input::get("pagination",1);
+        $pagination = Input::get("pagination", 1);
         $offset = 0;
         $perpage = 50;
 
         DB::enableQueryLog();
-        $result = DB::select(DB::raw($sql),$where);
+        $result = DB::select(DB::raw($sql), $where);
 
         $r = [
             'count' => count($result),
-            'main'  => array_slice($result,($pagination - 1) * $perpage,$perpage),
+            'main'  => array_slice($result, ($pagination - 1) * $perpage, $perpage),
+            'sql' => $sql
         ];
 
         $query = DB::getQueryLog();

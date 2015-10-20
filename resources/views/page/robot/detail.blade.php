@@ -19,7 +19,12 @@
 					<dt>编号</dt>
 					<dd>[:SIns.current_row.cust_id:]</dd>
 					<dt>状态</dt>
-					<dd>[:SIns.lease_type[SIns.current_row.lease_type_id+1].name:]</dd>
+					<dd>
+						<span ng-if="SIns.current_row.lease_type_id == -1">返回库存</span>
+						<span ng-if="SIns.current_row.lease_type_id == 1">出售</span>
+						<span ng-if="SIns.current_row.lease_type_id == 2">出租</span>
+						<span ng-if="SIns.current_row.lease_type_id == 3">免费合作</span>
+					</dd>
 					<dt>生产日期</dt>
 					<dd>[:SIns.current_row.production_date | date : 'yyyy-MM-dd':]</dd>
 					<dt>代理商</dt>
@@ -91,7 +96,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="log in SIns.current_row.robot_lease_log">
+						<tr ng-repeat="log in SIns.current_row.robot_lease_log" ng-class="{'bg-primary' : log.recent}">
 							<td>
 								<span ng-if="log.lease_type_id == 2 || log.lease_type_id == 3">
 									[:log.lease_started_at | laDate :] 到 [:log.lease_ended_at | laDate :]

@@ -73,19 +73,11 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-1">医院</label>
                                     <div class="col-md-2">
-                                        <md-autocomplete
-                                            md-selected-item="selectedHospital"
-                                            md-search-text="hostpitalSearch"
-                                            md-selected-item-change="SIns.cond.where.hospital_id = item.id"
-                                            md-items="l in SHospital.all_rec|filter : {name: hostpitalSearch}"
-                                            md-item-text="l.name"
-                                            md-min-length="0"
-                                            placeholder="不限">
-                                            <md-item-template md-highlight-text="hostpitalSearch" md-highlight-flags="^i">
-                                                <span>[:l.name:]</span>
-                                            </md-item-template>
-                                        </md-autocomplete>
+                                        <select name="hospital_id" chosen class="form-control" ng-model="SIns.cond.where.hospital_id" ng-options="l.id as l.name for l in SHospital.all_rec">
+                                            <option value="">不限</option>
+                                        </select>
                                     </div>
+                                    [:SIns.cond.where:]
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-1">维修记录</label>
@@ -141,7 +133,7 @@
                                             <span>[: SIns.robot_action_type[row.status].name:]</span>
                                         </td>
                                         <td>
-                                            <span ng-if="!row.lease_type_id">-</span>
+                                            <span ng-if="!row.lease_type_id ">在库</span>
                                             <span>[: SIns.robot_status_type[row.lease_type_id+1].name :]</span>
                                         </td>
 
@@ -150,11 +142,11 @@
                                         {{--<span>[: SHospital.all_rec[row.log_lease_hospital_id - 1].name:]</span>--}}
                                         {{--</td>--}}
                                         <td>
-                                            <span ng-if="!row.log_lease_hospital_id">无</span>
+                                            <span ng-if="!row.hospital_id || row.hospital_id == -1">无</span>
                                             <span >[: row.hospital_name :]</span>
                                         </td>
                                         <td>
-                                            <span ng-if="!row.log_lease_agency_id">无</span>
+                                            <span ng-if="!row.agency_id || row.agency_id == -1">无</span>
                                             <span>[: row.agency_name :]</span>
                                         </td>
                                         <td>[:row.employee_name:]</td>

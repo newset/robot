@@ -545,7 +545,6 @@
                 SRobot.init();
                 $scope.cond = SRobot.cond;
 
-
                 $scope.with_search = $stateParams.with_search;
                 h.prepare_location_data();
 
@@ -577,7 +576,6 @@
                 {
                     SRobot.with_search = 1;
                 }
-                console.log('state: ', $state);
                 //  $scope.$watch('cond', function()
                 // {
                 //     SRobot.refresh();
