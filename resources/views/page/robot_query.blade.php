@@ -66,9 +66,9 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-1">维修记录</label>
-                                    <label class="radio-inline"><input type="radio" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.log_action_tid">不限</label>
-                                    <label class="radio-inline"><input type="radio" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.log_action_tid">有维修记录</label>
-                                    <label class="radio-inline"><input type="radio" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.log_action_tid">无维修记录</label>
+                                    <label class="radio-inline"><input type="radio" value="" ng-true-value="" ng-model="SIns.cond.where.log_action_tid">不限</label>
+                                    <label class="radio-inline"><input type="radio" value="1" ng-true-value="1" ng-model="SIns.cond.where.log_action_tid">有维修记录</label>
+                                    <label class="radio-inline"><input type="radio" value="0" ng-true-value="0" ng-model="SIns.cond.where.log_action_tid">无维修记录</label>
                                 </div>
 
                                 <div class="form-group">

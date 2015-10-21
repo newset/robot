@@ -104,6 +104,15 @@ class IRobot extends BaseModel
             $builder = $builder->where('v_robot.production_date', '<', Carbon::createFromFormat('Y-m-d', Input::get('where.created_end')));
         }
 
+        if (Input::has('where.log_action_tid')) {
+            $value = Input::get('where.log_action_tid');
+            if ($value == 0) {
+                $builder = $builder->where('v_robot.log_count', '=', null);
+            }else if($value == 1){
+                $builder = $builder->where('v_robot.log_count', '>', 0);
+            }
+        }
+
         $pagination = Input::get("pagination", 1);
         $offset = 0;
         $perpage = 50;
@@ -111,7 +120,8 @@ class IRobot extends BaseModel
 
         $r = [
             'count' => count($result),
-            'main'  => $result
+            'main'  => $result,
+            'rq' => rq()
         ];
 
         return ss($r);
