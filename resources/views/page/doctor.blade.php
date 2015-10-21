@@ -94,7 +94,7 @@
                             <td>[:row.email:]</td>
                             <td class="edit col-md-2">
                                 <span class="tool_wrapper">
-                                    <button class="btn btn-primary btn-sm" href="" ng-click="SIns.popup_edit(row)">
+                                    <button class="btn btn-primary btn-sm" href="">
                                         编辑
                                     </button>
                                 </span>
