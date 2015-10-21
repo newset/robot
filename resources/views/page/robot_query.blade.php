@@ -45,7 +45,7 @@
 
                                 <div class="form-group">
                                     <label class="control-label col-md-1">设备状态</label>
-                                    <label class="checkbox-inline" ng-repeat="lease in SIns.robot_action_type"><input type="checkbox" value="[:$index+1:]" multi-check index="[:$index:]" holder="SIns.cond.where.action_type_id" />[:lease.name:]</label>
+                                    <label class="checkbox-inline" ng-repeat="action in SIns.robot_action_type"><input type="checkbox" value="[:action.id:]" multi-check index="[:$index:]" holder="SIns.cond.where.action_type_id" />[:action.name:]</label>
                                 </div>
 
                                 <div class="form-group">

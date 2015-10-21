@@ -80,13 +80,15 @@ class IRobot extends BaseModel
         $lease_type_id = Input::get('where.lease_type_id');
         if(Input::has("where.lease_type_id") && !empty($lease_type_id)) {
             $id = array_map('intval',$lease_type_id);
+            
             $builder->whereIn('v_robot.lease_type_id', $id);
+
         }
 
         $action_type_id = Input::get('where.action_type_id');
         if(Input::has("where.action_type_id") && !empty($action_type_id)) {
-            $id = array_map('intval',$action_type_id);
-            $builder->whereIn('v_robot.action_type', $id);
+            $id = array_map('intval', $action_type_id);
+            $builder->whereIn('v_robot.status', $id);
         }
 
         if(Input::has("where.agency_id")) {
