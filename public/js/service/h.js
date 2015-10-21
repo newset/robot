@@ -252,7 +252,6 @@
                                 cond[key][key2] = moment(cond[key][key2]).format();
                             }
 
-                            console.log('cond[key][key2]: ', cond[key][key2]);
                             if (angular.isString(cond[key][key2]))
                                 continue;
                             for (var key3 in cond[key][key2])

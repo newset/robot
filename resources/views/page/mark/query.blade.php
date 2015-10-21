@@ -311,7 +311,7 @@
 						  <div class="">
 							  <div class="pagination_wrapper">
 								  
-                                	<span class="pull-left">记录: [:(SIns.cond.pagination+1-1)* SIns.items_per_page +  (SIns.total_items/SIns.total_items) || 0:] / [:SIns.total_items:]</span>
+                                	<span class="pull-left">记录: [:(SIns.cond.pagination||1)*SIns.items_per_page-SIns.items_per_page+(SIns.total_items&&1):] / [:SIns.total_items:]</span>
 
 								  	<pagination
 										  boundary-links="true"

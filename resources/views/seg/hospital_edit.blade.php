@@ -18,28 +18,25 @@
                 </div>
                 <div class="form-group md-select-group">
                     <label class="control-label col-md-3">所在省市</label>
-                    <div class="col-md-4">
-                        <md-select
-                            name="province_id"
-                            ng-init="SIns.current_row.province_id = SIns.current_row.province_id || options[0].id"
-                            ng-model="SIns.current_row.province_id"
-                            required>
-                            {{--<option value="">所在省份</option>--}}
-                            <md-option value="[:l.id:]" ng-repeat="l in SBase._.location.province">[:l.name:]</md-option>
-</select>
+                    <div class="col-md-2">
+                        <select name="province_id" 
+                            chosen 
+                            class="form-control" 
+                            update="SBase._.location.province"
+                            ng-model="SIns.cond.where.province_id" 
+                            ng-options="l.id as l.name for l in SBase._.location.province">
+                            <option value="">所在省份</option>
+                        </select>
                     </div>
-                    <div class="col-md-4">
-                        {{--[:SIns.current_row:]--}}
-                        <md-select
-                            name="city_id"
-                            ng-init="SIns.current_row.city_id = SIns.current_row.city_id || options[0].id"
-                            ng-model="SIns.current_row.city_id"
-                            required>
-                            {{--<option value="">所在省份</option>--}}
-                            <md-option value="[:l.id:]" ng-repeat="l in SBase._.location.city | filter: {parent_id: SIns.current_row.province_id}:true">
-                                [:l.name:]
-                            </md-option>
-</select>
+                    <div class="col-md-2">
+                        <select name="city_id" 
+                            chosen 
+                            class="form-control" 
+                            update="SIns.cond.where.province_id" 
+                            ng-model="SIns.cond.where.city_id" 
+                            ng-options="l.id as l.name for l in SIns.cond.where.province_id&&SBase._.location.city|| []| filter: {parent_id: SIns.cond.where.province_id}:true">
+                            <option value="">所在城市</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">

@@ -20,39 +20,39 @@ class VMark extends IMark
     }
 
     public function r_() {
-        if (he_is('agency')){
+        // if (he_is('agency')){
             return $this->__r_();
-        }
+        // }
         $sql = 'select * from v_mark where 1=1 ';
         $where = [];
 
         if(Input::has('where.cust_id')) {
-            $sql .= ' and v_mark.cust_id like ?';
+            $sql .= ' and v_mark.cust_id like ? ';
             $where[] = '%'.Input::get('where.cust_id').'%';
         }
         $status = Input::get('where.status');
         if(!empty($status)) {
             $id = array_map('intval',$status);
             $id = implode(",",$id);
-            $sql .= ' and v_mark.status in ('.$id.')';
+            $sql .= ' and v_mark.status in ('.$id.') ';
         }
         //销售状态
         $selling_status = Input::get('where.sold');
 
         if(!empty($selling_status)) {
             $subtracted = array_map(function ($x) { return $x-1; } , $selling_status);
-            $sub_sql = ' and sold in (' . implode(',', $subtracted).')' ;
+            $sub_sql = ' and sold in (' . implode(',', $subtracted).') ' ;
             $sql .= $sub_sql;
         }
         $agency_id = Input::get('where.agency_id');
         if ($agency_id) {
-            $sql .= 'and v_mark.agency_id = ?';
+            $sql .= 'and v_mark.agency_id = ? ';
             $where[] = $agency_id;
         }
 
         $hospital_id = Input::get('where.hospital_id');
         if ($hospital_id) {
-            $sql .= 'and v_mark.hospital_id = ?';
+            $sql .= 'and v_mark.hospital_id = ? ';
             $where[] = $hospital_id;
         }
 
@@ -63,8 +63,7 @@ class VMark extends IMark
         $result = DB::select(DB::raw($sql),$where);
         $r = [
             'count' => count($result),
-            'main'  => array_slice($result,($pagination - 1) * $perpage,$perpage),
-            'where' => $sql
+            'main'  => array_slice($result,($pagination - 1) * $perpage,$perpage)
         ];
 
         return ss($r);
@@ -76,15 +75,9 @@ class VMark extends IMark
         if ( ! rq('where') && he_is('employee'))
             return $this->r();
 
-        //$builder = $this->r_builder();
-        if (!he_is('agency')){
-            if (rq('where') || he_is('employee')){
-                return $this->r_();
-            }
-        }
         $builder = $this;
         $rq = rq();
-        if (rq('where') || he_is('agency'))
+        if (true)
         {
             if (he_is('agency'))
             {
