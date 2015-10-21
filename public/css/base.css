@@ -17,6 +17,7 @@ body.auth-body{
 }
 .panel{
  width: 100%;
+ position: relative;
 }
 
 input.form-control, select.form-control, textarea.form-control{

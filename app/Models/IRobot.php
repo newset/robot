@@ -80,7 +80,7 @@ class IRobot extends BaseModel
         $lease_type_id = Input::get('where.lease_type_id');
         if(Input::has("where.lease_type_id") && !empty($lease_type_id)) {
             $id = array_map('intval',$lease_type_id);
-            
+            // array_push($id, 'null');
             $builder->whereIn('v_robot.lease_type_id', $id);
 
         }
@@ -123,7 +123,7 @@ class IRobot extends BaseModel
         $r = [
             'count' => count($result),
             'main'  => $result,
-            'rq' => rq()
+            'rq' => $builder->toSql()
         ];
 
         return ss($r);
