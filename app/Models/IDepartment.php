@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Requests;
+use DB;
 
 class IDepartment extends BaseModel
 {
@@ -32,6 +34,28 @@ class IDepartment extends BaseModel
     }
 
     protected $hidden = ['password'];
+
+    public function rl()
+    {
+        $user = uid();
+        $time = time();
+        $row = $this->select(DB::raw('right(password, 4) as pass, name'))->where('id', $user)->first();
+
+        $params = [
+            'a' => 'department',
+            'b' => $time,
+            'd' => $row->pass,
+            'c' => substr($time, -4)*3*$user
+        ];
+
+        $baseUrl = 'http://www.remebot.cn/isapi/remeisapi.dll/?';
+        $url = $baseUrl.http_build_query($params);
+        $res = Requests::get($url);
+        $data = json_decode($res->body);
+        $data->name = $row->name;
+
+        return response()->json($data);
+    }
 
     /**
      * 关联医生

@@ -19,7 +19,12 @@
             {
                 console.log('CHome');
             }])
-
+        .controller('CDepartmentHome', ['$scope', 'H', function($scope, H){
+            H.g(cook('department/rl')).then(function(res){
+                console.log('dep:', res.data);
+                $scope.marks = res.data;
+            });
+        }])
         .controller('CSignup', [
             '$scope',
             'SBase',
@@ -610,7 +615,7 @@
                 $scope.SIns = SRobot;
                 console.log('em: ', SEmployee.all);
                 $scope.employees = SEmployee.all;
-                
+
                 if (!$stateParams.id) {
                     SRobot.current_row = {};
                 }else{

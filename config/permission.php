@@ -13,11 +13,18 @@ return [
                 [
                     'a1',
                     'a2',
+                    'rl'
                 ],
             'department_class2' =>
                 [
                     'a1',
                     'a2',
+                    'rl'
+                ],
+
+            'department' =>
+                [
+                    'rl'
                 ],
             'mark' =>
                 [
