@@ -24,46 +24,35 @@
 										</div>
 
 									</div>
-									{{--<div class="form-group">--}}
-									{{--<input class="form-control"--}}
-									{{--ng-model-options="{debounce: 300}"--}}
-									{{--ng-model="SIns.cond.where_has.doctor.name"--}}
-									{{--placeholder="名称搜索">--}}
-									{{--</div>--}}
 									<div class="form-group">
 										<label class="control-label col-md-2">Mark状态</label>
-										<div class="col-md-5">
-											<label class="checkbox-inline"><input type="checkbox" value="number:1" ng-true-value="1" ng-false-value="" ng-model="SIns.cond.where.status[0]">未使用</label>
-											<label class="checkbox-inline"><input type="checkbox" value="number:2" ng-true-value="2" ng-false-value="" ng-model="SIns.cond.where.status[1]">已使用</label>
-											<label class="checkbox-inline"><input type="checkbox" value="number:3" ng-true-value="5" ng-false-value="" ng-model="SIns.cond.where.status[2]">已绑定</label>
-											<label class="checkbox-inline"><input type="checkbox" value="number:4" ng-true-value="3" ng-false-value="" ng-model="SIns.cond.where.status[3]">损坏报废</label>
-											<label class="checkbox-inline"><input type="checkbox" value="number:5" ng-true-value="4" ng-false-value="" ng-model="SIns.cond.where.status[4]">损坏更换</label>
+										<div class="col-md-5" ng-init="SIns.cond.where.status=[]">
+											<label class="checkbox-inline" ng-repeat="type in SIns.status_type"><input type="checkbox" value="[:type.id:]" multi-check holder="SIns.cond.where.status">[:type.name:]</label>
 										</div>
 									</div>
 									@if(he_is('employee'))
-										<div class="form-group">
+										<div class="form-group" ng-init="SIns.cond.where.sold=[]">
 											<label class="control-label col-md-2">销售状态</label>
 											<div class="col-md-4">
-												<label class="checkbox-inline"><input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.sold[0]">在库</label>
-												<label class="checkbox-inline"><input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.sold[1]">出货(卖给代理商)</label>
-												<label class="checkbox-inline"><input type="checkbox" value="number:3" ng-true-value="3" ng-model="SIns.cond.where.sold[2]">已售(卖给医院)</label>
+												<label class="checkbox-inline"><input type="checkbox" value="1" ng-true-value="1" multi-check holder="SIns.cond.where.sold">在库</label>
+												<label class="checkbox-inline"><input type="checkbox" value="2" ng-true-value="2" multi-check holder="SIns.cond.where.sold">出货(卖给代理商)</label>
+												<label class="checkbox-inline"><input type="checkbox" value="4" ng-true-value="4" multi-check holder="SIns.cond.where.sold">已售(卖给医院)</label>
 											</div>
 										</div>
 									@endif
 									@if(he_is('agency'))
-									   <div class="form-group">
+									   <div class="form-group" ng-init="SIns.cond.where.sold=[]">
 											<label class="control-label col-md-2">销售状态</label>
 											<div class="col-md-2">
-												<label class="checkbox-inline"><input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.sold[0]">在销售</label>
-												<label class="checkbox-inline"><input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.sold[1]">已销售</label>
+												<label class="checkbox-inline"><input type="checkbox" value="1" ng-true-value="1" multi-check holder="SIns.cond.where.sold">在销售</label>
+												<label class="checkbox-inline"><input type="checkbox" value="2" ng-true-value="2" multi-check holder="SIns.cond.where.sold">已销售</label>
 											</div>
 										</div>
-										
-										<div class="form-group">
+										<div class="form-group" ng-init="SIns.cond.where.archive=[]">
 											<label class="control-label col-md-2">归档状态</label>
 											<div class="col-md-2">
-												<label class="checkbox-inline"><input type="checkbox" value="number:1" ng-true-value="1" ng-model="SIns.cond.where.archive[0]">已归档</label>
-												<label class="checkbox-inline"><input type="checkbox" value="number:2" ng-true-value="2" ng-model="SIns.cond.where.archive[1]">未归档</label>
+												<label class="checkbox-inline"><input type="checkbox" value="1" ng-true-value="1" ng-model="SIns.cond.where.archive">已归档</label>
+												<label class="checkbox-inline"><input type="checkbox" value="2" ng-true-value="2" ng-model="SIns.cond.where.archive">未归档</label>
 											</div>
 										</div>
 									@endif
@@ -204,36 +193,7 @@
 									</div>
 								</form>
 							</div>
-							<div class="row" style="display: none;">
-								<div class="col-md-12">
-									<div class="dataTables_length" id="example_length">
-										@if(he_is('employee'))
-											<button class="btn btn-default fr"
-													ng-click="SIns.popup_mark_bind(null)">创建/绑定
-											</button>
-											<button class="btn btn-default fr"
-													{{--ng-click="SIns.popup_mark_unbind(null)">导入数据--}}
-													type="file"
-													ngf-select="uploadFiles($file)"
-													{{--accept="image/*"--}}
-													ngf-max-size="10MB">
-												导入数据
-											</button>
-										@endif
-										<button class="btn btn-default fr"
-												ng-click="SIns.popup_mark_update(null)">更新
-										</button>
-										@if(he_is('employee'))
-											<button class="btn btn-default fr"
-													ng-click="SIns.popup_mark_unbind(null)">解绑
-											</button>
-										@endif
-
-									</div>
-								</div>
-							</div>
 						@endif
-
 						@if(he_is('department'))
 							全院Mark库存：<span class="bold">[:SIns.marks_not_used:] </span>个
 						@endif
@@ -272,16 +232,17 @@
 								  ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
 								  <td>[:row.cust_id:]</td>
 								  @if(he_is('employee'))
-									  <td>
+									  	<td>
 											<span ng-if="row.agency_id==-1 && row.hospital_id==-1">在库</span>
 						                	<span ng-if="row.agency_id!=-1 && row.hospital_id==-1">出货</span>
 						                	<span ng-if="row.hospital_id != -1">已售</span>
-							  		  </td>
+							  		  	</td>
 										<td>
 										  <span ng-if="row.status == 1">未使用</span>
 										  <span ng-if="row.status == 2">使用完毕</span>
-										  <span ng-if="row.status == 3">损坏报废</span>
-										  <span ng-if="row.status == 4">损坏更新</span>
+										  <span ng-if="row.status == 3">已绑定</span>
+										  <span ng-if="row.status == 4">损坏报废</span>
+										  <span ng-if="row.status == 5">损坏更换</span>
 									  	</td>
 									  	<td class="edit col-md-2">
 										  <span class="tool_wrapper">

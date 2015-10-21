@@ -109,6 +109,12 @@ class VMark extends IMark
                 }
             }
 
+            $status = Input::get('where.status');
+            if(!empty($status)) {
+                $id = array_map('intval',$status);
+                $builder = $builder->whereIn('status', $id);
+            }
+
             if ( ! empty($where['selling_status_type_id']))
             {
                 $status = $where['selling_status_type_id'];
@@ -127,6 +133,18 @@ class VMark extends IMark
             {
                 $v = $where['agency_name'];
                 $builder = $builder->where('agency_name', 'like', '%' . $v . '%');
+            }
+
+            if ( ! empty($where['agency_id']))
+            {
+                $v = $where['agency_id'];
+                $builder = $builder->where('agency_id', '=', $v);
+            }
+
+            if ( ! empty($where['hospital_id']))
+            {
+                $v = $where['hospital_id'];
+                $builder = $builder->where('hospital_id', '=', $v);
             }
 
             if ( ! empty($where['hospital_name']))
@@ -211,12 +229,38 @@ class VMark extends IMark
             }
             //销售状态
             if (!empty($where['sold'])){
-                if (in_array(1, $where['sold'])  && !in_array(2, $where['sold'])){
-                    $builder = $builder->where('hospital_id','=',0);
+                $total = array_sum($where['sold']);
+                switch ($total) {
+                    case 1:
+                        $builder = $builder->where('hospital_id', '=', '-1')->where('agency_id', '=', -1);
+                        break;
+                    case 2:
+                        $builder = $builder->where('hospital_id', '=', '-1')->where('agency_id', '>', 1);
+                        break;
+                    case 3:
+                        $builder = $builder->where('hospital_id', '=', '-1');
+                        break;
+                    case 4:
+                        $builder = $builder->where('hospital_id', '>', 0);
+                        break;
+                    case 5:
+                        $builder = $builder->whereRaw('(v_mark.hospital_id = -1 and v_mark.agency_id = -1 or v_mark.hospital_id>0)');
+                        break;
+                    case 6:
+                        $builder = $builder->whereRaw('(v_mark.hospital_id = -1 and v_mark.agency_id > 1 or v_mark.hospital_id>0)');
+                        break;
+                    case 7:
+                    default:
+                        # code...
+                        break;
                 }
-                if (in_array(2, $where['sold']) && !in_array(1, $where['sold'])){
-                    $builder = $builder->where('hospital_id','>',0);
-                }
+
+                // if (in_array(1, $where['sold'])  && !in_array(2, $where['sold'])){
+                //     $builder = $builder->where('hospital_id','=',0);
+                // }
+                // if (in_array(2, $where['sold']) && !in_array(1, $where['sold'])){
+                //     $builder = $builder->where('hospital_id','>',0);
+                // }
             }
 
             if ( ! empty($where['from_surgery_at']) && ! empty($where['to_surgery_at']))
@@ -262,6 +306,7 @@ class VMark extends IMark
         return ss([
             'main'  => $main,
             'count' => $builder->count(),
+            'builder' => $builder->toSql()
         ]);
     }
 }
