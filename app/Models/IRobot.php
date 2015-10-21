@@ -82,7 +82,9 @@ class IRobot extends BaseModel
             $id = array_map('intval',$lease_type_id);
             // array_push($id, 'null');
             $builder->whereIn('v_robot.lease_type_id', $id);
-
+            if(in_array(-1, $id)){
+                $builder->orWhereNull('lease_type_id');
+            }
         }
 
         $action_type_id = Input::get('where.action_type_id');
