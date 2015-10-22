@@ -148,8 +148,9 @@
 
                 me.cu_ = function ()
                 {
-                    H.p(cook(me.ins_name + '/cu_'), me.current_row)
-                        .then(function (r)
+                    me.current_row.write_data = 1;
+                    var promise = H.p(cook(me.ins_name + '/cu_'), me.current_row);
+                    promise.then(function (r)
                         {
                             if (r.data.status == 1)
                             {
@@ -157,6 +158,7 @@
                                 me.refresh();
                             }
                         })
+                    return promise;
                 }
 
                 me.deps = $q.all[SHospital.get_all_rec(),  SAgency.get_all_rec()];

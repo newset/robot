@@ -472,6 +472,7 @@
                 $scope.current_row = SAgency.current_row;
                 $scope.SIns.cond.where.hospital_id = $stateParams.hid;
                 SAgency.init();
+                SAgency.refresh();
                 $scope.cond = SAgency.cond;
                 SAgency.show_search_panel = $stateParams.with_search;
                 h.prepare_location_data();
@@ -638,7 +639,7 @@
                         production_date : $scope.SIns.current_row.production_date,
                         status : Number($scope.SIns.current_row.status)
                     }
-                    $scope.SIns.cu(data).then(function(res){
+                    $scope.SIns.cu_(data).then(function(res){
                         // 跳转到详情 todo
                         if (res.data.status ==1 ) {
                             $state.go('base.robot.detail', {'id' : res.data.d.id});

@@ -142,19 +142,24 @@ class IRobot extends BaseModel
 
         $ins->cust_id = $rq['cust_id'];
         $ins->production_date = $rq['production_date'];
+        $ins->employee_id = $rq['employee_id'];
         $ins->save();
 
-        $lease_log_ins = M('robot_lease_log');
+        if (!rq('id')) {
+            $lease_log_ins = M('robot_lease_log');
 
-        $lease_log_ins->robot_id = $ins->id;
-        $lease_log_ins->lease_type_id = $rq['lease_type_id'];
-        $lease_log_ins->lease_started_at = $rq['lease_started_at'];
-        $lease_log_ins->lease_ended_at = $rq['lease_ended_at'];
-        $lease_log_ins->agency_id = $rq['agency_id'];
-        $lease_log_ins->hospital_id = $rq['hospital_id'];
-        $r = $lease_log_ins->save();
-        if ($r)
-            return ss();
+            $lease_log_ins->robot_id = $ins->id;
+            $lease_log_ins->lease_type_id = -1;
+            $lease_log_ins->agency_id = -1;
+            $lease_log_ins->hospital_id = -1;
+            $r = $lease_log_ins->save();
+        }
+        
+        if ($ins){
+            return ss($ins);
+        }else{
+            return ss('', 0);
+        }
     }
 
     public function search_by_log($in = null)

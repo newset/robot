@@ -63,7 +63,7 @@
               <label class="control-label col-md-2">生产日期</label>
               <div class="col-md-4">
                 <datepicker date-format="yyyy-MM-dd" date-set="[:SIns.current_row.production_date:]" selector="form-control">
-                  <div class="">
+                  <div class="input-group">
                       <input ng-model="SIns.current_row.production_date" type="text" placeholder="yyyy-MM-dd" class="form-control"/>
                   </div>
                 </datepicker>
