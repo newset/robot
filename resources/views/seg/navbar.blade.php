@@ -13,11 +13,8 @@
                 <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.robot.new')]">
                     <a href="" ui-sref-opts="{reload:true}" ui-sref="base.robot.new" title="">新增设备</a></li>
                 <li ng-class="{true:'active',false:'inactive'}[$state.includes('base.robot.query') && $state.params.type == 'sale']">
-                    <a ui-sref-opts="{reload:true}" ui-sref="base.robot.query({type : 'sale'})">设备销售</a></li>
-                <li ng-class="{true:'active',false:'inactive'}[$state.includes('base.robot.query') && $state.params.type == 'abort']">
-                    <a ui-sref-opts="{reload:true}" ui-sref="base.robot.query({type : 'abort'})">设备作废</a></li>
-                <li ng-class="{true:'active',false:'inactive'}[$state.includes('base.robot.query') && $state.params.type == 'end']">
-                    <a ui-sref-opts="{reload:true}" ui-sref="base.robot.query({type : 'end'})">中止合作</a></li>
+                    <a ui-sref-opts="{reload:true}" ui-sref="base.robot.query({type : 'sale'})">设备销售</a>
+                </li>
                 <li ng-class="{true:'active',false:'inactive'}[$state.includes('base.robot.query')&& $state.params.type == '']">
                     <a href="" ui-sref-opts="{reload:true}" ui-sref="base.robot.query({type : ''})" title="">设备查询</a>
                 </li>
