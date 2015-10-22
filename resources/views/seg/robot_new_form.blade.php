@@ -41,7 +41,8 @@
                 <select class="form-control" 
                   ng-model="SIns.current_row.employee_id"
                   chosen
-                  ng-options="l.id as l.name for l in employees">
+                  update="SEmployee.all"
+                  ng-options="l.id as l.name for l in SEmployee.all">
                   <option value="">请选择</option>
                 </select>
                 <p ng-repeat="error in errors.employee_id" class="text-danger">

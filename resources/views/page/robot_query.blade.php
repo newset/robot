@@ -90,7 +90,6 @@
                                 </div>
 
                                 <div class="form-group text-right">
-                                    [:SIns.cond.where:]
                                     <!-- <button class="btn btn- default" ng-click="SIns.cond.where = {}">重置</button> -->
                                     <button class="btn btn-info" ng-click="SIns.refresh()">查询</button>
                                 </div>

@@ -20,13 +20,15 @@
 					<dd>[:SIns.current_row.cust_id:]</dd>
 					<dt>状态</dt>
 					<dd>
-						<span ng-if="SIns.current_row.lease_type_id == -1">返回库存</span>
+						<span ng-if="SIns.current_row.lease_type_id == -1">进入库存</span>
 						<span ng-if="SIns.current_row.lease_type_id == 1">出售</span>
 						<span ng-if="SIns.current_row.lease_type_id == 2">出租</span>
 						<span ng-if="SIns.current_row.lease_type_id == 3">免费合作</span>
 					</dd>
 					<dt>生产日期</dt>
 					<dd>[:SIns.current_row.production_date | date : 'yyyy-MM-dd':]</dd>
+					<dt>健康状况</dt>
+					<dd>[: SIns.robot_action_type[SIns.current_row.status].name:]</dd>
 					<dt>代理商</dt>
 					<dd>[:SIns.current_row.last_agency.name:]</dd>
 					<dt>医院</dt>
