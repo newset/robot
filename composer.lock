@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "485aab40913cfb697738ccb7a41b866c",
-    "content-hash": "34a9e43d3a87fab358c5d8cda1a7467b",
+    "hash": "2e56e2025b61dabc630b7f0ad50988ed",
+    "content-hash": "9a9e9f8567efb32e8b559b63b6eb0d32",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -876,6 +876,102 @@
                 "php"
             ],
             "time": "2015-09-19 14:15:08"
+        },
+        {
+            "name": "nwidart/db-exporter",
+            "version": "1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nWidart/DbExporter.git",
+                "reference": "ce8da8782ed1e478a761ec51cd4dedeff44ac654"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nWidart/DbExporter/zipball/ce8da8782ed1e478a761ec51cd4dedeff44ac654",
+                "reference": "ce8da8782ed1e478a761ec51cd4dedeff44ac654",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "4.*|5.*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Nwidart\\DbExporter": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Widart",
+                    "email": "n.widart@gmail.com"
+                }
+            ],
+            "description": "Export your database quickly and easily as a Laravel Migration and all the data as a Seeder class.",
+            "keywords": [
+                "artisan",
+                "command",
+                "database",
+                "export",
+                "laravel",
+                "migrations",
+                "php",
+                "seed"
+            ],
+            "time": "2015-04-24 05:56:41"
+        },
+        {
+            "name": "orangehill/iseed",
+            "version": "v2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/orangehill/iseed.git",
+                "reference": "02d4843f1ac4dcb7ac08a31a8bf10c527a16fba0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/orangehill/iseed/zipball/02d4843f1ac4dcb7ac08a31a8bf10c527a16fba0",
+                "reference": "02d4843f1ac4dcb7ac08a31a8bf10c527a16fba0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "illuminate/filesystem": "5.x",
+                "mockery/mockery": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Orangehill\\Iseed": "src/"
+                },
+                "classmap": [
+                    "src/Orangehill/Iseed/Exceptions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Tihomir Opacic",
+                    "email": "tihomir.opacic@orangehilldev.com"
+                }
+            ],
+            "description": "Generate a new Laravel database seed file based on data from the existing database table.",
+            "keywords": [
+                "artisan",
+                "generators",
+                "laravel",
+                "seed"
+            ],
+            "time": "2015-03-17 14:16:35"
         },
         {
             "name": "overtrue/laravel-wechat",
@@ -3811,65 +3907,12 @@
             ],
             "description": "Rapidly generate resources, migrations, models, and much more.",
             "time": "2015-02-17 06:26:25"
-        },
-        {
-            "name": "xethron/migrations-generator",
-            "version": "dev-l5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Xethron/migrations-generator.git",
-                "reference": "e5e86efb5731e6859ea0d96a806159f9f2c26ce1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Xethron/migrations-generator/zipball/e5e86efb5731e6859ea0d96a806159f9f2c26ce1",
-                "reference": "e5e86efb5731e6859ea0d96a806159f9f2c26ce1",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/dbal": "~2.4",
-                "illuminate/support": ">=4.1",
-                "php": ">=5.4.0",
-                "way/generators": "dev-feature/laravel-five-stable"
-            },
-            "require-dev": {
-                "illuminate/cache": ">=4.1.0",
-                "illuminate/console": ">=4.1.0",
-                "mockery/mockery": ">=0.9.0",
-                "phpunit/phpunit": ">=4.0.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Xethron\\MigrationsGenerator": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bernhard Breytenbach",
-                    "email": "bernhard@coffeecode.co.za"
-                }
-            ],
-            "description": "Generates Laravel Migrations from an existing database",
-            "keywords": [
-                "artisan",
-                "generator",
-                "laravel",
-                "migration",
-                "migrations"
-            ],
-            "time": "2015-02-23 05:43:08"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
         "zizaco/entrust": 20,
-        "xethron/migrations-generator": 20,
         "way/generators": 20
     },
     "prefer-stable": false,

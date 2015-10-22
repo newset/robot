@@ -155,6 +155,8 @@ return [
         'Illuminate\Html\HtmlServiceProvider',
         'Zizaco\Entrust\EntrustServiceProvider',
 
+        'Way\Generators\GeneratorsServiceProvider',
+        'Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider',
     ],
 
     /*
