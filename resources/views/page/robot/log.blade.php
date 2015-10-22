@@ -31,7 +31,7 @@
 				</div>
 				<div class="row">
 					<div class="form-group">
-						<label class="control-label col-md-2">维修类型</label>
+						<label class="control-label col-md-2">备注信息</label>
 						<div class="col-md-6">
 							<textarea name="" ng-model="data.memo" class="col-md-6 form-control" rows="12"></textarea>
 						</div>
