@@ -26,7 +26,7 @@
 						<span ng-if="SIns.current_row.lease_type_id == 3">免费合作</span>
 					</dd>
 					<dt>生产日期</dt>
-					<dd>[:SIns.current_row.created_at | date : 'yyyy-MM-dd':]</dd>
+					<dd>[:SIns.current_row.production_date | date : 'yyyy-MM-dd':]</dd>
 					<dt>代理商</dt>
 					<dd>[:SIns.current_row.last_agency.name:]</dd>
 					<dt>医院</dt>
