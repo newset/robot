@@ -96,7 +96,7 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="h in SIns.current_row.hospital">
-                    <td class="col-md-1">[:h.id:]</td>
+                    <td class="col-md-1">[:h.cust_id:]</td>
                     <td class="col-md-1">
                         <span ng-repeat="l in SBase._.location.province |filter:{id: h.province_id}:equalsId">[:l.name:]</span>
 
@@ -119,17 +119,21 @@
                 <thead>
                 <tr role="row" class="info">
                     <th class="col-md-1">编号</th>
+                    <th class="col-md-1">设备状态</th>
                     <th class="col-md-1">销售方式</th>
                     {{--<th class="col-md-1">销售状态</th>--}}
-                    <th class="col-md-1">医院编号</th>
+                    <th class="col-md-1">医院</th>
+                    <th class="col-md-1">租赁期</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="i in SIns.current_row.robot_lease_log">
-                    <td class="col-md-1">[:i.id:]</td>
+                    <td class="col-md-1">[:i.cust_id:]</td>
+                    <td class="col-md-1">[:SRobot.robot_action_type[i.status].name:]</td>
                     <td class="col-md-1" ng-repeat="t in h.robot_lease_type | filter: {id: i.lease_type_id}:equalsId">[:t.name:]</td>
                     {{--<td class="tar col-md-1">[:i.hospital_id:]</td>--}}
-                    <td class="col-md-1">[:i.hospital_id:]</td>
+                    <td class="col-md-1">[:i.name:]</td>
+                    <td class="col-md-1"></td>
                 </tr>
                 </tbody>
             </table>

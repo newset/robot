@@ -494,12 +494,14 @@
             '$scope',
             'SBase',
             'SAgency',
+            'SRobot',
             'h',
             'H',
             '$stateParams',
             function ($scope,
               SBase,
               SAgency,
+              SRobot,
               h,
               H,
               $stateParams
@@ -508,6 +510,7 @@
             $scope.h = h;
             $scope.SBase = SBase;
             $scope.SIns = SAgency;
+            $scope.SRobot = SRobot;
             $scope.agency={};
             h.prepare_location_data();
             // $scope.current_row = SAgency.current_row;

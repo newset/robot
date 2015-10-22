@@ -130,7 +130,7 @@ class IAgency extends BaseModel
      */
     public function robotLeaseLog()
     {
-         return $this->hasMany('App\Models\IRobotLeaseLog', 'agency_id');
+         return $this->hasMany('App\Models\VRobotLeaseLog', 'agency_id');
     }
 
     public function hospital()
