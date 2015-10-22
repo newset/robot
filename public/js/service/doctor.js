@@ -44,8 +44,8 @@
                         })
                 }
 
-                me.lastId = function(){
-                    return H.g(base_url + 'a/doctor');
+                me.lastId = function(b){
+                    return H.g(base_url + 'a/doctor/'+b);
                 }
 
                 function cu(d)

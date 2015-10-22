@@ -11,8 +11,8 @@
 			<form name="form_doctor" class="form-horizontal col-md-8">
 
 				<div class="row">
-					<div class="form-group col-md-6">
-						<label class="control-label col-md-3">姓名</label>
+					<div class="form-group col-md-12">
+						<label class="control-label col-md-2">姓名</label>
 						<div class="col-md-8">
 							<input ng-model="SIns.current_row.name"
 								   class="form-control"
@@ -22,16 +22,17 @@
 								ng-model="SIns.current_row.gender"
 								chosen
 								ng-options="l.id as l.name for l in [{id: 1, name: '男'}, {id: 0, name: '女'}]"
-								ng-init="SIns.current_row.gender = SIns.current_row.gender" style="display: inline-block;width: 60px;" required>
+								ng-init="SIns.current_row.gender = SIns.current_row.gender" style="display: inline-block;width: 80px;" required>
+								<option value="">性别</option>
 							</select> 
 						</div>
 					</div>
 				</div>
 
 				<div class="row">
-					<div class="form-group col-md-6">
-						<label class="control-label col-md-3">识别码</label> 
-						<div class="col-md-8">
+					<div class="form-group col-md-12">
+						<label class="control-label col-md-2">识别码</label> 
+						<div class="col-md-4">
 							<input ng-model="SIns.current_row.cust_id"
 		                     	name="cust_id"
 							   	class="form-control"
@@ -45,12 +46,13 @@
 				</div>
 
 				<div class="row">
-					<div class="form-group col-md-6">
-						<label class="control-label col-md-3">所在医院</label> 
-						<div class="col-md-8">
+					<div class="form-group col-md-12">
+						<label class="control-label col-md-2">所在医院</label> 
+						<div class="col-md-4">
 							<select class="form-control"
 									name="city_id"
 									chosen
+									update="SIns.all_hospital"
 									ng-change="get_department()"
 									ng-model="SIns.current_row.hospital_id"
 									ng-options="l.id as l.name for l in SIns.all_hospital"
@@ -62,9 +64,9 @@
 				</div>
 
 				<div class="row">
-					<div class="form-group col-md-6">
-						<label class="control-label col-md-3">科室</label> 
-						<div class="col-md-8">
+					<div class="form-group col-md-12">
+						<label class="control-label col-md-2">科室</label> 
+						<div class="col-md-4">
 							<select class="form-control"
 									name="city_id"
 									chosen
@@ -79,8 +81,8 @@
 				</div>
 
 				<div class="row">
-					<div class="form-group col-md-6">
-						<label class="control-label col-md-3">级别</label> <div class="col-md-8">
+					<div class="form-group col-md-12">
+						<label class="control-label col-md-2">级别</label> <div class="col-md-4">
 						<select class="form-control"
 								chosen
 								ng-model="SIns.current_row.level"
@@ -99,9 +101,9 @@
 				</div>
 
 				<div class="row">
-					<div class="form-group col-md-6">
-						<label class="control-label col-md-3">职务</label> 
-						<div class="col-md-8">
+					<div class="form-group col-md-12">
+						<label class="control-label col-md-2">职务</label> 
+						<div class="col-md-4">
 						<input ng-model="SIns.current_row.title"
 							   class="form-control"
 							   required>
@@ -110,8 +112,8 @@
 				</div>
 				
 				<div class="row">
-					<div class="form-group col-md-6">
-						<label class="control-label col-md-3">电话</label> <div class="col-md-8">
+					<div class="form-group col-md-12">
+						<label class="control-label col-md-2">电话</label> <div class="col-md-4">
 						<input ng-model="SIns.current_row.phone"
 							   class="form-control"
 							   required>
@@ -120,8 +122,8 @@
 				</div>
 				
 				<div class="row">
-					<div class="form-group col-md-6">
-						<label class="control-label col-md-3">Email</label> <div class="col-md-8">
+					<div class="form-group col-md-12">
+						<label class="control-label col-md-2">Email</label> <div class="col-md-4">
 						<input ng-model="SIns.current_row.email"
 							   class="form-control"
 							   required>

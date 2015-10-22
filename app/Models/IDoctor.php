@@ -18,8 +18,17 @@ class IDoctor extends BaseModel
         return $d;
     }
 
-    public function lastId()
-    {
+    public function lastId($id = null)
+    {   
+        if ($id) {
+            $row = M('doctor')->where('cust_id', $id)->first();
+
+            if ($row) {
+                return ss($row, 0);
+            }else{
+                return ss($id);
+            }
+        }
         return M('doctor')->max('cust_id');
     }
 

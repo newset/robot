@@ -263,10 +263,18 @@
                 SDoctor.init();
                 
                 $scope.getLastId = function(){
-                    SDoctor.lastId().then(function(res){
-                        $scope.SIns.current_row.cust_id = Number(res.data)+1;
+                    var time = new Date().valueOf().toString(),
+                        a = time.substr(-9),
+                        b = a.substr(-4) + a.substr(0, 5);
+                    SDoctor.lastId(b).then(function(res){
+                        if (res.data.status == 1) {
+                            $scope.SIns.current_row.cust_id = Number(res.data.d);
+                        }else{
+                            $scope.getLastId();
+                        };
                     })
                 }
+
                 $scope.getLastId();
 
                 $scope.save = function(data){

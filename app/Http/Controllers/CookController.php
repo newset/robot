@@ -51,7 +51,7 @@ class CookController extends Controller
         return $ins->$action_name();
     }
 
-    public function lastId($p1 = null)
+    public function lastId($p1 = null, $p2=null)
     {
         if (!$p1) {
             return ee(2, 'ins_not_exists');
@@ -61,7 +61,7 @@ class CookController extends Controller
             $ins = M($p1, 'i');
         }
 
-        return $ins->lastId();
+        return $ins->lastId($p2);
     }
 
     public function has_permission($ins_name, $action_name)

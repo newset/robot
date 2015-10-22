@@ -63,6 +63,7 @@
         restrict: 'EA',
         link: function (scope, element, attrs) {
           var update = attrs.update;
+
           if (update) {
             scope.$watch(update, function(n, o){
                 element.trigger('chosen:updated');
@@ -82,7 +83,7 @@
           //   element.trigger('chosen:updated');
           // }, 0);
 
-          element.chosen({disable_search_threshold: 1});
+          element.chosen({disable_search_threshold: 10});
         }
       };
     }]);
