@@ -39,7 +39,14 @@ input.form-control, select.form-control, textarea.form-control{
 .mb20{
     margin-bottom:20px;
 }
-
+.tool_wrapper{
+    overflow: hidden;
+    display: inline-block;
+    margin-top: 10px;
+}
+td.edit{
+    text-align: center;
+}
 .dropdown-menu-right {
     right: 0;
     left: auto!important;
@@ -202,11 +209,6 @@ tr .delete
     float: right;
 }
 
-tr button.btn
-{
-    margin: 0;
-    color: #666;
-}
 tr button.btn.btn-primary{
     color: #eee;
 }
