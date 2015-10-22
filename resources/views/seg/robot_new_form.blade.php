@@ -62,9 +62,9 @@
             <div class="form-group col-md-6">
               <label class="control-label col-md-2">生产日期</label>
               <div class="col-md-4">
-                <datepicker date-format="yyyy-MM-dd" date-set="[:SIns.current_row.production_date:]" selector="form-control">
+                <datepicker date-format="yyyy-MM-dd" date-set="[:SIns.current_row.production_date || '{{date("Y-m-d",time())}}' :]" selector="form-control">
                   <div class="input-group">
-                      <input ng-model="SIns.current_row.production_date" type="text" placeholder="yyyy-MM-dd" class="form-control"/>
+                      <input ng-model="SIns.current_row.production_date" type="text" class="form-control"/>
                   </div>
                 </datepicker>
                 <p ng-repeat="error in errors.production_date" class="text-danger">
