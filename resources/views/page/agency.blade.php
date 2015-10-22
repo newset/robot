@@ -87,7 +87,7 @@ controller:
             </div>
         </div>  {{--col-md-6 --}}
     </div>
-    <div class="row">
+    <div class="row" ng-show="SIns.current_page_data">
         <div class="col-md-12">
             <table
                 id="example"

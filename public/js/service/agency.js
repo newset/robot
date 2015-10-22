@@ -53,8 +53,10 @@
                     if (moment().isAfter(row.ended_at)) {
                         return '已过期';
                     };
-                    if (moment().isBetween(row.started_at, row.ended_at))
+                    if (moment().isBetween(row.started_at, row.ended_at)){
+                        // 即将过期 todo
                         return '正常';
+                    }
                     return '已过期';
                 }
 

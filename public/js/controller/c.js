@@ -163,17 +163,22 @@
             'SBase',
             'SHospital',
             'h',
+            '$state',
             '$stateParams',
             function ($scope,
                       SBase,
                       SHospital,
                       h,
+                      $state,
                       $stateParams
             )
             {
                 $scope.SBase = SBase;
                 $scope.SIns = SHospital;
                 // $scope.SIns.init();
+                if ($state.current.name == 'base.hospital.new') {
+                    SHospital.current_row = {};
+                };
                 $scope.cond = $scope.SIns.cond;
                 $scope.SIns.show_search_panel = $stateParams.with_search;
                 h.prepare_location_data();
@@ -478,7 +483,10 @@
                 $scope.current_row = SAgency.current_row;
                 $scope.SIns.cond.where.hospital_id = $stateParams.hid;
                 SAgency.init();
-                SAgency.refresh();
+                if(SAgency.current_page_data){
+                    SAgency.refresh();
+                }
+
                 $scope.cond = SAgency.cond;
                 SAgency.show_search_panel = $stateParams.with_search;
                 h.prepare_location_data();

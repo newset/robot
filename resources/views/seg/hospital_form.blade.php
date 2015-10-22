@@ -23,7 +23,7 @@
                         chosen 
                         class="form-control" 
                         update="SBase._.location.province"
-                        ng-model="SIns.cond.where.province_id" 
+                        ng-model="SIns.current_row.province_id" 
                         ng-options="l.id as l.name for l in SBase._.location.province">
                         <option value="">所在省份</option>
                     </select>
@@ -32,9 +32,9 @@
                     <select name="city_id" 
                         chosen 
                         class="form-control" 
-                        update="SIns.cond.where.province_id" 
-                        ng-model="SIns.cond.where.city_id" 
-                        ng-options="l.id as l.name for l in SIns.cond.where.province_id&&SBase._.location.city|| []| filter: {parent_id: SIns.cond.where.province_id}:true">
+                        update="SIns.current_row.province_id" 
+                        ng-model="SIns.current_row.city_id" 
+                        ng-options="l.id as l.name for l in SIns.current_row.province_id&&SBase._.location.city|| []| filter: {parent_id: SIns.current_row.province_id}:true">
                         <option value="">所在城市</option>
                     </select>
                 </div>

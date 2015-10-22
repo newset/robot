@@ -5,9 +5,11 @@
         .service('SHospital', [
             'H',
             'h',
+            '$state',
             'ngDialog',
             function(H,
                 h,
+                $state,
                 ngDialog) {
                 var me = this;
                 me.init = init;
@@ -44,7 +46,12 @@
                             if (r.data.d) { //创建成功
                                 ngDialog.closeAll();
                                 me.refresh();
-                                window.location.href = '/#/hospital/department_doctor?hid=' + r.data.d.id; //TODO
+                                if (d.id) {
+                                    $state.go('base.hospital.list');
+                                }else{
+                                    $state.go('base.hospital.department_doctor', {hid : r.data.d.id});
+                                };
+                                // window.location.href = '/#/hospital/department_doctor?hid=' + r.data.d.id; //TODO
                             }
                         }, function() {})
                 }

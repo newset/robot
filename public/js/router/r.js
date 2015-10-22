@@ -182,7 +182,8 @@
                     .state('base.hospital.department_doctor',
                     {//医院详情页
                         controller:'CHospitalDetail',
-                        url: '/department_doctor?page_num&limit&with_search&hid',
+                        // resolve todo
+                        url: '/department_doctor/:hid?page_num=&limit=&with_search=',
                         templateUrl: shot('page/department_doctor'),
                     })
                     .state('base.department',

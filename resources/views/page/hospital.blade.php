@@ -117,7 +117,7 @@ url:
                         <td class="edit col-md-3">
                             <span class="tool_wrapper">
                                 <a class="btn-primary btn-custom btn btn-sm" target="_blank"
-                                   href="#/hospital/department_doctor?hid=[:row.id:]">
+                                   href="#/hospital/department_doctor/[:row.id:]">
                                     管理科室/医生
                                 </a>
                                 <button class="btn-primary btn-custom btn btn-sm"  ui-sref="base.hospital.edit({hid:row.id})">
