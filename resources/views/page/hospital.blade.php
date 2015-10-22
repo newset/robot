@@ -104,8 +104,8 @@ url:
                             •<span ng-repeat="l in SBase._.location.city |filter:{id: row.city_id }:equalsId">[:l.name :]</span>
                         </td>
                         <td  class="col-md-2">[:row.name:]</td>
-                        <td class="col-md-1">[:row.doctor.length:]</td>
                         <td class="col-md-1">[:row.department.length:]</td>
+                        <td class="col-md-1">[:row.doctor.length:]</td>
                         <td class="col-md-1">[:row.agency.length:]</td>
                         <td class="col-md-1" title="[:row.memo:]" >
                             <button href="" ng-if="row.memo.length>0"  ng-click="SIns.popup_edit(row,1)">
