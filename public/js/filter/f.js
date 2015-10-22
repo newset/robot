@@ -29,6 +29,11 @@
            return function(theDate, format) {
                 var format = format || 'yyyy-MM-dd',
                     date = new Date(theDate);
+
+                // firefox fix
+                if (date == 'Invalid Date') {
+                    date = new Date(theDate.replace(/-/g,'/'));
+                };
                return angularDateFilter(date, format);
            }
         });
