@@ -35,7 +35,7 @@
                 <dt class="tar">Email</dt>
                 <dd>[:SIns.current_row.email:]</dd>
                 <dt  class="tar">状态</dt>
-                <dd> [:SIns.status(agency):]</dd>
+                <dd> [:SIns.status(SIns.current_row):]</dd>
                 <dt class="tar">代理权</dt>
                 <dd>[:SIns.current_row.started_at:]--[:SIns.current_row.ended_at:]</dd>
                 @if(he_is('employee'))

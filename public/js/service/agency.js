@@ -47,6 +47,12 @@
                 {
                     if (row.status == 0)
                         return '已冻结';
+                    if (!row.ended_at) {
+                        return '无代理权';
+                    };
+                    if (moment().isAfter(row.ended_at)) {
+                        return '已过期';
+                    };
                     if (moment().isBetween(row.started_at, row.ended_at))
                         return '正常';
                     return '已过期';
