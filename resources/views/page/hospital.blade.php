@@ -130,25 +130,22 @@ url:
                     </tr>
                 </tbody>
             </table>
-            <div class="row">
-                <div class="pull-right">
-                    <span class="pull-left">记录: [:(SIns.cond.pagination+1-1)* SIns.items_per_page +  (SIns.total_items/SIns.total_items) || 0:] / [:SIns.total_items:]</span>
-                
-                    <pagination
-                        {{--boundary-links="true"--}}
-                        total-items="SIns.total_items"
-                        items-per-page="SIns.items_per_page"
-                        ng-model="SIns.cond.pagination"
-                        ng-change="SIns.change_page(SIns.cond.pagination)"
-                        class="pagination-md"
-                        previous-text="<"
-                        next-text=">"
-                        first-text="第一页"
-                        {{--items-per-page="5"--}}
-                        last-text="最后一页"
-                    >
-                    </pagination>
-                </div>
+            <div class="pagination_wrapper">
+                <span class="pull-left">记录: [:(SIns.cond.pagination+1-1)* SIns.items_per_page +  (SIns.total_items/SIns.total_items) || 0:] / [:SIns.total_items:]</span>
+                <pagination
+                    {{--boundary-links="true"--}}
+                    total-items="SIns.total_items"
+                    items-per-page="SIns.items_per_page"
+                    ng-model="SIns.cond.pagination"
+                    ng-change="SIns.change_page(SIns.cond.pagination)"
+                    class="pagination-md"
+                    previous-text="<"
+                    next-text=">"
+                    first-text="第一页"
+                    {{--items-per-page="5"--}}
+                    last-text="最后一页"
+                >
+                </pagination>
             </div>
         </div>
     </div>

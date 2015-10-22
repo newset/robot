@@ -162,7 +162,7 @@ controller:CPageDepartment
             </tbody>
         </table>
             <div ng-if="doctors.length<=0">暂无结果</div>
-        <a ui-sref="base.doctor.new" class="btn btn-primary pull-right">新建医生</a>
+        <a ui-sref="base.doctor.new({hospital: hospital.id})" class="btn btn-primary pull-right">新建医生</a>
         {{-- <div class="row pagination_wrapper">
         <pagination max-size="10"
         boundary-links="true"

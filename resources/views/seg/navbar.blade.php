@@ -92,7 +92,9 @@
         </div>
         <div class="page-nav pull-left" ng-if="$state.includes('base.doctor')" ng-cloak>
             <ul class="nav nav-pills">
-                <li ng-class="{true:'active',false:'inactive'}[$state.includes('base.doctor.new')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.doctor.new" title="">新建医生</a></li>
+                <li ng-class="{true:'active',false:'inactive'}[$state.includes('base.doctor.new')]">
+                    <a href="" ui-sref-opts="{reload:true}" ui-sref="base.doctor.new" title="">新建医生</a>
+                </li>
                 <li ng-class="{true:'active',false:'inactive'}[$state.includes('base.doctor.list')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.doctor.list({with_search: 1})" title="">医生查询</a></li>
                 <li role="presentation" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">

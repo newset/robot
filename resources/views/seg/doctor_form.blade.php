@@ -52,11 +52,13 @@
 							<select class="form-control"
 									name="city_id"
 									chosen
-									update="SIns.all_hospital"
+									ng-disabled="createForHopistal"
+									update="SIns.all_hospital || createForHopistal"
 									ng-change="get_department()"
 									ng-model="SIns.current_row.hospital_id"
 									ng-options="l.id as l.name for l in SIns.all_hospital"
 									required>
+									[:SIns.current_row.hospital_id:]
 								<option value="">选择医院</option>
 							</select>
 						</div>    

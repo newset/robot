@@ -261,6 +261,12 @@
                 $scope.SBase = SBase;
                 $scope.SIns = SDoctor;
                 SDoctor.init();
+                $scope.SIns.current_row = {}
+
+                if ($stateParams.hospital) {
+                    $scope.SIns.current_row.hospital_id = Number($stateParams.hospital);
+                    $scope.createForHopistal = true;
+                };
                 
                 $scope.getLastId = function(){
                     var time = new Date().valueOf().toString(),
