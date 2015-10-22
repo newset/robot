@@ -18,13 +18,14 @@
 								   class="form-control"
 								   style="width: auto;display: inline-block;"
 								   required>
-							<select class="form-control"
-								ng-model="SIns.current_row.gender"
-								chosen
-								ng-options="l.id as l.name for l in [{id: 1, name: '男'}, {id: 0, name: '女'}]"
-								ng-init="SIns.current_row.gender = SIns.current_row.gender" style="display: inline-block;width: 80px;" required>
-								<option value="">性别</option>
-							</select> 
+							<p><br></p>
+							<label class="radio-inline">
+								<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" ng-model="SIns.current_row.gender"> 男
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="0" ng-model="SIns.current_row.gender"> 女
+							</label>
+
 						</div>
 					</div>
 				</div>
