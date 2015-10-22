@@ -617,7 +617,7 @@
                 $scope.employees = SEmployee.all;
 
                 if (!$stateParams.id) {
-                    SRobot.current_row = {};
+                    SRobot.current_row = { status : 0};
                 }else{
                     // 如果没有数据，则先获取
                 };
