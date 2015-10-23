@@ -34,7 +34,7 @@
                             class="form-control" 
                             update="SIns.current_row.province_id" 
                             ng-model="SIns.current_row.city_id" 
-                            ng-options="l.id as l.name for l in SIns.current_row.province_id&&SBase._.location.city|| []| filter: {parent_id: SIns.cond.where.province_id}:true">
+                            ng-options="l.id as l.name for l in SIns.current_row.province_id&&SBase._.location.city|| []| filter: {parent_id: SIns.current_row.province_id}:true">
                             <option value="">所在城市</option>
                         </select>
                     </div>

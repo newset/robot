@@ -4,7 +4,7 @@
         <h3 class="panel-title">新建医院</h3>
     </div>
     <div class="panel-body">
-        <form ng-submit="SIns.cu(SIns.current_row)"
+        <form
               name="form_hospital"
               class="form-horizontal"
               ng-controller="CPageHospital as cPageHospital">
