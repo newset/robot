@@ -49,7 +49,7 @@
 				<div class="row">
 					<div class="form-group col-md-12">
 						<label class="control-label col-md-2">所在医院</label> 
-						<div class="col-md-4">
+						<div class="col-md-4" ng-init="SIns.current_row.hospital_id=currentHospital">
 							<select class="form-control"
 									name="city_id"
 									chosen

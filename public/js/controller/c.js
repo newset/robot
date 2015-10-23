@@ -268,9 +268,22 @@
                 SDoctor.init();
                 $scope.SIns.current_row = {}
 
+                $scope.get_department = function(){
+                    if ($scope.SIns.current_row.hospital_id) {
+                        SDoctor.h.get_all_department($scope.SIns.current_row.hospital_id).then(function(res){
+                            console.log('deps: ', res.data);
+                            $scope.SIns.departments = res.data.d.main;
+                        });
+                    }else{
+                        $scope.SIns.departments = [];
+                    };
+                }
+                
+                $scope.currentHospital = Number($stateParams.hospital);
                 if ($stateParams.hospital) {
                     $scope.SIns.current_row.hospital_id = Number($stateParams.hospital);
                     $scope.createForHopistal = true;
+                    $scope.get_department();
                 };
                 
                 $scope.getLastId = function(){
@@ -298,16 +311,6 @@
                     });
                 }
 
-                $scope.get_department = function(){
-                    if ($scope.SIns.current_row.hospital_id) {
-                        SDoctor.h.get_all_department($scope.SIns.current_row.hospital_id).then(function(res){
-                            console.log('deps: ', res.data);
-                            $scope.SIns.departments = res.data.d.main;
-                        });
-                    }else{
-                        $scope.SIns.departments = [];
-                    };
-                }
             }
         ])
           //科室controller
