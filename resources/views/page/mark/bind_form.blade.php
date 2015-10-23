@@ -31,7 +31,6 @@
                       style="width:100%" 
                       cols="175"
                       array-receiver="SIns.cu_bat_data.mark_list"
-                      la-row-num-match="SIns.cu_bat_data.a"
                       placeholder="每行一条Mark编号，行数需与总数相等，总数尽量不超过1000条"
                       required>
                 </textarea>
