@@ -3,7 +3,7 @@
 		<div class="">
 				<form class="form-inline" style="padding: 10px 20px;" action="{{usb_url('upload')}}" method="post" enctype="multipart/form-data">
 					<div class="form-group pull-left">
-						<input type="hidden" name="a" value="{{url()}}/#/mark/usb">
+						<input type="hidden" name="a" value="[:redirect:]">
 						<input type="file" name="1" class="form-control">
 					</div>
 					<div class="form-group pull-right">
