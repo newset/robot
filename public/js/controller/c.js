@@ -862,6 +862,11 @@
             $scope.SIns = iMark;
             console.log(iMark.current_row);
         }])
+        .controller('CMarkUsb', ['$scope', 'Log', function ($scope, Log) {
+            console.log('log: ', Log && Log.data && Log.data.d.message);
+            $scope.result = Log && Log.data && Log.data.d.message;
+            $('#resultUsb').html($scope.result);
+        }])
         .controller('CPageEmployee',
         [
             '$scope',

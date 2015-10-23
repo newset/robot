@@ -47,3 +47,28 @@ if ( ! function_exists('captcha_expired_time'))
     }
 } else dd('function captcha_expired_time exists.' . __FILE__ . ':' . __LINE__);
 
+if ( ! function_exists('usb_url'))
+{
+    function usb_url($type)
+    {
+        if (!he_is('employee')) {
+            return;
+        }
+        $base = 'http://www.remebot.cn/isapi/remeisapi.dll/?';
+        $user = DB::table('i_employee')->select(DB::raw('right(password, 4) as pass'))->where('id', uid())->first();
+        $time = time();
+
+        $params = [
+            'a' => $type,
+            'b' => $time,
+            'c' => uid() * 3 * substr($time, -4),
+            'd' => $user->pass
+        ];
+
+        return $base . http_build_query($params);
+
+    }
+} else dd('function usb_url exists.' . __FILE__ . ':' . __LINE__);
+
+
+

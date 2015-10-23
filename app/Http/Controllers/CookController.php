@@ -46,7 +46,7 @@ class CookController extends Controller
         {
             $ins = M($ins_name, 'i');
         }
-        else return ee(2, 'ins_not_exists');
+        else return ee(2, 'ins_not_exists'.MName($ins_name, 'i'));
 
         return $ins->$action_name();
     }

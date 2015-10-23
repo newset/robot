@@ -288,7 +288,17 @@
                         templateUrl : shot('page/mark/unbind_form')
                     })
                     .state('base.mark.usb',{
-                        url : '/usb',
+                        url : '/usb?id=',
+                        controller : 'CMarkUsb',
+                        resolve : {
+                            'Log' : function($stateParams, H){
+                                if ($stateParams.id) {
+                                    return H.p(cook('usblog/r'), {id : $stateParams.id});
+                                }else{
+                                    return '';
+                                };
+                            }
+                        },
                         templateUrl : shot('page/mark/usb')
                     }).state('base.mark.query',{
                         url : '/query',
