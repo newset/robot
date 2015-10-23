@@ -43,6 +43,9 @@ trait AuthTrait
             {
                 log_him_in(['username' => $user->username, 'uid' => $user->id]);
                 add_chara($input['user_type']);
+                if($input['user_type'] == 'agency'){
+                    sess('org', $user->name);
+                }
                 return ss();
             }
 
@@ -75,7 +78,7 @@ trait AuthTrait
     {
         $is_doctor = he_is('doctor');
         log_him_out();
-        Session::forget('username');
+        Session::forget(['username', 'org']);
         if ( ! $is_doctor)
             return redirect('/');
         return redirect('/doctor/home');

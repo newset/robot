@@ -78,8 +78,12 @@ if ( ! function_exists('sess'))
      *
      * @return mixed
      */
-    function sess($eleK = null)
+    function sess($eleK = null, $val = null)
     {
+        if($val){
+            Session::put($eleK, $val);
+        }
+
         if (empty($eleK))
             return Session::all();
         else

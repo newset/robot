@@ -187,10 +187,14 @@
                 </md-menu> -->
             </li>
 
-
             <li class="dropdown settings" dropdown is-open="isopen">
                 <a class="dropdown-toggle" data-toggle="dropdown">
-                    {{username()}} <i class="fa fa-angle-down"></i>
+                    @if(sess('org'))
+                        {{sess('org')}}
+                    @else
+                        {{username()}}
+                    @endif
+                     <i class="fa fa-angle-down"></i>
                 </a>
                 <ul class="dropdown-menu animated fadeInDown dropdown-menu-right">
                     <li>
