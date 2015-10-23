@@ -391,10 +391,13 @@
                 $scope.doctors = r.data.d.main;
                 console.log(($scope.doctors));
             });
+
             $scope.delete_department = function(department) {
                 console.log(department);
-                SDepartment.d(department.id);
-                $scope.departments.splice($scope.departments.indexOf(department), 1);
+                var res = SDepartment.d(department.id);
+                if (res) {
+                    $scope.departments.splice($scope.departments.indexOf(department), 1);
+                };
             };
 
         }])

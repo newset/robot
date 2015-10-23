@@ -40,8 +40,8 @@ controller:CPageDepartment
                     <td>[:row.doctor.length:]</td>
                     <td>[:row.username:]</td>
                     <td class="row col-md-2">
-                            <button class="btn btn-custom btn-default "  ng-click="delete_department(row)">删除</button>
-                            <button class="btn btn-custom btn-primary" ui-sref="base.department.edit({did: row.id})">  编辑  </button>
+                        <button class="btn btn-custom btn-default " ng-click="delete_department(row)">删除</button>
+                        <button class="btn btn-custom btn-primary" ui-sref="base.department.edit({did: row.id})">  编辑  </button>
                     </td>
                 </tr>
             </tbody>

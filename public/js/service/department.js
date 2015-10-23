@@ -47,7 +47,7 @@
                 function d(id)
                 {
                     var co = confirm('确认删除？');
-                    if(!co) return;
+                    if(!co) return false;
 
                     return H.p(cook(me.ins_name + '/d'), {id: id})
                         .then(function (r)
