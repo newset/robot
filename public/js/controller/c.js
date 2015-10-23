@@ -362,6 +362,7 @@
             $scope.departments={};
             $scope.doctors={};
 
+            SDepartment.cond.where.hospital_id = $scope.hospital_id;
             //获取医院信息
             H.p(cook('hospital/r'), {
                 'limit': 0,
@@ -370,16 +371,11 @@
             }).then(function(r) {
                 $scope.hospital = r.data.d.main[0];
             });
-            //获取科室
-            H.p(cook('department/r'), {
-                'limit': 0,
-                'order_by': 'id',
-                where: {
-                    'hospital_id': $scope.hospital_id
-                }
-            }).then(function(r) {
+            // 获取科室
+            SDepartment.refresh().then(function(r) {
                 $scope.departments = r.data.d.main;
             });
+
             //获取医生
             H.p(cook('doctor/r'), {
                 'limit': 0,
@@ -395,8 +391,10 @@
             $scope.delete_department = function(department) {
                 console.log(department);
                 var res = SDepartment.d(department.id);
-                if (res) {
-                    $scope.departments.splice($scope.departments.indexOf(department), 1);
+                if (res && res.then) {
+                    res.then(function(r){
+                        $scope.departments = r.data.d.main;
+                    })
                 };
             };
 

@@ -54,12 +54,12 @@
                         {
                             if (r.data.d)
                             {
-                                me.refresh();
+                                return me.refresh();
                             }
                         }, function ()
                         {
 
-                        })
+                        });
                 }
 
                 function popup_edit(row)
@@ -70,16 +70,17 @@
                 function refresh()
                 {
                     h.prepare_cond.call(me);
-                    return H.p(cook(me.ins_name + '/r'),
-                        me.cond)
-                        .then(function (r)
+                    var promise = H.p(cook(me.ins_name + '/r'), me.cond);
+
+                    promise.then(function (r)
                         {
                             if (!me.total_items)
                                 me.total_items = r.data.d.count;
                             me.current_page_data = r.data.d.main;
                             console.log(' me.current_page_data: ', me.current_page_data);
                             return r;
-                        })
+                        });
+                    return promise;
                 }
 
                 function change_page(pagination)
