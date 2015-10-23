@@ -370,8 +370,7 @@ class BaseModel extends Model
         //$date_fields = $this->get_all_date_type($main);
         $r = [
             'main'  => $main,
-            'count' => $count,
-            'table' => $this->table
+            'count' => $count
         ];
 
         return ss($r);

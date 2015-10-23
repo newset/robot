@@ -1,11 +1,14 @@
-<div class="container-fluid">
+
+<div class="container-fluid" ng-cloak>
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<b>Mark 详情</b>
-			<div class="pull-right">
-				<button type="button" class="btn btn-primary">绑定/解绑</button>
-				<button type="button" class="btn btn-primary">损坏报废</button>
-				<button type="button" class="btn btn-primary">损坏更新</button>
+			<div class="pull-right" ng-init="agency =-1">
+				<button type="button" class="btn btn-primary no-animate" ng-click="bind()" ng-show="agency == -1">绑定</button>
+				<button type="button" class="btn btn-primary no-animate" ng-click="unbind()" ng-show="agency != -1">解绑</button>
+				
+				<button type="button" class="btn btn-primary" ng-click="recycle()">损坏报废</button>
+				<button type="button" class="btn btn-primary" ng-click="replace()">损坏更新</button>
 			</div>
 			<div class="clearfix"></div>
 		</div>
@@ -24,7 +27,7 @@
 				<dt>销售状态</dt>
 				<dd>
 					<span ng-if="SIns.current_row.agency_id==-1 && SIns.current_row.hospital_id==-1">在库</span>
-                	<span ng-if="SIns.current_row.agency_id!=-1 && SIns.current_row.hospital_id==-1"">出货</span>
+                	<span ng-if="SIns.current_row.agency_id!=-1 && SIns.current_row.hospital_id==-1">出货</span>
                 	<span ng-if="SIns.current_row.hospital_id != -1">已售</span>
 			    </dd>
 				<dt>使用状态</dt>
@@ -79,7 +82,7 @@
 	            <dt>销售状态</dt>
 	            <dd>
 					<span ng-if="SIns.current_row.agency_id==-1 && SIns.current_row.hospital_id==-1">在库</span>
-                	<span ng-if="SIns.current_row.agency_id!=-1 && SIns.current_row.hospital_id==-1"">出货</span>
+                	<span ng-if="SIns.current_row.agency_id!=-1 && SIns.current_row.hospital_id==-1">出货</span>
                 	<span ng-if="SIns.current_row.hospital_id != -1">已售</span>
 			    </dd>
 	            <dt>销售医院</dt>
@@ -112,3 +115,33 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/ng-template" id="mark_bind_agency">
+	<div class="">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<br>
+			    <form action="" method="get" class="form-inline" accept-charset="utf-8">
+			    	<div class="form-group">
+			    		<label for="">代理商</label>
+			    		<select 
+			    			name="agency" 
+			    			ng-model="agency_id" 
+			    			style="width:200px;"
+			    			chosen
+			    			update="SAgency.all_rec" 
+			    			ng-options="l.id as l.name for l in SAgency.all_rec" 
+			    			class="form-control chosen"
+			    			>
+			    			<option value="">请选择</option>
+			    		</select>
+			    	</div>
+			    </form>
+			    <br>
+			</div>
+			<div class="panel-heading text-right">
+				<button type="button" class="btn btn-primary" ng-click="bind()">确定</button>
+			</div>
+		</div>
+	</div>
+</script>

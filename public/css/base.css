@@ -15,6 +15,10 @@ body.auth-body{
     display: table;
     clear: both;
 }
+.no-animate {
+   -webkit-transition: none !important;
+   transition: none !important;
+}
 .panel{
  width: 100%;
  position: relative;

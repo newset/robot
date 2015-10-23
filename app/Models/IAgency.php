@@ -15,6 +15,8 @@ class IAgency extends BaseModel
     protected $table = null;
     protected $ins_name = 'agency';
 
+    public $hidden = ['password'];
+
     public function __construct()
     {
         parent::__construct();

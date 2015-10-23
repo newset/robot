@@ -887,9 +887,53 @@
             }
 
         }])
-        .controller('CMarkDetail', ['$scope', 'iMark', function ($scope, iMark) {
+        .controller('CMarkDetail', ['$scope', 'iMark', 'ngDialog', function ($scope, iMark, ngDialog) {
             $scope.SIns = iMark;
-            console.log(iMark.current_row);
+
+            $scope.bind = function(){
+                var d = ngDialog.open({
+                    templateUrl: 'mark_bind_agency',
+                    size: 'md',
+                    controller: 'MarkModify',
+                    data : {
+                        'type' : 'bind',
+                        'mark' : iMark.current_row.id
+                    }
+                });
+
+
+            }
+
+            $scope.unbind = function(){
+
+            }
+
+            $scope.repair = function(){
+
+            }
+
+            $scope.replace = function(){
+
+            }
+        }])
+        .controller('MarkModify', ['$scope', 'SAgency', '$timeout', 'H', function ($scope, SAgency, $timeout, H) {
+            $scope.data = $scope.ngDialogData;
+            $scope.SAgency = SAgency;
+
+            $timeout(function(){
+                $('select.chosen+.chosen-container').css({'width': '200px'})
+            }, 100);
+            $scope.bind = function(){
+                console.log($scope.agency_id, $scope.ngDialogData);
+            }
+
+            $scope.replace = function(){
+
+            }
+
+            $scope.unbind = function(){
+
+            }
         }])
         .controller('CMarkUsb', ['$scope', 'Log', function ($scope, Log) {
             console.log('log: ', Log && Log.data && Log.data.d.message);

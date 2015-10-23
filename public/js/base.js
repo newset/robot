@@ -41,6 +41,9 @@
         ])
         .run(['$rootScope', '$state', function($rootScope, $state) {
             $rootScope.$state = $state;
+            toastr.options = {
+              "positionClass" : "toast-top-center"
+            }
 
             $rootScope.$on('$stateChangeStart',
                 function(event){ 
