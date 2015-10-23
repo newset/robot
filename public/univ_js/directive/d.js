@@ -266,7 +266,6 @@
                             .then(function (r)
                             {
                                 console.log('r: ', r);
-
                                 if (parseInt(r.data.d) === 1)
                                     return $q.reject();
                                 return true;

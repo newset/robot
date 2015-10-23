@@ -11,13 +11,13 @@ controller:CPageDepartment
                 </div>
                 <div class="col-md-2　col-md-offset-10 pull-right">
                     <button class=" btn btn-custom btn-primary black-border"
-                        ui-sref="base.department.new({hid:hospital.id})" title="新建科室">新建科室</button>
+                        ui-sref="base.department.new({hid:hospital.id, next: departments.length+1})" title="新建科室">新建科室</button>
                     {{-- <button class="btn btn-custom btn-primary  black-border"  ng-click="SIns.popup_edit(null)">新建医生  </button> --}}
                 </div>
             </div>
         </div>
     </div>
-    <div role="grid" id="example_wrapper"         class="dataTables_wrapper form-inline no-footer"    >
+    <div role="grid" id="example_wrapper" class="dataTables_wrapper form-inline no-footer"    >
         <table
             id="example"
             class="table table-striped table-bordered dataTable no-footer table-hover"

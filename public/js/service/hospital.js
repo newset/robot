@@ -46,11 +46,7 @@
                             if (r.data.d) { //创建成功
                                 ngDialog.closeAll();
                                 me.refresh();
-                                if (d.id) {
-                                    $state.go('base.hospital.list');
-                                }else{
-                                    $state.go('base.hospital.department_doctor', {hid : r.data.d.id});
-                                };
+                                $state.go('base.hospital.department_doctor', {hid : r.data.d.id});
                                 // window.location.href = '/#/hospital/department_doctor?hid=' + r.data.d.id; //TODO
                             }
                         }, function() {})

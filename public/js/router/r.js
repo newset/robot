@@ -193,7 +193,7 @@
                         template: '<div ui-view></div>',
                     })
                     .state('base.department.new',{//新建科室
-                        url : '/new?hid',
+                        url : '/new?hid=&next=',
                         controller:'CDepartmentNew',
                         templateUrl : shot('seg/department_form')
                     })

@@ -278,7 +278,7 @@
                         $scope.SIns.departments = [];
                     };
                 }
-                
+
                 $scope.currentHospital = Number($stateParams.hospital);
                 if ($stateParams.hospital) {
                     $scope.SIns.current_row.hospital_id = Number($stateParams.hospital);
@@ -354,37 +354,50 @@
       function ($scope,
                 SBase,
                 SDepartment,
-                h,H,
+                h,
+                H,
                 $stateParams ){
-        $scope.hospital_id=parseInt($stateParams.hid);
-        $scope.hospital={};
-        $scope.departments={};
-        $scope.doctors={};
+            $scope.hospital_id=parseInt($stateParams.hid);
+            $scope.hospital={};
+            $scope.departments={};
+            $scope.doctors={};
 
-        //获取医院信息
-        H.p(cook('hospital/r'), {'limit': 0, 'order_by': 'id','id':
-              $scope.hospital_id}).then(function (r){
+            //获取医院信息
+            H.p(cook('hospital/r'), {
+                'limit': 0,
+                'order_by': 'id',
+                'id': $scope.hospital_id
+            }).then(function(r) {
                 $scope.hospital = r.data.d.main[0];
-          });
-        //获取科室
-        H.p(cook('department/r'), {'limit': 0, 'order_by': 'id',
-                where:{'hospital_id': $scope.hospital_id}
-                }).then(function (r){
+            });
+            //获取科室
+            H.p(cook('department/r'), {
+                'limit': 0,
+                'order_by': 'id',
+                where: {
+                    'hospital_id': $scope.hospital_id
+                }
+            }).then(function(r) {
                 $scope.departments = r.data.d.main;
-          });
-        //获取医生
-        H.p(cook('doctor/r'), {'limit': 0, 'order_by': 'id',
-                where:{'hospital_id': $scope.hospital_id}
-              }).then(function (r){
+            });
+            //获取医生
+            H.p(cook('doctor/r'), {
+                'limit': 0,
+                'order_by': 'id',
+                where: {
+                    'hospital_id': $scope.hospital_id
+                }
+            }).then(function(r) {
                 $scope.doctors = r.data.d.main;
-                  console.log(($scope.doctors));
-          });
-        $scope.delete_department=function(department){
-          console.log(department);
-              SDepartment.d(department.id);
-            $scope.departments.splice($scope.departments.indexOf(department), 1);
-      };
-      }])
+                console.log(($scope.doctors));
+            });
+            $scope.delete_department = function(department) {
+                console.log(department);
+                SDepartment.d(department.id);
+                $scope.departments.splice($scope.departments.indexOf(department), 1);
+            };
+
+        }])
 
         .controller('CDepartmentEdit',[//科室编辑
               '$scope',
@@ -431,9 +444,9 @@
         }])
           .controller('CDepartmentNew',[//新建科室
                 '$scope',
-                  'H',
-                  '$state',
-                  'SDepartment',
+                'H',
+                '$state',
+                'SDepartment',
                 '$stateParams',
                 function($scope,
                 H,
@@ -442,7 +455,18 @@
                 $stateParams){
                 $scope.hospital_id=parseInt($stateParams.hid);
                 $scope.hospital={};
-                $scope.department={};
+
+                function zeroFill(number, width) {
+                    width -= number.toString().length;
+                    if (width > 0) {
+                        return new Array(width + (/\./.test(number) ? 2 : 1)).join('0') + number;
+                    }
+                    return number + ""; // always return a string
+                }
+
+                $scope.department={
+                    username : $scope.hospital_id + '-' + zeroFill($stateParams.next, 3)
+                };
                 $scope.department.hospital_id=$scope.hospital_id;
                   //获取科室
                 H.p(cook('hospital/r'), {'limit': 0, 'order_by': 'id',
@@ -452,17 +476,18 @@
                       console.log('aaa'+$scope.hospital_id+$scope.hospital);
                 });
 
-                  $scope.cancel=function(){//重置
-                          $scope.department.name="";
-                          $scope.department.username="";
-                          $scope.department.password="";
-                          $scope.department.memo="";
-                    };
-                  $scope.submit=function(){//编辑
-                            console.log($scope.department);
-                            SDepartment.cu($scope.department);
-                            $state.go('base.hospital.department_doctor',{hid:$scope.hospital_id});//返回医院详情页
-                  };
+                $scope.cancel=function(){//重置
+                    $scope.department.name="";
+                    $scope.department.username="";
+                    $scope.department.password="";
+                    $scope.department.memo="";
+                };
+
+                $scope.submit=function(){//编辑
+                    console.log($scope.department);
+                    SDepartment.cu($scope.department);
+                    $state.go('base.hospital.department_doctor', {hid:$scope.hospital_id}, {reload: true});//返回医院详情页
+                };
           }])
 //代理商查询/列表
         .controller('CPageAgency',
