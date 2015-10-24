@@ -25,7 +25,7 @@ a:hover,
 a:active {
   outline: none;
   text-decoration: none;
-  color: #16a086;
+  /*color: #16a086;*/
 }
 h1,
 h2,
