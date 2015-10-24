@@ -107,14 +107,14 @@ url:
                         <td class="col-md-1">[:row.department.length:]</td>
                         <td class="col-md-1">[:row.doctor.length:]</td>
                         <td class="col-md-1">[:row.agency.length:]</td>
-                        <td class="col-md-1" title="[:row.memo:]" >
+                        <td class="col-md-2" title="[:row.memo:]" >
                             <button href="" ng-if="row.memo.length>0"  ng-click="SIns.popup_edit(row,1)">
                                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                 {{-- <i class="icon-file-alt"></i> --}}
                             </button>
                             <a href="#modal" ng-if="row.memo.length==0">             </a>
                         </td>
-                        <td class="edit col-md-3">
+                        <td class="edit col-md-2 hospital-list-edit">
                             <span class="tool_wrapper">
                                 <a class="btn-primary btn-custom btn btn-sm" target="_blank"
                                    href="#/hospital/department_doctor/[:row.id:]">
