@@ -900,17 +900,29 @@
                         'mark' : iMark.current_row.id
                     }
                 });
+
+                d.closePromise.then(function (data) {
+                    if (data) {
+                        $scope.SIns.one($scope.SIns.current_row.id);
+                    };
+                });
             }
 
             $scope.unbind = function(){
                 var d = ngDialog.open({
-                    templateUrl: 'mark_bind_agency',
+                    templateUrl: 'mark_unbind_agency',
                     size: 'md',
                     controller: 'MarkModify',
                     data : {
                         'type' : 'unbind',
                         'mark' : iMark.current_row.id
                     }
+                });
+
+                d.closePromise.then(function (data) {
+                    if (data) {
+                        $scope.SIns.one($scope.SIns.current_row.id);
+                    };
                 });
             }
 
@@ -960,13 +972,19 @@
             $timeout(function(){
                 $('select.chosen+.chosen-container').css({'width': '200px'})
             }, 100);
-            $scope.bind = function(){
-                SMark.bat_mark('bind', {
-                    a: '1', 
-                    b: $scope.data.mark,
-                    c: $scope.agency_id
-                }).then(function(res){
-                    console.log(res);
+            $scope.bind = function(action, agency_id){
+                var data = {
+                    'mark': $scope.data.mark,
+                    'action': action
+                };
+
+                if (agency_id) {
+                    data.agency_id = agency_id;
+                };
+                H.p(cook('mark/mofidy'), data).then(function(res){
+                    if (res.data && res.data.status == 1) {
+                        $scope.closeThisDialog(true);
+                    };
                 })
             }
 
@@ -988,10 +1006,6 @@
                         $scope.closeThisDialog($scope.cmid);
                     };
                 })
-            }
-
-            $scope.unbind = function(){
-
             }
         }])
         .controller('CMarkUsb', ['$scope', 'Log', function ($scope, Log) {

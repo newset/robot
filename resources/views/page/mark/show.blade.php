@@ -4,8 +4,8 @@
 		<div class="panel-body">
 			<b>Mark 详情</b>
 			<div class="pull-right" ng-init="agency =-1">
-				<button type="button" class="btn btn-primary no-animate" ng-click="bind()" ng-show="agency == -1">绑定</button>
-				<button type="button" class="btn btn-primary no-animate" ng-click="unbind()" ng-show="agency != -1">解绑</button>
+				<button type="button" class="btn btn-primary no-animate" ng-click="bind()" ng-show="SIns.current_row.agency_id == -1">绑定</button>
+				<button type="button" class="btn btn-primary no-animate" ng-click="unbind()" ng-show="SIns.current_row.agency_id != -1">解绑</button>
 				
 				<button type="button" class="btn btn-primary" ng-click="recycle()">损坏报废</button>
 				<button type="button" class="btn btn-primary" ng-click="replace()">损坏更新</button>
@@ -88,7 +88,7 @@
 	            <dt>销售医院</dt>
 	            <dd>[:SIns.current_row.hospital_name:]</dd>
 	            <dt>销售日期</dt>
-	            <dd>[:SIns.current_row.sold_at | laDate:]</dd>
+	            <dd ng-if="SIns.current_row.sold_at">[:SIns.current_row.sold_at | laDate:]</dd>
 	        </dl>
 		</div>
 	</div>
@@ -141,7 +141,8 @@
 			    <br>
 			</div>
 			<div class="panel-heading text-right">
-				<button type="button" class="btn btn-primary" ng-click="bind()">确定</button>
+				<button type="button" class="btn btn-primary" ng-click="bind('bind', agency_id)">确定</button>
+			<button type="button" class="btn btn-default" ng-click="close()">取消</button>
 			</div>
 		</div>
 	</div>
@@ -169,6 +170,17 @@
 		</div>
 		<div class="panel-heading text-right">
 			<button type="button" class="btn btn-primary" ng-click="recycle()">确定</button>
+			<button type="button" class="btn btn-default" ng-click="close()">取消</button>
+		</div>
+	</div>
+</script>
+<script type="text/ng-template" id="mark_unbind_agency">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<h4>确认解除绑定Mark [:data.mark:]?</h4>
+		</div>
+		<div class="panel-heading text-right">
+			<button type="button" class="btn btn-primary" ng-click=" bind('unbind')">确定</button>
 			<button type="button" class="btn btn-default" ng-click="close()">取消</button>
 		</div>
 	</div>

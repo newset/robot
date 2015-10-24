@@ -19,6 +19,9 @@ body.auth-body{
    -webkit-transition: none !important;
    transition: none !important;
 }
+#header .dropdown.settings .dropdown-menu > li > a:hover, #header .dropdown.settings .dropdown-menu > li > a:active{
+    background-color: #337ab7;
+}
 .panel{
  width: 100%;
  position: relative;

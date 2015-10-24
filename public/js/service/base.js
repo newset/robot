@@ -392,7 +392,10 @@
                 me.bat_mark = function(action, data){
                     return H.p(cook('mark/bat_mark'), {'action' : action, 'data' : data});
                 }
-                
+
+                me.one = function(id){
+                    return me.h.r(id, me, ['hospital', 'agency', 'doctor', 'robot']);
+                }
 
                 me.cu_bat = function ()
                 {

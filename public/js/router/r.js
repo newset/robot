@@ -321,7 +321,7 @@
                         controller : 'CMarkDetail',
                         resolve : {
                             iMark : function(SMark, $stateParams, $state){
-                                return SMark.h.r($stateParams.id, SMark, ['hospital', 'agency', 'doctor', 'robot']).then(function(res){
+                                return SMark.one($stateParams.id).then(function(res){
                                     if (res.data.status == 1) {
                                         return SMark;
                                     }else{

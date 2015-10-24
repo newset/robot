@@ -163,6 +163,21 @@ class IMark extends BaseModel
         }
     }
 
+    public function mofidy()
+    {
+        $action = rq('action');
+        $mark = $this->where('id', rq('mark'))->first();
+
+        if ($action == 'bind') {
+            $mark->agency_id = rq('agency_id');
+        }else if($action == 'unbind'){
+            $mark->agency_id = -1;
+        }
+        $mark->save();
+
+        return ss($mark);
+    }
+
     public function r_()
     {
         dd(uid());
