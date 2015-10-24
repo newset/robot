@@ -540,6 +540,7 @@
             'SRobot',
             'h',
             'H',
+            '$state',
             '$stateParams',
             function ($scope,
               SBase,
@@ -547,6 +548,7 @@
               SRobot,
               h,
               H,
+              $state,
               $stateParams
             ){
             var me = this;
@@ -567,6 +569,25 @@
                 H.p(cook('agency/toggle'), {s : $scope.SIns.current_row.status, id : $scope.agency_id}).then(function(res){
                     if (res.data.status == 1) {
                         $scope.SIns.current_row.status = res.data.d;
+                    };
+                });
+            }
+
+            $scope.save = function(){
+                var data = {
+                    id : SAgency.current_row.id,
+                    started_at : SAgency.current_row.started_at,
+                    ended_at : SAgency.current_row.ended_at,
+                    memo : SAgency.current_row.memo,
+                }
+
+                if ($scope.password) {
+                    data.password = $scope.password;
+                };
+                $scope.SIns.cu(data, SAgency).then(function(res){
+                    console.log(res);
+                    if (res.data.status == 1) {
+                        $state.go('base.agency.detail', {aid : SAgency.current_row.id});
                     };
                 });
             }

@@ -218,7 +218,7 @@
                         templateUrl: shot('page/agency'),
                     })
                     .state('base.agency.detail', {//代理商详情页
-                        url : '/detail?aid',
+                        url : '/detail?aid=',
                         controller:'CAgencyDetail',
                         templateUrl: shot('seg/agency_detail'),
                         resolve : {

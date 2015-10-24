@@ -3,9 +3,11 @@
         <!-- <h3 class="panel-title pull-right">[:SIns.status(agency):]</h3> -->
         <h3 class="panel-title pull-left">[:SIns.current_row.name:]</h3>
         <!-- 禁用 -->
-        <a href="" ng-click="toggle()" class="btn pull-right" ng-class="{'btn-danger': SIns.current_row.status == 1, 'btn-primary': SIns.current_row.status != 1}">
-            <span ng-show="SIns.current_row.status == 1">禁用</span>
-            <span ng-show="SIns.current_row.status != 1">启用</span>
+        <a href="" ng-click="toggle()" class="btn pull-right no-animate btn-primary" ng-show="SIns.current_row.status != 1">
+            <span class="no-animate">启用</span>
+        </a>
+         <a href="" ng-click="toggle()" ng-show="SIns.current_row.status == 1" class="btn pull-right no-animate btn-danger">
+            <span  class="no-animate">禁用</span>
         </a>
     </div>
 </div>
