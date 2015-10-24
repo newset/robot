@@ -108,7 +108,7 @@
 								</span>
 							</td>
 							<td>
-								<span ng-if="log.lease_type_id == -1">返回库存</span>
+								<span ng-if="log.lease_type_id == -1">在库</span>
 								<span ng-if="log.lease_type_id == 1">出售</span>
 								<span ng-if="log.lease_type_id == 2">出租</span>
 								<span ng-if="log.lease_type_id == 3">免费合作</span>

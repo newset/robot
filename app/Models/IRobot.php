@@ -154,6 +154,7 @@ class IRobot extends BaseModel
             $lease_log_ins->lease_type_id = -1;
             $lease_log_ins->agency_id = -1;
             $lease_log_ins->hospital_id = -1;
+            $lease_log_ins->recent = 1;
             $r = $lease_log_ins->save();
         }
         
