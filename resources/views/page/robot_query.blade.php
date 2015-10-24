@@ -117,11 +117,11 @@
                                 <tbody>
                                     <tr class="odd"
                                         ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
-                                        <td>[:row.cust_id:]</td>
-                                        <td>
+                                        <td class="col-md-2">[:row.cust_id:]</td>
+                                        <td class="col-md-2">
                                             <span>[: SIns.robot_action_type[row.status].name:]</span>
                                         </td>
-                                        <td>
+                                        <td class="col-md-2">
                                             <span ng-if="!row.lease_type_id ">在库</span>
                                             <span>[: SIns.robot_status_type[row.lease_type_id+1].name :]</span>
                                         </td>
@@ -130,17 +130,17 @@
                                         {{--<span ng-if="!row.log_lease_hospital_id">无</span>--}}
                                         {{--<span>[: SHospital.all_rec[row.log_lease_hospital_id - 1].name:]</span>--}}
                                         {{--</td>--}}
-                                        <td>
+                                        <td class="col-md-2">
                                             <span ng-if="!row.hospital_id || row.hospital_id == -1">无</span>
                                             <span >[: row.hospital_name :]</span>
                                         </td>
-                                        <td>
+                                        <td class="col-md-1">
                                             <span ng-if="!row.agency_id || row.agency_id == -1">无</span>
                                             <span>[: row.agency_name :]</span>
                                         </td>
-                                        <td>[:row.employee_name:]</td>
-                                        <td>[:row.log_count || 0:]</td>
-                                        <td class="edit col-md-2">
+                                        <td class="col-md-1">[:row.employee_name:]</td>
+                                        <td class="col-md-1">[:row.log_count || 0:]</td>
+                                        <td class="edit col-md-1">
                                             <span class="tool_wrapper">
                                                 <!-- <button class="btn btn-primary btn-sm" href="" ng-click="SIns.popup_edit(row)">
                                                     设置销售状态
