@@ -172,6 +172,22 @@ class IMark extends BaseModel
             $cond['where']['agency_id'] = uid();
         }
     }
+
+    public function recycle()
+    {   
+        $mark = rq('id');
+        $row = $this->where('id', $mark)->update(['status' => 4]);
+        return ss($row);
+    }
+
+    public function replace()
+    {   
+        $mark = rq('id');
+        $cmid = rq('cmid');
+        $row = $this->where('id', $mark)->update(['status' => 5, 'cmid'=> $cmid]);
+        return ss($row);
+    }
+
     /**
      * mark归档
      * @author tanqing

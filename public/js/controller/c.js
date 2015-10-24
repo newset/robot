@@ -924,6 +924,13 @@
                         'mark' : iMark.current_row.id
                     }
                 });
+
+                d.closePromise.then(function (data) {
+                    console.log(data.id + ' has been dismissed.');
+                    if (data) {
+                        $scope.SIns.current_row.status = 4;
+                    };
+                });
             }
 
             $scope.replace = function(){
@@ -935,6 +942,14 @@
                         'type' : 'replace',
                         'mark' : iMark.current_row.id
                     }
+                });
+
+                d.closePromise.then(function (data) {
+                    console.log(data.id + ' has been dismissed.');
+                    if (data) {
+                        $scope.SIns.current_row.status = 5;
+                        $scope.SIns.current_row.cmid = data.value;
+                    };
                 });
             }
         }])
@@ -959,8 +974,20 @@
                 ngDialog.closeAll();
             }
 
-            $scope.replace = function(){
+            $scope.recycle = function(){
+                H.p(cook('mark/recycle'), {'id': $scope.data.mark}).then(function(res){
+                    if (res.data && res.data.d == 1) {
+                        $scope.closeThisDialog(true);
+                    };
+                })
+            }
 
+            $scope.replace = function(){
+                H.p(cook('mark/replace'), {'id': $scope.data.mark, 'cmid': $scope.cmid}).then(function(res){
+                    if (res.data && res.data.d == 1) {
+                        $scope.closeThisDialog($scope.cmid);
+                    };
+                })
             }
 
             $scope.unbind = function(){

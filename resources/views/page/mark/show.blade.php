@@ -34,13 +34,14 @@
 				<dd>
 	                <span ng-if="SIns.current_row.status == 1">未使用</span>
                     <span ng-if="SIns.current_row.status == 2">使用完毕</span>
-                    <span ng-if="SIns.current_row.status == 3">损坏报废</span>
-                    <span ng-if="SIns.current_row.status == 4">损坏更新</span>
+                    <span ng-if="SIns.current_row.status == 3">已绑定</span>
+                    <span ng-if="SIns.current_row.status == 4">损坏报废</span>
+                    <span ng-if="SIns.current_row.status == 5">损坏更新</span>
 				</dd>
 				<dt>更换Mark</dt>
 	            <dd>
-	                <span ng-if="SIns.current_row.replacement_id">[:SIns.current_row.replacement_id:]</span>
-	                <span ng-if="!SIns.current_row.replacement_id">无</span>
+	                <span ng-if="SIns.current_row.cmid">[:SIns.current_row.cmid:]</span>
+	                <span ng-if="!SIns.current_row.cmid">无</span>
 	            </dd>
 			</dl>
 		</div>
@@ -53,18 +54,17 @@
 		</div>
 		<div class="panel-body">
 			<dl class="dl-horizontal">
-				
 				<dt>使用状态</dt>
 				<dd>
 					<span ng-if="SIns.current_row.status == 1">未使用</span>
                     <span ng-if="SIns.current_row.status == 2">使用完毕</span>
-                    <span ng-if="SIns.current_row.status == 3">损坏报废</span>
-                    <span ng-if="SIns.current_row.status == 4">损坏更新</span>
+                    <span ng-if="SIns.current_row.status == 3">已绑定</span>
+                    <span ng-if="SIns.current_row.status == 4">损坏报废</span>
+                    <span ng-if="SIns.current_row.status == 5">损坏更新</span>
 				</dd>
 				<dt>使用者</dt>
 	            <dd>
-	                <span ng-if="SIns.current_row.replacement_id">[:SIns.current_row.replacement_id:]</span>
-	                <td>[:SIns.current_row.doctor.name:]</td>
+	                <td>[:SIns.current_row.doctor_name:]</td>
 	            </dd>
 			</dl>
 		</div>
@@ -151,12 +151,12 @@
 			 <form action="" method="get" class="form-inline" accept-charset="utf-8">
 		    	<div class="form-group">
 		    		<label for="">后续Mark ID</label>
-		    		<input type="text" class="form-control" placeholder="" ng-mode="cmis_id">
+		    		<input type="text" class="form-control" placeholder="" ng-model="cmid">
 		    	</div>
 			</form>
 		</div>
 		<div class="panel-heading text-right">
-			<button type="button" class="btn btn-primary" ng-click="bind()">确定</button>
+			<button type="button" class="btn btn-primary" ng-click="replace()">确定</button>
 			<button type="button" class="btn btn-default" ng-click="close()">取消</button>
 		</div>
 	</div>
@@ -167,7 +167,7 @@
 			<h4>确认Mark [:data.mark:]已损坏报废?</h4>
 		</div>
 		<div class="panel-heading text-right">
-			<button type="button" class="btn btn-primary" ng-click="bind()">确定</button>
+			<button type="button" class="btn btn-primary" ng-click="recycle()">确定</button>
 			<button type="button" class="btn btn-default" ng-click="close()">取消</button>
 		</div>
 	</div>
