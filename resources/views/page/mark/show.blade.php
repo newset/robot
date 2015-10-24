@@ -145,3 +145,30 @@
 		</div>
 	</div>
 </script>
+<script type="text/ng-template" id="mark_replace_agency">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			 <form action="" method="get" class="form-inline" accept-charset="utf-8">
+		    	<div class="form-group">
+		    		<label for="">后续Mark ID</label>
+		    		<input type="text" class="form-control" placeholder="" ng-mode="cmis_id">
+		    	</div>
+			</form>
+		</div>
+		<div class="panel-heading text-right">
+			<button type="button" class="btn btn-primary" ng-click="bind()">确定</button>
+			<button type="button" class="btn btn-default" ng-click="close()">取消</button>
+		</div>
+	</div>
+</script>
+<script type="text/ng-template" id="mark_recycle_agency">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<h4>确认Mark [:data.mark:]已损坏报废?</h4>
+		</div>
+		<div class="panel-heading text-right">
+			<button type="button" class="btn btn-primary" ng-click="bind()">确定</button>
+			<button type="button" class="btn btn-default" ng-click="close()">取消</button>
+		</div>
+	</div>
+</script>

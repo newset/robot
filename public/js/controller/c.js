@@ -900,23 +900,45 @@
                         'mark' : iMark.current_row.id
                     }
                 });
-
-
             }
 
             $scope.unbind = function(){
-
+                var d = ngDialog.open({
+                    templateUrl: 'mark_bind_agency',
+                    size: 'md',
+                    controller: 'MarkModify',
+                    data : {
+                        'type' : 'unbind',
+                        'mark' : iMark.current_row.id
+                    }
+                });
             }
 
-            $scope.repair = function(){
-
+            $scope.recycle = function(){
+                var d = ngDialog.open({
+                    templateUrl: 'mark_recycle_agency',
+                    size: 'md',
+                    controller: 'MarkModify',
+                    data : {
+                        'type' : 'recycle',
+                        'mark' : iMark.current_row.id
+                    }
+                });
             }
 
             $scope.replace = function(){
-
+                var d = ngDialog.open({
+                    templateUrl: 'mark_replace_agency',
+                    size: 'md',
+                    controller: 'MarkModify',
+                    data : {
+                        'type' : 'replace',
+                        'mark' : iMark.current_row.id
+                    }
+                });
             }
         }])
-        .controller('MarkModify', ['$scope', 'SAgency', '$timeout', 'H', function ($scope, SAgency, $timeout, H) {
+        .controller('MarkModify', ['$scope', 'SAgency', '$timeout', 'H', 'SMark', 'ngDialog', function ($scope, SAgency, $timeout, H, SMark, ngDialog) {
             $scope.data = $scope.ngDialogData;
             $scope.SAgency = SAgency;
 
@@ -924,7 +946,17 @@
                 $('select.chosen+.chosen-container').css({'width': '200px'})
             }, 100);
             $scope.bind = function(){
-                console.log($scope.agency_id, $scope.ngDialogData);
+                SMark.bat_mark('bind', {
+                    a: '1', 
+                    b: $scope.data.mark,
+                    c: $scope.agency_id
+                }).then(function(res){
+                    console.log(res);
+                })
+            }
+
+            $scope.close = function(){
+                ngDialog.closeAll();
             }
 
             $scope.replace = function(){
