@@ -11,7 +11,7 @@
 			<div class="panel panel-primary animated flipInY">
 				<div class="panel-heading">
 					<h3 class="panel-title">
-						登录
+						请选择用户角色
 					</h3>
 				</div>
 				<div class="panel-body" ng-cloak>
