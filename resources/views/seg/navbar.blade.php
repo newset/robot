@@ -151,8 +151,7 @@
                  
                 <li class="dropdown settings" dropdown is-open="isopen" style="list-style: none;"> 
                     <a class="dropdown-toggle" data-toggle="dropdown" style="color: grey;"> 
-                        海军总医院：心脑血管外科<i class="fa fa-angle-down">
-
+                        {{sess('org')}}<i class="fa fa-angle-down">
                         </i> 
                     </a> 
                     <ul class="dropdown-menu animated fadeInDown dropdown-menu-right">

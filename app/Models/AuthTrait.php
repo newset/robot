@@ -46,7 +46,10 @@ trait AuthTrait
                 if($input['user_type'] == 'agency'){
                     sess('org', $user->name);
                 }
-                return ss();
+                if($input['user_type'] == 'department'){
+                    sess('org', $user->hospital_name.':'.$user->name);
+                }
+                return ss($user);
             }
 
         } else
@@ -67,7 +70,13 @@ trait AuthTrait
     public function user_exists($ins_name, $cond)
     {
         $ins = M($ins_name);
-        $ins = $ins->where($cond)->first();
+        $ins = $ins->where($cond);
+        if ($ins_name == 'department') {
+            $select = [table_name('department').'.*', table_name('hospital').'.name as hospital_name'];
+            $ins = $ins->select($select)->leftJoin(table_name('hospital'), table_name('department').'.hospital_id',  '=', table_name('hospital').'.id');
+        }
+
+        $ins = $ins->first();
         return $ins ? $ins : false;
     }
 
