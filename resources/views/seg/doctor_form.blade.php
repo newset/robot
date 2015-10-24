@@ -36,11 +36,9 @@
 						<div class="col-md-4">
 							<input ng-model="SIns.current_row.cust_id"
 		                     	name="cust_id"
-							   	class="form-control"
 							   	la-exist="doctor.cust_id"
 							   	required>
-							   	<br>
-              				<button type="button" class="btn btn-info inline-btn" ng-click="getLastId()">重新生成</button>
+              				<button type="button" class="btn btn-primary inline-btn" ng-click="getLastId()">重新生成</button>
 						</div>   
               			<label class="error absolute-label" ng-if="form_doctor.cust_id.$error.laExist">编号已存在</label>
 					</div>
