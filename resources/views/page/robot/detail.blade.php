@@ -55,9 +55,9 @@
 		</div>
 		<div class="panel-body">
 			<div class="col-md-12">
-				<table class="table table-bordered table-hover">
+				<table class="table table-bordered table-hover table-striped">
 					<thead>
-						<tr>
+						<tr class="info">
 							<th>时间</th>
 							<th>类型</th>
 							<th>记录人</th>

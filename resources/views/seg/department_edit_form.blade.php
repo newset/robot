@@ -58,7 +58,7 @@ controller:CDepartmentEdit
         <div class="col-md-4 col-md-offset-6">
             <button  class="btn-custom btn btn-default  " ng-disabled="form_department.$invalid" ng-click="delete()">删除该科室</button>
             <button  class="btn-custom btn btn-primary  " ng-disabled="form_department.$invalid" ng-click="cancel()">取消</button>
-            <button  class="btn-custom btn btn-primary  " ng-disabled="form_department.$invalid" ng-click="submit()">提交</button>
+            <button  class="btn-custom btn btn-primary  " ng-disabled="form_department.$invalid" ng-click="submit()">确定</button>
         </div>
     </div>
     <br/>
