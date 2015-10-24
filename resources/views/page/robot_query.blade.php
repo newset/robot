@@ -106,6 +106,7 @@
                                     <tr role="row" class="info">
                                         <th>编号</th>
                                         <th>设备状态</th>
+                                        <th>生产日期</th>
                                         <th>销售状态</th>
                                         <th>医院</th>
                                         <th>代理商</th>
@@ -118,10 +119,11 @@
                                     <tr class="odd"
                                         ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
                                         <td class="col-md-2">[:row.cust_id:]</td>
-                                        <td class="col-md-2">
+                                        <td class="col-md-1">
                                             <span>[: SIns.robot_action_type[row.status].name:]</span>
                                         </td>
-                                        <td class="col-md-2">
+                                        <td class="col-md-2">[:row.production_date | laDate:]</td>
+                                        <td class="col-md-1">
                                             <span ng-if="!row.lease_type_id ">在库</span>
                                             <span>[: SIns.robot_status_type[row.lease_type_id+1].name :]</span>
                                         </td>

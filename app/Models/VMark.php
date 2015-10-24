@@ -85,6 +85,11 @@ class VMark extends IMark
             }
 
             $where = $rq['where'];
+
+            if (!empty( $where['cust_id'])) {
+                $builder = $builder->where('cust_id', 'like', '%'.$where['cust_id'].'%');
+            }
+
             if ( ! empty($where['status_type_id']))
             {
                 $status = $where['status_type_id'];
