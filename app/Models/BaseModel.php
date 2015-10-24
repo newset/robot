@@ -145,10 +145,12 @@ class BaseModel extends Model
 
             if (rq('password'))
             {
-                if (empty($d['password']))
+                if (empty($d['password'])){
                     unset($d['password']);
-                else
-                    $d['password'] = hash_password($d['password']);
+                }
+                else{
+                    $ins->password = $d['password'];
+                }
             }
 
             if ( ! empty($d['updated_at'])) unset($d['updated_at']);

@@ -1237,10 +1237,8 @@ if ( ! function_exists('hash_password'))
 {
     function hash_password($password)
     {
-        return
-            $password ?
-                md5(md5(HASH_SEED . $password) . HASH_SEED) :
-                false;
+        $hashed = $password ? md5(md5(HASH_SEED . $password) . HASH_SEED) : false;
+        return $hashed;
     }
 } else dd('function hash_password exists.' . __FILE__ . ':' . __LINE__);
 

@@ -1076,8 +1076,12 @@
                 }
             }
         ])
-        .controller('CPageEmployeeNew', ['$scope', 'SEmployee', function ($scope, SEmployee) {
+        .controller('CPageEmployeeNew', ['$scope', 'SEmployee', '$state', '$stateParams', function ($scope, SEmployee, $state, $stateParams) {
             $scope.SIns = SEmployee;
+
+            if(!$stateParams.id){
+                $scope.SIns.current_row = {};
+            }
 
             $scope.save = function(){
                 // 去掉无关字段
@@ -1089,7 +1093,11 @@
                     data.password = $scope.password;
                 };
 
-                SEmployee.cu(data);
+                SEmployee.cu(data).then(function(res){
+                    if (res.data.status == 1) {
+                        $state.go('base.employee.list');
+                    };
+                });
             }
         }])
         .controller('CPageMe',
