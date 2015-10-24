@@ -137,30 +137,27 @@ class IRobot extends BaseModel
         $in = $in ? $in : rq();
         $rq = rq();
 
-        if (rq('id'))
+        if (rq('id')){
             $ins = $this->findOrFail($rq['id']);
-        else $ins = $this;
+        }else{
+            $ins = parent::cu($rq);
+        } 
 
-        $ins->cust_id = $rq['cust_id'];
-        $ins->production_date = $rq['production_date'];
-        $ins->employee_id = $rq['employee_id'];
-        $ins->save();
+        if ($ins['status'] == 0) {
+            return $ins;
+        }
 
         if (!rq('id')) {
             $lease_log_ins = M('robot_lease_log');
 
-            $lease_log_ins->robot_id = $ins->id;
+            $lease_log_ins->robot_id = $ins['d']['id'];
             $lease_log_ins->lease_type_id = -1;
             $lease_log_ins->agency_id = -1;
             $lease_log_ins->hospital_id = -1;
             $r = $lease_log_ins->save();
         }
         
-        if ($ins){
-            return ss($ins);
-        }else{
-            return ss('', 0);
-        }
+        return $ins;
     }
 
     public function search_by_log($in = null)
