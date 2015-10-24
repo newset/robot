@@ -24,6 +24,12 @@ body.auth-body{
  position: relative;
 }
 
+.user-nav{
+    position: absolute;
+    right: 0;
+    top: 0px;
+}
+
 .pt10{
     padding-top: 10px; 
 }
