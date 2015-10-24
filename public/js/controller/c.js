@@ -1022,6 +1022,7 @@
             'SMark',
             'SHospital',
             'SAgency',
+            'ngDialog', 
             'SEmployee',
             'SBase',
             'h',
@@ -1030,6 +1031,7 @@
                 , SMark
                 , SHospital
                 , SAgency
+                , ngDialog
                 , SEmployee
                 , SBase
                 , h
@@ -1042,6 +1044,7 @@
                 $scope.SAgency = SAgency;
                 $scope.SIns = SEmployee;
                 $scope.current_row = SEmployee.current_row;
+
                 $scope.SIns.cond.where.hospital_id = $stateParams.hid;
                 $scope.cond = SEmployee.cond;
                 $scope.with_search = $stateParams.with_search;
@@ -1049,16 +1052,28 @@
                 SEmployee.init();
 
                 //h.prepare_location_data();
-
-                if($stateParams.with_search)
-                {
-                    SEmployee.with_search = 1;
-                }
-
-                $scope.$watch('cond', function()
+                $scope.$watch('SIns.cond', function()
                 {
                     SEmployee.refresh();
-                }, true)
+                }, true);
+
+                $scope.toggle_status = function(row){
+                    var text = row.status ? '设为离职' : '恢复职位',
+                        confirm = ngDialog.openConfirm({
+                        template: '\
+                            <div class="col-md-12 panel panel-default"><div class="panel-body"><h4>确认将'+row.name + text+ '</h4>\
+                            <div class="ngdialog-buttons">\
+                                <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog(0)">取消</button>\
+                                <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(1)">确定</button>\
+                            </div></div></div>',
+                        plain: true
+                    });
+
+                    // confirm
+                    confirm.then(function (data) {
+                        $scope.SIns.cu({id: row.id, status: !row.status});
+                    });
+                }
             }
         ])
 

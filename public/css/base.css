@@ -461,7 +461,7 @@ padding: 0em;
 .ngdialog.ngdialog-theme-default .ngdialog-close:before {
   background: transparent;
   border-radius: 3px;
-  color: #000;
+  color: #999;
   content: '\00D7';
   font-size: 36px;
   font-weight: 400;

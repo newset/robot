@@ -56,7 +56,7 @@
 		</a>
 	</div>
 	<div class="col-md-4 col-sm-6">
-		<a ui-sref="base.employee({with_search: 1})">
+		<a ui-sref="base.employee.list">
 			<div class="dashboard-tile detail tile-red">
 				<div class="content">
 					<h1><img src="../assets/img/grid/07.png" alt="">员工管理 </h1>

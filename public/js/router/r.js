@@ -250,9 +250,20 @@
                     })
                     .state('base.employee',
                     {
-                        url: '/employee?page_num&limit&with_search',
-                        // templateUrl: shot('page/employee'),
+                        url: '/employee',
+                        // templateUrl: shot('page/employee')
                         template : '<div ui-view></div>'
+                    })
+                    .state('base.employee.list',
+                    {
+                        url: '/list?page_num=&limit=&with_search=',
+                        templateUrl: shot('page/employee/employee')
+                        // template : '<div ui-view></div>'
+                    })
+                    .state('base.employee.new',
+                    {
+                        url: '/new/:id?',
+                        templateUrl: shot('page/employee/new')
                     })
                     .state('base.me',
                     {

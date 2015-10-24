@@ -79,7 +79,7 @@
                                 <div class="col-md-2">
                                   <input ng-model="SIns.me_row.phone"
                                        class="form-control"
-                                       type="number"
+                                       type="text"
                                        name="phone">
                                 <label class="error"
                                        ng-if="form_me.phone.$invalid && form_me.phone.$touched">输入有误</label>
@@ -91,7 +91,7 @@
                                 <div class="col-md-2">
                                   <input ng-model="SIns.me_row.email"
                                        class="form-control"
-                                       type="email"
+                                       type="text"
                                        name="email">
                                 <label class="error"
                                        ng-if="form_me.email.$invalid && form_me.email.$touched">输入有误</label>
