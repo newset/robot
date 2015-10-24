@@ -1,4 +1,4 @@
-<div class="container panel">
+<div class="panel container">
   <div class="panel-body">
       
     <form 

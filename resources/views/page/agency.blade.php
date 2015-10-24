@@ -110,7 +110,7 @@ controller:
                         <th>代理状态</th>
                         <th>代理开始</th>
                         <th>代理结束</th>
-                        <th></th>
+                        <th class="col-md-1"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -126,7 +126,7 @@ controller:
                         <td>[:SIns.status(row):]</td>
                         <td>[:row.started_at:]</td>
                         <td>[:row.ended_at:]</td>
-                        <td class="edit col-md-2">
+                        <td class="edit col-md-1">
                             <span class="tool_wrapper">
                                 <button class="btn-primary btn-custom btn btn-sm" ui-sref="base.agency.detail({aid:row.id})">
                                     查看
