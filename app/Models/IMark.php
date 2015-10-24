@@ -170,8 +170,10 @@ class IMark extends BaseModel
 
         if ($action == 'bind') {
             $mark->agency_id = rq('agency_id');
+            $mark->sold_at = date("Y-m-d H:i:s");
         }else if($action == 'unbind'){
             $mark->agency_id = -1;
+            $mark->sold_at = null;
         }
         $mark->save();
 
