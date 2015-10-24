@@ -660,6 +660,14 @@
                     })
                 }
 
+                me.one = function(id){
+                    var promise = H.p(cook(me.ins_name + '/r'), {id: id});
+                    promise.then(function(res){
+                        me.current_row = res.data.d.main[0];
+                    })
+                    return promise;
+                }
+
                 me.reset_password = function (d)
                 {
                     if (d.password && d.id)

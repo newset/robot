@@ -263,7 +263,17 @@
                     .state('base.employee.new',
                     {
                         url: '/new/:id?',
-                        templateUrl: shot('page/employee/new')
+                        templateUrl: shot('page/employee/new'),
+                        controller : 'CPageEmployeeNew',
+                        resolve : {
+                            'deps': function(SEmployee, $stateParams, h){
+                                if ($stateParams.id) {
+                                    return SEmployee.one($stateParams.id);
+                                }else{
+                                    return SEmployee;
+                                };
+                            }
+                        }
                     })
                     .state('base.me',
                     {

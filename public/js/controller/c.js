@@ -1076,7 +1076,22 @@
                 }
             }
         ])
+        .controller('CPageEmployeeNew', ['$scope', 'SEmployee', function ($scope, SEmployee) {
+            $scope.SIns = SEmployee;
 
+            $scope.save = function(){
+                // 去掉无关字段
+                var data = {};
+                angular.extend(data, SEmployee.current_row);
+                delete data['deleted_at'] && delete data['updated_at'] && delete data['created_at'];
+
+                if ($scope.password) {
+                    data.password = $scope.password;
+                };
+
+                SEmployee.cu(data);
+            }
+        }])
         .controller('CPageMe',
         [
             '$scope',
