@@ -11,7 +11,7 @@
         <div class="page-nav pull-left" ng-if="$state.includes('base.robot')" ng-cloak>
              <ul class="nav nav-pills">
                 <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.robot.new')]">
-                    <a href="" ui-sref-opts="{reload:true}" ui-sref="base.robot.new" title="">新增设备</a></li>
+                    <a href="" ui-sref-opts="{reload:true}" ui-sref="base.robot.new" title="">新建设备</a></li>
                 <li ng-class="{true:'active',false:'inactive'}[$state.includes('base.robot.query') && $state.params.type == 'sale']">
                     <a ui-sref-opts="{reload:true}" ui-sref="base.robot.query({type : 'sale'})">设备销售</a>
                 </li>
