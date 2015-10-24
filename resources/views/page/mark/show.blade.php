@@ -88,6 +88,7 @@
 	            <dt>销售医院</dt>
 	            <dd>[:SIns.current_row.hospital_name:]</dd>
 	            <dt>销售日期</dt>
+	            <dd>[:SIns.current_row.sold_at | laDate:]</dd>
 	        </dl>
 		</div>
 	</div>
