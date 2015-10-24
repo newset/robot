@@ -15,6 +15,9 @@ body.auth-body{
     display: table;
     clear: both;
 }
+textarea{
+    resize:none;
+}
 .no-animate {
    -webkit-transition: none !important;
    transition: none !important;
