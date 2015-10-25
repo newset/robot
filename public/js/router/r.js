@@ -94,6 +94,14 @@
                             }
                         }
                     })
+                    .state('base.robot.report', {
+                        url : '/report/:type',
+                        controller: 'ReportCtrl',
+                        templateUrl : function($stateParams){
+                            console.log(shot_report($stateParams.type));
+                            return shot_report($stateParams.type);
+                        }
+                    })
                     .state('base.robot.new',{
                         url : '/new',
                         templateUrl : shot('seg/robot_new_form'),

@@ -1184,4 +1184,28 @@
                 //}, true)
             }
         ])
+        .controller('ReportCtrl', ['$scope', '$http', function ($scope, $http) {
+            $scope.cond = {};
+
+            $scope.query = function(){
+                var url = $('form#report-form').eq(0).attr('action');
+                $http({
+                    method: 'POST',
+                    url: url,
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    transformRequest: function(obj) {
+                        var str = [];
+                        for(var p in obj)
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                        return str.join("&");
+                    },
+                    data: $scope.cond
+                })
+                .success(function(res){
+                    $("#report-reluslt").html(res);
+                });
+
+                return false;
+            }
+        }])
 })();

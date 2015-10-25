@@ -87,7 +87,7 @@ class CookController extends Controller
         }
         $file = app_path() . '/Report/'.$p1.'.php';
         if (file_exists($file)) {
-            include_once(app_path() . '/Report/agency_mark.php');
+            include_once($file);
         }else{
             abort(404);
         }

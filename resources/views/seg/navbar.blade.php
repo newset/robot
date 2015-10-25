@@ -23,7 +23,7 @@
                       报表 <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="" title="">设备状态清单</a></li>
+                        <li><a ui-sref="base.robot.report({type: 'device__condition'})" title="">设备状态清单</a></li>
                         <li><a href="" title="">销售情况表</a></li>
                     </ul>
                   </li>

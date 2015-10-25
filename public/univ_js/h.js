@@ -48,4 +48,9 @@
         return base_url + h._.cook_symbol() + delim + segs;
     }
 
+    window.shot_report = function(segs){
+        var delim = h.slash;
+        return base_url + h._.shot_symbol() + delim + 'page/report/'+segs;
+    }
+
 })();
