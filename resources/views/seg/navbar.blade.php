@@ -23,8 +23,8 @@
                       报表 <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a ui-sref="base.robot.report({type: 'device__condition'})" title="">设备状态清单</a></li>
-                        <li><a href="" title="">销售情况表</a></li>
+                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.robot.report({type: 'device_condition'})" title="">设备状态清单</a></li>
+                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.robot.report({type: 'robot_sale'})" href="" title="">销售情况表</a></li>
                     </ul>
                   </li>
             </ul>
@@ -69,8 +69,8 @@
                         报表 <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="" title="">设备状态清单</a></li>
-                        <li><a href="" title="">销售情况表</a></li>
+                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.robot.report({type: 'device_condition'})" href="" title="">设备状态清单</a></li>
+                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.robot.report({type: 'robot_sale'})" href="" title="">销售情况表</a></li>
                     </ul>
                 </li>
             </ul>
@@ -84,8 +84,8 @@
                         报表 <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="" title="">设备状态清单</a></li>
-                        <li><a href="" title="">销售情况表</a></li>
+                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.robot.report({type: 'device_condition'})" href="" title="">设备状态清单</a></li>
+                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.robot.report({type: 'robot_sale'})" href="" title="">销售情况表</a></li>
                     </ul>
                 </li>
             </ul>
@@ -101,7 +101,7 @@
                         报表 <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="" title="">医生情况统计表</a></li>
+                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.robot.report({type: 'hospital_doctor'})" href="" title="">医生情况统计表</a></li>
                     </ul>
                 </li>
             </ul>
@@ -115,8 +115,8 @@
                         报表 <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="" title="">代理商Mark情况统计表</a></li>
-                        <li><a href="" title="">代理情况表</a></li>
+                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.agency.report({type: 'agency__mark'})" href="" title="">代理商Mark情况统计表</a></li>
+                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.agency.report({type: 'agency_condition'})" href="" title="">代理情况表</a></li>
                     </ul>
                 </li>
             </ul>
