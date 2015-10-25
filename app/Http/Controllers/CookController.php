@@ -80,5 +80,16 @@ class CookController extends Controller
         }
     }
     
-    
+    public function report($p1 = null)
+    {
+        if (!$p1) {
+            return ;
+        }
+        $file = app_path() . '/Report/'.$p1.'.php';
+        if (file_exists($file)) {
+            return include_once(app_path() . '/Report/agency_mark.php');
+        }else{
+            return false;
+        }
+    }
 }

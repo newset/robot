@@ -36,6 +36,7 @@ Route::any('doctor', function ()
 Route::any('$/{p1?}/{p2?}/{p3?}', 'CookController@leader');
 Route::any('_/{p1?}/{p2?}/{p3?}/{p4?}/{p5?}', 'ShotController@leader');
 Route::get('a/{p1?}/{p2?}', 'CookController@lastId');
+Route::any('report/{p1?}', 'CookController@report');
 
 if (debugging())
 {
