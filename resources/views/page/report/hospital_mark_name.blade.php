@@ -1,11 +1,57 @@
-﻿<html>
-<head><meta charset="utf-8"></head>
-<p>医院Mark使用情况表 注：参数不可为空</p>
-<form action="/report/hospital_mark_name" method="post" id="report-form">
-时间：从
-<input type="text" name="starttime">到<input type="text" name="endtime"> 
-（格式为2015-07-01 00:00:00 用一个空格隔开）<br> 
-省份id：<input type="text" name="provinceid">  城市id：<input type="text" name="cityid">  <br>
-代理商id: <input type="text" name="agencyid"> （可为空）<br>
-<input type="submit">
-</form>
+﻿<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h3 class="panel-title">
+                医院Mark使用情况表
+            </h3>
+        </div>
+        <form action="/report/hospital_mark_name" method="post" id="report-form" class="form-horizontal">
+            <div class="row">
+                <label style="margin:10px 0 0 20px;">时间：从</label>
+                <div class="col-md-2">
+                    <datepicker date-format="yyyy-MM-dd 00:00:00" date-set="[:SIns.cu_bat_data.production_date:]">
+                        <input type="text" name="starttime" ng-model="cond.starttime" class="form-control">
+                    </datepicker>
+                </div>
+                <label style="margin-top: 10px;">到</label>
+                <div class="col-md-2">
+                    <datepicker date-format="yyyy-MM-dd 00:00:00" date-set="[:SIns.cu_bat_data.production_date:]">
+                        <input type="text" name="endtime" ng-model="cond.endtime" class="form-control">
+                    </datepicker>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="provinceid">省份id:</label>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" id="provinceid"  placeholder="" name="provinceid" ng-model="cond.provinceid" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="cityid">城市id:</label>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" id="cityid"  placeholder="" name="cityid" ng-model="cond.cityid" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="agencyid">代理商id:</label>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" id="agencyid"  placeholder="（可为空）" name="agencyid" ng-model="cond.agencyid" required>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <button  class="btn btn-primary col-md-offset-4" type="button" ng-click="query()">查询</button>
+            </div>
+        </form>
+        <div class="clearfix" id="report-result"></div>
+    </div>
+</div>
+
+
+
