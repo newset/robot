@@ -52,7 +52,7 @@
                         报表 <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="" title="">Mark情况统计表</a></li>
+                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.mark.mark_count" href="" title="">Mark情况统计表</a></li>
                         <li><a href="" title="">医院Mark使用情况表</a></li>
                         <li><a href="" title="">医生Mark使用情况表</a></li>
                     </ul>
