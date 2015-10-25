@@ -1,10 +1,12 @@
-﻿<html>
-<head><meta charset="utf-8"></head>
+﻿
 <p>Mark情况统计表 注：参数不可为空</p>
-<form action="mark_count.PHP" method="post">
+<form action="/report/mark_count" method="post" id="report-form">
 时间：从
-<input type="text" name="starttime">到<input type="text" name="endtime"> 
+<input type="text" name="starttime" ng-model="cond.starttime">到<input type="text" name="endtime" ng-model="cond.endtime"> 
 （格式为2015-07-01 00:00:00 用一个空格隔开）<br> 
-<input type="submit">
+	
+	<button type="button" ng-click="query()">查询</button>
 </form>
-</html>
+<div class="" id="report-result">
+	
+</div>

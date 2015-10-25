@@ -6,6 +6,6 @@
 	代理商id： <input type="text" name="agencyid" ng-model="cond.agencyid"> <br>
 	<button type="button" ng-click="query()">查询</button>
 </form>
-<div id="report-reluslt">
+<div id="report-result">
 	
 </div>

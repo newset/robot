@@ -1202,7 +1202,7 @@
                     data: $scope.cond
                 })
                 .success(function(res){
-                    $("#report-reluslt").html(res);
+                    $("#report-result").html(res);
                 });
 
                 return false;

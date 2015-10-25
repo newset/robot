@@ -256,6 +256,14 @@
                             }
                         }                        
                     })
+                    .state('base.agency.report', {
+                        url : '/report/:type',
+                        controller: 'ReportCtrl',
+                        templateUrl : function($stateParams){
+                            console.log(shot_report($stateParams.type));
+                            return shot_report($stateParams.type);
+                        }
+                    })
                     .state('base.employee',
                     {
                         url: '/employee',
@@ -362,24 +370,14 @@
                             }
                         }
                     })
-
-                    .state('base.mark.mark_count',{ //mark情况统计表
-                        url : '/mark_count',
-                        templateUrl : shot('page/report/mark_count'),
-                        controller : 'CPageMark'
+                    .state('base.mark.report', {
+                        url : '/report/:type',
+                        controller: 'ReportCtrl',
+                        templateUrl : function($stateParams){
+                            console.log(shot_report($stateParams.type));
+                            return shot_report($stateParams.type);
+                        }
                     })
-                    .state('base.mark.hospital_mark_name',{ //医院mark情况统计表
-                        url : '/hospital_mark_name',
-                        templateUrl : shot('page/report/hospital_mark_name'),
-                        controller : 'CPageMark'
-                    })
-                    .state('base.mark.doctor_mark',{ //医生mark情况统计表
-                        url : '/doctor_mark',
-                        templateUrl : shot('page/report/doctor_mark'),
-                        controller : 'CPageMark'
-                    })
-
-
                     .state('base.doctor', {
                         url : '/doctor',
                         template : '<div ui-view></div>'

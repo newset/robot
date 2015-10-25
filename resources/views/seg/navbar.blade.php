@@ -52,9 +52,9 @@
                         报表 <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.mark.mark_count" href="" title="">Mark情况统计表</a></li>
-                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.mark.hospital_mark_name" href="" title="">医院Mark使用情况表</a></li>
-                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.mark.doctor_mark" href="" title="">医生Mark使用情况表</a></li>
+                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.mark.report({type: 'mark_count'})" href="" title="">Mark情况统计表</a></li>
+                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.mark.report({type: 'hospital_mark_name'})" href="" title="">医院Mark使用情况表</a></li>
+                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.mark.report({type: 'doctor_mark'})" href="" title="">医生Mark使用情况表</a></li>
                     </ul>
                 </li>
             </ul>
