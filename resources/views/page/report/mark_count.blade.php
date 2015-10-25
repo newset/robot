@@ -6,7 +6,8 @@
 			</h3>
 		</div>
 		<div class="col-md-8 col-md-offset-2">
-			<form action="/report/mark_count" method="post" id="report-form">
+			<form action="/report/mark_count" method="post" id="report-form" target="_blank">
+				{!! csrf_field() !!}
 				<label class="pull-left" style="margin:10px 0 0 20px;">时间：从</label>
 				<div class="col-md-3">
 					<datepicker date-format="yyyy-MM-dd 00:00:00" date-set="[:SIns.cu_bat_data.production_date:]">
@@ -20,7 +21,7 @@
 					</datepicker>
 				</div>
 				<div class="form-group">
-					<button  class="btn btn-primary" type="button" ng-click="query()">查询</button>
+					<input  class="btn btn-primary" type="submit" ng-click="query()" value="查询" />
 				</div>
 			</form>
 		</div>
