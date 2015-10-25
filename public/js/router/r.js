@@ -357,7 +357,7 @@
 
                     .state('base.mark.mark_count',{ //mark情况统计表
                         url : '/mark_count',
-                        templateUrl : shot('page/mark/mark_count'),
+                        templateUrl : shot('page/report/mark_count'),
                         controller : 'CPageMark'
                     })
 
