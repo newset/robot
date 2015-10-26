@@ -97,13 +97,16 @@ class BaseModel extends Model
     /**
      * 创建
      */
-    public function c($rq = null)
+    public function c($rq = null, $rules = null, $messages = null)
     {
         if ( ! $rq)
         {
             $rq = rq();
         }
-        $validator = Validator::make($rq, $this->createRule, $this->messages);
+        
+        $rules = $rules ?  $rules : $this->updateRule;
+        $messages = $messages ?  $messages : $this->messages;
+        $validator = Validator::make($rq, $rules, $messages);
 
         if ($validator->passes())
         {
@@ -122,20 +125,21 @@ class BaseModel extends Model
             }
         } else
         {
-            return ee(2, $validator->errors());
+            return ee(2, [$this->table, $validator->errors()]);
         };
     }
 
     /**
      * 更新
      */
-    public function u($rq = null)
+    public function u($rq = null, $rules = null, $messages = null)
     {
         if ( ! $rq)
             $rq = rq();
 
-
-        $validator = Validator::make($rq, $this->updateRule);
+        $rules = $rules ?  $rules : $this->updateRule;
+        $messages = $messages ?  $messages : $this->messages;
+        $validator = Validator::make($rq, $rules, $messages);
 
         if ($validator->passes())
         {

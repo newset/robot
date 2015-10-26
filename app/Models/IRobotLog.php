@@ -16,7 +16,7 @@ class IRobotLog extends BaseModel
         'employee_id' => 'required|exists:i_employee,id'
     ];
 
-    public function c($rq = null)
+    public function c($rq = NULL, $rules = NULL, $messages = NULL)
     {
         $rq = rqOnly(['action_type', 'memo', 'robot_id']);
 

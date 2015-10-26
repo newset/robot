@@ -718,7 +718,10 @@
             } 
 
             $scope.lease = function(){
-                H.p(cook('robotLeaseLog/c'), $scope.data).then(function(res){
+                var data = {};
+                angular.extend(data, $scope.data);
+                data['write_data'] = 1;
+                H.p(cook('robotLeaseLog/c'), data).then(function(res){
                     if(res.data.status == 1){
                         $state.go('base.robot.detail', {id : $scope.SIns.current_row.id});
                     }else{

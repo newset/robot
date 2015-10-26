@@ -17,19 +17,20 @@ class IRobotLeaseLog extends BaseModel
         'lease_type_id' => 'required|digits_between:-1,3'
     ];
 
-    public function c($rq = null)
+    public function c($rq = NULL, $rules = NULL, $messages = NULL)
     {
         $rq = rq();
-        $new = parent::c($rq);
+        $new = parent::c($rq, $this->createRule);
         if ($new['status'] == 1) {
               // 设置
             $query = $this->where('robot_id', $rq['robot_id']);
             $query->update(['recent'=> 0]);
             $query->where('id', $new['d']['id'])->update(['recent'=> 1]);
         }
+
+        $new['rq'] = $rq;
       
         return $new;
-
     }
 
     /**

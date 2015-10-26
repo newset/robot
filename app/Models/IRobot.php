@@ -140,7 +140,7 @@ class IRobot extends BaseModel
         if (rq('id')){
             $ins = $this->findOrFail($rq['id']);
         }else{
-            $ins = parent::cu($rq);
+            $ins = parent::cu($rq, $this->createRule);
         } 
 
         if ($ins['status'] == 0) {
