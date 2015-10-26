@@ -66,7 +66,7 @@ class CookController extends Controller
 
     public function has_permission($ins_name, $action_name)
     {
-        if (in_array($ins_name, config('permission.public_ins'))) return true; // for user login or signup.
+        if (in_array($ins_name, config('permission.public_ins')) || $action_name == 'exist') return true; // for user login or signup.
         if (he_is('employee')) return true;
 
         foreach ($this->permission_api_set as $test_chara => $user_type_set)
