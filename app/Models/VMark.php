@@ -16,6 +16,7 @@ class VMark extends IMark
 
     public function __construct()
     {
+        parent::__construct();
         $this->table = table_name($this->ins_name, 'v');
     }
 

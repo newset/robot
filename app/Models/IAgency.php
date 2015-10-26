@@ -45,7 +45,7 @@ class IAgency extends BaseModel
     /**
      * 创建
      */
-    public function c($rq = NULL, $rules = NULL, $messages = NULL)
+    public function c($rq = NULL)
     {
         $this->guarded = arr_except_vals($this->guarded, ['password']);
 
@@ -71,7 +71,7 @@ class IAgency extends BaseModel
     /**
      * 更新
      */
-    public function u($rq = NULL, $rules = NULL, $messages = NULL)
+    public function u($rq = NULL)
     {
         $this->guarded = arr_except_vals($this->guarded, ['password']);
 

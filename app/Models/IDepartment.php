@@ -76,7 +76,7 @@ class IDepartment extends BaseModel
     /**
      * 创建
      */
-    public function c($rq = NULL, $rules = NULL, $messages = NULL)
+    public function c($rq = NULL)
     {
         $this->guarded = arr_except_vals($this->guarded, ['password']);
 
@@ -86,13 +86,13 @@ class IDepartment extends BaseModel
         if (isset($rq['password'])) {
             $rq['password'] = hash_password($rq['password']);
         }
-        return parent::c($rq, $this->createRule, $this->messages);
+        return parent::c($rq);
     }
 
     /**
      * 更新
      */
-    public function u($rq = NULL, $rules = NULL, $messages = NULL)
+    public function u($rq = NULL)
     {
         $this->guarded = arr_except_vals($this->guarded, ['password']);
 

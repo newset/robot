@@ -13,18 +13,20 @@ class IRobot extends BaseModel
     protected $softDelete = false;
     protected $ins_name = 'robot';
 
-    public $createRule = [
-        'cust_id' => 'required|unique:i_robot|regex:/[0-9]{2}[A-L][0-9]{4}/',
-        'employee_id' => 'required|exists:i_employee,id',
-        'production_date' => 'required|date'
-    ];
-
     public $fillable = ['cust_id', 'employee_id', 'production_date', 'status'];
 
     public function __construct()
     {
         parent::__construct();
+
+        $this->createRule = [
+            'cust_id' => 'required|unique:i_robot|regex:/[0-9]{2}[A-L][0-9]{4}/',
+            'employee_id' => 'required|exists:i_employee,id',
+            'production_date' => 'required|date'
+        ];
+
         $this->messages['regex'] = '字段 :attribute 格式错误';
+        
         // $this->updateRule = $this->createRule;
     }
 
