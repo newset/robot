@@ -35,6 +35,11 @@ class BaseModel extends Model
         // dd($this->table, $prefix);
     }
 
+    public function ruler()
+    {
+        return $this->createRule;
+    }
+
     /**
      * @return array of all fields.
      */
@@ -134,8 +139,7 @@ class BaseModel extends Model
         if ( ! $rq)
             $rq = rq();
 
-
-        $validator = Validator::make($rq, $this->updateRule);
+        $validator = Validator::make($rq, $this->$upateRules);
 
         if ($validator->passes())
         {

@@ -9,9 +9,6 @@ class VRobotLeaseLog extends IRobot
     protected $guarded = ['id'];
     protected $softDelete = false;
     protected $ins_name = 'robot_lease_log';
+    protected $table = 'i_robot_lease_log';
 
-    public function __construct()
-    {
-        $this->table = table_name($this->ins_name, 'v');
-    }
 }

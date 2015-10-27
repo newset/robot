@@ -10,7 +10,6 @@ class IHospital extends BaseModel
     protected $ins_name = 'hospital';
     protected $softDelete = false;
 
-
     public function __construct()
     {
         parent::__construct();

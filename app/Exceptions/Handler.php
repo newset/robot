@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Exception;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Session\TokenMismatchException;
 
 class Handler extends ExceptionHandler
 {
@@ -39,6 +40,25 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        if ($e instanceof TokenMismatchException){
+            $data = [
+                'msg' => '登录过期',
+                'code' => '00001'
+            ];
+            // todo 检查当前用户 token 错误原因
+            // 
+            
+            return response($data, 403);
+        }
+
+        if ($e->getMessage() == 'insufficient_permission') {
+            $data = [
+                'msg' => '无权限访问',
+                'code' => '00002'
+            ];
+            return response($data, 403);
+        }
+
         return parent::render($request, $e);
     }
 }

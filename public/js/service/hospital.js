@@ -43,11 +43,14 @@
                 function cu(d) {
                     return H.cu(me.ins_name, d)
                         .then(function(r) {
-                            if (r.data.d) { //创建成功
+                            if (r.data.status == 1) { //创建成功
                                 ngDialog.closeAll();
                                 me.refresh();
                                 $state.go('base.hospital.department_doctor', {hid : r.data.d.id});
                                 // window.location.href = '/#/hospital/department_doctor?hid=' + r.data.d.id; //TODO
+                            }else{
+                                // alert('错误');
+                                return r;
                             }
                         }, function() {})
                 }

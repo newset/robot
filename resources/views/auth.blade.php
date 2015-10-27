@@ -109,7 +109,6 @@
 													   ng-minlength="{{conf('v_rule.user_name.min_length')}}"
 													   ng-maxlength="{{conf('v_rule.user_name.max_length')}}"
 													   la-pattern="{{conf('v_rule.user_name.pattern')}}"
-													   la-exist="agency.username"
 													   class="form-control"
 														{{--id="username"--}}
 													   placeholder="用户名"

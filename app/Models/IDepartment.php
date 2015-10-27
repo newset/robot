@@ -76,7 +76,7 @@ class IDepartment extends BaseModel
     /**
      * 创建
      */
-    public function c($rq = null)
+    public function c($rq = NULL)
     {
         $this->guarded = arr_except_vals($this->guarded, ['password']);
 
@@ -92,7 +92,7 @@ class IDepartment extends BaseModel
     /**
      * 更新
      */
-    public function u($rq = null)
+    public function u($rq = NULL)
     {
         $this->guarded = arr_except_vals($this->guarded, ['password']);
 
