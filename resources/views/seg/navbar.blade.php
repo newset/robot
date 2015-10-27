@@ -70,8 +70,8 @@
                         报表 <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.robot.report({type: 'device_condition'})" href="" title="">设备状态清单</a></li>
-                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.robot.report({type: 'robot_sale'})" href="" title="">销售情况表</a></li>
+                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.hospital.report({type: 'hospital_condition'})" href="" title="">医院情况表</a></li>
+                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.hospital.report({type: 'hospital__condition'})" href="" title="">代理商医院情况表</a></li>
                     </ul>
                 </li>
             </ul>
@@ -102,7 +102,7 @@
                         报表 <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.robot.report({type: 'hospital_doctor'})" href="" title="">医生情况统计表</a></li>
+                        <li><a ui-sref-opts="{reload:true}" ui-sref="base.doctor.report({type: 'doctor_condition'})" href="" title="">医生情况统计表</a></li>
                     </ul>
                 </li>
             </ul>

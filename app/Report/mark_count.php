@@ -1,6 +1,6 @@
 ﻿<?php
    /* 厂商 Mark情况统计表 */
-  header("Content-Type:text/html;charset=utf-8");
+  //header("Content-Type:text/html;charset=utf-8");
   $mysqli = new mysqli('118.244.197.36','root','HWVosvmGYP6knCjp6Ihx','robot');
   
   /* check connection */

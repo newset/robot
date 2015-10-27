@@ -7,13 +7,15 @@
         <div class="col-md-8 col-md-offset-2">
             <form action="/report/hospital_mark_name" method="post" id="report-form" class="form-horizontal">
                 <div class="row">
-                    <label style="margin:10px 0 0 20px;">时间：从</label>
+                    {!! csrf_field() !!}
+                    <label class="col-md-2 control-label">时间：</label>
+                    <label class="pull-left report-from">从</label>
                     <div class="col-md-3">
                         <datepicker date-format="yyyy-MM-dd 00:00:00" date-set="[:SIns.cu_bat_data.production_date:]">
                             <input type="text" name="starttime" ng-model="cond.starttime" class="form-control">
                         </datepicker>
                     </div>
-                    <label style="margin-top: 10px;">到</label>
+                    <label class="pull-left report-to">到</label>
                     <div class="col-md-3">
                         <datepicker date-format="yyyy-MM-dd 00:00:00" date-set="[:SIns.cu_bat_data.production_date:]">
                             <input type="text" name="endtime" ng-model="cond.endtime" class="form-control">

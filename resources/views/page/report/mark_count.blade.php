@@ -6,7 +6,7 @@
 			</h3>
 		</div>
 		<div class="col-md-8 col-md-offset-2">
-			<form action="/report/mark_count" method="post" id="report-form" target="_blank">
+			<form action="/report/mark_count" method="post" id="report-form">
 				{!! csrf_field() !!}
 				<label class="pull-left" style="margin:10px 0 0 20px;">时间：从</label>
 				<div class="col-md-3">

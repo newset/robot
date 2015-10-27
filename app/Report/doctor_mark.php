@@ -1,6 +1,6 @@
 ﻿<?php
   /*厂商 医生Mark使用情况表 */
-  $mysqli = new mysqli('localhost','root',null,'robot');
+  //$mysqli = new mysqli('118.244.197.36','root','HWVosvmGYP6knCjp6Ihx','robot');
   /* check connection */
 	if (mysqli_connect_errno()) {
 		printf("Connect failed: %s\n", mysqli_connect_error());

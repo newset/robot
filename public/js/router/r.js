@@ -194,6 +194,14 @@
                         url: '/department_doctor/:hid?page_num=&limit=&with_search=',
                         templateUrl: shot('page/department_doctor'),
                     })
+                    .state('base.hospital.report', {
+                        url : '/report/:type',
+                        controller: 'ReportCtrl',
+                        templateUrl : function($stateParams){
+                            return shot_report($stateParams.type);
+                        }
+                    })
+
                     .state('base.department',
                     {
                         url: '/department',
@@ -416,6 +424,13 @@
                                     return SDoctor;
                                 })
                             }
+                        }
+                    })
+                    .state('base.doctor.report', {
+                        url : '/report/:type',
+                        controller: 'ReportCtrl',
+                        templateUrl : function($stateParams){
+                            return shot_report($stateParams.type);
                         }
                     })
                     .state('base.patient', {

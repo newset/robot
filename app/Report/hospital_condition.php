@@ -1,7 +1,7 @@
 ﻿<?php
 /* 厂商 医院情况表 */
-  header("Content-Type:text/html;charset=utf-8");
-  $mysqli = new mysqli('localhost','root',null,'robot');
+  //header("Content-Type:text/html;charset=utf-8");
+  $mysqli = new mysqli('118.244.197.36','root','HWVosvmGYP6knCjp6Ihx','robot');
   
   /* check connection */
 	if (mysqli_connect_errno()) {

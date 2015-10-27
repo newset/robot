@@ -1,7 +1,7 @@
 ﻿<div class="panel panel-default">
     <div class="panel-body">
         <h3 class="panel-title">
-            医院Mark使用情况表
+            设备状态清单
         </h3>
     </div>
     <div class="col-md-8 col-md-offset-2">
