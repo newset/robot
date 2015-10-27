@@ -714,3 +714,9 @@ select.form-control + .chosen-container-multi .chosen-results li.result-selected
 .hospital-list-edit{
     text-align: center;
 }
+.report-from{
+    margin: 10px 0 0 15px;
+}
+.report-to{
+    margin-top: 10px;
+}
