@@ -137,14 +137,10 @@ class IRobot extends BaseModel
         $in = $in ? $in : rq();
         $rq = rq();
 
-        if (rq('id')){
-            $ins = $this->findOrFail($rq['id']);
-        }else{
-            $ins = parent::cu($rq, $this->createRule);
-        } 
+        $ins = parent::cu($rq);
 
         if ($ins['status'] == 0) {
-            return $ins;
+            return ss($ins);
         }
 
         if (!rq('id')) {
@@ -158,7 +154,7 @@ class IRobot extends BaseModel
             $r = $lease_log_ins->save();
         }
         
-        return $ins;
+        return ss($ins);
     }
 
     public function search_by_log($in = null)
