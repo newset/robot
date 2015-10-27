@@ -51,8 +51,8 @@
 										<div class="form-group" ng-init="SIns.cond.where.archive=[]">
 											<label class="control-label col-md-2">归档状态</label>
 											<div class="col-md-2">
-												<label class="checkbox-inline"><input type="checkbox" value="1" ng-true-value="1" ng-model="SIns.cond.where.archive">已归档</label>
-												<label class="checkbox-inline"><input type="checkbox" value="2" ng-true-value="2" ng-model="SIns.cond.where.archive">未归档</label>
+												<label class="checkbox-inline"><input type="checkbox" value="1" ng-true-value="1" multi-check holder="SIns.cond.where.archive">已归档</label>
+												<label class="checkbox-inline"><input type="checkbox" value="2" ng-true-value="2" multi-check holder="SIns.cond.where.archive">未归档</label>
 											</div>
 										</div>
 									@endif
