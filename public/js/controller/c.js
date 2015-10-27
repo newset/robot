@@ -896,15 +896,15 @@
                         toastr.error("服务器错误");
                         return;
                     };
-                	if(res.data.d.data){
-                		$scope.current_page_data = res.data.data;
-                		$('#resultLog').html(JSON.parse(res.data.d.msg));
-                	}else{
-                		if(res.data.d.msg){
-                			$('#resultLog').html(JSON.parse(res.data.d.msg));
-                		}else{
-                			$('#resultLog').html(JSON.parse(res.data.d.data));
-                		}
+                	if(res.data.status == 1){
+                        try{
+                            var data = JSON.parse(res.data.d);
+                            $('#resultLog').html(data.msg);
+                            $scope.current_page_data = data.data;
+                        }catch(e){
+                            
+                        }
+                        
                 	}
                 });
             }

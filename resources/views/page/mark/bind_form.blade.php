@@ -58,7 +58,6 @@
                 <label class="control-label">
                   <button type="submit" class="btn btn-info" ng-click="bind('a')">绑定</button>
                 </label>
-                [:SIns.cu_bat_data.hospital_id:]
                 <select class="form-control"
                         name="agency_id"
                         chosen
