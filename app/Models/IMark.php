@@ -72,7 +72,8 @@ class IMark extends BaseModel
         } catch (Exception $e) {
             return ss(['msg'=> '请求异常'], 0);
         }
-        return ss($response->body);
+        $res = $response->body;
+        return ss($res);
     }
 
     public function bat_cu($in = [])

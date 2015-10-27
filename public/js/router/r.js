@@ -357,7 +357,7 @@
                         resolve: {
                             detail : function(SMark, $stateParams, $filter){
                                 return SMark.bat_mark('checkout2', {
-                                    a : $filter('laDate')($stateParams.time)
+                                    a : $stateParams.time
                                 }).then(function(res){
                                     if (res.data.status == 1 && res.data.d) {
                                         res.data.d  = JSON.parse(res.data.d);
