@@ -367,6 +367,7 @@ class BaseModel extends Model
         DB::enableQueryLog();
 
         $builder = $this->r_builder(rq());
+
         // 先获取统计
         $count = $builder->count();
 

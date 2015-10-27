@@ -210,10 +210,10 @@ class IRobot extends BaseModel
     }
 
     // todo
-    // public function usedMark()
-    // {
-    //     return $this->hasMany('App\Models\IMark', 'robot_id')->where('');
-    // }
+    public function used_mark()
+    {
+        return $this->hasMany('App\Models\IMark', 'robot_id')->select('id', 'robot_id')->whereNotNull('used_at');
+    }
 
     // /**
     //  * 关联机器人记录 -- 最新

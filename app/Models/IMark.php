@@ -268,17 +268,6 @@ class IMark extends BaseModel
         return $this->belongsTo('App\Models\IAgency', 'agency_id');
     }
 
-    //public function cu_()
-    //{
-    //    if(he_is('agency'))
-    //    {
-    //        $safe_data = array_only(rq(), ['id', 'doctor_id', 'hospital_id']);
-    //        $ins = M($this->ins_name);
-    //        return $ins->cu($safe_data);
-    //    }
-    //}
-
-
     public function robot()
     {
         return $this->belongsTo('App\Models\IRobot', 'robot_id');

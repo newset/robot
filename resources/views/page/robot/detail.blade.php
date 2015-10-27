@@ -34,7 +34,7 @@
 					<dt>医院</dt>
 					<dd>[:SIns.current_row.last_hospital.name:]</dd>
 					<dt>已用Mark</dt>
-					<dd>0</dd>
+					<dd>[:SIns.current_row.used_mark.length:]</dd>
 					<dt>负责人</dt>
 					<dd>[:SIns.current_row.employee.name:]</dd>
 					<dt>提示</dt>
