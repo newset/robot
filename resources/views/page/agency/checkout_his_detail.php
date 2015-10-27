@@ -6,7 +6,7 @@
 		</div>
 	</div>
 
-	<p>[:detail.msg:]</p>
+	<p>[:detail.d.msg:]</p>
 	<table class="table table-bordered">
 		<thead>
 			<tr>
@@ -17,7 +17,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="item in detail.data">
+			<tr ng-repeat="item in detail.d.data">
 				<td>[:item.a:]</td>
 				<td>[:item.b:]</td>
 				<td>[:item.c:]</td>

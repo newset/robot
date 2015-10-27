@@ -67,8 +67,11 @@ class IMark extends BaseModel
 
         $url = $baseUrl.http_build_query($params);
         $data = rq('data');
-
-        $response = Requests::post($url, [], $data);
+        try {
+            $response = Requests::post($url, [], $data);
+        } catch (Exception $e) {
+            return ss(['msg'=> '请求异常'], 0);
+        }
         return ss($response->body);
     }
 
