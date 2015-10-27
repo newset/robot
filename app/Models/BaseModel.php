@@ -139,7 +139,7 @@ class BaseModel extends Model
         if ( ! $rq)
             $rq = rq();
 
-        $validator = Validator::make($rq, $this->$upateRules);
+        $validator = Validator::make($rq, $this->updateRule);
 
         if ($validator->passes())
         {
