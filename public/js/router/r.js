@@ -98,7 +98,6 @@
                         url : '/report/:type',
                         controller: 'ReportCtrl',
                         templateUrl : function($stateParams){
-                            console.log(shot_report($stateParams.type));
                             return shot_report($stateParams.type);
                         }
                     })
@@ -260,7 +259,6 @@
                         url : '/report/:type',
                         controller: 'ReportCtrl',
                         templateUrl : function($stateParams){
-                            console.log(shot_report($stateParams.type));
                             return shot_report($stateParams.type);
                         }
                     })
@@ -374,7 +372,6 @@
                         url : '/report/:type',
                         controller: 'ReportCtrl',
                         templateUrl : function($stateParams){
-                            console.log(shot_report($stateParams.type));
                             return shot_report($stateParams.type);
                         }
                     })
