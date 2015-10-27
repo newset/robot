@@ -52,10 +52,18 @@ class Handler extends ExceptionHandler
         }
 
         if ($e->getMessage() == 'insufficient_permission') {
-            $data = [
-                'msg' => '无权限访问',
-                'code' => '00002'
-            ];
+            if (!uid()) {
+                $data = [
+                    'msg' => '登录过期',
+                    'code' => '00001'
+                ];
+            }else{
+                $data = [
+                    'msg' => '无权限访问',
+                    'code' => '00002'
+                ];
+            }
+            
             return response($data, 403);
         }
 
