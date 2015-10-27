@@ -759,6 +759,7 @@
             'Upload',
             'SDoctor',
             'h',
+            '$filter',
             function ($scope
                 , $stateParams
                 , SMark
@@ -769,6 +770,7 @@
                 , Upload
                 , SDoctor
                 , h
+                , $filter
             )
             {
                 $scope.h = h;
@@ -815,6 +817,10 @@
                 // $scope.$watch('cond', function(){
                 //     SMark.refresh();
                 // }, true)
+                // 
+                $scope.time = function(time){
+                    return $filter('laDate')(time);
+                }
             }
         ])
         .controller('CPageMarkNew',

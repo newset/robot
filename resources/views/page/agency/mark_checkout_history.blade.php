@@ -33,7 +33,7 @@
 								  <td>[:row.mark_count:]</td>
 								  <td class="edit col-md-2">
                                     <span class="tool_wrapper">
-                                        <button class="btn btn-primary btn-sm" href="" >
+                                        <button class="btn btn-primary btn-sm" ui-sref="base.mark.ck_mark_history_detail({time:row.archive_at})">
                                             查看
                                         </button>
                                     </span>

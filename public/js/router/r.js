@@ -342,13 +342,34 @@
                     })
                     .state('base.mark.checkout',{ //mark 结账
                         url : '/checkout',
-                        templateUrl : shot('seg/mark_checkout'),
+                        templateUrl : shot('page/agency/mark_checkout'),
                         controller : 'CPageMarkNew'
                     })
                     .state('base.mark.ck_mark_history',{ //mark 结账
                         url : '/ck_mark_history',
-                        templateUrl : shot('seg/mark_checkout_history'),
+                        templateUrl : shot('page/agency/mark_checkout_history'),
                         controller : 'CPageMark'
+                    })
+                    .state('base.mark.ck_mark_history_detail',{ //mark 结账
+                        url : '/ck_mark_history_detail/:time',
+                        templateUrl : shot('page/agency/checkout_his_detail'),
+                        resolve: {
+                            detail : function(SMark, $stateParams, $filter){
+                                return SMark.bat_mark('checkout2', {
+                                    a : $filter('laDate')($stateParams.time)
+                                }).then(function(res){
+                                    if (res.data.status == 1 && res.data.d) {
+                                        res.data.d  = JSON.parse(res.data.d);
+                                    };
+                                    return res.data;
+                                })
+                            }
+                        },
+                        controller : ['$scope', 'SMark', '$stateParams', 'detail', function($scope, SMark, $stateParams, detail){
+                            console.log($stateParams.time, detail);
+                            $scope.detail = detail;
+                            $scope.time = $stateParams.time;
+                        }]
                     })
                     .state('base.mark.show', {
                         url : '/show/:id',

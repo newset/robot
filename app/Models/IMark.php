@@ -38,8 +38,8 @@ class IMark extends BaseModel
         if (he_is('agency')){
             $user = uid();
             $row = M('agency')->select('password')->where('id', $user)->first();
-            if ($action == 'checkout'){
-                $action='checkout';
+            if ($action == 'checkout' || $action == 'checkout2'){
+                // $action='checkout';
             }else{
                 $action ='a'.$action;
                 if (!in_array($action, array('abind','aunbind'))){
@@ -69,7 +69,7 @@ class IMark extends BaseModel
         $data = rq('data');
 
         $response = Requests::post($url, [], $data);
-        return $response->body;
+        return ss($response->body);
     }
 
     public function bat_cu($in = [])
@@ -219,7 +219,7 @@ class IMark extends BaseModel
             ->where('doctor_id','>',0)
             ->where(DB::raw('CAST(used_at as datetime)') ,'<=',$time)
             ->update(['archive_at'=>date("Y-m-d H:i:s")]);
-            return  ss('归档成功'); 
+            return ss('归档成功'); 
         }  
     }
     /**

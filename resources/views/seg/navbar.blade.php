@@ -32,11 +32,12 @@
         @if(he_is('agency'))
         <div class="page-nav pull-left" ng-if="$state.includes('base.mark') || $state.includes('base.home')" ng-cloak>
             <ul class="nav nav-pills">
-                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.query')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.query({with_search: 1})" title="">Mark查询</a></li>
-                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.bind')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.bind({with_search: 1})" title="">Mark绑定</a></li>
-                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.unbind')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.unbind({with_search: 1})" title="">Mark解绑</a></li>
-                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.checkout')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.checkout({with_search: 1})" title="">Mark结账</a></li>
-                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.ck_mark_history')]"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark.ck_mark_history({with_search: 1})" title="">历史结账清单</a></li>
+                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.query')]"><a ui-sref-opts="{reload:true}" ui-sref="base.mark.query" title="">Mark查询</a></li>
+                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.bind')]"><a ui-sref-opts="{reload:true}" ui-sref="base.mark.bind" title="">Mark绑定</a></li>
+                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.unbind')]"><a ui-sref-opts="{reload:true}" ui-sref="base.mark.unbind" title="">Mark解绑</a></li>
+                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.checkout')]"><a ui-sref-opts="{reload:true}" ui-sref="base.mark.checkout" title="">Mark归档</a></li>
+                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.ck_mark_history')]"><a ui-sref-opts="{reload:true}" ui-sref="base.mark.ck_mark_history" title="">历史结账清单</a></li>
+                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.report')]"><a ui-sref-opts="{reload:true}" ui-sref="base.mark.report({type: 'agency_mark'})" title="">统计报表</a></li>
             </ul>
         </div>
         @else

@@ -9,7 +9,7 @@
 							<div class="row col-md-12 search_panel">
 								<form class="form-horizontal" id="mark_query">
 									<div class="form-group">
-										<label class="control-label col-md-2">时间</label>
+										<label class="control-label col-md-1">时间</label>
 										 <div class="col-md-2">
 										 <datepicker class="pull-left text-left" style="width:auto;" date-set="{{date('Y-m-d')}}"  date-format="yyyy-MM-dd">
         									<input ng-model="SIns.cu_bat_data.a"
@@ -55,9 +55,7 @@
 							  </tr>
 							  </tbody>
 						  </table>
-						  <div class="row">
-							  <div class="col-xs-6">
-							  </div>
+						  <div class="">
 							  <div class="pagination_wrapper">
 							     <button class="btn btn-info" style="float: right" ng-click="ck_mark()">确认归档</button>
 							  </div>
