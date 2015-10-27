@@ -892,14 +892,18 @@
                 SMark.bat_mark('checkout', {
                     a : SMark.cu_bat_data.a,
                 }).then(function(res){
-                	if(res.data.data){
+                    if (res.status != 200) {
+                        toastr.error("服务器错误");
+                        return;
+                    };
+                	if(res.data.d.data){
                 		$scope.current_page_data = res.data.data;
-                		$('#resultLog').html(res.data.msg);
+                		$('#resultLog').html(JSON.parse(res.data.d.msg));
                 	}else{
-                		if(res.data.msg){
-                			$('#resultLog').html(res.data.msg);
+                		if(res.data.d.msg){
+                			$('#resultLog').html(JSON.parse(res.data.d.msg));
                 		}else{
-                			$('#resultLog').html(res.data.data);
+                			$('#resultLog').html(JSON.parse(res.data.d.data));
                 		}
                 	}
                 });
