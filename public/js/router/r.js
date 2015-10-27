@@ -27,14 +27,15 @@
                         {
                             Init:
                                 [
-                                    'SBase', '$q',
-                                    function(SBase, $q)
+                                    'SBase', '$q', 'UserSession', 
+                                    function(SBase, $q, UserSession)
                                     {
                                         var defer = $q.defer();
                                         SBase.init()
                                             .success(function(r)
                                             {
                                                 window._robot = r;
+                                                UserSession.set(r.d);
                                                 console.log('r: ', r);
                                                 defer.resolve(SBase);
                                             })
@@ -420,6 +421,15 @@
                     .state('base.patient', {
                         url : '/patient',
                         template : '<div ui-view></div>'
+                    })
+                    .state('base.pm', {
+                        url : '/pm',
+                        template : '<div ui-view></div>'
+                    })
+                    .state('base.pm.list', {
+                        url : '/list',
+                        templateUrl: shot('page/pm/list'),
+                        controller : 'PMCtrl'
                     })
             }])
 })();

@@ -9,13 +9,15 @@ class IInit extends Model
 {
     public function front()
     {   
-        
+        // 获取未读通知
+
         $d = [
             'debug'        => debugging(),
             'is_logged_in' => sess('is_logged_in'),
             'his_chara'    => sess('his_chara'),
             'username'     => sess('username'),
             'uid'          => sess('uid'),
+            'unread'       => 1
         ];
 
         $d['org'] = '';

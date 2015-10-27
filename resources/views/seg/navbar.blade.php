@@ -1,4 +1,4 @@
-<header id="header">
+<header id="header" ng-cloak>
     <div class="toggle-navigation toggle-left">
         <a id="toggle-left" data-toggle="tooltip" data-placement="right" href="#/" title="Toggle Navigation">
             <img class="pull-left" src="/assets/img/main-logo.png" alt="logo">
@@ -198,13 +198,22 @@
                 </a>
                 <ul class="dropdown-menu animated fadeInDown dropdown-menu-right">
                     <li>
-                        <a href="" ui-sref-opts="{reload:true}" ui-sref="base.me"><i class="fa fa-user"></i>个人设置</a>
+                        <a href="" ui-sref-opts="{reload:true}" ui-sref="base.me"><i class="fa fa-user"></i> 个人设置</a>
+                    </li>
+                    <li>
+                        <a href="" ui-sref-opts="{reload:true}" ui-sref="base.pm.list"><i class="fa fa-envelope"></i> 站内信</a>
                     </li>
                     <li>
                         <a href="{{url('logout')}}"><i class="fa fa-power-off"></i> 登出</a>
                     </li>
                 </ul>
             </li>
+            <li ng-if="_user_session_data.unread">
+               <a ui-sref="base.pm.list" title="" >
+                    <span class="badge badge-danger">[:_user_session_data.unread:]</span>
+               </a> 
+            </li>
+
             @endif
         </ul>
     </div>

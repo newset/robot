@@ -1217,4 +1217,35 @@
                 return false;
             }
         }])
+        .controller('PMCtrl', ['$scope', 'H', '$rootScope', function($scope, H, $rootScope){
+            // 默认获取
+            $scope.toMe = 1;
+
+            $scope.getMessage = function(){
+                $scope.loading = true;
+                var cond = {
+                    where : {},
+                    order_by : 'sendtime desc'
+                };
+                if ($scope.toMe == 1) {
+                    cond.where.recipientid = $rootScope._user_session_data.uid;
+                };
+
+                if ($scope.toMe == -1) {
+                    cond.where.senderid = $rootScope._user_session_data.uid;
+                };
+
+                H.p(cook('message/r'), cond).then(function(res){
+                    console.log('res', res.data);
+                    $scope.messages = res.data.d.main;
+                    $scope.loading = false;
+                })
+            }
+
+            $scope.getMessage();
+
+            $scope.$watch('toMe', function(me){
+                $scope.getMessage();
+            });
+        }])
 })();

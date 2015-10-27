@@ -75,6 +75,18 @@
 		        }
 			};
 		}])
+		.service('UserSession', ['$rootScope', function ($rootScope) {
+			// 用户登录状态
+			this.set = function(data){
+				$rootScope._user_session_data = data;
+			}
+
+			this.set_key = function(key, value){
+				$rootScope._user_session_data[key] = value;
+			}
+
+			return this;
+		}]);
 })();
 
 'use strict';
