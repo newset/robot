@@ -220,6 +220,7 @@ class IMark extends BaseModel
             $ins = M($this->ins_name);
             $ins->where('agency_id',uid())
             ->where('doctor_id','>',0)
+            ->whereNull('archive_at')
             ->where(DB::raw('CAST(used_at as datetime)') ,'<=',$time)
             ->update(['archive_at'=>date("Y-m-d H:i:s")]);
             return ss('归档成功'); 
