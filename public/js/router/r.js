@@ -431,5 +431,10 @@
                         templateUrl: shot('page/pm/list'),
                         controller : 'PMCtrl'
                     })
+                    .state('base.pm.read', {
+                        url : '/read/:id',
+                        templateUrl: shot('page/pm/detail'),
+                        controller : 'PMCtrl'
+                    })
             }])
 })();

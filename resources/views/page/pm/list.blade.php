@@ -35,7 +35,7 @@
 				<td>[:item.sendtime:]</td>
 				<td>[:item.messagecontent:]</td>
 				<td class="text-center">
-					<a href="" class="btn btn-primary btn-sm" ng-click="item.read=1">查看</a>
+					<a href="" class="btn btn-primary btn-sm" ng-click="read(item)">查看</a>
 				</td>
 			</tr>
 		</tbody>

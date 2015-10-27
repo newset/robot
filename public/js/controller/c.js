@@ -866,7 +866,7 @@
                     b : SMark.cu_bat_data.b,
                     c : SMark.cu_bat_data.c,
                 }).then(function(res){
-                    $('#resultLog').html(res.data);
+                    $('#resultLog').html(res.data.d);
                 });
             }
 
@@ -876,7 +876,7 @@
                     b : SMark.cu_bat_data.b,
                     c : SMark.cu_bat_data.c,
                 }).then(function(res){
-                    $('#resultLog').html(res.data);
+                    $('#resultLog').html(res.data.d);
                 });
             }
 
@@ -885,7 +885,7 @@
                     a : SMark.cu_bat_data.a,
                     b : SMark.cu_bat_data.b,
                 }).then(function(res){
-                    $('#resultLog').html(res.data);
+                    $('#resultLog').html(res.data.d);
                 });
             }
             $scope.checkout = function(){
@@ -1217,7 +1217,8 @@
                 return false;
             }
         }])
-        .controller('PMCtrl', ['$scope', 'H', '$rootScope', function($scope, H, $rootScope){
+        .controller('PMCtrl', ['$scope', 'H', '$rootScope', '$stateParams', '$state', 
+                function($scope, H, $rootScope, $stateParams, $state){
             // 默认获取
             $scope.toMe = 1;
 
@@ -1236,16 +1237,29 @@
                 };
 
                 H.p(cook('message/r'), cond).then(function(res){
-                    console.log('res', res.data);
                     $scope.messages = res.data.d.main;
                     $scope.loading = false;
                 })
             }
 
-            $scope.getMessage();
+            $scope.read = function(item){
+                item.read = 1;
+                $state.go('base.pm.read', {id: item.id});
+            }
 
-            $scope.$watch('toMe', function(me){
+            if ($state.current.name == 'base.pm.list') {
                 $scope.getMessage();
-            });
+
+                $scope.$watch('toMe', function(me){
+                    $scope.getMessage();
+                });
+            }else if ($state.current.name == 'base.pm.read') {
+                // 获取内容
+
+            }else if ($state.current.name == 'base.pm.new') {
+                // 发送消息
+                
+            };
+            
         }])
 })();

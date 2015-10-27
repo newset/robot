@@ -9,16 +9,16 @@ class IInit extends Model
 {
     public function front()
     {   
-        // 获取未读通知
-
         $d = [
             'debug'        => debugging(),
             'is_logged_in' => sess('is_logged_in'),
             'his_chara'    => sess('his_chara'),
             'username'     => sess('username'),
-            'uid'          => sess('uid'),
-            'unread'       => 1
+            'uid'          => sess('uid')
         ];
+        
+        // 获取未读通知
+        $d['unread'] = M('message')->where('recipientid', uid())->where('read', 0)->count();
 
         $d['org'] = '';
         if (he_is('agency')) {
