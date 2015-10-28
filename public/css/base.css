@@ -83,6 +83,7 @@ label.absolute-label {
 #login-wrapper
 {
     width: 33%;
+    margin: 80px auto;
 }
 
 #login-wrapper #email, #login-wrapper #password
