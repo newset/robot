@@ -79,6 +79,22 @@
                             }
                         }
                     })
+                    .state('base.robot.home',
+                    {
+                        url: '/home',
+                        templateUrl: shot('page/robot/home'),
+                        resolve : {
+                            deps : function(H) {
+                                return H.p(cook('robot_home/home')).then(function(res){
+                                    return res.data.d;
+                                });
+                            }
+                        },
+                        controller : ['deps', '$scope', 'SRobot', function(deps, $scope, SRobot){
+                            $scope.data = deps;
+                            $scope.SIns = SRobot;
+                        }]
+                    })
                     .state('base.robot.list',
                     {
                         url: '/list?page_num&limit&with_search',

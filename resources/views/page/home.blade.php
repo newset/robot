@@ -3,7 +3,7 @@
 <div class="row">
 	@if(sess('permission')[0])
 	<div class="col-md-4 col-sm-6">
-		<a ui-sref="base.robot({with_search: 1})">
+		<a ui-sref="base.robot.home">
 		<div class="dashboard-tile detail tile-turquoise">
 			<div class="content">
 				<h1><img src="../assets/img/grid/01.png" alt=""> 设备管理</h1>
@@ -14,7 +14,7 @@
 	@endif
 	@if(sess('permission')[1])
 	<div class="col-md-4 col-sm-6">
-		<a ui-sref="base.mark({with_search: 1})">
+		<a ui-sref="base.mark.query({with_search: 1})">
 			<div class="dashboard-tile detail tile-gray">
 				<div class="content">
 					<h1><img src="../assets/img/grid/02.png" alt="">Mark管理 </h1>
