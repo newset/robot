@@ -46,48 +46,48 @@
 			<hr>
 			<div class="col-md-8">
 				<div class="col-md-4">
-					<label for="" class="checkbox-inline">
-						<input type="checkbox"> 管理设备
+					<label for="permission0" class="checkbox-inline">
+						<input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="SIns.current_row.permissions[0]" id="permission0"> 管理设备
 					</label>
 				</div>
 				<div class="col-md-4">
-					<label for="" class="checkbox-inline">
-						<input type="checkbox"> Mark管理
+					<label for="permission1" class="checkbox-inline">
+						<input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="SIns.current_row.permissions[1]" id="permission1"> Mark管理
 					</label>
 				</div>
 				<div class="col-md-4">
-					<label for="" class="checkbox-inline">
-						<input type="checkbox"> 代理商管理
+					<label for="permission2" class="checkbox-inline">
+						<input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="SIns.current_row.permissions[2]" id="permission2"> 代理商管理
 					</label>
 				</div>
 				<div class="col-md-4">
-					<label for="" class="checkbox-inline">
-						<input type="checkbox"> 医院管理
+					<label for="permission3" class="checkbox-inline">
+						<input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="SIns.current_row.permissions[3]" id="permission3"> 医院管理
 					</label>
 				</div>
 				<div class="col-md-4">
-					<label for="" class="checkbox-inline">
-						<input type="checkbox"> 医生管理
+					<label for="permission4" class="checkbox-inline">
+						<input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="SIns.current_row.permissions[4]" id="permission4"> 医生管理
 					</label>
 				</div>
 				<div class="col-md-4">
-					<label for="" class="checkbox-inline">
-						<input type="checkbox"> 病患管理
+					<label for="permission5" class="checkbox-inline">
+						<input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="SIns.current_row.permissions[5]" id="permission5"> 病患管理
 					</label>
 				</div>
 				<div class="col-md-4">
-					<label for="" class="checkbox-inline">
-						<input type="checkbox"> 员工管理
+					<label for="permission6" class="checkbox-inline">
+						<input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="SIns.current_row.permissions[6]" id="permission6"> 员工管理
 					</label>
 				</div>
 				<div class="col-md-4">
-					<label for="" class="checkbox-inline">
-						<input type="checkbox"> 查看日志
+					<label for="permission7" class="checkbox-inline">
+						<input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="SIns.current_row.permissions[7]" id="permission7"> 查看日志
 					</label>
 				</div>
 				<div class="col-md-4">
-					<label for="" class="checkbox-inline">
-						<input type="checkbox"> 系统设置
+					<label for="permission8" class="checkbox-inline">
+						<input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="SIns.current_row.permissions[8]" id="permission8"> 系统设置
 					</label>
 				</div>
 			</div>

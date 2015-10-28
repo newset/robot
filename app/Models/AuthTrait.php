@@ -43,6 +43,12 @@ trait AuthTrait
             {
                 log_him_in(['username' => $user->username, 'uid' => $user->id]);
                 add_chara($input['user_type']);
+                if($input['user_type'] == 'employee'){
+                    sess('permission', $user->permissions);
+                }else{
+                    sess('permission', []);
+                }
+
                 if($input['user_type'] == 'agency'){
                     sess('org', $user->name);
                 }

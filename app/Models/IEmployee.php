@@ -79,6 +79,24 @@ class IEmployee extends BaseModel
         return parent::u($rq);
     }
 
+    public function getPermissionsAttribute($value)
+    {
+        if (!$value) {
+            $value = '[1, 1, 1, 1, 1, 1, 1, 1, 1]';
+        }
+
+        return json_decode($value);
+    }
+
+    public function setPermissionsAttribute($value)
+    {
+        if (!$value) {
+            $value = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+        }
+        $this->attributes['permissions'] = json_encode($value);
+    }
+
+
     /**
      * 关联机器人
      */

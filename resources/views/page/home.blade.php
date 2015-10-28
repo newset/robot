@@ -1,6 +1,7 @@
 @if(he_is('employee'))
 <!--tiles start-->
 <div class="row">
+	@if(sess('permission')[0])
 	<div class="col-md-4 col-sm-6">
 		<a ui-sref="base.robot({with_search: 1})">
 		<div class="dashboard-tile detail tile-turquoise">
@@ -10,6 +11,8 @@
 		</div>
 		</a>
 	</div>
+	@endif
+	@if(sess('permission')[1])
 	<div class="col-md-4 col-sm-6">
 		<a ui-sref="base.mark({with_search: 1})">
 			<div class="dashboard-tile detail tile-gray">
@@ -19,6 +22,8 @@
 			</div>
 		</a>
 	</div>
+	@endif
+	@if(sess('permission')[2])
 	<div class="col-md-4 col-sm-6">
 		<a ui-sref="base.agency.list({with_search: 1})">
 			<div class="dashboard-tile detail tile-blue">
@@ -28,6 +33,8 @@
 			</div>
 		</a>
 	</div>
+	@endif
+	@if(sess('permission')[3])
 	<div class="col-md-4 col-sm-6">
 		<a ui-sref-opts="{reload:true}" ui-sref="base.hospital.list({with_search: 1})">
 			<div class="dashboard-tile detail tile-default">
@@ -37,6 +44,8 @@
 			</div>
 		</a>
 	</div>
+	@endif
+	@if(sess('permission')[4])
 	<div class="col-md-4 col-sm-6">
 		<a ui-sref-opts="{reload:true}" ui-sref="base.doctor.list({with_search: 1})" >
 		<div class="dashboard-tile detail tile-blue">
@@ -46,6 +55,8 @@
 		</div>
 		</a>
 	</div>
+	@endif
+	@if(sess('permission')[5])
 	<div class="col-md-4 col-sm-6">
 		<a href="">
 			<div class="dashboard-tile detail tile-green">
@@ -55,6 +66,8 @@
 			</div>
 		</a>
 	</div>
+	@endif
+	@if(sess('permission')[6])
 	<div class="col-md-4 col-sm-6">
 		<a ui-sref="base.employee.list">
 			<div class="dashboard-tile detail tile-red">
@@ -64,6 +77,8 @@
 			</div>
 		</a>
 	</div>
+	@endif
+	@if(sess('permission')[7])
 	<div class="col-md-4 col-sm-6">
 		<a ui-sref="base.employee({with_search: 1})">
 			<div class="dashboard-tile detail tile-purple">
@@ -73,6 +88,8 @@
 			</div>
 		</a>
 	</div>
+	@endif
+	@if(sess('permission')[8])
 	<div class="col-md-4 col-sm-6">
 		<a ui-sref="base.employee({with_search: 1})">
 			<div class="dashboard-tile detail tile-yellow">
@@ -82,6 +99,7 @@
 			</div>
 		</a>
 	</div>
+	@endif
 </div>
 <!--tiles end-->
 @endif
