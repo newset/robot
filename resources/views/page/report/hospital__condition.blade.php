@@ -9,7 +9,7 @@
 
             <div class="row">
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="agencyid">代理商id:</label>
+                    <label class="col-md-2 control-label" for="agencyid">代理商</label>
                     <div class="col-md-3">
                         <input type="text" class="form-control" id="agencyid"  placeholder="" name="agencyid" ng-model="cond.agencyid" required>
                     </div>

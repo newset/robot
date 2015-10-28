@@ -167,28 +167,30 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<div class="col-md-12">
+											<div class="col-md-6">
 												<select class="form-control"
 														name="province_id"
+														chosen
 														ng-model="c_form_auth.vals.province_id"
 														ng-model-options="{debounce: 300}"
 														ng-options="l.id as l.name for l in SBase._.location.province"
 														required>
-													<option value="" selected>公司所在省份</option>
+													<option value="" selected>所在省份</option>
 												</select>
 												{{--<div class="" ng-repeat="l in SBase._.location.province"></div>--}}
 											</div>
-										</div>
-										<div class="form-group">
-											<div class="col-md-12">
+										
+											<div class="col-md-6">
 												<select class="form-control"
+														chosen
 														ng-model="c_form_auth.vals.city_id"
+														update="c_form_auth.vals.province_id"
 														ng-model-options="{debounce: 300}"
 														ng-options="l.id as l.name for l in SBase._.location.city
-													| filter: {parent_id: c_form_auth.vals.province_id}"
+													| filter: {parent_id: c_form_auth.vals.province_id} : true"
 														name="province"
 														required>
-													<option value="" selected>公司所在市区</option>
+													<option value="" selected>所在市区</option>
 												</select>
 											</div>
 										</div>

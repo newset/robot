@@ -26,25 +26,21 @@
             <div class="row">
 
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="provinceid">省份id:</label>
+                    <label class="col-md-2 control-label" for="provinceid">省份</label>
                     <div class="col-md-3">
                         <input type="text" class="form-control" id="provinceid"  placeholder="" name="provinceid" ng-model="cond.provinceid" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="cityid">城市id:</label>
+                    <label class="col-md-2 control-label" for="cityid">城市</label>
                     <div class="col-md-3">
                         <input type="text" class="form-control" id="cityid"  placeholder="" name="cityid" ng-model="cond.cityid" required>
                     </div>
                 </div>
             </div>
 
-
-
             <div class="form-group">
-                <button  class="btn btn-primary pull-right
-
-                    " type="button" ng-click="query()">查询</button>
+                <button  class="btn btn-primary pull-right" type="button" ng-click="query()">查询</button>
             </div>
         </form>
     </div>

@@ -101,7 +101,7 @@
 		<div class="panel-body">
 			<dl class="dl-horizontal">
 	            <dt>病人</dt>
-	            <dd>-</dd>
+	            <dd>[:SIns.current_row.patient_name:]</dd>
 	            <dt>设备</dt>
 	            <dd>
 	                <span ng-if="SIns.current_row.robot_cust_id">[:SIns.current_row.robot_cust_id:]</span>

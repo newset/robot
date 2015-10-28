@@ -588,6 +588,8 @@
                     console.log(res);
                     if (res.data.status == 1) {
                         $state.go('base.agency.detail', {aid : SAgency.current_row.id});
+                    }else{
+                        toastr.error('服务器错误');
                     };
                 });
             }

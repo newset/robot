@@ -171,7 +171,7 @@ class BaseModel extends Model
                 $ins->eventFire('u');
                 $ins->assignRelateData();
                 $ins->getSafeColumns();
-                return ss($ins, 0);
+                return ss($ins);
             } else
             {
                 return ee(8);

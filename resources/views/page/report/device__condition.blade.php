@@ -8,8 +8,8 @@
 		<form action="/report/device__condition" method="post" id="report-form" class="form-horizontal">
 			<div class="row">
 				{!! csrf_field() !!}
-				<label class="col-md-2 control-label">时间：</label>
-				<label class="pull-left report-from">从</label>
+				<label class="col-md-2 control-label">时间</label>
+				<label class="pull-left report-from"></label>
 				<div class="col-md-3">
 					<datepicker date-format="yyyy-MM-dd 00:00:00" date-set="[:SIns.cu_bat_data.production_date:]">
 						<input type="text" name="starttime" ng-model="cond.starttime" class="form-control">
@@ -25,7 +25,7 @@
 
 			<div class="row">
 				<div class="form-group">
-					<label class="col-md-2 control-label" for="agencyid">代理商id:</label>
+					<label class="col-md-2 control-label" for="agencyid">代理商</label>
 					<div class="col-md-3">
 						<input type="text" class="form-control" id="agencyid"  placeholder="" name="agencyid" ng-model="cond.agencyid" required>
 					</div>
