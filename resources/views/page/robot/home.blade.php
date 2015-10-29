@@ -23,7 +23,7 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="item in data">
-						<td></td>
+						<td>[:info(item):]</td>
 						<td>[:item.cust_id:]</td>
 						<td>[:SIns.robot_action_type[item.status].name:]</td>
 						<td>[:SIns.lease_type[item.lease_type_id].name:]</td>

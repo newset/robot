@@ -27,11 +27,14 @@
         .filter('laDate', function($filter) {
            var angularDateFilter = $filter('date');
            return function(theDate, format) {
+                if (!theDate) {
+                    return '';
+                };
                 var format = format || 'yyyy-MM-dd',
                     date = new Date(theDate);
 
                 // firefox fix
-                if (date == 'Invalid Date') {
+                if (date == 'Invalid Date' && theDate) {
                     date = new Date(theDate.replace(/-/g,'/'));
                 };
                return angularDateFilter(date, format);

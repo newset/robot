@@ -14,10 +14,13 @@
                $scope.h = h;
             }])
 
-        .controller('CHome', [
-            function ()
+        .controller('CHome', ['$rootScope', '$state',
+            function ($rootScope, $state)
             {
-                console.log('CHome');
+                console.log('CHome', $rootScope._user_session_data);
+                if ($rootScope._user_session_data && $rootScope._user_session_data.his_chara && $rootScope._user_session_data.his_chara[0] == 'agency') {
+                    $state.go('base.mark.home');
+                };
             }])
         .controller('CDepartmentHome', ['$scope', 'H', function($scope, H){
             H.g(cook('department/rl')).then(function(res){
@@ -533,6 +536,21 @@
                 //}, true)
             }
         ])
+        .controller('AgencyHome', ['deps', '$scope', 'SRobot', 'SMark', 'H', 'ngDialog', function(deps, $scope, SRobot, SMark, H, ngDialog){
+            $scope.data = deps[0];
+            $scope.marks = deps[1];
+            
+            $scope.SIns = SRobot;
+            $scope.SMark = SMark;
+            console.log('deps: ', deps);
+            $scope.info = function(){
+                return '租期快要结束';
+            }
+
+            $scope.set_doctor = function(item){
+
+            }
+        }])
         .controller('CAgencyDetail',[
             '$scope',
             'SBase',

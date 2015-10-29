@@ -65,6 +65,11 @@ return [
                 [
                     'r',
                 ],
+            'robot_home' => 
+                [
+                    'home',
+                    'mark'
+                ]
         ],
     'doctor' =>
         [

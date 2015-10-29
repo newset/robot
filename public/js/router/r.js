@@ -93,7 +93,29 @@
                         controller : ['deps', '$scope', 'SRobot', function(deps, $scope, SRobot){
                             $scope.data = deps;
                             $scope.SIns = SRobot;
+
+                            $scope.info = function(){
+                                return '租期到期';
+                            }
                         }]
+                    })
+                    .state('base.mark.home',
+                    {
+                        url: '/home',
+                        templateUrl: shot('page/home/agency'),
+                        resolve : {
+                            deps : function(H, $q) {
+                                return $q.all([
+                                    H.p(cook('robot_home/home')).then(function(res){
+                                        return res.data.d;
+                                    }),
+                                    H.p(cook('robot_home/mark')).then(function(res){
+                                        return res.data.d;
+                                    })
+                                ]);
+                            }
+                        },
+                        controller : 'AgencyHome'
                     })
                     .state('base.robot.list',
                     {
