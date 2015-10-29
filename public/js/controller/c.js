@@ -579,7 +579,7 @@
                 //}, true)
             }
         ])
-        .controller('AgencyHome', ['deps', '$scope', 'SRobot', 'SMark', 'H', 'ngDialog', function(deps, $scope, SRobot, SMark, H, ngDialog){
+        .controller('AgencyHome', ['deps', '$scope', 'SRobot', 'SMark', 'H', 'ngDialog', '$state', function(deps, $scope, SRobot, SMark, H, ngDialog, $state){
             $scope.data = deps[0];
             $scope.marks = deps[1];
             
@@ -603,12 +603,34 @@
             $scope.set_doctor = function(item){
                 var dialog = ngDialog.open({
                     templateUrl : 'assign_doc.html',
-                    controller : function($scope, H){
-
+                    resolve : {
+                        doctors: function(H){
+                            return H.p(cook('doctor/r'), {where: {'hospital_id' : item.hospital_id}}).then(function(res){
+                                return res.data.status == 1 ? res.data.d.main : [];
+                            });
+                        },
+                        mark : function(){
+                            return item.id;
+                        }
+                    },
+                    controller : function($scope, H, doctors, mark){
+                        $scope.doctors = doctors;
                         $scope.save = function(){
-                            H.p(cook('agency/assign_doc'), {'doctor_id': $scope})
+                            H.p(cook('mark/cu'), {'doctor_id': $scope.doctor_id, id: mark}).then(function(res){
+                                if (res.data.status == 1) {
+                                    $scope.closeThisDialog(true);
+                                };
+                            });
+                        }
+
+                        $scope.close = function(){
+                            $scope.closeThisDialog();
                         }
                     }
+                });
+
+                dialog.closePromise.then(function(val){
+                    $state.reload();
                 });
             }
         }])

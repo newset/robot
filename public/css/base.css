@@ -724,6 +724,10 @@ select.form-control + .chosen-container-multi .chosen-results li.result-selected
     background-color: white;
 }
 
+.dialog-chosen .chosen-container{
+    min-width: 200px;
+}
+
 .hospital-list-edit{
     text-align: center;
 }

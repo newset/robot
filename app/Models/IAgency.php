@@ -6,6 +6,7 @@ use Hamcrest\BaseMatcher;
 use Illuminate\Database\Eloquent\Model;
 
 use Event, App\Events\UserSignup;
+use DB;
 
 class IAgency extends BaseModel
 {
@@ -91,11 +92,6 @@ class IAgency extends BaseModel
             ->orWhereRaw('(ended_at is not null and datediff(ended_at, now()) between 0 and 10)')
             ->get();
         return ss($data);
-    }
-
-    public function assign_doc()
-    {
-        
     }
 
     /**

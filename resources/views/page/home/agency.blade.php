@@ -1,5 +1,29 @@
 <script type="text/ng-template" id="assign_doc.html">
-	
+	<div class="panel panel-default">
+		<div class="panel-body">
+		   <br>
+		    <form action="" method="get" class="dialog-chosen" accept-charset="utf-8">
+		    	<div class="form-group">
+		    		<label for="">医生</label>
+		    		<select 
+		    			name="doctor" 
+		    			ng-model="doctor_id" 
+		    			chosen
+		    			update="doctors" 
+		    			ng-options="l.id as l.name for l in doctors" 
+		    			class="form-control"
+		    			>
+		    			<option value="">请选择</option>
+		    		</select>
+		    	</div>
+		    </form>
+		    <br>
+			<div class="panel-heading text-right">
+				<button type="button" class="btn btn-primary" ng-click="save()">确定</button>
+				<button type="button" class="btn btn-default" ng-click="close()">取消</button>
+			</div>
+		</div>
+	</div>
 </script>
 <div>
 	<div class="panel panel-default">
@@ -41,6 +65,9 @@
 							<a ui-sref="base.robot.detail({id : item.id})" title="" class="btn btn-sm btn-primary">查看</a>
 						</td>
 					</tr>
+					<tr ng-if="!data.length">
+						<td colspan="9" class="text-center">暂无相关数据</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -72,6 +99,9 @@
 						</td>
 						<td>[:item.sold_at|laDate:]</td>
 						<td>[:item.used_at| laDate: 'yyyy-MM-dd hh:mm' :]</td>
+					</tr>
+					<tr ng-if="!marks.length">
+						<td colspan="7" class="text-center">暂无相关数据</td>
 					</tr>
 				</tbody>
 			</table>
