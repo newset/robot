@@ -13,7 +13,7 @@
 	 	   			<th></th>
 	 	   			<th>编号</th>
 	 	   			<th class="col-md-2">名称</th>
-	 	   			<th>地区</th>
+	 	   			<th class="col-md-1">地区</th>
 	 	   			<th class="col-md-1">代理状态</th>
 	 	   			<th class="col-md-1">代理开始</th>
 	 	   			<th class="col-md-1">代理结束</th>
@@ -25,8 +25,8 @@
 	 	   			<td></td>
 	 	   			<td>[:item.id:]</td>
 	 	   			<td>[:item.name:]</td>
-	 	   			<td></td>
-	 	   			<td></td>
+	 	   			<td>[:place('province', item.province_id) + '-' + place('city', item.city_id):]</td>
+	 	   			<td>[:SIns.status(item):]</td>
 	 	   			<td>[:item.started_at:]</td>
 	 	   			<td>[:item.ended_at:]</td>
 	 	   			<td class="text-center">

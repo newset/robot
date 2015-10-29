@@ -41,7 +41,10 @@
                                             })
                                         return defer.promise;
                                     }
-                                ]
+                                ],
+                            locs : function(h){
+                                return h.prepare_location_data();
+                            } 
                         }
                     })
                     .state('base.home',
@@ -276,8 +279,15 @@
                                 })
                             }
                         },
-                        controller : ['$scope', 'SAgency', 'deps', function($scope, SAgency, deps){
+                        controller : ['$scope', 'SAgency', 'SBase', 'deps', '$filter', function($scope, SAgency, SBase, deps, $filter){
                             $scope.data = deps;
+                            $scope.SBase = SBase;
+                            $scope.SIns = SAgency;
+
+                            $scope.place = function(key, id){
+                                var a = $filter('filter')(SBase._.location[key], {'id': id}, true)[0];
+                                return a.name
+                            }
                         }]
                     })
                     .state('base.agency.list', {//代理商查询页
