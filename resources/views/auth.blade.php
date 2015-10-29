@@ -212,7 +212,7 @@
 													   name="phone"
 													   ng-model="c_form_auth.vals.phone"
 													   ng-model-options="{debounce: 300}"
-													   type="number"
+													   type="text"
 													   class="form-control"
 													   id="phone"
 													   placeholder="手机">

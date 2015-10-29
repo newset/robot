@@ -25,7 +25,7 @@
 	@endif
 	@if(sess('permission')[2])
 	<div class="col-md-4 col-sm-6">
-		<a ui-sref="base.agency.list({with_search: 1})">
+		<a ui-sref="base.agency.todo">
 			<div class="dashboard-tile detail tile-blue">
 				<div class="content">
 					<h1><img src="../assets/img/grid/03.png" alt="">代理商管理 </h1>

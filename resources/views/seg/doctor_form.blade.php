@@ -74,7 +74,7 @@
 									update="SIns.departments"
 									ng-model="SIns.current_row.department_id"
 									ng-options="l.id as l.name for l in SIns.departments"
-									required>
+									>
 								<option value="">无</option>
 							</select>
 						</div>    

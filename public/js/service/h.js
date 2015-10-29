@@ -220,11 +220,12 @@
 
                 function prepare_location_data()
                 {
-                    return H.p(cook('location/province_and_city'))
-                        .then(function (r)
+                    var promise = H.p(cook('location/province_and_city'));
+                    promise.then(function (r)
                         {
                             SBase._.location = r.data.d;
                         })
+                    return promise;
                 }
 
                 function prepare_cond(as_copy, raw_cond)

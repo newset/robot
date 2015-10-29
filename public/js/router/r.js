@@ -41,7 +41,10 @@
                                             })
                                         return defer.promise;
                                     }
-                                ]
+                                ],
+                            locs : function(h){
+                                return h.prepare_location_data();
+                            } 
                         }
                     })
                     .state('base.home',
@@ -93,7 +96,29 @@
                         controller : ['deps', '$scope', 'SRobot', function(deps, $scope, SRobot){
                             $scope.data = deps;
                             $scope.SIns = SRobot;
+
+                            $scope.info = function(){
+                                return '租期到期';
+                            }
                         }]
+                    })
+                    .state('base.mark.home',
+                    {
+                        url: '/home',
+                        templateUrl: shot('page/home/agency'),
+                        resolve : {
+                            deps : function(H, $q) {
+                                return $q.all([
+                                    H.p(cook('robot_home/home')).then(function(res){
+                                        return res.data.d;
+                                    }),
+                                    H.p(cook('robot_home/mark')).then(function(res){
+                                        return res.data.d;
+                                    })
+                                ]);
+                            }
+                        },
+                        controller : 'AgencyHome'
                     })
                     .state('base.robot.list',
                     {
@@ -243,6 +268,27 @@
                     .state('base.agency.new', {//新建代理商
                         url : '/new',
                         templateUrl : shot('page/agency_new')
+                    })
+                    .state('base.agency.todo', {//新建代理商
+                        url : '/todo',
+                        templateUrl : shot('page/agency/todo'),
+                        resolve : {
+                            deps : function(SAgency, H){
+                                return H.p(cook('agency/todo')).then(function(res){
+                                    return res.data.d;
+                                })
+                            }
+                        },
+                        controller : ['$scope', 'SAgency', 'SBase', 'deps', '$filter', function($scope, SAgency, SBase, deps, $filter){
+                            $scope.data = deps;
+                            $scope.SBase = SBase;
+                            $scope.SIns = SAgency;
+
+                            $scope.place = function(key, id){
+                                var a = $filter('filter')(SBase._.location[key], {'id': id}, true)[0];
+                                return a.name
+                            }
+                        }]
                     })
                     .state('base.agency.list', {//代理商查询页
                         url : '/list',
@@ -426,7 +472,7 @@
                         template : '<div ui-view></div>'
                     })
                     .state('base.doctor.new', {
-                        url : '/new/:hospital?',
+                        url : '/new/:hospital',
                         controller : "CPageDoctorNew",
                         templateUrl : shot('seg/doctor_form')
                     })
