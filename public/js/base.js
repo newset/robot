@@ -66,7 +66,7 @@
 		        	return response;
 		        },
 		        responseError : function(res){
-		        	if (res.status == 403 && res.data.code == '00001') {
+		        	if ($location.url() != '/' && res.status == 403 && res.data.code == '00001') {
 		        		$location.url('/');
 		        		location.reload();
 		        	};

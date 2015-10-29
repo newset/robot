@@ -472,7 +472,7 @@
                         template : '<div ui-view></div>'
                     })
                     .state('base.doctor.new', {
-                        url : '/new/:hospital?',
+                        url : '/new/:hospital',
                         controller : "CPageDoctorNew",
                         templateUrl : shot('seg/doctor_form')
                     })

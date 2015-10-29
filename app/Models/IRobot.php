@@ -140,7 +140,7 @@ class IRobot extends BaseModel
         $ins = parent::cu($rq);
 
         if ($ins['status'] == 0) {
-            return ss($ins);
+            return $ins;
         }
 
         if (!rq('id')) {
@@ -154,7 +154,7 @@ class IRobot extends BaseModel
             $r = $lease_log_ins->save();
         }
         
-        return ss($ins);
+        return $ins;
     }
 
     public function search_by_log($in = null)
