@@ -84,6 +84,15 @@ class IAgency extends BaseModel
         return parent::u($rq);
     }
 
+    public function todo()
+    {
+        $data = $this->select('*')
+            ->whereRaw('timestampdiff(day, created_at, now()) < 2')
+            ->orWhereRaw('(ended_at is not null and datediff(ended_at, now()) between 0 and 10)')
+            ->get();
+        return ss($data);
+    }
+
     /**
      * 触发事件
      */

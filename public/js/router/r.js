@@ -266,6 +266,20 @@
                         url : '/new',
                         templateUrl : shot('page/agency_new')
                     })
+                    .state('base.agency.todo', {//新建代理商
+                        url : '/todo',
+                        templateUrl : shot('page/agency/todo'),
+                        resolve : {
+                            deps : function(SAgency, H){
+                                return H.p(cook('agency/todo')).then(function(res){
+                                    return res.data.d;
+                                })
+                            }
+                        },
+                        controller : ['$scope', 'SAgency', 'deps', function($scope, SAgency, deps){
+                            $scope.data = deps;
+                        }]
+                    })
                     .state('base.agency.list', {//代理商查询页
                         url : '/list',
                         controller:'CPageAgency',
