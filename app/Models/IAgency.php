@@ -93,6 +93,11 @@ class IAgency extends BaseModel
         return ss($data);
     }
 
+    public function assign_doc()
+    {
+        
+    }
+
     /**
      * 触发事件
      */

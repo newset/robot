@@ -505,6 +505,21 @@
                         controller : "CPageDoctorNew",
                         templateUrl : shot('seg/doctor_form')
                     })
+                    .state('base.doctor.edit', {
+                        url : '/edit/:id?hid=',
+                        controller : "CPageDoctorEdit",
+                        templateUrl : shot('seg/doctor_form'),
+                        resolve: {
+                            deps : function(SDoctor, H, $stateParams){
+                                return H.p(cook('doctor/r'), {id: $stateParams.id}).then(function(res){
+                                    if (res.data.status == 1) {
+                                        SDoctor.current_row = res.data.d.main[0];
+                                    };
+                                    return SDoctor;
+                                })
+                            }
+                        }
+                    })
                     .state('base.doctor.list', {
                         url : '/list',
                         templateUrl : shot('page/doctor'),

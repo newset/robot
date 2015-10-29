@@ -11,6 +11,12 @@ class IDoctor extends BaseModel
 
     protected $ins_name = 'doctor';
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->table = table_name($this->ins_name, 'i');
+    }
+
     public function get_his_history()
     {
         $d['all'] = M('mark')->where('doctor_id', uid())->orderBy('archive_at')->get();

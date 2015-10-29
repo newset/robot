@@ -316,6 +316,49 @@
 
             }
         ])
+        .controller('CPageDoctorEdit',
+        [
+            '$scope',
+            '$state',
+            'SBase',
+            'SDoctor',
+            'SHospital',
+            'SDepartment',
+            'h',
+            '$stateParams',
+            function ($scope,
+                      $state,
+                      SBase,
+                      SDoctor,
+                      SHospital,
+                      SDepartment,
+                      h,
+                      $stateParams
+            )
+            {
+                $scope.SBase = SBase;
+                $scope.SIns = SDoctor;
+                SDoctor.init();
+
+                $scope.createForHopistal = $stateParams.hid;
+
+                $scope.getLastId = SDoctor.getLastId;
+
+                $scope.save = function(data){
+                    $scope.SIns.cu(data).then(function(res){
+                        if ($stateParams.hid) {
+                            $state.go('base.hospital.department_doctor', {hid: $stateParams.hid});
+                        }else{
+                            $state.go('base.doctor.list');
+                        };
+                        SDoctor.current_row = {};
+                    }, function(){
+                        // 外键错误 todo
+                        
+                    });
+                }
+
+        }])
           //科室controller
         .controller('CPageDepartment',
         [
@@ -558,7 +601,15 @@
             }
 
             $scope.set_doctor = function(item){
+                var dialog = ngDialog.open({
+                    templateUrl : 'assign_doc.html',
+                    controller : function($scope, H){
 
+                        $scope.save = function(){
+                            H.p(cook('agency/assign_doc'), {'doctor_id': $scope})
+                        }
+                    }
+                });
             }
         }])
         .controller('CAgencyDetail',[

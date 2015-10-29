@@ -1,3 +1,6 @@
+<script type="text/ng-template" id="assign_doc.html">
+	
+</script>
 <div>
 	<div class="panel panel-default">
 		<div class="panel-body">
@@ -55,7 +58,7 @@
 						<th>医院</th>
 						<th class="col-md-1">医生</th>
 						<th class="col-md-1">销售时间</th>
-						<th class="col-md-1">使用时间</th>
+						<th class="col-md-2">使用时间</th>
 					</tr>
 				</thead>
 				<tbody>

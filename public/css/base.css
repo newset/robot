@@ -29,7 +29,19 @@ textarea{
  width: 100%;
  position: relative;
 }
-
+.fix-form-control{
+    height: 18px;
+    padding: 6px 11px;
+    line-height: 18px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075)!important;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075)!important;
+}
+.fix-form-control {
+    width: auto;
+    padding: 6px;
+    margin: 0px;
+    display: inline-block;
+}
 .user-nav{
     position: absolute;
     right: 0;
