@@ -10,8 +10,8 @@
 	 	   <table class="table table-bordered">
 	 	   	<thead>
 	 	   		<tr>
-	 	   			<th></th>
-	 	   			<th>编号</th>
+	 	   			<th class="col-md-1"></th>
+	 	   			<th class="col-md-1">编号</th>
 	 	   			<th class="col-md-2">名称</th>
 	 	   			<th class="col-md-1">地区</th>
 	 	   			<th class="col-md-1">代理状态</th>
@@ -22,7 +22,7 @@
 	 	   	</thead>
 	 	   	<tbody>
 	 	   		<tr ng-repeat="item in data">
-	 	   			<td></td>
+	 	   			<td>[:info(item):]</td>
 	 	   			<td>[:item.id:]</td>
 	 	   			<td>[:item.name:]</td>
 	 	   			<td>[:place('province', item.province_id) + '-' + place('city', item.city_id):]</td>

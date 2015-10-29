@@ -97,8 +97,18 @@
                             $scope.data = deps;
                             $scope.SIns = SRobot;
 
-                            $scope.info = function(){
-                                return '租期到期';
+                            $scope.info = function(item){
+                                if (item.log_lease_lease_ended_at) {
+                                      var end = moment(item.log_lease_lease_ended_at),
+                                        now = moment(),
+                                        dur = moment.duration(now.diff(end)).days();
+
+                                    if (dur < 0 && Math.abs(dur) < 10) {
+                                        return '租期快要结束';
+                                    };
+                                };
+
+                                return '该采集USB数据';
                             }
                         }]
                     })
@@ -287,6 +297,25 @@
                             $scope.place = function(key, id){
                                 var a = $filter('filter')(SBase._.location[key], {'id': id}, true)[0];
                                 return a.name
+                            }
+
+                            $scope.info = function(item){
+                                var now = moment();
+                                if (item.ended_at) {
+                                      var end = moment(item.ended_at),
+                                        endDur = moment.duration(now.diff(end)).days();
+
+                                    if (endDur < 0 && Math.abs(endDur) < 10) {
+                                        return '租期快要结束';
+                                    };
+                                };
+
+                                var create = moment(item.created_at),
+                                    createDur = moment.duration(now.diff(create)).days();
+                                if (createDur >=0 && createDur < 5) {
+                                    return '新注册';
+                                };
+                                return '';
                             }
                         }]
                     })
