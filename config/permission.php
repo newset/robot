@@ -60,7 +60,7 @@ return [
             'agency' =>
                 [
                     'r',
-                    'assign_doc'
+                    'me'
                 ],
             'doctor' =>
                 [

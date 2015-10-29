@@ -579,12 +579,34 @@
                 //}, true)
             }
         ])
-        .controller('AgencyHome', ['deps', '$scope', 'SRobot', 'SMark', 'H', 'ngDialog', '$state', function(deps, $scope, SRobot, SMark, H, ngDialog, $state){
+        .controller('AgencyHome', ['deps', '$scope', 'SAgency', 'SRobot', 'SMark', 'H', 'ngDialog', '$state', function(deps, $scope, SAgency, SRobot, SMark, H, ngDialog, $state){
             $scope.data = deps[0];
             $scope.marks = deps[1];
             
             $scope.SIns = SRobot;
             $scope.SMark = SMark;
+            $scope.SAgency =SAgency;
+            
+            H.p(cook('agency/me')).then(function(res){
+                $scope.agency_status = '正常';
+                $scope.agency_status_danger = 0;
+                var me = $scope.me = res.data.d;
+
+                if (!me.started_at) {
+                    $scope.agency_status = '无代理权';
+                };
+
+                var dur = moment.duration(moment(me.ended_at).diff(moment()));
+                console.log('dur: ', dur, me.ended_at);
+                if (dur < 0) {
+                    $scope.agency_status = '已过期';
+                    $scope.agency_status_danger = 1;
+                }else if(dur <= 3600*24*30){
+                    $scope.agency_status = '即将过期';
+                    $scope.agency_status_danger = 1;
+                };
+
+            });
 
             $scope.info = function(item){
                 if (item.log_lease_lease_ended_at) {

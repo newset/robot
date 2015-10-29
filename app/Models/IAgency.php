@@ -94,6 +94,12 @@ class IAgency extends BaseModel
         return ss($data);
     }
 
+    public function me()
+    {
+        $data = $this->where('id', uid())->first();
+        return ss($data);
+    }
+
     /**
      * 触发事件
      */

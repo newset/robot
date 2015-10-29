@@ -29,6 +29,7 @@
 	<div class="panel panel-default">
 		<div class="panel-body">
 			代办事项
+			<span class="pull-right h5" ng-class="{'text-danger': agency_status_danger}">[:agency_status:]</span>
 		</div>
 	</div>
 
@@ -45,10 +46,8 @@
 						<th>设备状态</th>
 						<th>销售状态</th>
 						<th>医院</th>
-						<!-- <th>代理商</th> -->
 						<th>负责人</th>
 						<th>维护记录</th>
-						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -58,12 +57,8 @@
 						<td>[:SIns.robot_action_type[item.status].name:]</td>
 						<td>[:SIns.lease_type[item.lease_type_id].name:]</td>
 						<td>[:item.hospital_name:]</td>
-						<!-- <td>[:item.agency_name:]</td> -->
 						<td>[:item.employee_name:]</td>
 						<td>[:item.log_count || 0:]</td>
-						<td class="text-center">
-							<!-- <a ui-sref="base.robot.detail({id : item.id})" title="" class="btn btn-sm btn-primary">查看</a> -->
-						</td>
 					</tr>
 					<tr ng-if="!data.length">
 						<td colspan="9" class="text-center">暂无相关数据</td>
