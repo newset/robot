@@ -21,7 +21,7 @@
 								  style="width: 100%;">
 							  <thead>
 							  <tr role="row" class="info">
-								  <th>结账时间</th>
+								  <th>归档时间</th>
 								  <th>Mark数量</th>
 								  <th></th>
 							  </tr>

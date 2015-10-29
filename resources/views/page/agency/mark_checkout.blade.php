@@ -18,7 +18,7 @@
         												 required>
         								</datepicker>
 									  </div>
-										  <button class="btn btn-info" style="float: right" ng-click="checkout()">生成结账清单</button>
+										  <button class="btn btn-info" style="float: right" ng-click="checkout()">生成归档清单</button>
 									</div>
 								</form>
 							</div>
@@ -41,8 +41,8 @@
 							  <tr role="row" class="info">
 								  <th>医院</th>
 								  <th>医生名字</th>
-								  <th>历史结账</th>
-								  <th>未结账</th>
+								  <th>历史归档</th>
+								  <th>未归档</th>
 							  </tr>
 							  </thead>
 							  <tbody>

@@ -9,7 +9,7 @@
             <div class="row">
                 {!! csrf_field() !!}
                 <label class="col-md-2 control-label">时间：</label>
-                <label class="pull-left report-from"></label>
+                <label class="pull-left report-from">从</label>
                 <div class="col-md-3">
                     <datepicker date-format="yyyy-MM-dd 00:00:00" date-set="[:SIns.cu_bat_data.production_date:]">
                         <input type="text" name="starttime" ng-model="cond.starttime" class="form-control">

@@ -7,13 +7,13 @@
 	</div>
 
 	<p>[:detail.d.msg:]</p>
-	<table class="table table-bordered">
+	<table class="table table-bordered table-striped table-hover">
 		<thead>
-			<tr>
+			<tr class="info">
 				<th>医院</th>
 				<th>医生名字</th>
-				<th>历史结账</th>
-				<th>本次结账</th>
+				<th>历史归档</th>
+				<th>本次归档</th>
 			</tr>
 		</thead>
 		<tbody>
