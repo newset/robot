@@ -152,7 +152,7 @@ controller:CPageDepartment
                     <td>[:row.email:]</td>
                     <td class="edit col-md-1">
                         <span class="tool_wrapper">
-                            <button class="btn btn-custom btn-primary" href="" ng-click="SIns.popup_edit(row)">
+                            <button class="btn btn-custom btn-primary" ui-sref="base.doctor.edit({id: row.id, hid: hospital.id})">
                                 编辑
                             </button>
                             {{-- <span href="" class="btn-custom-delete"  ng-click="SIns.d(row.id)">删除</span> --}}

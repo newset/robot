@@ -36,7 +36,7 @@
 						<div class="col-md-4">
 							<input ng-model="SIns.current_row.cust_id"
 		                     	name="cust_id"
-							   	la-exist="doctor.cust_id"
+							   	class="fix-form-control form-control" 
 							   	required>
               				<button type="button" class="btn btn-primary inline-btn" ng-click="getLastId()">重新生成</button>
 						</div>   
@@ -47,17 +47,16 @@
 				<div class="row">
 					<div class="form-group col-md-12">
 						<label class="control-label col-md-2">所在医院</label> 
-						<div class="col-md-4" ng-init="SIns.current_row.hospital_id=currentHospital">
+						<div class="col-md-4">
 							<select class="form-control"
 									name="city_id"
 									chosen
 									ng-disabled="createForHopistal"
-									update="SIns.all_hospital || createForHopistal"
+									update="SIns.all_hospital || createForHopistal || currentHospital"
 									ng-change="get_department()"
 									ng-model="SIns.current_row.hospital_id"
 									ng-options="l.id as l.name for l in SIns.all_hospital"
 									required>
-									[:SIns.current_row.hospital_id:]
 								<option value="">选择医院</option>
 							</select>
 						</div>    

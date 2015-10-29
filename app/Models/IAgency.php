@@ -6,6 +6,7 @@ use Hamcrest\BaseMatcher;
 use Illuminate\Database\Eloquent\Model;
 
 use Event, App\Events\UserSignup;
+use DB;
 
 class IAgency extends BaseModel
 {

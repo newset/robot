@@ -33,6 +33,19 @@
                 };
                 me.all_rec = [];
 
+                me.getLastId = function(){
+                    var time = new Date().valueOf().toString(),
+                        a = time.substr(-9),
+                        b = a.substr(-4) + a.substr(0, 5);
+                    me.lastId(b).then(function(res){
+                        if (res.data.status == 1) {
+                            me.current_row.cust_id = Number(res.data.d);
+                        }else{
+                            me.getLastId();
+                        };
+                    })
+                }
+
                 me.get_all_rec = function()
                 {
                     H.p(cook('doctor/r'), {'limit': 0})

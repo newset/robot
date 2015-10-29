@@ -316,6 +316,49 @@
 
             }
         ])
+        .controller('CPageDoctorEdit',
+        [
+            '$scope',
+            '$state',
+            'SBase',
+            'SDoctor',
+            'SHospital',
+            'SDepartment',
+            'h',
+            '$stateParams',
+            function ($scope,
+                      $state,
+                      SBase,
+                      SDoctor,
+                      SHospital,
+                      SDepartment,
+                      h,
+                      $stateParams
+            )
+            {
+                $scope.SBase = SBase;
+                $scope.SIns = SDoctor;
+                SDoctor.init();
+
+                $scope.createForHopistal = $stateParams.hid;
+
+                $scope.getLastId = SDoctor.getLastId;
+
+                $scope.save = function(data){
+                    $scope.SIns.cu(data).then(function(res){
+                        if ($stateParams.hid) {
+                            $state.go('base.hospital.department_doctor', {hid: $stateParams.hid});
+                        }else{
+                            $state.go('base.doctor.list');
+                        };
+                        SDoctor.current_row = {};
+                    }, function(){
+                        // 外键错误 todo
+                        
+                    });
+                }
+
+        }])
           //科室controller
         .controller('CPageDepartment',
         [
@@ -536,7 +579,7 @@
                 //}, true)
             }
         ])
-        .controller('AgencyHome', ['deps', '$scope', 'SRobot', 'SMark', 'H', 'ngDialog', function(deps, $scope, SRobot, SMark, H, ngDialog){
+        .controller('AgencyHome', ['deps', '$scope', 'SRobot', 'SMark', 'H', 'ngDialog', '$state', function(deps, $scope, SRobot, SMark, H, ngDialog, $state){
             $scope.data = deps[0];
             $scope.marks = deps[1];
             
@@ -558,7 +601,37 @@
             }
 
             $scope.set_doctor = function(item){
+                var dialog = ngDialog.open({
+                    templateUrl : 'assign_doc.html',
+                    resolve : {
+                        doctors: function(H){
+                            return H.p(cook('doctor/r'), {where: {'hospital_id' : item.hospital_id}}).then(function(res){
+                                return res.data.status == 1 ? res.data.d.main : [];
+                            });
+                        },
+                        mark : function(){
+                            return item.id;
+                        }
+                    },
+                    controller : function($scope, H, doctors, mark){
+                        $scope.doctors = doctors;
+                        $scope.save = function(){
+                            H.p(cook('mark/cu'), {'doctor_id': $scope.doctor_id, id: mark}).then(function(res){
+                                if (res.data.status == 1) {
+                                    $scope.closeThisDialog(true);
+                                };
+                            });
+                        }
 
+                        $scope.close = function(){
+                            $scope.closeThisDialog();
+                        }
+                    }
+                });
+
+                dialog.closePromise.then(function(val){
+                    $state.reload();
+                });
             }
         }])
         .controller('CAgencyDetail',[
