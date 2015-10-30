@@ -49,7 +49,7 @@
   $mysqli->query($query);
   
   //地区来限制代理商，代理商按行显示
-  //查询 库存总数	已销售	已损坏	损坏已更新	已绑定	使用未绑定	已结账	绑定未结账
+  //查询 库存总数	已销售	已损坏	损坏已更新	已绑定	使用未绑定	已归档	绑定未归档
   $query = "create view agency_mark 
   (mark_id,province_id,city_id,agency_id,agency_name,sold,sold_at,damaged_at,used_at,doctor_id,archive_at,status,hospital_id) as 
   select i_mark.id,province_id,city_id,agency_id,i_agency.name,sold,sold_at,damaged_at,used_at,doctor_id,archive_at,i_mark.status,i_mark.hospital_id from i_mark,i_agency
@@ -98,14 +98,14 @@
   on maintable.name=subtable.agency_name order by name;";
   $unbindresult = $mysqli->query($query);     
   
-  /*已结账*/
+  /*已归档*/
   $query = "select distinct maintable.province_id,maintable.city_id,maintable.name,ifnull(subtable.num,0) as archivenum from 
   (select * from i_agency where  province_id=$provinceid and city_id= $cityid) as maintable left join
   (select agency_name,count(mark_id) as num from agency_mark where archive_at>='$starttime' and archive_at<='$endtime' group by agency_name ) as subtable 
   on maintable.name=subtable.agency_name order by name;";
   $archiveresult = $mysqli->query($query);  
   
-  /*绑定未结账*/
+  /*绑定未归档*/
    $query = "select distinct maintable.province_id,maintable.city_id,maintable.name,ifnull(subtable.num,0) as unarchivenum from 
    (select * from i_agency where  province_id=$provinceid and city_id= $cityid) as maintable left join
   (select agency_name,count(mark_id) as num from agency_mark where archive_at<=>null and used_at>='$starttime' and used_at<='$endtime' and ifnull(doctor_id,-1)!=-1 group by agency_name ) as subtable 
@@ -162,7 +162,7 @@
 			<caption style="font-family:Arial, Helvetica;text-align:left;font-size:30px;text-align:center">代理商mark情况统计表</caption>
 			<thead>
 				<tr ><th>省份id </th><th>城市id </th><th>代理商 </th><th>库存总数 </th><th>已销售 </th><th>已损坏 </th><th>损坏已更新 </th>
-				<th>已绑定 </th><th>使用未绑定 </th><th>已结账 </th> <th>绑定未结账 </th></tr>
+				<th>已绑定 </th><th>使用未绑定 </th><th>已归档 </th> <th>绑定未归档 </th></tr>
 			</thead>
 			<tbody>  ';
 					

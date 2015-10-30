@@ -85,7 +85,7 @@
   
    if($agencyid==""){	   
        /* 不选定代理商 */
-	   //1.已结账
+	   //1.已归档
        $query = "select distinct maintable.hospital_name,maintable.doctor_name,maintable.agency_name,ifnull(subtable.num,0) as archivenum 
 		  from doctor_cross_agency as maintable left join
 		  (select doctor_name,agency_name,count(mark_id) as num from doctor_agency_mark
@@ -94,7 +94,7 @@
 		   order by doctor_name,agency_name";
 		  $archiveresult=$mysqli->query($query);
   
-       //2.未结账
+       //2.未归档
      $query = "select distinct maintable.hospital_name,maintable.doctor_name,maintable.agency_name,ifnull(subtable.num,0) as unarchivenum 
 		  from doctor_cross_agency as maintable left join
 		  (select doctor_name,agency_name,count(mark_id) as num from doctor_agency_mark
@@ -102,7 +102,7 @@
 		   as subtable on maintable.agency_name=subtable.agency_name and maintable.doctor_name=subtable.doctor_name 
 		   order by doctor_name,agency_name";
 		  $unarchiveresult=$mysqli->query($query);
-	   //3.查询历史结账数 不受任何限制（暂且理解为受代理商限制，但不受时间限制）
+	   //3.查询历史归档数 不受任何限制（暂且理解为受代理商限制，但不受时间限制）
 	   $query = "select distinct maintable.hospital_name,maintable.doctor_name,maintable.agency_name,ifnull(subtable.num,0) as historyarchivenum 
 		  from doctor_cross_agency as maintable left join
 		  (select doctor_name,agency_name,count(mark_id) as num from doctor_agency_mark
@@ -196,7 +196,7 @@
 		  <table id="show" class="gridtable" >
 			<caption style="font-family:Arial, Helvetica;text-align:left;font-size:30px;text-align:center">医生mark使用情况表</caption>
 			<thead>
-			  <tr style="background: #FFF"><th>医院 </th><th>医生姓名 </th><th>代理商 </th><th>已结账 </th><th>未结账 </th><th> 历史结账数</th></tr>
+			  <tr style="background: #FFF"><th>医院 </th><th>医生姓名 </th><th>代理商 </th><th>已归档 </th><th>未归档 </th><th> 历史归档数</th></tr>
 			</thead>
 			<tbody>  ';
 			

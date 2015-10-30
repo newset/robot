@@ -54,7 +54,7 @@
    $query="select count(id) as usenum from agency__mark where  used_at>='$starttime' and used_at<='$endtime';";
    $useresult = $mysqli->query($query);
    
-   /*已结账 */
+   /*已归档 */
    $query="select count(id) as archivenum from agency__mark where  archive_at>='$starttime' and archive_at<='$endtime';";
    $archiveresult = $mysqli->query($query);
    
@@ -120,7 +120,7 @@
 		  <table id="show"  >
 			<caption style="font-family:Arial, Helvetica;text-align:left;color: rgb(177, 106, 104);">代理商mark情况统计表</caption>
 			<thead>
-				<tr style="background: #FFF"><th>库存总数 </th><th>已销售 </th><th>进货量 </th><th>已使用 </th><th>已结账 </th><th>已损坏 </th><th>损坏已更换 </th></tr>
+				<tr style="background: #FFF"><th>库存总数 </th><th>已销售 </th><th>进货量 </th><th>已使用 </th><th>已归档 </th><th>已损坏 </th><th>损坏已更换 </th></tr>
 			</thead>
 			<tbody>  ';
 			

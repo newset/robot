@@ -440,17 +440,17 @@
                         templateUrl : shot('page/mark/query'),
                         controller : 'CPageMark as CPageMark'
                     })
-                    .state('base.mark.checkout',{ //mark 结账
+                    .state('base.mark.checkout',{ //mark 归档
                         url : '/checkout',
                         templateUrl : shot('page/agency/mark_checkout'),
                         controller : 'CPageMarkNew'
                     })
-                    .state('base.mark.ck_mark_history',{ //mark 结账
+                    .state('base.mark.ck_mark_history',{ //mark 归档
                         url : '/ck_mark_history',
                         templateUrl : shot('page/agency/mark_checkout_history'),
                         controller : 'CPageMark'
                     })
-                    .state('base.mark.ck_mark_history_detail',{ //mark 结账
+                    .state('base.mark.ck_mark_history_detail',{ //mark 归档
                         url : '/ck_mark_history_detail/:time',
                         templateUrl : shot('page/agency/checkout_his_detail'),
                         resolve: {

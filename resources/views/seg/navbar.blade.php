@@ -36,7 +36,7 @@
                 <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.bind')]"><a ui-sref-opts="{reload:true}" ui-sref="base.mark.bind" title="">Mark绑定</a></li>
                 <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.unbind')]"><a ui-sref-opts="{reload:true}" ui-sref="base.mark.unbind" title="">Mark解绑</a></li>
                 <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.checkout')]"><a ui-sref-opts="{reload:true}" ui-sref="base.mark.checkout" title="">Mark归档</a></li>
-                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.ck_mark_history')]"><a ui-sref-opts="{reload:true}" ui-sref="base.mark.ck_mark_history" title="">历史结账清单</a></li>
+                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.ck_mark_history')]"><a ui-sref-opts="{reload:true}" ui-sref="base.mark.ck_mark_history" title="">历史归档清单</a></li>
                 <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.report')]"><a ui-sref-opts="{reload:true}" ui-sref="base.mark.report({type: 'agency_mark'})" title="">统计报表</a></li>
             </ul>
         </div>
