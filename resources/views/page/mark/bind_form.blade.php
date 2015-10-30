@@ -49,6 +49,7 @@
                         chosen
                         data-placeholder="请选择代理商"
                         ng-options="l.id as l.name for l in SAgency.all_rec | orderBy: 'id'"
+                        style="width: 200px"
                         required>
                 </select>
             </div>
