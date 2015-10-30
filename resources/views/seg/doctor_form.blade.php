@@ -110,7 +110,24 @@
 						</div>    
 					</div>
 				</div>
-				
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="control-label col-md-2">状态</label> 
+						<div class="col-md-4">
+							<select class="form-control"
+								chosen
+								ng-model="SIns.current_row.status"
+								ng-options="l.id as l.name for l in
+									[
+										{id: 0, name: '正常未培训'},
+										{id: 1, name: '培训完毕'},
+										{id: 2, name: '已绑定微信'},
+									]">
+								<option value="">请选择</option>
+							</select>  
+						</div>    
+					</div>
+				</div>
 				<div class="row">
 					<div class="form-group col-md-12">
 						<label class="control-label col-md-2">电话</label> <div class="col-md-4">
