@@ -1,7 +1,8 @@
 <div class="col-md-12">
 	<div class="panel panel-default">
 		<div class="panel-body">
-			<h3 class="panel-title">新建医生</h3>
+			<h3 class="panel-title" ng-if="!SIns.current_row.id">新建医生</h3>
+			<h3 class="panel-title" ng-if="SIns.current_row.id">编辑医生</h3>
 		</div>
 	</div>
 </div>
