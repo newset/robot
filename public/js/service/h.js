@@ -35,19 +35,19 @@
                 me.doctor_status =
                     [
                         {
-                            id: 0,
+                            id: -1,
                             name: '禁用',
                         },
                         {
-                            id: 1,
+                            id: 0,
                             name: '未培训',
                         },
                         {
-                            id: 2,
+                            id: 1,
                             name: '已培训，未绑定微信',
                         },
                         {
-                            id: 3,
+                            id: 2,
                             name: '已培训，已绑定微信',
                         },
                     ];
