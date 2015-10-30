@@ -62,7 +62,7 @@
                 <select class="form-control"
                         name="agency_id"
                         chosen
-                        data-placeholder="请选择代医院"
+                        data-placeholder="请选择医院"
                         ng-model="SIns.cu_bat_data.c"
                         ng-options="l.id as l.name for l in SHospital.all_rec | orderBy: 'id'"
                         style="width: 200px" 
