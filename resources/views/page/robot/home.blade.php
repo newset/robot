@@ -26,7 +26,7 @@
 						<td>[:info(item):]</td>
 						<td>[:item.cust_id:]</td>
 						<td>[:SIns.robot_action_type[item.status].name:]</td>
-						<td>[:SIns.lease_type[item.lease_type_id].name:]</td>
+						<td>[:SIns.lease_type[item.lease_type_id-1].name:]</td>
 						<td>[:item.hospital_name:]</td>
 						<td>[:item.agency_name:]</td>
 						<td>[:item.employee_name:]</td>

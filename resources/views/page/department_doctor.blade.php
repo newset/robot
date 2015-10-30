@@ -134,11 +134,8 @@ controller:CPageDepartment
             </thead>
             <tbody>
                 <tr class="odd"  ng-repeat="row in doctors | orderBy: row.id ">
-                    <td ng-switch="row.status">
-                        <span ng-switch-when="1">未培训</span>
-                        <span ng-switch-when="2">已毕业</span>
-                        <span ng-switch-when="3">绑定微信</span>
-                        <span ng-switch-when="4">禁用</span>
+                    <td ng-repeat="t in SDoctor.status_type | filter:{'id':  row.status}:true">
+                        [:t.name:]
                     </td>
                     <td>[:row.name:]</td>
                     <td>

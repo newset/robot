@@ -395,18 +395,22 @@
       'SBase',
       'SDepartment',
       'h',
+      'SDoctor',
       'H',
       '$stateParams',
       function ($scope,
                 SBase,
                 SDepartment,
                 h,
+                SDoctor,
                 H,
                 $stateParams ){
             $scope.hospital_id=parseInt($stateParams.hid);
             $scope.hospital={};
             $scope.departments={};
             $scope.doctors={};
+
+            $scope.SDoctor = SDoctor;
 
             SDepartment.cond.where.hospital_id = $scope.hospital_id;
             //获取医院信息
