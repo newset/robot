@@ -120,8 +120,8 @@
 								ng-options="l.id as l.name for l in
 									[
 										{id: 0, name: '正常未培训'},
-										{id: 1, name: '培训完毕'},
-										{id: 2, name: '已绑定微信'},
+										{id: 1, name: '培训完毕未绑定微信'},
+										{id: 2, name: '绑定微信'},
 									]">
 								<option value="">请选择</option>
 							</select>  
