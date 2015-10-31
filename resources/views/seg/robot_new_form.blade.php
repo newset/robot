@@ -16,11 +16,11 @@
             name="form_robot"
             ng-init="SEmployee.r({limit: 0}); "
             class="col-md-12 form-horizontal" style="float:none;">
-  
+
           <div class="row"  ng-if="!SIns.current_row.id">
             <div class="form-group">
               <label class="control-label col-md-1">编号</label>
-              <div class="col-md-6 col-sm-12">
+              <div class="col-md-4 col-sm-12">
                 <input class="form-control"
                      name="cust_id"
                      ng-model-options="{ updateOn: 'blur' }"
@@ -33,12 +33,12 @@
               <label class="error" ng-if="form_robot.cust_id.$error.laExist">编号已存在</label>
             </div>
           </div>
-  
+
           <div class="row">
             <div class="form-group">
               <label class="control-label col-md-1">负责人</label>
-              <div class="col-md-6">
-                <select class="form-control" 
+              <div class="col-md-4">
+                <select class="form-control"
                   ng-model="SIns.current_row.employee_id"
                   chosen
                   update="SEmployee.all"
@@ -49,7 +49,7 @@
                   [:error:]
                 </p>
               </div>
-              
+
              <!--  <select class="form-control"
                       name="province_id"
                       ng-model="SIns.current_row.employee_id"
@@ -58,11 +58,11 @@
               </select> -->
             </div>
           </div>
-          
+
           <div class="row">
             <div class="form-group">
               <label class="control-label col-md-1">生产日期</label>
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <datepicker date-format="yyyy-MM-dd" date-set="[:SIns.current_row.production_date || '{{date("Y-m-d",time())}}' :]" selector="form-control">
                       <input ng-model="SIns.current_row.production_date" type="text" class="form-control"/>
                 </datepicker>
