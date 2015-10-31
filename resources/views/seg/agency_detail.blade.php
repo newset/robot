@@ -42,7 +42,7 @@
                 <dd>[:SIns.current_row.started_at:]--[:SIns.current_row.ended_at:]</dd>
                 @if(he_is('employee'))
                 <dt class="tar">备注</dt>
-                <dd title="[:row.memo:]">[:row.memo | cut:true:10 :]</dd>
+                <dd title="[:SIns.current_row.memo:]">[:SIns.current_row.memo | cut:true:10 :]</dd>
                 @endif
             </dl>
         </div>

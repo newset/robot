@@ -148,6 +148,9 @@
                     {
                         if (/.+_at$/i.test(field))
                         {
+                            if (!row[field]) {
+                                continue;
+                            };
                             console.log('date field: ', field);
                             new_row[field] = moment(row[field]).format();
                         }
