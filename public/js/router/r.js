@@ -557,5 +557,10 @@
                         templateUrl: shot('page/pm/detail'),
                         controller : 'PMCtrl'
                     })
+                    .state('base.pm.new', {
+                        url : '/new',
+                        templateUrl: shot('page/pm/new'),
+                        controller : 'PMIns'
+                    })
             }])
 })();

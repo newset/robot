@@ -498,6 +498,16 @@ class BaseModel extends Model
         return ee(2);
     }
 
+    public function _user_list()
+    {
+        if (!in_array($this->ins_name, ['agency', 'employee', 'doctor'])) {
+            return ss('错误操作', 0);
+        }else{
+            $data = $this->select('id', 'name')->orderBy('id', 'asc')->get();
+            return ss($data);
+        }
+    }
+
     public function parse_mdb($dbName, $tName, $sql = null)
     {
         //$dbName = base_path() . '/storage/mdb/test.mdb';

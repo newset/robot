@@ -52,7 +52,7 @@ if ( ! function_exists('he_is'))
 } else dd('function he_is exists.' . __FILE__ . ':' . __LINE__);
 
 /*get current user characters*/
-if ( ! function_exists('charas'))
+if ( ! function_exists('his_chara'))
 {
     /**
      * Return current user's characters.
@@ -64,7 +64,7 @@ if ( ! function_exists('charas'))
     }
 } else
 {
-    dd('function charas exists.' . __FILE__ . ':' . __LINE__);
+    dd('function his_chara exists.' . __FILE__ . ':' . __LINE__);
 }
 
 

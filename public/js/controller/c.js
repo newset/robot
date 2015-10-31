@@ -1363,10 +1363,12 @@
                 };
                 if ($scope.toMe == 1) {
                     cond.where.recipientid = $rootScope._user_session_data.uid;
+                    cond.where.recipienttype = 1;
                 };
 
                 if ($scope.toMe == -1) {
                     cond.where.senderid = $rootScope._user_session_data.uid;
+                    cond.where.recipienttype = undefined;
                 };
 
                 H.p(cook('message/r'), cond).then(function(res){
@@ -1394,5 +1396,32 @@
                 
             };
             
+        }])
+        .controller('PMIns', ['$scope', 'H', '$state', function ($scope, H, $state) {
+            $scope.$watch('data.recipienttype', function(n){
+                // in ['agency', 'doctor', 'employe'];
+                if (n) {
+                    $scope.get_user_list(n);
+                };
+            });
+            $scope.users = [];
+            $scope.get_user_list = function(type){
+                H.p(cook(type+'/_user_list')).then(function(res){
+                    if (res.data.status == 1) {
+                        $scope.users = res.data.d;
+                    }else{
+                        $scope.users = [];
+                    };
+                });
+            }
+
+            $scope.send = function(){
+                console.log($scope.data);
+                H.p(cook('message/cu'), $scope.data).then(function(res){
+                    if (res.data.status == 1) {
+                        $state.go('base.pm.list');
+                    };
+                });
+            }
         }])
 })();
