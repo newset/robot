@@ -1,5 +1,5 @@
   <div class="panel panel-default">
-    <div class="panel-body">
+    <div class="panel-heading">
       <h3 class="panel-title" ng-if="!SIns.current_row.id">
          新建设备
       </h3>
@@ -8,8 +8,6 @@
          <a ui-sref="base.robot.detail({id: SIns.current_row.id})" class="pull-right"> 编号 : [:SIns.current_row.cust_id:]</a>
       </h3>
     </div>
-  </div>
-  <div class="panel panel-default">
     <div class="panel-body">
       <form
             name="form_robot"

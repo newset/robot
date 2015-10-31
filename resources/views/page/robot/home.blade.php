@@ -1,7 +1,10 @@
 <div>
 	<div class="panel panel-default">
-		<div class="panel-body">
-			设备管理
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				设备管理
+			</h3>
+
 		</div>
 	</div>
 

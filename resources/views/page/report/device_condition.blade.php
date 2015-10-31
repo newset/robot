@@ -1,15 +1,15 @@
 ﻿<div class="panel panel-default">
-    <div class="panel-body">
+    <div class="panel-heading">
         <h3 class="panel-title">
             设备状态清单
         </h3>
     </div>
+    <div class="panel-body">
         <form action="/report/device_condition" method="post" id="report-form" class="form-horizontal">
             <div class="row">
                 {!! csrf_field() !!}
-                <label class="col-md-1 control-label">时间：</label>
-                <label class="pull-left report-from">从</label>
-                <div class="col-md-3">
+                <label class="col-md-1 control-label" style="margin-left: -10px;">时间</label>
+                <div class="col-md-3" style="margin-left: 10px;">
                     <datepicker date-format="yyyy-MM-dd 00:00:00" date-set="[:SIns.cu_bat_data.production_date:]">
                         <input type="text" name="starttime" ng-model="cond.starttime" class="form-control">
                     </datepicker>
@@ -56,6 +56,7 @@
                 <button  class="btn btn-primary pull-right" type="button" ng-click="query()">查询</button>
             </div>
         </form>
+    </div>
     <div class="clearfix" id="report-result"></div>
 </div>
 

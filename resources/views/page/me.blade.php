@@ -63,9 +63,9 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <button type="submit" class="btn btn-primary pull-right"
-                                        ng-disabled="form_me_password.$invalid" style="margin-right: 10px;">修改
+                            <div class="form-group  col-md-12 text-right">
+                                <button type="submit" class="btn btn-primary"
+                                        ng-disabled="form_me_password.$invalid" style="margin-right: -10px;">修改
                                 </button>
                             </div>
                         </form>
@@ -102,8 +102,8 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <button type="submit" class="btn btn-primary pull-right" ng-disabled="form_me.$invalid">
+                            <div class="form-group col-md-12 text-right">
+                                <button type="submit" class="btn btn-primary" ng-disabled="form_me.$invalid">
                                     修改
                                 </button>
                             </div>

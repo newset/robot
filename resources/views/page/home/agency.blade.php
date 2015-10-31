@@ -27,8 +27,8 @@
 </script>
 <div>
 	<div class="panel panel-default">
-		<div class="panel-body">
-			代办事项
+		<div class="panel-heading">
+			<h3 class="panel-title">代办事项</h3>
 			<span class="pull-right h5" ng-class="{'text-danger': agency_status_danger}">[:agency_status:]</span>
 		</div>
 	</div>
@@ -38,9 +38,9 @@
 			<h4>设备</h4>
 			<hr>
 
-			<table class="table table-bordered">
+			<table class="table table-bordered table-hover table-striped">
 				<thead>
-					<tr>
+					<tr class="info">
 						<th>提示信息</th>
 						<th>编号</th>
 						<th>设备状态</th>
@@ -72,9 +72,9 @@
 		<div class="panel-body">
 			<h4>Mark</h4>
 			<hr>
-			<table class="table table-bordered">
+			<table class="table table-bordered table-hover table-striped">
 				<thead>
-					<tr>
+					<tr class="info">
 						<th class="col-md-2">Mark编号</th>
 						<th class="col-md-1">状态</th>
 						<th>医院</th>
