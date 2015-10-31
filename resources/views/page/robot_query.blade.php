@@ -130,6 +130,9 @@
                                 </div>
                             </form>
                         </div>
+                    </div>
+                    </div>
+                    <div class="panel-body">
 
                         <div class="col-md-12" ng-show="SIns.total_items != undefined">
                             <table id="example"
@@ -183,7 +186,7 @@
                                                 <!-- <button class="btn btn-primary btn-sm" href="" ng-click="SIns.popup_edit(row)">
                                                     设置销售状态
                                                 </button> -->
-                                                <a class="btn btn-default btn-sm"
+                                                <a class="btn btn-primary btn-sm"
                                                    ui-sref="base.robot.detail({id : row.id})">
                                                     查看
                                                 </a>
@@ -219,5 +222,4 @@
                 </div>
             </div>
         </div>
-    </div>
 </section>

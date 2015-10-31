@@ -1,9 +1,7 @@
 <div class="">
 	<div class="panel panel-default">
-		<div class="panel-body">
-			<div class="col-md-12">
-				<h3 class="panel-title pull-left">设备信息</h3>
-			</div>
+		<div class="panel-heading">
+		<h3 class="panel-title">设备信息</h3>
 		</div>
 	</div>
 
@@ -88,9 +86,9 @@
 		</div>
 		<div class="panel-body">
 			<div class="col-md-12">
-				<table class="table table-bordered table-hover">
+				<table class="table table-bordered table-hover table-striped">
 					<thead>
-						<tr>
+						<tr class="info">
 							<th class="col-md-3">时间</th>
 							<th>类型</th>
 							<th class="col-md-3">代理商</th>
