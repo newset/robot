@@ -15,8 +15,8 @@
 							<div class="row col-md-12 search_panel" ng-if="SIns.with_search">
 								<form class="form-horizontal" id="mark_query">
 									<div class="form-group">
-										<label class="control-label col-md-2">编号</label>
-										<div class="col-md-2">
+										<label class="control-label col-md-1">编号</label>
+										<div class="col-md-6">
 											<input class="form-control"
 											   ng-model-options="{debounce: 300}"
 											   ng-model="SIns.cond.where.cust_id"
@@ -25,15 +25,15 @@
 
 									</div>
 									<div class="form-group">
-										<label class="control-label col-md-2">Mark状态</label>
-										<div class="col-md-5" ng-init="SIns.cond.where.status=[]">
+										<label class="control-label col-md-1">Mark状态</label>
+										<div class="col-md-6" ng-init="SIns.cond.where.status=[]">
 											<label class="checkbox-inline" ng-repeat="type in SIns.status_type"><input type="checkbox" value="[:type.id:]" multi-check holder="SIns.cond.where.status">[:type.name:]</label>
 										</div>
 									</div>
 									@if(he_is('employee'))
 										<div class="form-group" ng-init="SIns.cond.where.sold=[]">
-											<label class="control-label col-md-2">销售状态</label>
-											<div class="col-md-4">
+											<label class="control-label col-md-1">销售状态</label>
+											<div class="col-md-6">
 												<label class="checkbox-inline"><input type="checkbox" value="1" ng-true-value="1" multi-check holder="SIns.cond.where.sold">在库</label>
 												<label class="checkbox-inline"><input type="checkbox" value="2" ng-true-value="2" multi-check holder="SIns.cond.where.sold">出货(卖给代理商)</label>
 												<label class="checkbox-inline"><input type="checkbox" value="4" ng-true-value="4" multi-check holder="SIns.cond.where.sold">已售(卖给医院)</label>
@@ -42,15 +42,15 @@
 									@endif
 									@if(he_is('agency'))
 									   <div class="form-group" ng-init="SIns.cond.where.sold=[]">
-											<label class="control-label col-md-2">销售状态</label>
-											<div class="col-md-2">
+											<label class="control-label col-md-1">销售状态</label>
+											<div class="col-md-6">
 												<label class="checkbox-inline"><input type="checkbox" value="1" ng-true-value="1" multi-check holder="SIns.cond.where.sold">在销售</label>
 												<label class="checkbox-inline"><input type="checkbox" value="2" ng-true-value="2" multi-check holder="SIns.cond.where.sold">已销售</label>
 											</div>
 										</div>
 										<div class="form-group" ng-init="SIns.cond.where.archive=[]">
-											<label class="control-label col-md-2">归档状态</label>
-											<div class="col-md-2">
+											<label class="control-label col-md-1">归档状态</label>
+											<div class="col-md-6">
 												<label class="checkbox-inline"><input type="checkbox" value="1" ng-true-value="1" multi-check holder="SIns.cond.where.archive">已归档</label>
 												<label class="checkbox-inline"><input type="checkbox" value="2" ng-true-value="2" multi-check holder="SIns.cond.where.archive">未归档</label>
 											</div>
@@ -58,8 +58,8 @@
 									@endif
 									@if(!he_is('agency'))
 									<div class="form-group">
-										<label class="control-label col-md-2">代理商</label>
-										 <div class="col-md-2">
+										<label class="control-label col-md-1">代理商</label>
+										 <div class="col-md-6">
 										 <select 
 									 		chosen
 									 		class="form-control" 
@@ -71,8 +71,8 @@
 									</div>
 									@endif
 									<div class="form-group row">
-										<label class="control-label col-md-2">医院</label>
-										 <div class="col-md-2">
+										<label class="control-label col-md-1">医院</label>
+										 <div class="col-md-6">
 										 	<select 
 										 		chosen
 										 		class="form-control" 

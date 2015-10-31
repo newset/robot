@@ -40,9 +40,6 @@
         </div>
         @if(he_is('employee'))
             <div class="form-group pull-right">
-                <label class="control-label">
-                  <button type="submit" class="btn btn-info" ng-click="bind()">绑定</button>
-                </label>
                 <select class="form-control"
                         name="agency_id"
                         ng-model="SIns.cu_bat_data.c"
@@ -52,6 +49,9 @@
                         style="width: 200px"
                         required>
                 </select>
+                <label class="control-label">
+                  <button type="submit" class="btn btn-info" ng-click="bind()">绑定</button>
+                </label>
             </div>
         @endif
         @if(he_is('agency'))
