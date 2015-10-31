@@ -7,9 +7,9 @@
 
 	<div class="panel panel-default">
 		<div class="panel-body">
-			<table class="table table-bordered">
+			<table class="table table-bordered table-hover table-striped">
 				<thead>
-					<tr>
+					<tr class="info">
 						<th>提示信息</th>
 						<th>编号</th>
 						<th>状态</th>

@@ -18,8 +18,8 @@
             class="col-md-12 form-horizontal" style="float:none;">
   
           <div class="row"  ng-if="!SIns.current_row.id">
-            <div class="form-group col-md-6">
-              <label class="control-label col-md-2">编号</label>
+            <div class="form-group">
+              <label class="control-label col-md-1">编号</label>
               <div class="col-md-6 col-sm-12">
                 <input class="form-control"
                      name="cust_id"
@@ -35,8 +35,8 @@
           </div>
   
           <div class="row">
-            <div class="form-group col-md-6">
-              <label class="control-label col-md-2">负责人</label>
+            <div class="form-group">
+              <label class="control-label col-md-1">负责人</label>
               <div class="col-md-6">
                 <select class="form-control" 
                   ng-model="SIns.current_row.employee_id"
@@ -60,13 +60,11 @@
           </div>
           
           <div class="row">
-            <div class="form-group col-md-6">
-              <label class="control-label col-md-2">生产日期</label>
+            <div class="form-group">
+              <label class="control-label col-md-1">生产日期</label>
               <div class="col-md-6">
                 <datepicker date-format="yyyy-MM-dd" date-set="[:SIns.current_row.production_date || '{{date("Y-m-d",time())}}' :]" selector="form-control">
-                  <div class="input-group">
                       <input ng-model="SIns.current_row.production_date" type="text" class="form-control"/>
-                  </div>
                 </datepicker>
                 <p ng-repeat="error in errors.production_date" class="text-danger">
                   [:error:]
@@ -74,10 +72,13 @@
               </div>
             </div>
           </div>
+
+
+
           <div class="row" ng-if="SIns.current_row.id">
-            <div class="form-group col-md-6">
-              <label for="" class="control-label col-md-2">状态</label>
-              <div class="col-md-4">
+            <div class="form-group">
+              <label for="" class="control-label col-md-1">状态</label>
+              <div class="col-md-6">
                 <label class="radio-inline"><input type="radio" value="0" ng-checked="SIns.current_row.status ==0"
                   ng-model="SIns.current_row.status" />正常</label>
                 <label class="radio-inline"><input type="radio" value="2" ng-checked="SIns.current_row.status ==2"

@@ -59,11 +59,11 @@
                               class="form-control"></textarea>
                 </div>
             </div>
-            <div class="form-group">
-
-                    <button class="btn btn-primary  pull-right" ng-disabled="form_hospital.$invalid"
-                            ng-click="SIns.cu(SIns.current_row)" style="margin-right: 10px;">提交
+            <div class="form-group text-right" style="margin-right: 10px;">
+                    <button class="btn btn-primary" ng-disabled="form_hospital.$invalid"
+                            ng-click="SIns.cu(SIns.current_row)">提交
                     </button>
+            </div>
         </form>
     </div>
     {{-- <div class="panel-footer" ng-controller="CPageHospital as cPageHospital">
