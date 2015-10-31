@@ -15,7 +15,7 @@
                             <form class="form-horizontal" ng-class="{'collapse': simpleQuery}" id="robot_query" aria-expanded="true">
                                 <div class="form-group">
                                     <label class="control-label col-md-1">编号</label>
-                                    <div class="col-md-2 row">
+                                    <div class="col-md-6 row">
                                         <input class="form-control"
                                            ng-model-options="{debounce: 300}"
                                            ng-model="SIns.cond.where.cust_id"
@@ -26,12 +26,12 @@
 
                                 <div class="form-group md-select-group">
                                     <label class="control-label col-md-1">地区</label>
-                                    <div class="col-md-2 row">
+                                    <div class="col-md-3 row">
                                         <select name="provice" class="form-control" chosen ng-model="SIns.cond.where.province_id" ng-options="l.id as l.name for l in SBase._.location.province">
                                             <option value="">不限</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <select name="provice" class="form-control" update="SIns.cond.where.province_id" chosen ng-model="SIns.cond.where.city_id" ng-options="l.id as l.name for l in SBase._.location.city || []|filter: {parent_id: SIns.cond.where.province_id}:true">
                                             <option value="">不限</option>
                                         </select>
@@ -50,7 +50,7 @@
 
                                 <div class="form-group">
                                     <label class="control-label col-md-1">代理商</label>
-                                    <div class="col-md-2 row">
+                                    <div class="col-md-6 row">
                                         <select name="hospital_id" chosen class="form-control" ng-model="SIns.cond.where.agency_id" ng-options="l.id as l.name for l in SAgency.all_rec">
                                             <option value="">不限</option>
                                         </select>
@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-1">医院</label>
-                                    <div class="col-md-2 row">
+                                    <div class="col-md-6 row">
                                         <select name="hospital_id" chosen class="form-control" ng-model="SIns.cond.where.hospital_id" ng-options="l.id as l.name for l in SHospital.all_rec">
                                             <option value="">不限</option>
                                         </select>
@@ -75,13 +75,13 @@
                                     <label class="control-label col-md-1">生产日期</label>
                                     <div style="display: inline-block;">
                                         <datepicker date-format="yyyy-MM-dd" date-max-limit="[:SIns.cond.where.created_end:]" date-set="[:SIns.cond.where.created_start:]">
-                                            <input type="text" ng-model="SIns.cond.where.created_start" class="form-control">
+                                            <input type="text" ng-model="SIns.cond.where.created_start" class="form-control col-md-3">
                                         </datepicker>
                                     </div>
                                     <span style="display: inline-block;vertical-align: top;margin-top: 9px;">到</span>
                                     <div style="display: inline-block;">
                                         <datepicker date-format="yyyy-MM-dd" date-set="[:SIns.cond.where.created_end:]" date-min-limit="[:SIns.cond.where.created_start:]">
-                                            <input type="text" ng-model="SIns.cond.where.created_end" class="form-control">
+                                            <input type="text" ng-model="SIns.cond.where.created_end" class="form-control col-md-3">
                                         </datepicker>
                                     </div>
                                     <div style="display:inline-block">

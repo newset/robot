@@ -20,7 +20,7 @@
           <div class="row"  ng-if="!SIns.current_row.id">
             <div class="form-group col-md-6">
               <label class="control-label col-md-2">编号</label>
-              <div class="col-md-4 col-sm-12">
+              <div class="col-md-6 col-sm-12">
                 <input class="form-control"
                      name="cust_id"
                      ng-model-options="{ updateOn: 'blur' }"
@@ -37,7 +37,7 @@
           <div class="row">
             <div class="form-group col-md-6">
               <label class="control-label col-md-2">负责人</label>
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <select class="form-control" 
                   ng-model="SIns.current_row.employee_id"
                   chosen
@@ -62,7 +62,7 @@
           <div class="row">
             <div class="form-group col-md-6">
               <label class="control-label col-md-2">生产日期</label>
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <datepicker date-format="yyyy-MM-dd" date-set="[:SIns.current_row.production_date || '{{date("Y-m-d",time())}}' :]" selector="form-control">
                   <div class="input-group">
                       <input ng-model="SIns.current_row.production_date" type="text" class="form-control"/>
@@ -91,7 +91,7 @@
               <button type="submit" ng-click="save()" class="btn btn-info" ng-if="SIns.current_row.id">保存</button>
           </div>
       </form>
-      
+
     </div>
   </div>
 </div>
