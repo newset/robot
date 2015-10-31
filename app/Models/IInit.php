@@ -17,10 +17,16 @@ class IInit extends Model
             'uid'          => sess('uid')
         ];
         
+        $type = [
+            'employee' => 1,
+            'agency' => 2,
+            'doctor' => 3
+        ];
+
         // 获取未读通知
         $d['unread'] = M('message')
             ->where('recipientid', uid())
-            ->where('recipienttype', his_chara()[0])
+            ->where('recipienttype', $type[his_chara()[0]])
             ->where('read', 0)->count();
 
         $d['org'] = '';

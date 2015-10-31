@@ -70,6 +70,11 @@ return [
                 [
                     'home',
                     'mark'
+                ],
+            'message' =>
+                [
+                    'cu',
+                    'r'
                 ]
         ],
     'doctor' =>

@@ -19,7 +19,7 @@
 		   			<label class="col-md-1 control-label">代理期限</label>
 		   			<div class="col-md-4">
 	   					 <div style="display: inline-block;">
-                            <datepicker selector="form-control" date-format="yyyy-MM-dd" date-max-limit="[:SIns.current_row.ended_at:]" date-set="[:SIns.current_row.started_at:]">
+                            <datepicker selector="form-control" date-format="yyyy-MM-dd" date-max-limit="[:SIns.current_row.ended_at:]">
                                 <div class="input-group">
                                 	<input type="text" ng-model="SIns.current_row.started_at" class="form-control">
                                 </div>
@@ -27,7 +27,7 @@
                         </div>
                         <span style="display: inline-block;vertical-align: top;margin-top: 9px;">到</span>
                         <div style="display: inline-block;">
-                            <datepicker selector="form-control" date-format="yyyy-MM-dd" date-set="[:SIns.current_row.ended_at:]" date-min-limit="[:SIns.current_row.started_at:]">
+                            <datepicker selector="form-control" date-format="yyyy-MM-dd" date-min-limit="[:SIns.current_row.started_at:]">
                                 <div class="input-group">
                                 	<input type="text" ng-model="SIns.current_row.ended_at" class="form-control">
                                 </div>

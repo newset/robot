@@ -102,16 +102,11 @@
 											<div class="col-md-12">
 												<input type="text"
 													   name="username"
-													   ng-minlength="{{conf('v_rule.user_name.min_length')}}"
-													   ng-maxlength="{{conf('v_rule.user_name.max_length')}}"
-													   la-pattern="{{conf('v_rule.user_name.pattern')}}"
 													   class="form-control"
-														{{--id="username"--}}
 													   placeholder="用户名"
 													   ng-model="c_form_auth.vals.username"
 													   ng-model-options="{debounce: 300}"
-													   required
-													   autofocus>
+													   >
 
 												<div class="error"
 													 ng-if="formAuth.username.$error.laExist && formAuth.username.$touched &&c_form_auth.auth_type == 'signu' ">
@@ -128,15 +123,11 @@
 											<div class="col-md-12">
 												<input type="password"
 													   name="password"
-													   ng-minlength="{{conf('v_rule.password.min_length')}}"
-													   ng-maxlength="{{conf('v_rule.password.max_length')}}"
-													   la-pattern="{{conf('v_rule.password.pattern')}}"
 													   ng-model="c_form_auth.vals.password"
 													   ng-model-options="{debounce: 300}"
 													   class="form-control"
 													   placeholder="密码"
-													   id="password_field"
-													   required>
+													   id="password_field">
 
 												<div class="error"
 													 ng-if="formAuth.password.$invalid && formAuth.password.$touched && c_form_auth.auth_type == 'signup' "

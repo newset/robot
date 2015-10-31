@@ -30,8 +30,13 @@ class IMessage extends BaseModel
     	$rq['sendername'] = username();
     	// return his_chara()[0];
     	$rq['sendertype'] = $type[his_chara()[0]];
-
-    	$rq['recipienttype'] = $type[$rq['recipienttype']];
+    	if (his_chara()[0] == 'agency') {
+    		$rq['recipienttype'] = 1;
+    		$rq['recipientid'] = 1;
+    		$rq['recipientname'] = 'Admin';
+    	}elseif (his_chara()[0] == 'employee') {
+	    	$rq['recipienttype'] = $type[$rq['recipienttype']];
+    	}
 
     	return parent::c($rq);
     }
