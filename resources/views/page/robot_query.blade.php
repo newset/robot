@@ -73,19 +73,19 @@
 
                                 <div class="form-group">
                                     <label class="control-label col-md-1">生产日期</label>
-                                    <div style="display: inline-block;">
+                                    <div class="col-md-3" style="margin-left:-20px; ">
                                         <datepicker date-format="yyyy-MM-dd" date-max-limit="[:SIns.cond.where.created_end:]" date-set="[:SIns.cond.where.created_start:]">
-                                            <input type="text" ng-model="SIns.cond.where.created_start" class="form-control col-md-3">
+                                            <input type="text" ng-model="SIns.cond.where.created_start" class="form-control">
                                         </datepicker>
                                     </div>
-                                    <span style="display: inline-block;vertical-align: top;margin-top: 9px;">到</span>
-                                    <div style="display: inline-block;">
+                                    <span class="pull-left report-to">到</span>
+                                    <div class="col-md-3">
                                         <datepicker date-format="yyyy-MM-dd" date-set="[:SIns.cond.where.created_end:]" date-min-limit="[:SIns.cond.where.created_start:]">
-                                            <input type="text" ng-model="SIns.cond.where.created_end" class="form-control col-md-3">
+                                            <input type="text" ng-model="SIns.cond.where.created_end" class="form-control ">
                                         </datepicker>
                                     </div>
                                     <div style="display:inline-block">
-                                        <button type="button" class="btn btn-default" style="margin-top: -22px;" ng-click="SIns.cond.where.created_start =null;SIns.cond.where.created_end=null">清除</button>
+                                        <button type="button" class="btn btn-default" ng-click="SIns.cond.where.created_start =null;SIns.cond.where.created_end=null">清除</button>
                                     </div>
                                 </div>
 

@@ -52,10 +52,8 @@
 
 
 
-            <div class="form-group">
-                <button  class="btn btn-primary pull-right
-
-                    " type="button" ng-click="query()">查询</button>
+            <div class="form-group col-md-12">
+                <button  class="btn btn-primary pull-right" type="button" ng-click="query()">查询</button>
             </div>
         </form>
     <div class="clearfix" id="report-result"></div>

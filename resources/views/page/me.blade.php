@@ -14,7 +14,7 @@
                             <div class="form-group row">
                                 <label class="col-md-1 control-label">旧密码</label>
 
-                                <div class="col-md-2">
+                                <div class="col-md-6">
                                     <input ng-model="current_password"
                                            ng-model-options="{debounce: 300}"
                                            class="form-control"
@@ -33,7 +33,7 @@
                             <div class="form-group row">
                                 <label class="control-label col-md-1">新密码</label>
 
-                                <div class="col-md-2">
+                                <div class="col-md-6">
                                     <input ng-model="SIns.me_row.password"
                                            class="form-control"
                                            type="password"
@@ -48,7 +48,7 @@
                             <div class="form-group row">
                                 <label class="control-label col-md-1">再输一遍</label>
 
-                                <div class="col-md-2">
+                                <div class="col-md-6">
                                     <input ng-model="SIns.me_row.password2"
                                            class="form-control"
                                            type="password"
@@ -79,7 +79,7 @@
                             <div class="form-group row">
                                 <label class="col-md-1 control-label">手机号</label>
 
-                                <div class="col-md-2">
+                                <div class="col-md-6">
                                     <input ng-model="SIns.me_row.phone"
                                            class="form-control"
                                            type="text"
@@ -92,7 +92,7 @@
                             <div class="form-group row">
                                 <label class="col-md-1 control-label">Email</label>
 
-                                <div class="col-md-2">
+                                <div class="col-md-6">
                                     <input ng-model="SIns.me_row.email"
                                            class="form-control"
                                            type="text"

@@ -1,4 +1,3 @@
-<div class="col-md-12">
   <div class="panel panel-default">
     <div class="panel-body">
       <h3 class="panel-title" ng-if="!SIns.current_row.id">
@@ -20,7 +19,7 @@
           <div class="row"  ng-if="!SIns.current_row.id">
             <div class="form-group">
               <label class="control-label col-md-1">编号</label>
-              <div class="col-md-4 col-sm-12">
+              <div class="col-md-6 col-sm-12">
                 <input class="form-control"
                      name="cust_id"
                      ng-model-options="{ updateOn: 'blur' }"
@@ -37,7 +36,7 @@
           <div class="row">
             <div class="form-group">
               <label class="control-label col-md-1">负责人</label>
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <select class="form-control"
                   ng-model="SIns.current_row.employee_id"
                   chosen
@@ -62,7 +61,7 @@
           <div class="row">
             <div class="form-group">
               <label class="control-label col-md-1">生产日期</label>
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <datepicker date-format="yyyy-MM-dd" date-set="[:SIns.current_row.production_date || '{{date("Y-m-d",time())}}' :]" selector="form-control">
                       <input ng-model="SIns.current_row.production_date" type="text" class="form-control"/>
                 </datepicker>
@@ -86,7 +85,7 @@
               </div>
             </div>
           </div>
-          <div class="form-group text-right">
+          <div class="form-group text-right col-md-12">
               <button type="submit" ng-click="save()" class="btn btn-info" ng-if="!SIns.current_row.id">新建</button>
               <a ui-sref="base.robot.detail({id: SIns.current_row.id})" class="btn btn-default" ng-if="SIns.current_row.id">取消</a>
               <button type="submit" ng-click="save()" class="btn btn-info" ng-if="SIns.current_row.id">保存</button>
@@ -95,4 +94,3 @@
 
     </div>
   </div>
-</div>
