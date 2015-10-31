@@ -1,15 +1,15 @@
 <div>
 	<div class="panel panel-default">
 		<div class="panel-body">
-			经销商状态
+			<h3 class="panel-title">经销商状态</h3>
 		</div>
 	</div>
 
 	 <div class="panel panel-default">
 	 	<div class="panel-body">
-	 	   <table class="table table-bordered">
+	 	   <table class="table table-bordered table-hover table-striped">
 	 	   	<thead>
-	 	   		<tr>
+	 	   		<tr class="info">
 	 	   			<th class="col-md-1"></th>
 	 	   			<th class="col-md-1">编号</th>
 	 	   			<th class="col-md-2">名称</th>

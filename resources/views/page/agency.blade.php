@@ -18,11 +18,11 @@ controller:
                         <div class="row col-md-12 search_panel" ng-if="SIns.with_search">
                         </div>
                     </div>
-                </div>
+
                 <form class="form-horizontal" id="agency_query">
                     <div class="form-group">
                         <label class="control-label col-md-1">编号</label>
-                        <div class="col-md-2">
+                        <div class="col-md-6">
                             <input class="form-control"
                                    ng-model-options="{debounce: 300}"
                                    ng-model="SIns.cond.where.id"
@@ -31,7 +31,7 @@ controller:
                     </div>
                     <div class="form-group ">
                         <label class="control-label col-md-1">地区</label>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <select name="province_id" 
                                 chosen 
                                 class="form-control" 
@@ -41,7 +41,7 @@ controller:
                                 <option value="">所在省份</option>
                             </select>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <select name="city_id" 
                                 chosen 
                                 class="form-control" 
@@ -54,17 +54,16 @@ controller:
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-1">名称</label>
-                        <div class="col-md-2">
+                        <div class="col-md-6">
                             <input class="form-control"
                                    ng-model-options="{debounce: 300}"
                                    ng-model="SIns.cond.where.name"
                                    placeholder="名称">
                         </div>
-                        <div class="col-md-1 pull-right">
-                            <button class="btn-primary btn  btn-custom" ng-click="SIns.refresh()">查询</button>
-                        </div>
                     </div>
-                    <br/>
+                    <div class="form-group text-right col-md-12">
+                        <button class="btn-primary btn  btn-custom" ng-click="SIns.refresh()">查询</button>
+                    </div>
                     {{--<div class="form-group">--}}
                     {{--<div>--}}
                     {{--代理类型：--}}
@@ -84,6 +83,7 @@ controller:
                     {{--</div>--}}
 
                 </form>
+                </div>
             </div>
         </div>  {{--col-md-6 --}}
     </div>
