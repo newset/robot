@@ -11,7 +11,7 @@
                 <form class="form-horizontal">
                     <div class="form-group">
                         <label for="" class="control-label col-md-1">医院</label>
-                        <div class="col-md-2">
+                        <div class="col-md-6">
                           <select 
                             class="form-control"
                             chosen
@@ -24,7 +24,7 @@
                     </div>
                     <div class="form-group">
                         <label for="" class="control-label col-md-1">姓名</label>
-                        <div class="col-md-2">
+                        <div class="col-md-6">
                             <input class="form-control"
                                ng-model="SIns.cond.whereLike.name"
                                placeholder="姓名">
@@ -33,13 +33,13 @@
                     </div>
                     <div class="form-group">
                         <label for="" class="control-label col-md-1">手机</label>
-                        <div class="col-md-2">
+                        <div class="col-md-6">
                             <input class="form-control"
                                    ng-model="SIns.cond.whereLike.phone"
                                    placeholder="手机">
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group text-right col-md-12">
                         <button type="button" class="btn btn-info pull-right" ng-click="SIns.refresh()">查询</button>
                     </div>
                 </form>

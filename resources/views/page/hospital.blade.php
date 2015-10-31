@@ -10,6 +10,7 @@ url:
             <div class="panel panel-default black-border">
                 <div class="panel-heading">
                     <h3 class="panel-title">查询条件</h3>
+
                     <div class="actions pull-right">
                         <i class="fa fa-chevron-down" i-toggle data-toggle="collapse" data-target="#form_query"
                            aria-expanded="false" aria-controls="collapseExample"></i>
@@ -21,130 +22,136 @@ url:
 
                         </div>
                     </div>
-                </div>
-                <form class=" form-horizontal" id="form_query">
-                    <div class="form-group">
-                        <label class="control-label col-md-1">编号</label>
-                        <div class="col-md-2">
-                            <input class="form-control"
-                                   ng-model-options="{debounce: 300}"
-                                   ng-model="SIns.cond.where.id"
-                                   placeholder="">
+                    <form class=" form-horizontal" id="form_query">
+                        <div class="form-group">
+                            <label class="control-label col-md-1">编号</label>
+
+                            <div class="col-md-6">
+                                <input class="form-control"
+                                       ng-model-options="{debounce: 300}"
+                                       ng-model="SIns.cond.where.id"
+                                       placeholder="">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-1">地区</label>
-                        <div class="col-md-2">
-                            <select name="province_id" 
-                                chosen 
-                                class="form-control" 
-                                update="SBase._.location.province"
-                                ng-model="SIns.cond.where.province_id" 
-                                ng-options="l.id as l.name for l in SBase._.location.province">
-                                <option value="">不限</option>
-                            </select>
+                        <div class="form-group">
+                            <label class="control-label col-md-1">地区</label>
+
+                            <div class="col-md-3">
+                                <select name="province_id"
+                                        chosen
+                                        class="form-control"
+                                        update="SBase._.location.province"
+                                        ng-model="SIns.cond.where.province_id"
+                                        ng-options="l.id as l.name for l in SBase._.location.province">
+                                    <option value="">不限</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select name="city_id"
+                                        chosen
+                                        class="form-control"
+                                        update="SIns.cond.where.province_id"
+                                        ng-model="SIns.cond.where.city_id"
+                                        ng-options="l.id as l.name for l in SIns.cond.where.province_id&&SBase._.location.city|| []| filter: {parent_id: SIns.cond.where.province_id}:true">
+                                    <option value="">不限</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-md-2">
-                            <select name="city_id" 
-                                chosen 
-                                class="form-control" 
-                                update="SIns.cond.where.province_id" 
-                                ng-model="SIns.cond.where.city_id" 
-                                ng-options="l.id as l.name for l in SIns.cond.where.province_id&&SBase._.location.city|| []| filter: {parent_id: SIns.cond.where.province_id}:true">
-                                <option value="">不限</option>
-                            </select>
+                        <div class="form-group">
+                            <label class="control-label col-md-1">名称</label>
+
+                            <div class="col-md-6">
+                                <input class="form-control"
+                                       ng-model-options="{debounce: 300}"
+                                       ng-model="SIns.cond.where.name"
+                                       placeholder="">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-1">名称</label>
-                        <div class="col-md-2">
-                            <input class="form-control"
-                                   ng-model-options="{debounce: 300}"
-                                   ng-model="SIns.cond.where.name"
-                                   placeholder="">
+                        <div class="form-group">
+                            <label class="control-label col-md-1">医生</label>
+
+                            <div class="col-md-6">
+                                <input class="form-control"
+                                       ng-model-options="{debounce: 300}"
+                                       ng-model="SIns.cond.where_has.doctor.name"
+                                       placeholder="">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-1">医生</label>
-                        <div class="col-md-2">
-                            <input class="form-control"
-                                   ng-model-options="{debounce: 300}"
-                                   ng-model="SIns.cond.where_has.doctor.name"
-                                   placeholder="">
-                        </div>
-                        <div class="col-md-1 pull-right">
+                        <div class="form-group col-md-12 text-right">
                             <button class="btn-primary btn-custom btn " ng-click="SIns.refresh()">查询</button>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-            <table id="example"  class="table  table-striped  table-bordered dataTable table-hover no-footer" aria-describedby="example_info">
+            <table id="example" class="table  table-striped  table-bordered dataTable table-hover no-footer"
+                   aria-describedby="example_info">
                 <thead>
-                    <tr role="row" class="info">
-                        <th>编号</th>
-                        <th>地区</th>
-                        <th>医院名称</th>
-                        <th>科室</th>
-                        <th>医生</th>
-                        <th>代理商</th>
-                        <th>备注</th>
-                        <th>操作</th>
-                    </tr>
+                <tr role="row" class="info">
+                    <th>编号</th>
+                    <th>地区</th>
+                    <th>医院名称</th>
+                    <th>科室</th>
+                    <th>医生</th>
+                    <th>代理商</th>
+                    <th>备注</th>
+                    <th>操作</th>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr class="odd"
-                        ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
-                        <td class="sorting_1 col-md-1">[:row.id:]</td>
-                        <td class="col-md-2">
-                            <span ng-repeat="l in SBase._.location.province |filter:{id:row.province_id}:equalsId">[:l.name:]</span>
-                            •<span ng-repeat="l in SBase._.location.city |filter:{id: row.city_id }:equalsId">[:l.name :]</span>
-                        </td>
-                        <td  class="col-md-2">[:row.name:]</td>
-                        <td class="col-md-1">[:row.department.length:]</td>
-                        <td class="col-md-1">[:row.doctor.length:]</td>
-                        <td class="col-md-1">[:row.agency.length:]</td>
-                        <td class="col-md-2" title="[:row.memo:]" >
-                            <button href="" ng-if="row.memo.length>0"  ng-click="SIns.popup_edit(row,1)">
-                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                                {{-- <i class="icon-file-alt"></i> --}}
-                            </button>
-                            <a href="#modal" ng-if="row.memo.length==0">             </a>
-                        </td>
-                        <td class="edit col-md-2 hospital-list-edit">
+                <tr class="odd"
+                    ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
+                    <td class="sorting_1 col-md-1">[:row.id:]</td>
+                    <td class="col-md-2">
+                        <span ng-repeat="l in SBase._.location.province |filter:{id:row.province_id}:equalsId">[:l.name:]</span>
+                        •<span ng-repeat="l in SBase._.location.city |filter:{id: row.city_id }:equalsId">[:l.name :]</span>
+                    </td>
+                    <td class="col-md-2">[:row.name:]</td>
+                    <td class="col-md-1">[:row.department.length:]</td>
+                    <td class="col-md-1">[:row.doctor.length:]</td>
+                    <td class="col-md-1">[:row.agency.length:]</td>
+                    <td class="col-md-2" title="[:row.memo:]">
+                        <button href="" ng-if="row.memo.length>0" ng-click="SIns.popup_edit(row,1)">
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                            {{-- <i class="icon-file-alt"></i> --}}
+                        </button>
+                        <a href="#modal" ng-if="row.memo.length==0"> </a>
+                    </td>
+                    <td class="edit col-md-2 hospital-list-edit">
                             <span class="tool_wrapper">
                                 <a class="btn-primary btn-custom btn btn-sm" target="_blank"
                                    href="#/hospital/department_doctor/[:row.id:]">
                                     管理科室/医生
                                 </a>
-                                <button class="btn-primary btn-custom btn btn-sm"  ui-sref="base.hospital.edit({hid:row.id})">
+                                <button class="btn-primary btn-custom btn btn-sm"
+                                        ui-sref="base.hospital.edit({hid:row.id})">
                                     编辑
                                 </button>
                                 {{--<span href="" class="curp delete"--}}
                                 {{--ng-click="SIns.d(row.id)">删除</span>--}}
                             </span>
-                        </td>
-                    </tr>
+                    </td>
+                </tr>
                 </tbody>
             </table>
             <div class="pagination_wrapper">
                 <span class="pull-left">记录: [:(SIns.cond.pagination+1-1)* SIns.items_per_page +  (SIns.total_items/SIns.total_items) || 0:] / [:SIns.total_items:]</span>
                 <pagination
-                    {{--boundary-links="true"--}}
-                    total-items="SIns.total_items"
-                    items-per-page="SIns.items_per_page"
-                    ng-model="SIns.cond.pagination"
-                    ng-change="SIns.change_page(SIns.cond.pagination)"
-                    class="pagination-md"
-                    previous-text="<"
-                    next-text=">"
-                    first-text="第一页"
-                    {{--items-per-page="5"--}}
-                    last-text="最后一页"
-                >
+                        {{--boundary-links="true"--}}
+                        total-items="SIns.total_items"
+                        items-per-page="SIns.items_per_page"
+                        ng-model="SIns.cond.pagination"
+                        ng-change="SIns.change_page(SIns.cond.pagination)"
+                        class="pagination-md"
+                        previous-text="<"
+                        next-text=">"
+                        first-text="第一页"
+                        {{--items-per-page="5"--}}
+                        last-text="最后一页"
+                        >
                 </pagination>
             </div>
         </div>
