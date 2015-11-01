@@ -146,7 +146,7 @@
                                                 <!-- <button class="btn btn-primary btn-sm" href="" ng-click="SIns.popup_edit(row)">
                                                     设置销售状态
                                                 </button> -->
-                                                <a class="btn btn-default btn-sm" ui-sref="base.robot.detail({id : row.id})">
+                                                <a class="btn btn-primary btn-sm" ui-sref="base.robot.detail({id : row.id})">
                                                     查看
                                                 </a>
                                             </span>
