@@ -66,7 +66,7 @@ class IRobot extends BaseModel
 
         if(Input::has("where.cust_id")) {
             // $sql .= ' and v_robot.cust_id like "%'.Input::get('where.cust_id').'%"';
-            $builder = $builder->where('v_robot.cust_id', 'like', Input::get('where.cust_id'));
+            $builder = $builder->where('v_robot.cust_id', 'like', '%'.Input::get('where.cust_id').'%');
             //$where[] = Input::get('where.cust_id');
         }
 
