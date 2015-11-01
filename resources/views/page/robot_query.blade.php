@@ -11,7 +11,6 @@
                 </div>
                 <div class="panel-body">
                     <div role="grid" id="example_wrapper" class="dataTables_wrapperno-footer">
-                        <div class="row col-md-8 search_panel">
                             <form class="form-horizontal" ng-class="{'collapse': simpleQuery}" id="robot_query" aria-expanded="true">
                                 <div class="form-group">
                                     <label class="control-label col-md-1">编号</label>
@@ -89,7 +88,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group text-right">
+                                <div class="form-group text-right col-md-12">
                                     <!-- <button class="btn btn- default" ng-click="SIns.cond.where = {}">重置</button> -->
                                     <button class="btn btn-info" ng-click="SIns.refresh()">查询</button>
                                 </div>
@@ -182,5 +181,4 @@
                 </div>
             </div>
         </div>
-    </div>
 </section>
