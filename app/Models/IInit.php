@@ -24,11 +24,15 @@ class IInit extends Model
         ];
 
         // 获取未读通知
-        $d['unread'] = M('message')
-            ->where('recipientid', uid())
-            ->where('recipienttype', $type[his_chara()[0]])
-            ->where('read', 0)->count();
-
+        if (uid()) {
+            $d['unread'] = M('message')
+                ->where('recipientid', uid())
+                ->where('recipienttype', $type[his_chara()[0]])
+                ->where('read', 0)->count();
+        }else{
+            $d['unread'] = 0;
+        }
+        
         $d['org'] = '';
         if (he_is('agency')) {
             $org = DB::table(table_name('agency'))->select('name')->where('id', uid())->first();

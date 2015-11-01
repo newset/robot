@@ -241,10 +241,10 @@ class VMark extends IMark
                         $builder = $builder->where('hospital_id', '=', '-1')->where('agency_id', '=', -1);
                         break;
                     case 2:
-                        $builder = $builder->where('hospital_id', '=', '-1')->where('agency_id', '>', 1);
+                        $builder = $builder->where('agency_id', '>=', 1);
                         break;
                     case 3:
-                        $builder = $builder->where('hospital_id', '=', '-1');
+                        $builder = $builder->whereRaw('(agency_id >= 1 or (hospital_id = -1 and agency_id = -1))');
                         break;
                     case 4:
                         $builder = $builder->where('hospital_id', '>', 0);
