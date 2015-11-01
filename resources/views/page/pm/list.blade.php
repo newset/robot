@@ -15,9 +15,9 @@
 	<div class="panel panel-default">
 		<div class="panel-body">
 			
-			<table class="table table-bordered">
+			<table class="table table-bordered table-striped table-hover">
 				<thead>
-					<tr>
+					<tr class="info">
 						<th class="col-md-1">
 							
 						</th>
