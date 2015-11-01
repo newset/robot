@@ -25,7 +25,7 @@ controller:
                         <div class="col-md-6">
                             <input class="form-control"
                                    ng-model-options="{debounce: 300}"
-                                   ng-model="SIns.cond.where.id"
+                                   ng-model="SIns.cond.whereLike.id"
                                    placeholder="编号">
                         </div>
                     </div>
