@@ -1424,4 +1424,14 @@
                 });
             }
         }])
+        .controller('LogCtrl', ['$scope', '$state', 'H', function ($scope, $state, H) {
+            $scope.cond = {where: {}, pagination: 1};
+
+            $scope.$watch('cond', function(n){
+                if (n) {
+                    // 刷新
+                    
+                };
+            });
+        }])
 })();

@@ -571,12 +571,25 @@
                             $scope.sendToMe = function(){
                                 return true;
                             }
+
+                            $scope.reply = function(){
+
+                            }
                         }]
                     })
                     .state('base.pm.new', {
                         url : '/new',
                         templateUrl: shot('page/pm/new'),
                         controller : 'PMIns'
+                    })
+                    .state('base.log', {
+                        url : '/log',
+                        template : '<div ui-view></div>'
+                    })
+                    .state('base.log.list', {
+                        url : '/list',
+                        templateUrl: shot('page/log/list'),
+                        controller : 'LogCtrl'
                     })
             }])
 })();

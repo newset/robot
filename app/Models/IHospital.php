@@ -18,7 +18,7 @@ class IHospital extends BaseModel
             'city_id'       =>      'required|numeric',
             'province_id'   =>      'required|numeric',
             'localtion_detail'  =>  'string',
-            'name'          =>      'required',
+            'name'          =>      'required|unique:i_hospital,name',
             'memo'          =>      'string',
         ];
 

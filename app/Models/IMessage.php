@@ -25,6 +25,9 @@ class IMessage extends BaseModel
     	];
 
     	$rq = rq();
+        // 验证发信规则
+        $valid = $this->verify($rq);
+
     	$rq['senderid'] = uid();
     	$rq['sendername'] = username();
     	// return his_chara()[0];
@@ -40,4 +43,8 @@ class IMessage extends BaseModel
     	return parent::c($rq);
     }
 
+    public function verify($rq = null)
+    {
+        return true;
+    }
 }

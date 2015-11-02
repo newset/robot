@@ -55,6 +55,10 @@ trait AuthTrait
                 if($input['user_type'] == 'department'){
                     sess('org', $user->hospital_name.':'.$user->name);
                 }
+
+                // 添加日志
+                ILog::login($input['user_type'], $user);
+
                 return ss($user);
             }
 

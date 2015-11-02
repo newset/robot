@@ -54,6 +54,9 @@ textarea{
 .mt10{
     margin-top: 10px;
 }
+.mr10{
+    margin-right: 10px;
+}
 
 input.form-control, select.form-control, textarea.form-control{
     background-color: #fff;

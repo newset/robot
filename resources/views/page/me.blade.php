@@ -75,7 +75,8 @@
                         <h4>修改个人信息</h4>
                         <hr>
                         <form ng-submit="SIns.cu(SIns.me_row)"
-                              name="form_me">
+                              name="form_me"
+                              class="form-horizontal">
                             <div class="form-group row">
                                 <label class="col-md-1 control-label">手机号</label>
 

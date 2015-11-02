@@ -14,7 +14,7 @@
 		   	<dd>[:message.messagecontent:]</dd>
 		   	<dt></dt>
 		   	<dd ng-if="sendToMe()">
-		   		<textarea name="" class="form-control" rows="10">
+		   		<textarea name="" class="form-control" rows="10" ng-model="msg">
 		   			
 		   		</textarea>
 		   		<button type="button" class="btn btn-primary pull-right mt10">回复</button>
