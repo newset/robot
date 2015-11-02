@@ -316,8 +316,8 @@ class BaseModel extends Model
             $builder = $builder->orderByRaw($rq['order_by']);
         } else
         {
-            $builder = $builder->orderBy('created_at', 'desc');
-            //$builder = $builder->orderBy('id', 'desc');
+            // $builder = $builder->orderBy('created_at', 'desc');
+            $builder = $builder->orderBy('id', 'desc');
         }
 
         return $builder;

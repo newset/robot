@@ -555,7 +555,23 @@
                     .state('base.pm.read', {
                         url : '/read/:id',
                         templateUrl: shot('page/pm/detail'),
-                        controller : 'PMCtrl'
+                        resolve : {
+                            message : function(H, $stateParams){
+                                return H.p(cook('message/r'), {id: $stateParams.id}).then(function(res){
+                                    if (res.data.status == 1) {
+                                        return res.data.d.main[0]
+                                    }
+                                    return [];
+                                });
+                            }
+                        },
+                        controller : ['message', '$scope', function(message, $scope){
+                            $scope.message = message;
+
+                            $scope.sendToMe = function(){
+                                return true;
+                            }
+                        }]
                     })
                     .state('base.pm.new', {
                         url : '/new',
