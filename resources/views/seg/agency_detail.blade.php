@@ -61,7 +61,7 @@
             <dl class="dl-horizontal">
                 <dt class="tar col-md-1">累计销售设备</dt>
                 <span class="hidden"
-                      ng-repeat="log in robot_sold = (SIns.current_row.robot_lease_log | filter:{lease_type_id: 3})">
+                      ng-repeat="log in robot_sold = (SIns.current_row.robot_lease_log | filter:{lease_type_id: 1})">
                 </span>
                 <dd>[:robot_sold.length:]</dd>
             
@@ -72,12 +72,24 @@
                 <dd>[:robot_leased.length:]</dd>
             
                 <dt class="tar col-md-1">累计销售Mark</dt>
-                <span class="hidden"   ng-repeat="log in mark_sold = (SIns.current_row.mark | filter:{status: 3})">
+                <span class="hidden"   ng-repeat="log in mark_sold = (SIns.current_row.mark | filter:{status: '!4', hospital_id: '!-1'})">
                 </span>
                 <dd>[:mark_sold.length:]</dd>
             
                 <dt class="tar col-md-1">库存Mark</dt>
-                <dd>[:SIns.current_row.mark.length:]</dd>
+                <span class="hidden"   ng-repeat="log in mark_store = (SIns.current_row.mark | filter:{status: '!4', hospital_id: -1})">
+                </span>
+                <dd>[:mark_store.length:]</dd>
+                
+                <dt class="tar col-md-1">累计损坏报废mark</dt>
+                <span class="hidden"   ng-repeat="log in mark_damage_scrap = (SIns.current_row.mark | filter:{status: 3})">
+                </span>
+                <dd>[:mark_damage_scrap.length:]</dd>
+                
+                <dt class="tar col-md-1">累计损坏报废mark</dt>
+                <span class="hidden"   ng-repeat="log in mark_damage_update = (SIns.current_row.mark | filter:{status: 4})">
+                </span>
+                <dd>[:mark_damage_update.length:]</dd>
             </dl>
         </div>
     </div>
