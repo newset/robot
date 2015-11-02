@@ -57,8 +57,17 @@ controller:
                         <div class="col-md-6">
                             <input class="form-control"
                                    ng-model-options="{debounce: 300}"
-                                   ng-model="SIns.cond.where.name"
+                                   ng-model="SIns.cond.whereLike.name"
                                    placeholder="名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-1">联系人</label>
+                        <div class="col-md-6">
+                            <input class="form-control"
+                                   ng-model-options="{debounce: 300}"
+                                   ng-model="SIns.cond.whereLike.name_in_charge"
+                                   placeholder="联系人">
                         </div>
                     </div>
                     <div class="form-group text-right col-md-12">
