@@ -1426,11 +1426,15 @@
         }])
         .controller('LogCtrl', ['$scope', '$state', 'H', function ($scope, $state, H) {
             $scope.cond = {where: {}, pagination: 1};
-
+            $scope.init = function(){
+                H.p(cook('log/r')).then(function(res){
+                    $scope.logs = res.data.d.main;
+                })
+            }
             $scope.$watch('cond', function(n){
                 if (n) {
                     // 刷新
-                    
+                    $scope.init();
                 };
             });
         }])

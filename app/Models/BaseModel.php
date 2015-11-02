@@ -182,6 +182,11 @@ class BaseModel extends Model
         };
     }
 
+    public function updateRules($id = null)
+    {
+        return [];
+    }
+
     public function prepare_date_fields(Array $dates)
     {
         foreach ($dates as $k => $v)

@@ -24,11 +24,15 @@
 	   <table class="table table-bordered">
 	   	<thead>
 	   		<tr>
-	   			<th>时间</th>
+	   			<th class="col-md-2">时间</th>
 	   			<th>事件</th>
 	   		</tr>
 	   	</thead>
 	   	<tbody>
+	   		<tr ng-repeat="log in logs">
+	   			<td ng-bind="log.at"></td>
+	   			<td ng-bind="log.memo"></td>
+	   		</tr>
 	   	</tbody>
 	   </table>
 	</div>
