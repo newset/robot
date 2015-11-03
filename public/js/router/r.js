@@ -548,7 +548,7 @@
                         template : '<div ui-view></div>'
                     })
                     .state('base.pm.list', {
-                        url : '/list',
+                        url : '/list/:type?',
                         templateUrl: shot('page/pm/list'),
                         controller : 'PMCtrl'
                     })
@@ -565,13 +565,14 @@
                                 });
                             }
                         },
-                        controller : ['message', '$scope', 'H', function(message, $scope, H){
+                        controller : ['message', '$scope', 'H', '$state', function(message, $scope, H, $state){
                             $scope.message = message;
                             var type = ['employee','agency','doctor'];
                             $scope.sendToMe = function(){
                                 return true;
                             }
 
+                            H.p(cook('message/read'), {id: message.id});
                             $scope.reply = function(msg){
                                 var data = {
                                     recipientid : message.senderid,
@@ -580,7 +581,9 @@
                                     messagecontent: msg
                                 };
                                 H.p(cook('message/cu'), data).then(function(res){
-
+                                    if(res.data.status == 1){
+                                        $state.go('base.pm.list', {type: 'outbox'});
+                                    }
                                 });
                             }
                         }]

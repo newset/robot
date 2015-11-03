@@ -28,8 +28,9 @@
 <div>
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h3 class="panel-title">代办事项</h3>
-			<span class="pull-right h5" ng-class="{'text-danger': agency_status_danger}">[:agency_status:]</span>
+			<h3 class="panel-title">代办事项
+				<span class="pull-right" ng-class="{'text-danger': agency_status_danger}">[:agency_status:]</span>
+			</h3>
 		</div>
 	</div>
 

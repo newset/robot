@@ -8,7 +8,12 @@ class IMessage extends BaseModel
 {
     protected $guarded = ['id'];
     protected $ins_name = 'privatemessage';
+  
     public $timestamps = false;
+
+    function __construct() {
+        parent::__construct();
+    }
 
     public $createRule = [
     	'messagecontent'=> 'required',
@@ -46,5 +51,12 @@ class IMessage extends BaseModel
     public function verify($rq = null)
     {
         return true;
+    }
+
+    public function read()
+    {
+        $id = rq('id');
+        $data = $this->find($id)->update(['read'=> 1]);
+        return ss($data);
     }
 }

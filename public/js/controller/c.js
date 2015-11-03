@@ -1353,7 +1353,7 @@
         .controller('PMCtrl', ['$scope', 'H', '$rootScope', '$stateParams', '$state', 'UserSession', 
                 function($scope, H, $rootScope, $stateParams, $state, session){
             // 默认获取
-            $scope.toMe = 1;
+            $stateParams.type ? $scope.toMe = -1 :  $scope.toMe = 1;
             var type = ['employee', 'agency', 'doctor'],
                 role = session.get('his_chara')[0],
                 roleType = type.indexOf(role)+1;
