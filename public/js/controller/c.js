@@ -1441,11 +1441,13 @@
                     $scope.logs = res.data.d;
                 })
             }
-            $scope.$watch('cond', function(n){
+
+            $scope.init();
+            $scope.$watch('cond.pagination', function(n){
                 if (n) {
                     // 刷新
                     $scope.init();
                 };
-            }, true);
+            });
         }])
 })();

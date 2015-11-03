@@ -3,12 +3,42 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Input;
 
 class ILog extends BaseModel
 {
     protected $guarded = ['id'];
     protected $ins_name = 'log';
     public $timestamps = false;
+
+    /**
+     * 自定义查询
+     * @return [type] [description]
+     */
+    public function r()
+    {
+        $builder = $this;
+    	if (Input::has('where.start')) {
+    		$builder = $builder->where('at', '>', Input::get('where.start'));
+    	}
+
+    	if (Input::has('where.end')) {
+    		$builder = $builder->where('at', '<', Input::get('where.end'));
+    	}
+
+    	if (Input::has('where.memo')) {
+    		$builder = $builder->where('memo', 'like', '%'.Input::get('where.memo').'%');
+    	}
+
+    	$page = rq('pagination') ? rq('pagination') : 1;
+    	$per_page = rq('limit') ? rq('limit') : 20;
+    	$skip = ($page-1) * $per_page;
+    	$count = $builder->count();
+
+    	$builder = $builder->skip($skip)->take($per_page)->orderBy('at', 'desc');
+        $data = $builder->get();
+    	return ss(['main' => $data, 'count' => $count, 'sql' => $builder->toSql(), 'start'=> Input::get('where.start')]);
+    }
 
     /**
      * 添加日志

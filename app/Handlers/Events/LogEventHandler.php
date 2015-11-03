@@ -40,7 +40,7 @@ class LogEventHandler
     public function robot($method = null, $data = null)
     {
         if ($method == 'c') {
-            ILog::add_log(5, 1, $data->id, '新建设备: '.$data->cust_id.' ['.username().']');
+            ILog::add_log(5, 1, $data->id, '新建设备');
         }
     }
 }
