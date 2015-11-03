@@ -73,7 +73,7 @@ url:
                             <div class="col-md-6">
                                 <input class="form-control"
                                        ng-model-options="{debounce: 300}"
-                                       ng-model="SIns.cond.where_has.doctor.name"
+                                       ng-model="SIns.cond.where.doctor"
                                        placeholder="">
                             </div>
                         </div>

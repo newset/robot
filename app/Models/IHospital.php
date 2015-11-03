@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Validator;
+use Validator, Input;
 
 class IHospital extends BaseModel
 {
@@ -26,6 +26,42 @@ class IHospital extends BaseModel
         $this->updateRule = [];
 
         $this->messages['name.unique'] = '医院名字已存在';
+    }
+
+    public function r()
+    {
+        $builder = $this;
+
+        if (Input::has('where.name')) {
+            $builder = $builder->where('i_hospital.name', 'like', Input::get('where.name'));
+        }
+
+        if (Input::has('where.id')) {
+            $builder = $builder->where('i_hospital.id', 'like', Input::get('where.id'));
+        }
+
+        if (Input::has('where.province_id')) {
+            $builder = $builder->where('i_hospital.province_id', Input::get('where.province_id'));
+        }
+
+        if (Input::has('where.city_id')) {
+            $builder = $builder->where('i_hospital.city_id', Input::get('where.city_id'));
+        }
+
+        if (Input::has('where.doctor')) {
+            $builder = $builder->rightJoin('i_doctor', 'i_doctor.hospital_id', '=', 'i_hospital.id')
+                ->where('i_doctor.name', 'like', '%'.Input::get('where.doctor').'%');
+        }
+
+        $pager =$this->pager();
+
+        $count = $builder->count();
+        $data = $builder->select('i_hospital.*')->skip($pager['skip'])->take($pager['per_page'])->get();
+        
+        return ss([
+            'main' => $data,
+            'count' => $count
+        ]);
     }
 
     // 验证名字

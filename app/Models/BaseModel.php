@@ -132,6 +132,15 @@ class BaseModel extends Model
         };
     }
 
+    public function pager()
+    {
+        $page = rq('pagination') ? rq('pagination') : 1;
+        $per_page = rq('limit') ? rq('limit') : 20;
+        $skip = ($page-1) * $per_page;
+
+        return ['page' => $page, 'per_page'=> $per_page, 'skip' => $skip];
+    }
+
     /**
      * 更新
      */
