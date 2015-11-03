@@ -81,14 +81,18 @@ class LogEventHandler
     public function hospital($method = null, $data = null)
     {
         if ($method == 'c') {
-            ILog::add_log(12, 2, $data->id, '新建医院');
+            ILog::add_log(11, 2, $data->id, '新建医院');
+        }
+
+        if ($method == 'r') {
+            ILog::add_log(10, 2, $data->id, '查看医院详情');
         }
     }
 
     public function department($method = null, $data = null)
     {
         if ($method == 'c') {
-            ILog::add_log(13, 2, $data->id, '新建科室: '.$data->name.'（'.$data->username.')');
+            ILog::add_log(12, 2, $data->id, '新建科室: '.$data->name.'（'.$data->username.')');
         }
     }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Validator, Input;
+use Event, App\Events\LogEvent;
 
 class IHospital extends BaseModel
 {
@@ -62,6 +63,10 @@ class IHospital extends BaseModel
         $count = $builder->count();
         $data = $builder->select('i_hospital.*')->skip($pager['skip'])->take($pager['per_page'])->get();
         
+        if ($count > 0  && Input::has('id')) {
+            Event::fire(new LogEvent('r', $this->ins_name, $data[0]));
+        }
+
         return ss([
             'main' => $data,
             'count' => $count
