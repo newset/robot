@@ -74,6 +74,13 @@ class IAgency extends BaseModel
      */
     public function u($rq = NULL)
     {
+        // 代理只能修改自己
+        if (he_is('agency')) {
+            if (rq('id') != uid()) {
+                abort(403);
+            }
+        }
+
         $this->guarded = arr_except_vals($this->guarded, ['password']);
 
         if (!$rq) {
@@ -105,6 +112,16 @@ class IAgency extends BaseModel
     {
         $data = $this->where('id', uid())->first();
         return ss($data);
+    }
+
+    public function change_password($row = null)
+    {
+        $row = $row ? $row : rq();
+
+        $ins = $this->find($row['id']);
+        $ins->password = hash_password($row['password']);
+        $r = $ins->save();
+        return $r ? ss($r) : ee(1);
     }
 
     /**

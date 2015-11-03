@@ -74,7 +74,7 @@
                     <div class="section col-md-12">
                         <h4>修改个人信息</h4>
                         <hr>
-                        <form ng-submit="SIns.cu(SIns.me_row)"
+                        <form ng-submit="SIns.u(SIns.me_row)"
                               name="form_me"
                               class="form-horizontal">
                             <div class="form-group row">

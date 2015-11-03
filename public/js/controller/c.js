@@ -1301,6 +1301,7 @@
                 , session
             )
             {
+
                 $scope.h = h;
                 $scope.SBase = SBase;
                 $scope.SMe = SMe;
@@ -1311,10 +1312,11 @@
                 $scope.cond = SMe.cond;
                 $scope.with_search = $stateParams.with_search;
                 //$scope.cu_bat_data_mark_list = SMe.cu_bat_data.mark_list;
-                SMe.init();
-
                 // 修改类型
                 var role = session.get('his_chara')[0];
+                SMe.ins_name = role;
+                SMe.init();
+
                 $scope.$watch('current_password', function()
                 {
                     H.p(cook(role+'/r'), {where: {'id': SMe.uid, password: $scope.current_password}})

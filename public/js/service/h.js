@@ -182,6 +182,10 @@
                     return promise;
                 }
 
+                me.u = function(d, ins){
+                    return H.p(cook(ins.ins_name + '/u'), d);
+                }
+
                 function prepare_current_row()
                 {
                     var row = this.current_row;

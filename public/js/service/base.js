@@ -729,6 +729,7 @@
                 var me = this;
                 me.id = 0;
                 me.cu = cu;
+                me.u = u;
                 me.refresh = function ()
                 {
                 }
@@ -743,6 +744,17 @@
                 function change_password(row)
                 {
                     H.p(cook(me.ins_name + '/change_password'), row)
+                        .then(function (r)
+                        {
+                            if (r.data.status)
+                            {
+                                location.reload(true);
+                            }
+                        })
+                }
+
+                function u(d) {
+                    h.u.apply(me, [d, me])
                         .then(function (r)
                         {
                             if (r.data.status)

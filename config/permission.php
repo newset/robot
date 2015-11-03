@@ -24,7 +24,8 @@ return [
 
             'department' =>
                 [
-                    'rl'
+                    'rl',
+                    'change_password'
                 ],
             'mark' =>
                 [
@@ -60,7 +61,9 @@ return [
             'agency' =>
                 [
                     'r',
-                    'me'
+                    'me', 
+                    'u',
+                    'change_password'
                 ],
             'doctor' =>
                 [
@@ -74,7 +77,8 @@ return [
             'message' =>
                 [
                     'cu',
-                    'r'
+                    'r',
+                    'read'
                 ]
         ],
     'doctor' =>
