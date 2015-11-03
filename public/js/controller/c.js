@@ -1288,6 +1288,7 @@
             'SBase',
             'h',
             'H',
+            'UserSession',
             function ($scope
                 , $stateParams
                 , SMark
@@ -1297,6 +1298,7 @@
                 , SBase
                 , h
                 , H
+                , session
             )
             {
                 $scope.h = h;
@@ -1311,9 +1313,11 @@
                 //$scope.cu_bat_data_mark_list = SMe.cu_bat_data.mark_list;
                 SMe.init();
 
+                // 修改类型
+                var role = session.get('his_chara')[0];
                 $scope.$watch('current_password', function()
                 {
-                    H.p(cook('employee/r'), {where: {'id': SMe.uid, password: $scope.current_password}})
+                    H.p(cook(role+'/r'), {where: {'id': SMe.uid, password: $scope.current_password}})
                         .then(function(r)
                         {
                             if(r.data.d.count)
