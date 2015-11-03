@@ -110,7 +110,7 @@ class IAgency extends BaseModel
     /**
      * 触发事件
      */
-    public function eventFire($method)
+    public function eventFire($method, $data= null)
     {
         if ($method === 'c') {
             $response = Event::fire(new UserSignup);

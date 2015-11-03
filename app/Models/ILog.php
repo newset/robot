@@ -10,11 +10,13 @@ class ILog extends BaseModel
     protected $ins_name = 'log';
     public $timestamps = false;
 
-    public function c($rq = null)
-    {
-
-    }
-
+    /**
+     * 添加日志
+     * @param [type] $action_type_id [description]
+     * @param [type] $ins_type_id    [description]
+     * @param [type] $related_id     [description]
+     * @param [type] $memo           [description]
+     */
     public static function add_log($action_type_id, $ins_type_id, $related_id, $memo)
     {
     	Self::insert([
@@ -26,6 +28,12 @@ class ILog extends BaseModel
     	]);
     }
 
+    /**
+     * 登录日志
+     * @param  [type] $type [description]
+     * @param  [type] $user [description]
+     * @return [type]       [description]
+     */
     public static function login($type, $user)
     {
 		$related_id = $user->id;

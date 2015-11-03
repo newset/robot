@@ -29,11 +29,30 @@
 	   		</tr>
 	   	</thead>
 	   	<tbody>
-	   		<tr ng-repeat="log in logs">
+	   		<tr ng-repeat="log in logs.main">
 	   			<td ng-bind="log.at"></td>
 	   			<td ng-bind="log.memo"></td>
 	   		</tr>
 	   	</tbody>
 	   </table>
+	   <div class="">
+	        <div class="pagination_wrapper">
+	            <span class="pull-left">记录: [:(cond.pagination-1)*items_per_page + logs.count/logs.count || 0 :] / [:logs.count||0:]</span>
+	            <pagination
+	                boundary-links="true"
+	                total-items="logs.count"
+	                items-per-page="items_per_page"
+	                ng-model="cond.pagination"
+	                class="pagination-md"
+	                previous-text="<"
+	                next-text=">"
+	                max-size="10"
+	                first-text="第一页"
+	                {{--items-per-page="5"--}}
+	                last-text="最后一页"
+	            >
+	            </pagination>
+	        </div>
+	    </div>
 	</div>
 </div>

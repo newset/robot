@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use DB;
 
 use Validator, Schema, Carbon\Carbon;
+use Event, App\Events\LogEvent;
 
 class BaseModel extends Model
 {
@@ -117,7 +118,7 @@ class BaseModel extends Model
 
             if ($this->save())
             {
-                $this->eventFire('c');
+                $this->eventFire('c', $this);
                 $this->assignRelateData();
                 $this->getSafeColumns();
                 return ss($this);
@@ -168,7 +169,7 @@ class BaseModel extends Model
 
             if ($ins->save())
             {
-                $ins->eventFire('u');
+                $ins->eventFire('u', $ins);
                 $ins->assignRelateData();
                 $ins->getSafeColumns();
                 return ss($ins);
@@ -440,8 +441,9 @@ class BaseModel extends Model
     /**
      * 触发事件
      */
-    public function eventFire($eventName)
+    public function eventFire($eventName, $data = null)
     {
+        Event::fire(new LogEvent($eventName, $this->ins_name, $data));
     }
 
     /**

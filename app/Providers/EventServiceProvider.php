@@ -19,6 +19,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\UserSignup'     =>      [
             'App\Handlers\Events\UserEventHandler@userSignup'
         ],
+        'App\Events\LogEvent'     =>      [
+            'App\Handlers\Events\LogEventHandler'
+        ],
     ];
 
     /**
