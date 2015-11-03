@@ -3,7 +3,7 @@
         <h3 class="panel-title">编辑医院</h3>
     </div>
     <div class="panel-body">
-        <form ng-submit="SIns.cu(SIns.current_row)"
+        <form
               name="form_hospital"
               class="form-horizontal">
             <div class="form-group">
@@ -13,6 +13,9 @@
                     <input ng-model="SIns.current_row.name"
                            class="form-control"
                            required>
+                    <p ng-repeat="error in errors.name" class="text-danger">
+                      [:error:]
+                    </p>
                 </div>
             </div>
             <div class="form-group md-select-group">
@@ -58,7 +61,7 @@
                 </div>
             </div>
             <div class="form-group text-right col-md-12">
-                <button class="btn btn-primary" ng-disabled="form_hospital.$invalid" ng-click="SIns.cu(hospital)">提交
+                <button class="btn btn-primary" ng-disabled="form_hospital.$invalid" ng-click="save(hospital)">提交
                 </button>
             </div>
         </form>

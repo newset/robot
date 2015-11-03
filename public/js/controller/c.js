@@ -200,11 +200,13 @@
             '$scope',
             'SBase',
             'SHospital',
+            '$state',
             'h','H',
             '$stateParams',
             function ($scope,
                       SBase,
                       SHospital,
+                      $state,
                       h,H,
                       $stateParams
             )
@@ -219,7 +221,19 @@
                         $scope.hospital_id}).then(function (r){
                         $scope.hospital = r.data.d.main[0];
                         $scope.SIns.current_row=$scope.hospital;
-                  });
+                });
+
+                $scope.save = function(hospital){
+                    $scope.SIns.cu(hospital).then(function(res){
+                        if (res.data.status == 1) {
+                            $scope.SIns.refresh();
+                            $state.go('base.hospital.department_doctor', {hid : res.data.d.id});
+                        }else{
+                            $scope.errors = res.data.d.additional_info;
+                        }
+                    })
+                    
+                }
             }
         ])
         .controller('CPageDoctor',

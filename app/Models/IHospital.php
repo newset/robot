@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Validator;
 
 class IHospital extends BaseModel
 {
@@ -23,6 +24,27 @@ class IHospital extends BaseModel
         ];
 
         $this->updateRule = [];
+
+        $this->messages['name.unique'] = '医院名字已存在';
+    }
+
+    // 验证名字
+    public function u($rq = null)
+    {
+        // 验证
+        if (!rq('id')) {
+            return ee(1);
+        }
+
+        $rules = $this->createRule;
+        $rules['name'] = $rules['name'].','.rq('id');
+        $validator = Validator::make($rq, $rules, $this->messages);
+
+        if (!$validator->passes()){
+            return ee(2, $validator->errors());
+        }
+
+        return parent::u($rq);
     }
 
     /**
