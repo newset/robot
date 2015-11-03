@@ -565,15 +565,23 @@
                                 });
                             }
                         },
-                        controller : ['message', '$scope', function(message, $scope){
+                        controller : ['message', '$scope', 'H', function(message, $scope, H){
                             $scope.message = message;
-
+                            var type = ['employee','agency','doctor'];
                             $scope.sendToMe = function(){
                                 return true;
                             }
 
-                            $scope.reply = function(){
+                            $scope.reply = function(msg){
+                                var data = {
+                                    recipientid : message.senderid,
+                                    recipienttype: type[message.sendertype-1],
+                                    recipientname: message.sendername,
+                                    messagecontent: msg
+                                };
+                                H.p(cook('message/cu'), data).then(function(res){
 
+                                });
                             }
                         }]
                     })

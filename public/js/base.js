@@ -76,13 +76,22 @@
 			};
 		}])
 		.service('UserSession', ['$rootScope', function ($rootScope) {
+			this.data = {};
 			// 用户登录状态
 			this.set = function(data){
 				$rootScope._user_session_data = data;
+				for(var key in data){
+					this.set_key(key, data[key]);
+				}
 			}
 
 			this.set_key = function(key, value){
 				$rootScope._user_session_data[key] = value;
+				this.data[key] = value;
+			}
+
+			this.get = function(key){
+				return this.data[key];
 			}
 
 			return this;

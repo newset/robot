@@ -8,6 +8,7 @@ class ILog extends BaseModel
 {
     protected $guarded = ['id'];
     protected $ins_name = 'log';
+    public $timestamps = false;
 
     public function c($rq = null)
     {

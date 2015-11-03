@@ -1350,10 +1350,15 @@
                 return false;
             }
         }])
-        .controller('PMCtrl', ['$scope', 'H', '$rootScope', '$stateParams', '$state', 
-                function($scope, H, $rootScope, $stateParams, $state){
+        .controller('PMCtrl', ['$scope', 'H', '$rootScope', '$stateParams', '$state', 'UserSession', 
+                function($scope, H, $rootScope, $stateParams, $state, session){
             // 默认获取
             $scope.toMe = 1;
+            var type = ['employee', 'agency', 'doctor'],
+                role = session.get('his_chara')[0],
+                roleType = type.indexOf(role)+1;
+
+            console.log(roleType);
 
             $scope.getMessage = function(){
                 $scope.loading = true;
@@ -1362,13 +1367,17 @@
                     order_by : 'sendtime desc'
                 };
                 if ($scope.toMe == 1) {
-                    cond.where.recipientid = $rootScope._user_session_data.uid;
-                    cond.where.recipienttype = 1;
+                    cond.where = {
+                        recipientid : $rootScope._user_session_data.uid,
+                        recipienttype : roleType
+                    };
                 };
 
                 if ($scope.toMe == -1) {
-                    cond.where.senderid = $rootScope._user_session_data.uid;
-                    cond.where.recipienttype = undefined;
+                    cond.where = {
+                        senderid : $rootScope._user_session_data.uid,
+                        sendertype : roleType
+                    };
                 };
 
                 H.p(cook('message/r'), cond).then(function(res){
