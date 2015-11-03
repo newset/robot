@@ -191,8 +191,20 @@
                     SHospital.with_search = 1;
                 };
                 $scope.equalsId=function(a,b){
-                        return a==b;
-                  }
+                    return a==b;
+                }
+
+                $scope.save = function(hospital){
+                    $scope.SIns.cu(hospital).then(function(res){
+                        if (res.data.status == 1) {
+                            $scope.SIns.refresh();
+                            $state.go('base.hospital.department_doctor', {hid : res.data.d.id});
+                        }else{
+                            $scope.errors = res.data.d.additional_info;
+                        }
+                    })
+                    
+                }
             }
         ])
         .controller('CHospitalEdit',
@@ -430,7 +442,7 @@
             //获取医院信息
             H.p(cook('hospital/r'), {
                 'limit': 0,
-                'order_by': 'id',
+                'order_by': 'id desc',
                 'id': $scope.hospital_id
             }).then(function(r) {
                 $scope.hospital = r.data.d.main[0];

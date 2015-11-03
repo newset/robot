@@ -231,7 +231,7 @@
                     .state('base.hospital.edit',{//编辑医院
                         url : '/edit?hid',
                         controller:'CHospitalEdit',
-                      templateUrl : shot('seg/hospital_edit')
+                        templateUrl : shot('seg/hospital_edit')
                     })
                     .state('base.hospital.list', {//医院列表页
                         url: '/list?page_num&limit&with_search',

@@ -32,6 +32,10 @@ class IHospital extends BaseModel
     {
         $builder = $this;
 
+        if (Input::has('id')) {
+            $builder = $builder->where('id', Input::get('id'));
+        }
+
         if (Input::has('where.name')) {
             $builder = $builder->where('i_hospital.name', 'like', Input::get('where.name'));
         }

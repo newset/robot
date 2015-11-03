@@ -1,12 +1,11 @@
-<div class="container panel-default panel" style="padding:0px">
+<div class="container panel-default panel" style="padding:0px" ng-controller="CPageHospital as cPageHospital">
     <div class="panel-heading">
         <h3 class="panel-title">新建医院</h3>
     </div>
     <div class="panel-body">
         <form
                 name="form_hospital"
-                class="form-horizontal"
-                ng-controller="CPageHospital as cPageHospital">
+                class="form-horizontal">
             <div class="form-group">
                 <label class="control-label col-md-1">医院名称</label>
 
@@ -61,12 +60,9 @@
             </div>
             <div class="form-group text-right" style="margin-right: 10px;">
                     <button class="btn btn-primary" ng-disabled="form_hospital.$invalid"
-                            ng-click="SIns.cu(SIns.current_row)">提交
+                            ng-click="save(SIns.current_row)">提交
                     </button>
             </div>
         </form>
     </div>
-    {{-- <div class="panel-footer" ng-controller="CPageHospital as cPageHospital">
-        <button  class="btn  pull-right" ng-disabled="form_hospital.$invalid" ng-click="SIns.cu(SIns.current_row)">提交</button>
-    </div> --}}
 </div>
