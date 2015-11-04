@@ -82,6 +82,17 @@
 										 	</select>
 									  </div>
 									</div>
+									@if(he_is('employee'))
+										<div class="form-group row">
+											<label class="control-label col-md-1">医生</label>
+											 <div class="col-md-6">
+											 	<input class="form-control"
+											   ng-model-options="{debounce: 300}"
+											   ng-model="SIns.cond.where.doctor_name"
+											   placeholder="医生">
+										  </div>
+										</div>
+									@endif
 
 								<!--     <div class="form-group">
 										<label class="control-label col-md-2">出货给代理商时间</label>
