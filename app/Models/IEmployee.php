@@ -22,8 +22,8 @@ class IEmployee extends BaseModel
             'name'     => 'required',
             'username' => 'required|unique:' . table_name($this->ins_name),
             'password' => 'required|min:6',
-            'phone'    => 'numeric|min:11',
-            'email'    => 'email',
+            'phone'    => 'required|numeric|min:11',
+            'email'    => 'required|email',
             'status'   => 'numeric',
             'memo'     => 'string',
         ];
