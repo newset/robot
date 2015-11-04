@@ -72,7 +72,8 @@ return [
             'robot_home' => 
                 [
                     'home',
-                    'mark'
+                    'mark',
+                    'robot'
                 ],
             'message' =>
                 [

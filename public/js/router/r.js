@@ -119,7 +119,7 @@
                         resolve : {
                             deps : function(H, $q) {
                                 return $q.all([
-                                    H.p(cook('robot_home/home')).then(function(res){
+                                    H.p(cook('robot_home/robot')).then(function(res){
                                         return res.data.d;
                                     }),
                                     H.p(cook('robot_home/mark')).then(function(res){
