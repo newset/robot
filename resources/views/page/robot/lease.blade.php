@@ -24,7 +24,7 @@
 								<input type="radio" ng-model="data.lease_type_id"  ng-click="data.agency_id=undefined" value="2">出租
 							</label>
 							<label class="radio-inline">
-								<input type="radio" ng-model="data.lease_type_id"  ng-click="data.agency_id=undefined" value="1">出售
+								<input type="radio" ng-model="data.lease_type_id"  ng-click="data.agency_id=undefined" value="1"  ng-checked="true">出售
 							</label>
 							<label class="radio-inline">
 								<input type="radio" ng-model="data.lease_type_id"  ng-click="data.agency_id=1" value="3">免费合作
