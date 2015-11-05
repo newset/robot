@@ -443,7 +443,8 @@
             H.p(cook('hospital/r'), {
                 'limit': 0,
                 'order_by': 'id desc',
-                'id': $scope.hospital_id
+                'id': $scope.hospital_id,
+                'log' : $stateParams.log
             }).then(function(r) {
                 $scope.hospital = r.data.d.main[0];
             });

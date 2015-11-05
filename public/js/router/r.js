@@ -242,7 +242,7 @@
                     {//医院详情页
                         controller:'CHospitalDetail',
                         // resolve todo
-                        url: '/department_doctor/:hid?page_num=&limit=&with_search=',
+                        url: '/department_doctor/:hid?page_num=&limit=&with_search=&log=',
                         templateUrl: shot('page/department_doctor'),
                     })
                     .state('base.hospital.report', {

@@ -211,20 +211,14 @@ class BaseModel extends Model
      */
     public function d()
     {
-        $r = $this->findOrFail(rq('id'))->delete();
+        $row = $this->findOrFail(rq('id'));
+        $r = $row->delete();
+        if ($r) {
 
-        //$ins->deleted_timestam = time();
-        //if ($ins->save())
-        //{
-        //    $ins->eventFire('d');
-        //    $ins->assignRelateData();
-        //    $ins->getSafeColumns();
-        //    return ss($ins);
-        //} else
-        //{
-        //    return ee(7);
-        //}
-        return $r?  ss($r):ee();
+            $this->eventFire('d', $row);
+        }
+      
+        return $r ? ss($r) : ee();
     }
 
     public function r_builder($in = null)

@@ -123,7 +123,7 @@ url:
                     <td class="edit col-md-2 hospital-list-edit">
                             <span class="tool_wrapper">
                                 <a class="btn-primary btn-custom btn btn-sm" target="_blank"
-                                   href="#/hospital/department_doctor/[:row.id:]">
+                                   href="#/hospital/department_doctor/[:row.id:]?log=1">
                                     管理科室/医生
                                 </a>
                                 <button class="btn-primary btn-custom btn btn-sm"

@@ -84,7 +84,7 @@ class LogEventHandler
             ILog::add_log(11, 2, $data->id, '新建医院');
         }
 
-        if ($method == 'r') {
+        if ($method == 'r' && rq('log')) {
             ILog::add_log(10, 2, $data->id, '查看医院详情');
         }
     }
@@ -92,7 +92,15 @@ class LogEventHandler
     public function department($method = null, $data = null)
     {
         if ($method == 'c') {
-            ILog::add_log(12, 2, $data->id, '新建科室: '.$data->name.'（'.$data->username.')');
+            ILog::add_log(12, 2, $data->hospital_id, '新建科室: '.$data->name.'（'.$data->username.')');
+        }
+
+        if ($method == 'u') {
+            ILog::add_log(13, 2, $data->hospital_id, '编辑科室: '.'（'.$data->username.')');
+        }
+
+        if ($method == 'd') {
+            ILog::add_log(14, 2, $data->hospital_id, '删除科室: '.$data->name.'（'.$data->username.')');
         }
     }
 }

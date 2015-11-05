@@ -30,8 +30,6 @@ class IMessage extends BaseModel
     	];
 
     	$rq = rq();
-        // 验证发信规则
-        $valid = $this->verify($rq);
 
     	$rq['senderid'] = uid();
     	$rq['sendername'] = username();
@@ -44,6 +42,12 @@ class IMessage extends BaseModel
     	}elseif (his_chara()[0] == 'employee') {
 	    	$rq['recipienttype'] = $type[$rq['recipienttype']];
     	}
+
+        // 验证发信规则
+        $valid = $this->verify($rq);
+        if (!$valid) {
+            return ee(2);
+        }
 
     	return parent::c($rq);
     }
