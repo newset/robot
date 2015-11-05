@@ -81,12 +81,12 @@
                 </span>
                 <dd>[:mark_store.length:]</dd>
                 
-                <dt class="tar col-md-1">累计损坏报废mark</dt>
+                <dt class="tar col-md-1">累计损坏mark</dt>
                 <span class="hidden"   ng-repeat="log in mark_damage_scrap = (SIns.current_row.mark | filter:{status: 3})">
                 </span>
                 <dd>[:mark_damage_scrap.length:]</dd>
                 
-                <dt class="tar col-md-1">累计损坏报废mark</dt>
+                <dt class="tar col-md-1">累计更新mark</dt>
                 <span class="hidden"   ng-repeat="log in mark_damage_update = (SIns.current_row.mark | filter:{status: 4})">
                 </span>
                 <dd>[:mark_damage_update.length:]</dd>
