@@ -78,6 +78,12 @@ class LogEventHandler
         }
     }
 
+    /**
+     * 医院 Log
+     * @param  [type] $method [description]
+     * @param  [type] $data   [description]
+     * @return [type]         [description]
+     */
     public function hospital($method = null, $data = null)
     {
         if ($method == 'c') {
@@ -89,6 +95,12 @@ class LogEventHandler
         }
     }
 
+    /**
+     * 科室 Log
+     * @param  [type] $method [description]
+     * @param  [type] $data   [description]
+     * @return [type]         [description]
+     */
     public function department($method = null, $data = null)
     {
         if ($method == 'c') {
@@ -102,5 +114,27 @@ class LogEventHandler
         if ($method == 'd') {
             ILog::add_log(14, 2, $data->hospital_id, '删除科室: '.$data->name.'（'.$data->username.')');
         }
+    }
+
+    /**
+     * 医生 Log
+     * @param  [type] $method [description]
+     * @param  [type] $data   [description]
+     * @return [type]         [description]
+     */
+    public function doctor($method = null, $data = null)
+    {
+        if ($method == 'c') {
+            ILog::add_log(15, 4, $data->id, '新建医生');
+        }
+
+        if ($method == 'u') {
+            ILog::add_log(16, 4, $data->id, '编辑医生');
+        }
+
+        if ($method == 'disable') {
+            ILog::add_log(17, 4, $data->id, '医生被禁用');
+        }
+
     }
 }

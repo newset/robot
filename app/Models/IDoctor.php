@@ -38,6 +38,19 @@ class IDoctor extends BaseModel
         return M('doctor')->max('cust_id');
     }
 
+    public function disable()
+    {
+        if (rq('id')) {
+            $row = $this->find(rq('id'));
+            $row->update(['status' => -1, 'cust_id'=> null, 'wechat_id'=> null]);
+
+            $this->eventFire('disable', $row);
+            return ss($row);
+        }else{
+            ee(2);
+        }
+    }
+
     /**
      * 关联Mark
      */

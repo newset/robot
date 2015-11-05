@@ -351,6 +351,7 @@
             'SHospital',
             'SDepartment',
             'h',
+            'H',
             '$stateParams',
             function ($scope,
                       $state,
@@ -359,6 +360,7 @@
                       SHospital,
                       SDepartment,
                       h,
+                      H,
                       $stateParams
             )
             {
@@ -381,6 +383,19 @@
                     }, function(){
                         // 外键错误 todo
                         
+                    });
+                }
+
+                $scope.disable = function(data){
+                    if (!$scope.SIns.current_row.id) {
+                        return;
+                    };
+                    H.p(cook('doctor/disable'), {id: $scope.SIns.current_row.id}).then(function(res){
+                        if ($stateParams.hid) {
+                            $state.go('base.hospital.department_doctor', {hid: $stateParams.hid});
+                        }else{
+                            $state.go('base.doctor.list');
+                        };
                     });
                 }
 

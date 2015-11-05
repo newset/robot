@@ -158,7 +158,10 @@
             </div>
 
             <div class="form-group col-md-12 text-right">
-                <button class="btn btn-info pull-right" ng-disabled="form_doctor.$invalid"
+                <button class="btn btn-danger" ng-disabled="form_doctor.$invalid"
+                        ng-click="disable(SIns.current_row)">禁用
+                </button>
+                <button class="btn btn-info" ng-disabled="form_doctor.$invalid"
                         ng-click="save(SIns.current_row)">确定
                 </button>
             </div>
