@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-1">维修记录</label>
-                                    <label class="radio-inline"><input type="radio" value="" ng-true-value="" ng-model="SIns.cond.where.log_action_tid">不限</label>
+                                    <label class="radio-inline"><input type="radio" value="" ng-true-value="" ng-model="SIns.cond.where.log_action_tid" ng-checked="true">不限</label>
                                     <label class="radio-inline"><input type="radio" value="1" ng-true-value="1" ng-model="SIns.cond.where.log_action_tid">有维修记录</label>
                                     <label class="radio-inline"><input type="radio" value="0" ng-true-value="0" ng-model="SIns.cond.where.log_action_tid">无维修记录</label>
                                 </div>
@@ -93,92 +93,93 @@
                                     <button class="btn btn-info" ng-click="SIns.refresh()">查询</button>
                                 </div>
                             </form>
-                        </div>
-
-                        <div class="col-md-12" ng-show="SIns.total_items != undefined">
-                            <table id="example" class="table table-striped table-bordered dataTable no-footer table-hover"
-                                        cellspacing="0"
-                                        width="100%"
-                                        aria-describedby="example_info"
-                                        style="width: 100%;">
-                                <thead>
-                                    <tr role="row" class="info">
-                                        <th>编号</th>
-                                        <th>设备状态</th>
-                                        <th>生产日期</th>
-                                        <th>销售状态</th>
-                                        <th>医院</th>
-                                        <th>代理商</th>
-                                        <th>负责人</th>
-                                        <th>维护记录</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="odd"
-                                        ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
-                                        <td class="col-md-2">[:row.cust_id:]</td>
-                                        <td class="col-md-1">
-                                            <span>[: SIns.robot_action_type[row.status].name:]</span>
-                                        </td>
-                                        <td class="col-md-2">[:row.production_date | laDate:]</td>
-                                        <td class="col-md-1">
-                                            <span ng-if="!row.lease_type_id ">在库</span>
-                                            <span>[: SIns.robot_status_type[row.lease_type_id+1].name :]</span>
-                                        </td>
-
-                                        {{--<td>--}}
-                                        {{--<span ng-if="!row.log_lease_hospital_id">无</span>--}}
-                                        {{--<span>[: SHospital.all_rec[row.log_lease_hospital_id - 1].name:]</span>--}}
-                                        {{--</td>--}}
-                                        <td class="col-md-2">
-                                            <span ng-if="!row.hospital_id || row.hospital_id == -1">无</span>
-                                            <span >[: row.hospital_name :]</span>
-                                        </td>
-                                        <td class="col-md-1">
-                                            <span ng-if="!row.agency_id || row.agency_id == -1">无</span>
-                                            <span>[: row.agency_name :]</span>
-                                        </td>
-                                        <td class="col-md-1">[:row.employee_name:]</td>
-                                        <td class="col-md-1">[:row.log_count || 0:]</td>
-                                        <td class="edit col-md-1">
-                                            <span class="tool_wrapper">
-                                                <!-- <button class="btn btn-primary btn-sm" href="" ng-click="SIns.popup_edit(row)">
-                                                    设置销售状态
-                                                </button> -->
-                                                <a class="btn btn-primary btn-sm" ui-sref="base.robot.detail({id : row.id})">
-                                                    查看
-                                                </a>
-                                            </span>
-                                        </td>
-                                        {{--<td>[:row.updated_at:]</td>--}}
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                            <div class="pagination_wrapper">
-
-                                <span class="pull-left">记录: [:(SIns.cond.pagination+1-1)* SIns.items_per_page +  (SIns.total_items/SIns.total_items) || 0:] / [:SIns.total_items:]</span>
-
-                                <pagination
-                                    boundary-links="true"
-                                    total-items="SIns.total_items"
-                                    items-per-page="SIns.items_per_page"
-                                    ng-model="SIns.cond.pagination"
-                                    ng-change="SIns.change_page(SIns.cond.pagination)"
-                                    class="pagination-md"
-                                    previous-text="<"
-                                    max-size="10"
-                                    next-text=">"
-                                    first-text="第一页"
-                                    {{--items-per-page="5"--}}
-                                    last-text="最后一页"
-                                >
-                                </pagination>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" ng-show="SIns.total_items != undefined">
+            <table id="example" class="table table-striped table-bordered dataTable no-footer table-hover"
+                        cellspacing="0"
+                        width="100%"
+                        aria-describedby="example_info"
+                        style="width: 100%;">
+                <thead>
+                    <tr role="row" class="info">
+                        <th>编号</th>
+                        <th>设备状态</th>
+                        <th>生产日期</th>
+                        <th>销售状态</th>
+                        <th>医院</th>
+                        <th>代理商</th>
+                        <th>负责人</th>
+                        <th>维护记录</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd"
+                        ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
+                        <td class="col-md-2">[:row.cust_id:]</td>
+                        <td class="col-md-1">
+                            <span>[: SIns.robot_action_type[row.status].name:]</span>
+                        </td>
+                        <td class="col-md-2">[:row.production_date | laDate:]</td>
+                        <td class="col-md-1">
+                            <span ng-if="!row.lease_type_id ">在库</span>
+                            <span>[: SIns.robot_status_type[row.lease_type_id+1].name :]</span>
+                        </td>
+
+                        {{--<td>--}}
+                        {{--<span ng-if="!row.log_lease_hospital_id">无</span>--}}
+                        {{--<span>[: SHospital.all_rec[row.log_lease_hospital_id - 1].name:]</span>--}}
+                        {{--</td>--}}
+                        <td class="col-md-2">
+                            <span ng-if="!row.hospital_id || row.hospital_id == -1">无</span>
+                            <span >[: row.hospital_name :]</span>
+                        </td>
+                        <td class="col-md-1">
+                            <span ng-if="!row.agency_id || row.agency_id == -1">无</span>
+                            <span>[: row.agency_name :]</span>
+                        </td>
+                        <td class="col-md-1">[:row.employee_name:]</td>
+                        <td class="col-md-1">[:row.log_count || 0:]</td>
+                        <td class="edit col-md-1">
+                            <span class="tool_wrapper">
+                                <!-- <button class="btn btn-primary btn-sm" href="" ng-click="SIns.popup_edit(row)">
+                                    设置销售状态
+                                </button> -->
+                                <a class="btn btn-primary btn-sm" ui-sref="base.robot.detail({id : row.id})">
+                                    查看
+                                </a>
+                            </span>
+                        </td>
+                        {{--<td>[:row.updated_at:]</td>--}}
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="pagination_wrapper">
+
+                <span class="pull-left">记录: [:(SIns.cond.pagination+1-1)* SIns.items_per_page +  (SIns.total_items/SIns.total_items) || 0:] / [:SIns.total_items:]</span>
+
+                <pagination
+                    boundary-links="true"
+                    total-items="SIns.total_items"
+                    items-per-page="SIns.items_per_page"
+                    ng-model="SIns.cond.pagination"
+                    ng-change="SIns.change_page(SIns.cond.pagination)"
+                    class="pagination-md"
+                    previous-text="<"
+                    max-size="10"
+                    next-text=">"
+                    first-text="第一页"
+                    {{--items-per-page="5"--}}
+                    last-text="最后一页"
+                >
+                </pagination>
+            </div>
+        </div>
+    </div>
 </section>
