@@ -569,7 +569,14 @@
                             $scope.message = message;
                             var type = ['employee','agency','doctor'];
                             $scope.sendToMe = function(){
-                                return true;
+                                if (message.recipienttype == 1) {
+                                    return true;
+                                };
+
+                                if (message.recipienttype == 2 && message.sendername == 'admin') {
+                                    return true;
+                                };
+                                return false;
                             }
 
                             H.p(cook('message/read'), {id: message.id});

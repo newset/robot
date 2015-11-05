@@ -40,7 +40,7 @@ class IMessage extends BaseModel
     	if (his_chara()[0] == 'agency') {
     		$rq['recipienttype'] = 1;
     		$rq['recipientid'] = 1;
-    		$rq['recipientname'] = 'Admin';
+    		$rq['recipientname'] = 'admin';
     	}elseif (his_chara()[0] == 'employee') {
 	    	$rq['recipienttype'] = $type[$rq['recipienttype']];
     	}
@@ -50,6 +50,13 @@ class IMessage extends BaseModel
 
     public function verify($rq = null)
     {
+        if ($rq['sendertype'] == 1) {
+            return true;
+        };
+
+        if ($rq['sendertype'] == 2 && $rq['recipientname'] == 'admin') {
+            return true;
+        };
         return true;
     }
 
