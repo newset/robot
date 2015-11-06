@@ -18,7 +18,7 @@
 					
 				<div class="row">
 					<div class="form-group">
-						<label class="control-label col-md-2">设置状态</label>
+						<label class="control-label col-md-1">设置状态</label>
 						<div class="col-md-6">
 							<label class="radio-inline">
 								<input type="radio" ng-model="data.lease_type_id"  ng-click="data.agency_id=undefined" value="2">出租
@@ -37,8 +37,8 @@
 				</div>
 				<div class="row" ng-hide="data.lease_type_id == 3 || data.lease_type_id == -1">
 					<div class="form-group">
-						<label class="control-label col-md-2">代理商</label>
-						<div class="col-md-2">
+						<label class="control-label col-md-1">代理商</label>
+						<div class="col-md-6">
 							<select name="agency" data-placeholder="" class="form-control" ng-model="data.agency_id" chosen ng-options="l.id as l.name for l in SAgency.all_rec">
 								<option value="">不限</option>
 							</select>
@@ -47,8 +47,8 @@
 				</div>
 				<div class="row" ng-hide="data.lease_type_id == -1">
 					<div class="form-group">
-						<label class="control-label col-md-2">医院</label>
-						<div class="col-md-2">
+						<label class="control-label col-md-1">医院</label>
+						<div class="col-md-6">
 							<select name="agency" data-placeholder="" class="form-control" ng-model="data.hospital_id" chosen ng-options="l.id as l.name for l in SHospital.all_rec">
 								<option value="">不限</option>
 							</select>
@@ -57,7 +57,7 @@
 				</div>
 				<div class="row" ng-if="data.lease_type_id == 2 || data.lease_type_id == 3">
 					<div class="form-group">
-						<label class="control-label col-md-2">起租时间</label>
+						<label class="control-label col-md-1">起租时间</label>
 						<div class="col-md-8">
 							<div style="display: inline-block;">
 	                            <datepicker date-format="yyyy-MM-dd" date-max-limit="[:data.lease_ended_at:]" selector="form-control" date-set="[:data.lease_started_at:]">
@@ -76,7 +76,7 @@
 
 				<div class="row">
 					<div class="form-group">
-						<label class="control-label col-md-2">备注</label>
+						<label class="control-label col-md-1">备注</label>
 						<div class="col-md-6">
 							<textarea name="" ng-model="data.memo" class="col-md-6 form-control" rows="8"></textarea>
 						</div>
