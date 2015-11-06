@@ -450,6 +450,7 @@
             $scope.hospital={};
             $scope.departments={};
             $scope.doctors={};
+            $scope.robots={};
 
             $scope.SDoctor = SDoctor;
 
@@ -478,6 +479,15 @@
             }).then(function(r) {
                 $scope.doctors = r.data.d.main;
                 console.log(($scope.doctors));
+            });
+            
+            //获取设备
+            H.p(cook('robot/getRobotByHospitalId'), {
+                'hospital_id': $scope.hospital_id,
+                'recent': 1
+            }).then(function(r) {
+                $scope.robots = r.data.d.main;
+                console.log(($scope.robots));
             });
 
             $scope.delete_department = function(department) {

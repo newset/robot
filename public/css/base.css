@@ -743,4 +743,6 @@ select.form-control + .chosen-container-multi .chosen-results li.result-selected
 .report-to{
     margin-top: 10px;
 }
-
+.hospital-custom-font {
+	font-size: 16px;
+}

@@ -226,4 +226,37 @@ class IRobot extends BaseModel
     {
         return $this->hasMany('App\Models\IRobotLeaseLog', 'robot_id');
     }
+    
+    /**
+     * 医院关联设备
+     */
+    public function getRobotByHospitalId() {
+        $builder = $this;
+        
+        $builder = DB::table('i_robot_lease_log')->select('i_robot.cust_id as robot_id', 'i_robot.status', 'i_robot_lease_log.lease_type_id', 'i_employee.name',
+            'i_robot_lease_log.lease_started_at', 'i_robot_lease_log.lease_ended_at')
+        ->leftJoin('i_robot', 'i_robot_lease_log.robot_id', '=', 'i_robot.id')
+        ->leftJoin('i_employee', 'i_employee.id', '=', 'i_robot.employee_id');
+        
+        $where = [];
+        $builder->where('i_robot_lease_log.hospital_id', Input::get('hospital_id'));
+        $builder->where('i_robot_lease_log.recent', Input::get('recent'));
+        /* if(Input::has("hospital_id")) {
+            //$builder->where('i_robot_lease_log.hospital_id', Input::get('hospital_id'));
+            $builder->where('i_robot_lease_log.hospital_id', 1);
+        }
+        if(Input::has("recent")) {
+            //$builder->where('i_robot_lease_log.recent', Input::get('recent'));
+            $builder->where('i_robot_lease_log.recent', 1);
+        } */
+        //$builder->orderBy('robot_id', 'asc');
+        $result = $builder->get();
+        $r = [
+            'count' => count($result),
+            'main'  => $result,
+            'rq' => $builder->toSql()
+        ];
+        
+        return ss($r);
+    }
 }
