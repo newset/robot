@@ -241,15 +241,6 @@ class IRobot extends BaseModel
         $where = [];
         $builder->where('i_robot_lease_log.hospital_id', Input::get('hospital_id'));
         $builder->where('i_robot_lease_log.recent', Input::get('recent'));
-        /* if(Input::has("hospital_id")) {
-            //$builder->where('i_robot_lease_log.hospital_id', Input::get('hospital_id'));
-            $builder->where('i_robot_lease_log.hospital_id', 1);
-        }
-        if(Input::has("recent")) {
-            //$builder->where('i_robot_lease_log.recent', Input::get('recent'));
-            $builder->where('i_robot_lease_log.recent', 1);
-        } */
-        //$builder->orderBy('robot_id', 'asc');
         $result = $builder->get();
         $r = [
             'count' => count($result),
