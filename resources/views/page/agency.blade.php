@@ -62,7 +62,7 @@ controller:
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-1">联系人</label>
+                        <label class="control-label col-md-1">联系人姓名</label>
                         <div class="col-md-6">
                             <input class="form-control"
                                    ng-model-options="{debounce: 300}"
