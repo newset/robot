@@ -137,4 +137,36 @@ class LogEventHandler
         }
 
     }
+
+    /**
+     * 代理商
+     * @param  [type] $method [description]
+     * @param  [type] $data   [description]
+     * @return [type]         [description]
+     */
+    public function agency($method = null, $data = null)
+    {
+        if ($method == 'r') {
+            ILog::add_log(18, 5, $data, '查看代理商详情');
+        }
+
+        if ($method == 'u') {
+            ILog::add_log(21, 5, $data->id, '修改代理商信息');
+        }
+
+        if (method == 'enable') {
+            ILog::add_log(19,5, $data, '代理商被恢复');
+        }
+
+        if (method == 'disable') {
+            ILog::add_log(20,5, $data, '代理商被禁用');
+        }
+    }
+
+    public function mark($method = null, $data = null)
+    {
+        if ($method == 'r') {
+            ILog::add_log(22, 3, $data, '查看mark详情');
+        }
+    }
 }

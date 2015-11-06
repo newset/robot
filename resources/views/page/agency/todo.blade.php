@@ -30,7 +30,7 @@
 	 	   			<td>[:item.started_at:]</td>
 	 	   			<td>[:item.ended_at:]</td>
 	 	   			<td class="text-center">
-	 	   				<a href="" title="查看" class="btn btn-sm btn-primary" ui-sref="base.agency.detail({aid: item.id})">查看</a>
+	 	   				<a href="" title="查看" class="btn btn-sm btn-primary" ui-sref="base.agency.detail({aid: item.id, log: 1})">查看</a>
 	 	   			</td>
 	 	   		</tr>
 	 	   	</tbody>

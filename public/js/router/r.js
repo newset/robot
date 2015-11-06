@@ -325,15 +325,16 @@
                         templateUrl: shot('page/agency'),
                     })
                     .state('base.agency.detail', {//代理商详情页
-                        url : '/detail?aid=',
+                        url : '/detail?aid=&log=',
                         controller:'CAgencyDetail',
                         templateUrl: shot('seg/agency_detail'),
                         resolve : {
                             'deps' : function(SAgency, H, $stateParams, $q, h){
                                 return H.p(cook('agency/r'), {
-                                    where:{'id': parseInt($stateParams.aid)},
-                                    relation: ['robotLeaseLog', 'mark', 'hospital']}
-                                ).then(function (r){
+                                    where: {'id': parseInt($stateParams.aid)},
+                                    relation: ['robotLeaseLog', 'mark', 'hospital'],
+                                    log: 1
+                                }).then(function (r){
                                     SAgency.current_row = r.data.d.main[0];
                                     return SAgency;
                                 });
@@ -476,9 +477,14 @@
                         templateUrl : shot('page/mark/show'),
                         controller : 'CMarkDetail',
                         resolve : {
-                            iMark : function(SMark, $stateParams, $state){
-                                return SMark.one($stateParams.id).then(function(res){
+                            iMark : function(SMark, H, $stateParams, $state){
+                                return H.p(cook('mark/r'), {
+                                    id: $stateParams.id,
+                                    log: 1,
+                                    relation: [['hospital', 'agency', 'doctor', 'robot']]
+                                }).then(function(res){
                                     if (res.data.status == 1) {
+                                        SMark.current_row = res.data.d.main[0];
                                         return SMark;
                                     }else{
                                         // 无权限访问

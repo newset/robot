@@ -6,7 +6,7 @@ use Hamcrest\BaseMatcher;
 use Illuminate\Database\Eloquent\Model;
 
 use Event, App\Events\UserSignup;
-use DB;
+use DB, Input;
 
 class IAgency extends BaseModel
 {
@@ -63,10 +63,22 @@ class IAgency extends BaseModel
     {
         $s = !rq('s');
         $agency = rq('id');
+        $s ? $event = 'enable' : $event = 'disable';
+        $this->eventFire($event, $agency);
+        
         return [
             'status' => $this->where('id', $agency)->update(['status'=> $s]),
             'd'=> $s
         ];
+    }
+
+    public function r()
+    {
+        if (rq('log') && Input::has('where.id')) {
+            $this->eventFire('r', Input::get('where.id'));
+        }
+
+        return parent::r();
     }
 
     /**
@@ -132,6 +144,8 @@ class IAgency extends BaseModel
         if ($method === 'c') {
             $response = Event::fire(new UserSignup);
         }
+
+        parent::eventFire($method, $data);
     }
 
     /**

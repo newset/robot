@@ -76,6 +76,14 @@ class IMark extends BaseModel
         return ss($res);
     }
 
+    public function r()
+    {
+        if (Input::get('log')) {
+            $this->eventFire('r', rq('id'));
+        }
+        return parent::r();
+    }
+
     public function bat_cu($in = [])
     {
         $in = $in ? $in : rq();
