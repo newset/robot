@@ -272,6 +272,16 @@
                 // h.prepare_location_data();
             }
         ])
+        .controller('CPageDoctorDetail', ['$scope', 'sIns', 'SDoctor', 'SHospital', 'H', '$state', function ($scope, sIns, SDoctor, SHospital, H, $state) {
+            $scope.SIns = sIns;
+            
+            $scope.SDoctor = SDoctor;            
+            $scope.SHospital = SHospital;
+
+            $scope.data = {
+                doctor_id : $scope.SIns.current_row.id
+            } 
+        }])
         .controller('CPageDoctorNew',
         [
             '$scope',
@@ -911,6 +921,7 @@
                 })
             }           
         }])
+        
         .controller('CPageRobotLog', ['$scope', 'SRobot', '$state', 'H', function ($scope, SRobot, $state, H) {
             $scope.SIns = SRobot;
             $scope.data = {

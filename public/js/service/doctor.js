@@ -20,7 +20,8 @@
                 me.popup_edit = popup_edit;
                 me.cu = cu;
                 me.d = d;
-                me.h = h;
+                //me.h = h;
+                me.h = h.ins_helper;
                 me.current_page_data = null;
                 //me.current_page = 1;
                 me.total_items = null;
@@ -130,6 +131,24 @@
                             me.all_hospital = r.data.d.main;
                         });
 
+                    return promise;
+                }
+                
+                function r(id, ins, rel) {
+                    // row, SIns, 'agency/r', {relation: ['robotLeaseLog', 'mark', 'hospital'], where: {id: row.id}
+                    var condition = {
+                        'relation' : rel,
+                        'where' : {},
+                        'id' : id
+                    },
+                    url = ins.ins_name+'/r';
+                    var promise = H.p(cook(url), condition)
+                    promise.then(function(res){
+                        // 获取成功
+                        if (res.data.status == 1) {
+                            ins.current_row = res.data.d.main[0];
+                        };
+                    });
                     return promise;
                 }
             }
