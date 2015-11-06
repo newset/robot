@@ -34,9 +34,8 @@
 				<dd>
 	                <span ng-if="SIns.current_row.status == 1">未使用</span>
                     <span ng-if="SIns.current_row.status == 2">使用完毕</span>
-                    <span ng-if="SIns.current_row.status == 3">已绑定</span>
-                    <span ng-if="SIns.current_row.status == 4">损坏报废</span>
-                    <span ng-if="SIns.current_row.status == 5">损坏更新</span>
+                    <span ng-if="SIns.current_row.status == 3">损坏报废</span>
+                    <span ng-if="SIns.current_row.status == 4">损坏更新</span>
 				</dd>
 				<dt>更换Mark</dt>
 	            <dd>
@@ -58,9 +57,8 @@
 				<dd>
 					<span ng-if="SIns.current_row.status == 1">未使用</span>
                     <span ng-if="SIns.current_row.status == 2">使用完毕</span>
-                    <span ng-if="SIns.current_row.status == 3">已绑定</span>
-                    <span ng-if="SIns.current_row.status == 4">损坏报废</span>
-                    <span ng-if="SIns.current_row.status == 5">损坏更新</span>
+                    <span ng-if="SIns.current_row.status == 3">损坏报废</span>
+                    <span ng-if="SIns.current_row.status == 4">损坏更新</span>
 				</dd>
 				<dt>使用者</dt>
 	            <dd>
