@@ -150,7 +150,7 @@ controller:CPageDepartment
                     <td class="edit col-md-1">
                         <span class="tool_wrapper">
                             <button class="btn btn-custom btn-primary" ui-sref="base.doctor.detail({id: row.id})">
-                                编辑
+                                查看
                             </button>
                             {{-- <span href="" class="btn-custom-delete"  ng-click="SIns.d(row.id)">删除</span> --}}
                         </span>

@@ -746,3 +746,6 @@ select.form-control + .chosen-container-multi .chosen-results li.result-selected
 .hospital-custom-font {
 	font-size: 16px;
 }
+.robot-custom-text {
+	text-transform: none;
+}

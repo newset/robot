@@ -281,6 +281,28 @@
             $scope.data = {
                 doctor_id : $scope.SIns.current_row.id
             } 
+            
+            //获取已归档Mark
+            H.p(cook('mark/getMarkByDoctorId'), {
+                'doctor_id': $scope.SIns.current_row.id,
+                'type': 0
+            }).then(function(r) {
+                $scope.archive_yes = r.data.d.count;
+            });
+            //获取未归档Mark
+            H.p(cook('mark/getMarkByDoctorId'), {
+                'doctor_id': $scope.SIns.current_row.id,
+                'type': 1
+            }).then(function(r) {
+                $scope.archive_no = r.data.d.count;
+            });
+            //获取累计使用Mark
+            H.p(cook('mark/getMarkByDoctorId'), {
+                'doctor_id': $scope.SIns.current_row.id,
+                'type': 2
+            }).then(function(r) {
+                $scope.archive = r.data.d.count;
+            });
         }])
         .controller('CPageDoctorNew',
         [

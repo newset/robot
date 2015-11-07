@@ -292,4 +292,30 @@ class IMark extends BaseModel
         return $this->belongsTo('App\Models\IRobot', 'robot_id');
     }
 
+    /**
+     * 根据医生id获取已归档或未归档mark
+     */
+    public function getMarkByDoctorId() {
+        $builder = $this;
+    
+        $builder = DB::table('i_mark')->select('i_mark.id')
+        ->leftJoin('i_doctor', 'i_mark.doctor_id', '=', 'i_doctor.id');
+    
+        $where = [];
+        $builder->where('i_doctor.id', Input::get('doctor_id'));
+        if(Input::get('type')==0) {
+            $builder->whereNotNull('archive_at');
+        }
+        else if(Input::get('type')==1) {
+            $builder->whereNull('archive_at');
+        }
+        $result = $builder->get();
+        $r = [
+            'count' => count($result),
+            'main'  => $result,
+            'rq' => $builder->toSql()
+        ];
+    
+        return ss($r);
+    }
 }

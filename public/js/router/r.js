@@ -517,9 +517,7 @@
                         controller : 'CPageDoctorDetail',
                         resolve : {
                             sIns : function(SDoctor, $stateParams){
-                            	console.log("doctor-detail");
                                 return SDoctor.h.r($stateParams.id, SDoctor, ['hospital', 'department']).then(function(res){
-                                	//console.log("doctor-detail");
                                 	SDoctor.current_row = res.data.d.main[0];
                                     return SDoctor;
                                 });

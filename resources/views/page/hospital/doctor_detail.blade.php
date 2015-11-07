@@ -55,9 +55,9 @@
 		</div>
 	</div>
 
-	<!-- <div class="panel panel-default">
+	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h3 class="panel-title text-left">
+			<h3 class="panel-title text-left robot-custom-text">
 				 Mark使用统计
 			</h3>
 		</div>
@@ -65,19 +65,13 @@
 			<div class="col-md-12">
 				<dl class="dl-horizontal">
 					<dt>累计使用Mark总数</dt>
-					<dd>[:SIns.current_row.cust_id:]</dd>
+					<dd>[:archive:]</dd>
 					<dt>已归档Mark总数</dt>
-					<dd>
-						<span ng-if="SIns.current_row.lease_type_id == -1">进入库存</span>
-						<span ng-if="SIns.current_row.lease_type_id == 1">出售</span>
-						<span ng-if="SIns.current_row.lease_type_id == 2">出租</span>
-						<span ng-if="SIns.current_row.lease_type_id == 3">免费合作</span>
-					</dd>
+					<dd>[:archive_yes:]</dd>
 					<dt>未归档Mark总数</dt>
-					<dd>[:SIns.current_row.production_date | date : 'yyyy-MM-dd':]</dd>
-					
+					<dd>[:archive_no:]</dd>
 				</dl>
 			</div>
 		</div>
-	</div> -->
+	</div>
 </div>
