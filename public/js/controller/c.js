@@ -875,6 +875,7 @@
             'SEmployee',
             'SBase',
             'h',
+            '$filter',
             '$state',
             function ($scope
                 , $stateParams
@@ -884,22 +885,52 @@
                 , SEmployee
                 , SBase
                 , h
+                , $filter
                 , $state
             ){
                 $scope.SEmployee = SEmployee;
                 $scope.SHospital = SHospital;
                 $scope.SAgency = SAgency;
                 $scope.SIns = SRobot;
-                console.log('em: ', SEmployee.all);
+                $scope.memo = '';
                 $scope.employees = SEmployee.all;
 
                 if (!$stateParams.id) {
                     SRobot.current_row = { status : 0};
                 }else{
-                    // 如果没有数据，则先获取
+                    // 
+                    $scope.currentStatus = SRobot.current_row.status;
                 };
 
+                $scope.$watch('SIns.current_row.status', function(n, o) {
+                    if (n != $scope.currentStatus && $scope.SIns.current_row.lease_type_id != -1 && n == 2) {
+                        $scope.SIns.current_row.status = o;
+                        alert('当前设备没有在库, 不能作废');
+                        return;
+                    };
+
+                    // 强制 memo
+                    if ($scope.currentStatus == 2 && n == 0) {
+                        $scope.memoRequired = true;
+                    }else{
+                        $scope.memoRequired = false;
+                    };
+                })
+
                 $scope.save = function(){
+                    // 判断
+                    if ($scope.SIns.current_row.status == 2) {
+                        var conf = confirm('确认作废当前设备?');
+                        if (!conf) {
+                            return;
+                        };
+                    };
+
+                    if ($scope.memoRequired && !$scope.memo) {
+                        alert('Memo必选填写');
+                        return;
+                    };
+                    
                     var data = {
                         id : $scope.SIns.current_row.id,
                         cust_id : $scope.SIns.current_row.cust_id,
@@ -907,6 +938,13 @@
                         production_date : $scope.SIns.current_row.production_date,
                         status : Number($scope.SIns.current_row.status)
                     }
+
+                    if ($scope.memoRequired) {
+                        var memo = ($scope.SIns.current_row.memo ? $scope.SIns.current_row.memo + '\n\n' : '') + $scope.memo;
+                        memo += '['+$filter('date')(new Date(), 'yyyy-MM-dd')+' 设备被设置为 "正常"]';
+                        data.memo = memo;
+                    }
+
                     $scope.SIns.cu_(data).then(function(res){
                         // 跳转到详情 todo
                         if (res.data.status ==1 ) {

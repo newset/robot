@@ -146,10 +146,13 @@
                     
                 }
 
-                me.cu_ = function ()
+                me.cu_ = function (data)
                 {
-                    me.current_row.write_data = 1;
-                    var promise = H.p(cook(me.ins_name + '/cu_'), me.current_row);
+                    if (!data) {
+                        data = me.current_row;
+                    };
+                    data.write_data = 1;
+                    var promise = H.p(cook(me.ins_name + '/cu_'), data);
                     promise.then(function (r)
                         {
                             if (r.data.status == 1)

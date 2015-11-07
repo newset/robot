@@ -13,7 +13,7 @@ class IRobot extends BaseModel
     protected $softDelete = false;
     protected $ins_name = 'robot';
 
-    public $fillable = ['cust_id', 'employee_id', 'production_date', 'status'];
+    public $fillable = ['cust_id', 'employee_id', 'production_date', 'status', 'memo'];
 
     public function __construct()
     {
