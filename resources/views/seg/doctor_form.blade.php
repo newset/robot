@@ -11,13 +11,15 @@
                 <div class="form-group">
                     <label class="control-label col-md-1">姓名</label>
 
-                    <div class="col-md-6">
+                    <div class="col-md-5">
                         <input ng-model="SIns.current_row.name"
                                class="form-control"
                                required>
+                    </div>
+                    <div class="col-md-2">           
                         <label class="radio-inline">
                             <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1"
-                                   ng-model="SIns.current_row.gender"> 男
+                                   ng-model="SIns.current_row.gender" ng-checked="true"> 男
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="0"
