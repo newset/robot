@@ -920,6 +920,28 @@
                 }
 
         }])
+        .controller('CPageRobotLease', ['$scope', 'sIns', 'SAgency', 'SHospital', 'H', '$state', function ($scope, sIns, SAgency, SHospital, H, $state) {
+            $scope.SIns = sIns;
+            
+            $scope.SAgency = SAgency;            
+            $scope.SHospital = SHospital;
+
+            $scope.data = {
+                robot_id : $scope.SIns.current_row.id
+            } 
+            $scope.lease = function(){
+                var data = {};
+                angular.extend(data, $scope.data);
+                data['write_data'] = 1;
+                H.p(cook('robotLeaseLog/c'), data).then(function(res){
+                    if(res.data.status == 1){
+                        $state.go('base.robot.detail', {id : $scope.SIns.current_row.id});
+                    }else{
+
+                    }
+                })
+            }           
+        }])
         .controller('CPageRobotDetail', ['$scope', 'sIns', 'SAgency', 'SHospital', 'H', '$state', function ($scope, sIns, SAgency, SHospital, H, $state) {
             $scope.SIns = sIns;
             
