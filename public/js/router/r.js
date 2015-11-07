@@ -517,7 +517,7 @@
                         controller : 'CPageDoctorDetail',
                         resolve : {
                             sIns : function(SDoctor, $stateParams){
-                                return SDoctor.h.r($stateParams.id, SDoctor, ['hospital', 'department']).then(function(res){
+                                return SDoctor.h.ins_helper.r($stateParams.id, SDoctor, ['hospital', 'department']).then(function(res){
                                 	SDoctor.current_row = res.data.d.main[0];
                                     return SDoctor;
                                 });

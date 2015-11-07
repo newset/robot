@@ -20,8 +20,8 @@
                 me.popup_edit = popup_edit;
                 me.cu = cu;
                 me.d = d;
-                //me.h = h;
-                me.h = h.ins_helper;
+                me.h = h;
+                //me.h = h.ins_helper;
                 me.current_page_data = null;
                 //me.current_page = 1;
                 me.total_items = null;
