@@ -114,7 +114,7 @@ url:
                     <td class="col-md-1">[:row.doctor.length:]</td>
                     <td class="col-md-1">[:row.agency.length:]</td>
                     <td class="col-md-2" title="[:row.memo:]">
-                        <button href="" ng-if="row.memo.length>0" ng-click="SIns.popup_edit(row,1)">
+                        <button class="btn-default btn-custom btn btn-sm" href="" ng-if="row.memo.length>0" ng-click="SIns.popup_edit(row,1)">
                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                             {{-- <i class="icon-file-alt"></i> --}}
                         </button>
