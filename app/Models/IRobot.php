@@ -250,4 +250,17 @@ class IRobot extends BaseModel
         
         return ss($r);
     }
+    
+    /**
+     * 根据设备id获取上次usb数据采集时间
+     */
+    public function getLeaseUploadByRobotId() {
+        $main = DB::select(DB::raw('select max(upload_at) as upload_at from i_usblog where robot_id='.Input::get('robot_id')));
+        $r = [
+            'count' => count($main),
+            'main'  => $main,
+        ];
+    
+        return ss($r);
+    }
 }

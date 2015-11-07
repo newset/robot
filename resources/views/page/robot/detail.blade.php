@@ -37,7 +37,11 @@
 					<dd>[:SIns.current_row.employee.name:]</dd>
 					<dt>提示</dt>
 					<dd>
-					   [:endLeaseTip:]
+					   <span ng-if="endLeaseTip=='' && usbUploadTip==''">无</span>
+					   <span ng-if="endLeaseTip!='' || usbUploadTip!=''">
+    					   [:endLeaseTip:]<br/>
+    					   [:usbUploadTip:]
+					   </span>
 					</dd>
 				</dl>
 			</div>

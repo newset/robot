@@ -938,11 +938,23 @@
             var date = new Date($scope.endLeaseDate);
             var currentDate = new Date();
             var milisecondsDiff = date-currentDate;
-            var daysDiff = milisecondsDiff/(24*60*60*1000);
+            var daysDiff = Math.round(milisecondsDiff/(24*60*60*1000));
             $scope.endLeaseTip = "";
             if(daysDiff<30) {
             	$scope.endLeaseTip = "还有"+daysDiff+"天过期";
             }
+            //获取上次usb数据采集时间
+            H.p(cook('robot/getLeaseUploadByRobotId'), {
+                'robot_id': $scope.SIns.current_row.id,
+            }).then(function(r) {
+                $scope.usbUploadDate = r.data.d.main[0].upload_at;
+                milisecondsDiff = currentDate-new Date($scope.usbUploadDate);
+                daysDiff = Math.round(milisecondsDiff/(24*60*60*1000));
+                $scope.usbUploadTip = "";
+                if(daysDiff>90) {
+                	$scope.usbUploadTip = "距离上次USB数据采集已经过去"+daysDiff+"天";
+                }
+            });
             $scope.lease = function(){
                 var data = {};
                 angular.extend(data, $scope.data);
