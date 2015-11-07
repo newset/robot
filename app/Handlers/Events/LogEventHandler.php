@@ -163,10 +163,82 @@ class LogEventHandler
         }
     }
 
+    /**
+     * Mark 相关 Log
+     * 
+     * @param  [type] $method [description]
+     * @param  [type] $data   [description]
+     * @return [type]         [description]
+     */
     public function mark($method = null, $data = null)
     {
         if ($method == 'r') {
             ILog::add_log(22, 3, $data, '查看mark详情');
         }
+
+        if ($method == 'modify') {
+            ILog::add_log(23, 3, $data->id, '手工将Mark绑定给代理商 '.$data->agency_id);
+        }
+
+        if ($method == 'modify') {
+            ILog::add_log(24, 3, $data->id, '手工将Mark解绑');
+        }
+
+        if ($method == 'recycle') {
+            ILog::add_log(25, 3, $data->id, '将Mark设为损坏报废');
+        }
+
+        if ($method == 'replace') {
+            ILog::add_log(26, 3, $data->id, '手工将Mark设为损坏更新');
+        }
+
+        if ($method == 'add' && he_is('employee')) {
+            ILog::add_log(27, 3, -1, $data);
+        }
+
+        if ($method == 'bind' && he_is('employee')) {
+            ILog::add_log(28, 3, -1, $data);
+        }
+
+        if ($method == 'unbind' && he_is('employee')) {
+            ILog::add_log(29, 3, -1, $data);
+        }
+    }
+
+    /**
+     * usb 导入
+     * @param  [type] $method [description]
+     * @param  [type] $data   [description]
+     * @return [type]         [description]
+     */
+    public function usblog($method = null, $data = null)
+    {
+        if ($method == 'r') {
+            ILog::add_log(30, 3, -1, $data->id);
+        }
+    }
+
+    public function employee($method = null, $data = null)
+    {
+        if ($method == 'pass' && $data->id == uid()) {
+            ILog::add_log(31, 6, -1, '员工自己修改密码');
+        }
+
+        if ($method == 'u' && $data->id == uid() && !rq('toggle')) {
+            return ILog::add_log(32, 6, -1, '员工修改个人信息');
+        }
+
+        if ($method == 'u') {
+            if (rq('toggle') && !rq('status')) {
+                return ILog::add_log(34, 6, $data->id, '员工被设为离职');
+            }
+
+            if (rq('toggle') && rq('status')) {
+                return ILog::add_log(35, 6, $data->id, '员工恢复在岗');
+            }
+
+            ILog:: add_log(36, 6, $data->id, '编辑员工');
+        }
+
     }
 }

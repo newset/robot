@@ -17,6 +17,8 @@ class IUsblog extends BaseModel
     	if (!intval(rq('id'))) {
     		ss('无效ID', 0);
     	}
-    	return ss($this->find(rq('id')));
+        $data = $this->find(rq('id'));
+        $this->eventFire('r', $data);
+    	return ss($data);
     }
 }

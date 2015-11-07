@@ -72,6 +72,8 @@ class IMark extends BaseModel
         } catch (Exception $e) {
             return ss(['msg'=> '请求异常'], 0);
         }
+
+        $this->eventFire($action, $response);
         $res = $response->body;
         return ss($res);
     }
@@ -175,7 +177,7 @@ class IMark extends BaseModel
         }
     }
 
-    public function mofidy()
+    public function modify()
     {
         $action = rq('action');
         $mark = $this->where('id', rq('mark'))->first();
@@ -183,9 +185,13 @@ class IMark extends BaseModel
         if ($action == 'bind') {
             $mark->agency_id = rq('agency_id');
             $mark->sold_at = date("Y-m-d H:i:s");
+            $this->eventFire('modify', $mark);
+
         }else if($action == 'unbind'){
             $mark->agency_id = -1;
             $mark->sold_at = null;
+            $this->eventFire('unmodify', $mark);
+
         }
         $mark->save();
 
@@ -206,6 +212,8 @@ class IMark extends BaseModel
     {   
         $mark = rq('id');
         $row = $this->where('id', $mark)->update(['status' => 4]);
+        $this->eventFire('recycle', $mark);
+
         return ss($row);
     }
 
@@ -214,6 +222,7 @@ class IMark extends BaseModel
         $mark = rq('id');
         $cmid = rq('cmid');
         $row = $this->where('id', $mark)->update(['status' => 5, 'cmid'=> $cmid]);
+        $this->eventFire('replace', $mark);
         return ss($row);
     }
 

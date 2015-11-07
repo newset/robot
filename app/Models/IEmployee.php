@@ -40,6 +40,10 @@ class IEmployee extends BaseModel
         $ins = $this->find($row['id']);
         $ins->password = hash_password($row['password']);
         $r = $ins->save();
+
+        // trigger log
+        $this->eventFire('pass', $ins);
+
         return $r ? ss($r) : ee(1);
     }
 

@@ -1207,7 +1207,7 @@
                 if (agency_id) {
                     data.agency_id = agency_id;
                 };
-                H.p(cook('mark/mofidy'), data).then(function(res){
+                H.p(cook('mark/modify'), data).then(function(res){
                     if (res.data && res.data.status == 1) {
                         $scope.closeThisDialog(true);
                     };
@@ -1297,7 +1297,7 @@
 
                     // confirm
                     confirm.then(function (data) {
-                        $scope.SIns.cu({id: row.id, status: !row.status});
+                        $scope.SIns.cu({id: row.id, status: !row.status, toggle: true});
                     });
                 }
             }
