@@ -929,7 +929,20 @@
             $scope.data = {
                 robot_id : $scope.SIns.current_row.id
             } 
-
+            for (var i=0; i<$scope.SIns.current_row.robot_lease_log.length; i++) {
+            	var robot_lease_log = $scope.SIns.current_row.robot_lease_log[i];
+                if(robot_lease_log.recent == 1) {
+                	$scope.endLeaseDate = robot_lease_log.lease_ended_at;
+                }
+            }
+            var date = new Date($scope.endLeaseDate);
+            var currentDate = new Date();
+            var milisecondsDiff = date-currentDate;
+            var daysDiff = milisecondsDiff/(24*60*60*1000);
+            $scope.endLeaseTip = "";
+            if(daysDiff<30) {
+            	$scope.endLeaseTip = "还有"+daysDiff+"天过期";
+            }
             $scope.lease = function(){
                 var data = {};
                 angular.extend(data, $scope.data);

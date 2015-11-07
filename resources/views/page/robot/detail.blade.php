@@ -36,7 +36,9 @@
 					<dt>负责人</dt>
 					<dd>[:SIns.current_row.employee.name:]</dd>
 					<dt>提示</dt>
-					<dd>无</dd>
+					<dd>
+					   [:endLeaseTip:]
+					</dd>
 				</dl>
 			</div>
 			<div class="col-md-12">
