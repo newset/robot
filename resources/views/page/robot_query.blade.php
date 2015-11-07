@@ -7,17 +7,19 @@
                     <div class="col-md-1">
                         <h3 class="panel-title">查询条件</h3>
                     </div>
-                    <!-- <form class="form-horizontal" ng-class="{'collapse': simpleQuery}" aria-expanded="true">
-                    <div class="col-md-4">
-                        <input class="form-control"
-                               ng-model-options="{debounce: 300}"
-                               ng-model="SIns.cond.where.cust_id"
-                               placeholder="编号">
+                    <div ng-if="type=='sale'">
+                        <form class="form-horizontal" ng-class="{'collapse': !simpleQuery}" aria-expanded="true">
+                        <div class="col-md-4">
+                            <input class="form-control"
+                                   ng-model-options="{debounce: 300}"
+                                   ng-model="SIns.cond.where.cust_id"
+                                   placeholder="编号">
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <button class="btn btn-info" ng-click="SIns.refresh()">查询</button>
+                        </div>
+                        </form>
                     </div>
-                    <div class="col-md-1">
-                        <button class="btn btn-info" ng-click="SIns.refresh()">查询</button>
-                    </div>
-                    </form> -->
                     <div class="actions pull-right">
                         <i class="fa fa-chevron-down  collapsed" i-toggle data-toggle="collapse" data-target="#robot_query" aria-expanded="false" aria-controls="collapseExample"></i>
                     </div>

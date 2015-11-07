@@ -842,7 +842,7 @@
                 $scope.with_search = $stateParams.with_search;
 
                 $scope.simpleQuery = true;
-                
+                $scope.type = $stateParams.type;
                 switch($stateParams.type){
                     case 'sale' : 
                         SRobot.cond.where.lease_type_id = [-1];
