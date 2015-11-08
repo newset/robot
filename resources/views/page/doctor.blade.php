@@ -7,7 +7,7 @@
     </div>
     <div class="panel-body">
         <div role="grid" id="example_wrapper" class="dataTables_wrapper no-footer">
-            <div class="col-md-12 search_panel" id="doctor_query">
+            <div class="col-md-12 search_panel collapse in" id="doctor_query">
                 <form class="form-horizontal">
                     <div class="form-group">
                         <label for="" class="control-label col-md-1">医院</label>

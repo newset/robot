@@ -779,6 +779,12 @@
             $scope.agency_id=parseInt($stateParams.aid);
            
             $scope.toggle = function(){
+                var text = $scope.SIns.current_row.status == 0 ? '启用' : '禁用', 
+                    conf = confirm('确认'+text+'当前代理商?');
+                if (!conf) {
+                    return;
+                };
+                
                 H.p(cook('agency/toggle'), {s : $scope.SIns.current_row.status, id : $scope.agency_id}).then(function(res){
                     if (res.data.status == 1) {
                         $scope.SIns.current_row.status = res.data.d;
