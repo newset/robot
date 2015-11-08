@@ -32,11 +32,11 @@
 
                     </div>
                     <div class="form-group">
-                        <label for="" class="control-label col-md-1">手机</label>
+                        <label for="" class="control-label col-md-1">电话</label>
                         <div class="col-md-6">
                             <input class="form-control"
                                    ng-model="SIns.cond.whereLike.phone"
-                                   placeholder="手机">
+                                   placeholder="电话">
                         </div>
                     </div>
                     <div class="form-group text-right col-md-12">
