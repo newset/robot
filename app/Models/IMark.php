@@ -211,19 +211,25 @@ class IMark extends BaseModel
     public function recycle()
     {   
         $mark = rq('id');
-        $row = $this->where('id', $mark)->update(['status' => 3]);
-        $this->eventFire('recycle', $mark);
+        $row = $this->where('id', $mark)->first();
+        $row->status = 3;
+        $res = $row->save();
+        $this->eventFire('recycle', $row);
 
-        return ss($row);
+        return ss($res);
     }
 
     public function replace()
     {   
         $mark = rq('id');
         $cmid = rq('cmid');
-        $row = $this->where('id', $mark)->update(['status' => 4, 'cmid'=> $cmid]);
-        $this->eventFire('replace', $mark);
-        return ss($row);
+        // 验证 cmid todo
+        $row = $this->where('id', $mark)->first();
+        $row->status = 4;
+        $row->cmid = $cmid;
+        $res = $row->save();
+        $this->eventFire('replace', $row);
+        return ss($res);
     }
 
     /**
