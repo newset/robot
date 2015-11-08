@@ -22,7 +22,7 @@ url:
 
                         </div>
                     </div>
-                    <form class=" form-horizontal" id="form_query">
+                    <form class="collapse in form-horizontal" id="form_query" style="width:100%">
                         <div class="form-group">
                             <label class="control-label col-md-1">编号</label>
 

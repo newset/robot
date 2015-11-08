@@ -13,7 +13,7 @@
 					<div role="grid" id="example_wrapper" class="dataTables_wrapper no-footer">
 						@if(!he_is('department'))
 							<div class="row col-md-12 search_panel" ng-if="SIns.with_search">
-								<form class="form-horizontal" id="mark_query">
+								<form class="form-horizontal collapse in" id="mark_query">
 									<div class="form-group">
 										<label class="control-label col-md-1">编号</label>
 										<div class="col-md-6">

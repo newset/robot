@@ -19,7 +19,7 @@ controller:
                         </div>
                     </div>
 
-                <form class="form-horizontal" id="agency_query">
+                <form class="form-horizontal collapse in" id="agency_query" style="width:100%">
                     <div class="form-group">
                         <label class="control-label col-md-1">编号</label>
                         <div class="col-md-6">
