@@ -7,8 +7,8 @@
 				<button type="button" class="btn btn-primary no-animate" ng-click="bind()" ng-show="SIns.current_row.agency_id == -1">绑定</button>
 				<button type="button" class="btn btn-primary no-animate" ng-click="unbind()" ng-show="SIns.current_row.agency_id != -1">解绑</button>
 				
-				<button type="button" class="btn btn-primary" ng-click="recycle()">损坏报废</button>
-				<button type="button" class="btn btn-primary" ng-click="replace()">损坏更新</button>
+				<button type="button" class="btn btn-primary" ng-click="recycle()" ng-disabled="SIns.current_row.status != 1">损坏报废</button>
+				<button type="button" class="btn btn-primary" ng-click="replace()" ng-disabled="SIns.current_row.status != 1">损坏更新</button>
 			</div>
 			<div class="clearfix"></div>
 		</div>
