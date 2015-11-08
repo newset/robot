@@ -30,7 +30,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" ng-if="SIns.current_row.id">
                 <div class="form-group">
                     <label class="control-label col-md-1">识别码</label>
 
@@ -38,9 +38,10 @@
                         <input ng-model="SIns.current_row.cust_id"
                                name="cust_id"
                                class="form-control"
-                               required>
+                               required ng-disabled="SIns.current_row.cust_id!=0">
                     </div>
-                    <button type="button" class="btn btn-primary inline-btn" ng-click="getLastId()">重新生成</button>
+                    <button type="button" class="btn btn-primary inline-btn" ng-click="getLastId()"
+                     ng-disabled="SIns.current_row.cust_id!=0">重新生成</button>
                     <label class="error absolute-label" ng-if="form_doctor.cust_id.$error.laExist">编号已存在</label>
                 </div>
             </div>
@@ -121,17 +122,32 @@
                     <label class="control-label col-md-1">状态</label>
 
                     <div class="col-md-6">
-                        <select class="form-control"
-                                chosen
-                                ng-model="SIns.current_row.status"
-                                ng-options="l.id as l.name for l in
-									[
-										{id: 0, name: '正常未培训'},
-										{id: 1, name: '培训完毕未绑定微信'},
-										{id: 2, name: '绑定微信'},
-									]">
-                            <option value="">请选择</option>
-                        </select>
+                        <div ng-if="SIns.current_row.id">
+                            <select class="form-control"
+                                    chosen
+                                    ng-model="SIns.current_row.status"
+                                    ng-options="l.id as l.name for l in
+    									[
+    										{id: 0, name: '正常未培训'},
+    										{id: 1, name: '培训完毕未绑定微信'},
+    										{id: 2, name: '绑定微信'},
+    									]" disabled>
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div ng-if="!SIns.current_row.id">
+                            <select class="form-control"
+                                    chosen
+                                    ng-model="0"
+                                    ng-options="l.id as l.name for l in
+    									[
+    										{id: 0, name: '正常未培训'},
+    										{id: 1, name: '培训完毕未绑定微信'},
+    										{id: 2, name: '绑定微信'},
+    									]" disabled>
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>

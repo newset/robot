@@ -406,11 +406,12 @@
 
                 $scope.save = function(data){
                     $scope.SIns.cu(data).then(function(res){
-                        if ($stateParams.hid) {
+                    	$state.go('base.doctor.detail', {id: $scope.SIns.current_row.id});
+                        /*if ($stateParams.hid) {
                             $state.go('base.hospital.department_doctor', {hid: $stateParams.hid});
                         }else{
                             $state.go('base.doctor.list');
-                        };
+                        };*/
                         SDoctor.current_row = {};
                     }, function(){
                         // 外键错误 todo
@@ -423,11 +424,12 @@
                         return;
                     };
                     H.p(cook('doctor/disable'), {id: $scope.SIns.current_row.id}).then(function(res){
-                        if ($stateParams.hid) {
+                    	$state.go('base.doctor.detail', {id: $scope.SIns.current_row.id});
+                        /*if ($stateParams.hid) {
                             $state.go('base.hospital.department_doctor', {hid: $stateParams.hid});
                         }else{
                             $state.go('base.doctor.list');
-                        };
+                        };*/
                     });
                 }
 

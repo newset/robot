@@ -42,7 +42,8 @@ class IDoctor extends BaseModel
     {
         if (rq('id')) {
             $row = $this->find(rq('id'));
-            $row->update(['status' => -1, 'cust_id'=> null, 'wechat_id'=> null]);
+            //$row->update(['status' => -1, 'cust_id'=> null, 'wechat_id'=> null]);
+            $row->update(['status' => -1]);
 
             $this->eventFire('disable', $row);
             return ss($row);
