@@ -211,7 +211,7 @@ class IMark extends BaseModel
     public function recycle()
     {   
         $mark = rq('id');
-        $row = $this->where('id', $mark)->update(['status' => 4]);
+        $row = $this->where('id', $mark)->update(['status' => 3]);
         $this->eventFire('recycle', $mark);
 
         return ss($row);
@@ -221,7 +221,7 @@ class IMark extends BaseModel
     {   
         $mark = rq('id');
         $cmid = rq('cmid');
-        $row = $this->where('id', $mark)->update(['status' => 5, 'cmid'=> $cmid]);
+        $row = $this->where('id', $mark)->update(['status' => 4, 'cmid'=> $cmid]);
         $this->eventFire('replace', $mark);
         return ss($row);
     }
