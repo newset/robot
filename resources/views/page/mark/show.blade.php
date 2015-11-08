@@ -22,13 +22,13 @@
 		</div>
 		<div class="panel-body">
 			<dl class="dl-horizontal">
-				<dt>编号</dt>
+				<dt>编码</dt>
 				<dd>[:SIns.current_row.cust_id:]</dd>
 				<dt>销售状态</dt>
 				<dd>
 					<span ng-if="SIns.current_row.agency_id==-1 && SIns.current_row.hospital_id==-1">在库</span>
-                	<span ng-if="SIns.current_row.agency_id!=-1 && SIns.current_row.hospital_id==-1">出货</span>
-                	<span ng-if="SIns.current_row.hospital_id != -1">已售</span>
+                	<span ng-if="SIns.current_row.agency_id!=-1 && SIns.current_row.hospital_id==-1">代理商在库</span>
+                	<span ng-if="SIns.current_row.hospital_id!=-1 && SIns.current_row.hospital_id!=-1">已售出</span>
 			    </dd>
 				<dt>使用状态</dt>
 				<dd>
@@ -42,10 +42,14 @@
 	                <span ng-if="SIns.current_row.cmid">[:SIns.current_row.cmid:]</span>
 	                <span ng-if="!SIns.current_row.cmid">无</span>
 	            </dd>
+	            <dt>生产日期</dt>
+	            <dd>[:SIns.current_row.created_at | laDate:]</dd>
+	            <dt>损坏日期</dt>
+	            <dd>[:SIns.current_row.damaged_at | laDate:]</dd>
 			</dl>
 		</div>
 	</div>
-	<div class="panel panel-default">
+	<!-- <div class="panel panel-default">
 		<div class="panel-heading">
 			<h3 class="panel-title">
 				使用信息
@@ -66,7 +70,7 @@
 	            </dd>
 			</dl>
 		</div>
-	</div>
+	</div> -->
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h3 class="panel-title">
@@ -76,15 +80,23 @@
 		<div class="panel-body">
 			<dl class="dl-horizontal">
 	            <dt>经销商</dt>
-	            <dd>[:SIns.current_row.agency.name:]</dd>
+	            <dd>
+	               <span ng-if="SIns.current_row.agency_id != -1">[:SIns.current_row.agency.name:]</span>
+	               <span ng-if="SIns.current_row.agency_id == -1">无</span>
+                </dd>
 	            <dt>销售状态</dt>
 	            <dd>
 					<span ng-if="SIns.current_row.agency_id==-1 && SIns.current_row.hospital_id==-1">在库</span>
-                	<span ng-if="SIns.current_row.agency_id!=-1 && SIns.current_row.hospital_id==-1">出货</span>
-                	<span ng-if="SIns.current_row.hospital_id != -1">已售</span>
+                	<span ng-if="SIns.current_row.agency_id!=-1 && SIns.current_row.hospital_id==-1">代理商在库</span>
+                	<span ng-if="SIns.current_row.hospital_id!=-1 && SIns.current_row.hospital_id!=-1">已售出</span>
 			    </dd>
+			    <dt>出货日期</dt>
+	            <dd>[:SIns.current_row.shipped_at | laDate:]</dd>
 	            <dt>销售医院</dt>
-	            <dd>[:SIns.current_row.hospital_name:]</dd>
+	            <dd>
+	               <span ng-if="SIns.current_row.hospital_id">[:SIns.current_row.hospital_name:]</span>
+	               <span ng-if="!SIns.current_row.hospital_id">无</span>
+                </dd>
 	            <dt>销售日期</dt>
 	            <dd ng-if="SIns.current_row.sold_at">[:SIns.current_row.sold_at | laDate:]</dd>
 	        </dl>
@@ -99,16 +111,33 @@
 		<div class="panel-body">
 			<dl class="dl-horizontal">
 	            <dt>病人</dt>
-	            <dd>[:SIns.current_row.patient_name:]</dd>
-	            <dt>设备</dt>
 	            <dd>
-	                <span ng-if="SIns.current_row.robot_cust_id">[:SIns.current_row.robot_cust_id:]</span>
-	                <span ng-if="!SIns.current_row.robot_cust_id">-</span>
+	               <span ng-if="SIns.current_row.patient_name">[:SIns.current_row.patient_name:]</span>
+	               <span ng-if="!SIns.current_row.patient_name && SIns.current_row.status==2">尚未提取</span>
+	               <span ng-if="!SIns.current_row.patient_name && SIns.current_row.status!=2">无</span>
+                </dd>
+                <dt>使用者</dt>
+	            <dd>
+	               <span ng-if="SIns.current_row.doctor_id">[:SIns.current_row.doctor.name:]</span>
+	               <span ng-if="!SIns.current_row.doctor_id">尚未提取</span>
+                </dd>
+	            <dt>使用设备</dt>
+	            <dd>
+	                <span ng-if="SIns.current_row.robot_id">[:SIns.current_row.robot_id:]</span>
+	               <span ng-if="!SIns.current_row.robot_id && SIns.current_row.status==2">尚未提取</span>
+	               <span ng-if="!SIns.current_row.robot_id && SIns.current_row.status!=2">无</span>
 	            </dd>
-	            <dt>手术时间</dt>
+	            <dt>扫码日期</dt>
 	            <dd>
-	                <span ng-if="SIns.current_row.surgery_at">[:SIns.current_row.surgery_at:]</span>
-	                <span ng-if="!SIns.current_row.surgery_at">-</span>
+	                [:SIns.current_row.used_at | laDate:]
+	            </dd>
+	            <dt>手术日期</dt>
+	            <dd>
+	                [:SIns.current_row.surgery_at | laDate:]
+	            </dd>
+	            <dt>归档日期</dt>
+	            <dd>
+	                [:SIns.current_row.archive_at | laDate:]
 	            </dd>
 	        </dl>
 		</div>
