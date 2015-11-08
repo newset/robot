@@ -6,7 +6,7 @@
 	</div>
 
 	 <div class="panel panel-default">
-	 	<div class="panel-body">
+	 	<div class="panel-body" ng-if="data.length>0">
 	 	   <table class="table table-bordered table-hover table-striped">
 	 	   	<thead>
 	 	   		<tr class="info">
@@ -35,6 +35,9 @@
 	 	   		</tr>
 	 	   	</tbody>
 	 	   </table>
+	 	</div>
+	 	<div class="panel-body" ng-if="data.length==0">
+	 	   <span>无即将过期和新注册代理商</span>
 	 	</div>
 	 </div>
 </div>
