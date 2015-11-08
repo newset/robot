@@ -237,7 +237,7 @@ class LogEventHandler
                 return ILog::add_log(35, 6, $data->id, '员工恢复在岗');
             }
 
-            ILog:: add_log(36, 6, $data->id, '编辑员工');
+            ILog::add_log(36, 6, $data->id, '编辑员工');
         }
 
     }

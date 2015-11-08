@@ -3,24 +3,24 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading"  style="height: 60px;">
+                <div class="panel-heading"  style="height: 60px;" ng-init="showSimpleForm = true">
                     <div class="col-md-1">
                         <h3 class="panel-title">查询条件</h3>
                     </div>
-                    <div ng-if="type=='sale'">
-                        <form class="form-horizontal" ng-class="{'collapse': !simpleQuery}" aria-expanded="true">
-                        <div class="col-md-4">
-                            <input class="form-control"
-                                   ng-model-options="{debounce: 300}"
-                                   ng-model="SIns.cond.where.cust_id"
-                                   placeholder="编号">
-                        </div>
-                        <div class="col-md-6 text-right">
-                            <button class="btn btn-info" ng-click="SIns.refresh()">查询</button>
-                        </div>
+                    <div ng-show="type=='sale'">
+                        <form class="form-horizontal" ng-show="showSimpleForm" ng-class="{'collapse': !simpleQuery}" aria-expanded="true">
+                            <div class="col-md-4">
+                                <input class="form-control"
+                                       ng-model-options="{debounce: 300}"
+                                       ng-model="SIns.cond.where.cust_id"
+                                       placeholder="编号">
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <button class="btn btn-info" ng-click="SIns.refresh()">查询</button>
+                            </div>
                         </form>
                     </div>
-                    <div class="actions pull-right">
+                    <div class="actions pull-right" ng-click="showSimpleForm = !showSimpleForm">
                         <i class="fa fa-chevron-down  collapsed" i-toggle data-toggle="collapse" data-target="#robot_query" aria-expanded="false" aria-controls="collapseExample"></i>
                     </div>
                 </div>
