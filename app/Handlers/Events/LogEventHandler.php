@@ -154,11 +154,11 @@ class LogEventHandler
             ILog::add_log(21, 5, $data->id, '修改代理商信息');
         }
 
-        if (method == 'enable') {
+        if ($method == 'enable') {
             ILog::add_log(19,5, $data, '代理商被恢复');
         }
 
-        if (method == 'disable') {
+        if ($method == 'disable') {
             ILog::add_log(20,5, $data, '代理商被禁用');
         }
     }
