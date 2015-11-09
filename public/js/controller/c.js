@@ -359,8 +359,7 @@
                         };
                     })
                 }
-
-                $scope.getLastId();
+                //$scope.getLastId();
 
                 $scope.save = function(data){
                     $scope.SIns.cu(data).then(function(res){
