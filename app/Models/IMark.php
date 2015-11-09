@@ -225,9 +225,25 @@ class IMark extends BaseModel
         $cmid = rq('cmid');
         // 验证 cmid todo
         $row = $this->where('id', $mark)->first();
-        $row->status = 4;
-        $row->cmid = $cmid;
-        $res = $row->save();
+        $newMark = $this->where(['id'=>intval($cmid), 'status'=>1, 'agency_id'=>-1])->first();
+        $res = null;
+        if(empty($newMark)) {
+            
+        }
+        else {
+            $row->status = 4;
+            $row->cmid = $newMark->cust_id;
+            $res = $row->save();
+            if($row->agency_id != -1) {
+                $newMark->agency_id = $row->agency_id;
+                $newMark->shipped_at = date("Y-m-d H:i:s");
+            }
+            if($row->hospital_id != -1) {
+                $newMark->hospital_id = $row->hospital_id;
+                $newMark->sold_at = date("Y-m-d H:i:s");
+            }
+            $newMark->save();
+        }
         $this->eventFire('replace', $row);
         return ss($res);
     }

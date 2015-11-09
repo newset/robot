@@ -181,6 +181,7 @@
 		    	<div class="form-group">
 		    		<label for="">后续Mark ID</label>
 		    		<input type="text" class="form-control" placeholder="" ng-model="cmid">
+                    <label for="" class="error" ng-if="isError">mark输入错误</label>
 		    	</div>
 			</form>
 		</div>

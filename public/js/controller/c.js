@@ -1343,9 +1343,12 @@
 
             $scope.replace = function(){
                 H.p(cook('mark/replace'), {'id': $scope.data.mark, 'cmid': $scope.cmid}).then(function(res){
-                    if (res.data && res.data.d == 1) {
+                	if (res.data && res.data.d == 1) {
                         $scope.closeThisDialog($scope.cmid);
-                    };
+                    }
+                    else {
+                    	$scope.isError = true;
+                    }
                 })
             }
         }])
