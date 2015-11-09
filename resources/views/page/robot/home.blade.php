@@ -38,7 +38,7 @@
 							<a ui-sref="base.robot.detail({id : item.id})" title="" class="btn btn-sm btn-primary">查看</a>
 						</td>
 					</tr>
-					<tr ng-if="!data.e.length">
+					<tr ng-if="!data.s.length">
 						<td colspan="9" class="text-center">暂无相关数据</td>
 					</tr>
 				</tbody>
@@ -71,7 +71,7 @@
 							<a ui-sref="base.robot.detail({id : item.id})" title="" class="btn btn-sm btn-primary">查看</a>
 						</td>
 					</tr>
-					<tr ng-if="!data.s.length">
+					<tr ng-if="!data.c.length">
 						<td colspan="9" class="text-center">暂无相关数据</td>
 					</tr>
 				</tbody>
@@ -104,7 +104,7 @@
 							<a ui-sref="base.robot.detail({id : item.id})" title="" class="btn btn-sm btn-primary">查看</a>
 						</td>
 					</tr>
-					<tr ng-if="!data.c.length">
+					<tr ng-if="!data.e.length">
 						<td colspan="9" class="text-center">暂无相关数据</td>
 					</tr>
 				</tbody>
