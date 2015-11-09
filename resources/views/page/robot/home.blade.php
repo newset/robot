@@ -25,7 +25,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="item in data.e">
+					<tr ng-repeat="item in data.s">
 						<td>[:info(item):]</td>
 						<td>[:item.cust_id:]</td>
 						<td>[:SIns.robot_action_type[item.status].name:]</td>
@@ -58,7 +58,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="item in data.s">
+					<tr ng-repeat="item in data.c">
 						<td>[:info(item):]</td>
 						<td>[:item.cust_id:]</td>
 						<td>[:SIns.robot_action_type[item.status].name:]</td>
@@ -91,7 +91,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="item in data.c">
+					<tr ng-repeat="item in data.e">
 						<td>[:info(item):]</td>
 						<td>[:item.cust_id:]</td>
 						<td>[:SIns.robot_action_type[item.status].name:]</td>
