@@ -43,7 +43,8 @@
 		   		</div>
 		   		<div class="form-group text-right">
 		   			<div class="col-md-7">
-		   				<a ui-sref="base.agency.detail({'id' : SIns.current_row.id})" class="btn btn-default">取消</a>
+		   			    <a ui-sref="base.agency.detail({aid: SIns.current_row.id})" class="btn btn-default">取消</a>
+		   				<!-- <a ui-sref="base.agency.detail({'id' : SIns.current_row.id})" class="btn btn-default">取消</a> -->
 		   				<a href="" ng-click="save()" class="btn btn-primary">确定</a>
 		   			</div>
 		   		</div>
