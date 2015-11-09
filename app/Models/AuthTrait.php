@@ -85,7 +85,9 @@ trait AuthTrait
             $select = [table_name('department').'.*', table_name('hospital').'.name as hospital_name'];
             $ins = $ins->select($select)->leftJoin(table_name('hospital'), table_name('department').'.hospital_id',  '=', table_name('hospital').'.id');
         }
-
+        if ($ins_name == 'employee') {
+            $ins = $ins->where('status',1);
+        }
         $ins = $ins->first();
         return $ins ? $ins : false;
     }
