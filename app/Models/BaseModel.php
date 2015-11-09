@@ -381,7 +381,9 @@ class BaseModel extends Model
         $count = $builder->count();
 
         $builder = $this->p_builder($builder);
-        $builder = $builder->whereNull('deleted_at');
+        if ($this->softDelete != false) {
+            $builder = $builder->whereNull('deleted_at');
+        }
         $main = isset($ret) ? $ret : $builder->get()->toArray();
         //$date_fields = $this->get_all_date_type($main);
         $r = [

@@ -628,5 +628,23 @@
                         templateUrl: shot('page/log/list'),
                         controller : 'LogCtrl'
                     })
+                    .state('base.setting', {
+                        url : '/setting',
+                        template : '<div ui-view></div>'
+                    })
+                    .state('base.setting.index', {
+                        url : '/index',
+                        templateUrl: shot('page/setting/index'),
+                        resolve: {
+                            settings : function(H){
+                                return H.p(cook('setting/r')).then(function(res){
+                                    return res.data.d;
+                                });
+                            }
+                        },
+                        controller : ['$scope', '$state', 'H', 'settings' , function($scope, $state, H, settings){
+
+                        }]
+                    })
             }])
 })();

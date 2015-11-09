@@ -91,7 +91,7 @@
 	@endif
 	@if(sess('permission')[8])
 	<div class="col-md-4 col-sm-6">
-		<a ui-sref="base.employee({with_search: 1})">
+		<a ui-sref="base.setting.index">
 			<div class="dashboard-tile detail tile-yellow">
 				 <div class="content">
 					<h1><img src="../assets/img/grid/09.png" alt="">系统配置</h1>
