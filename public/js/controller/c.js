@@ -1177,6 +1177,11 @@
             }
 
             $scope.bind = function(prefix){
+                var conf = confirm('确认要绑定当前 Mark?');
+                if (!conf) {
+                    return;
+                };
+
                 SMark.bat_mark('bind', {
                     a : SMark.cu_bat_data.a,
                     b : SMark.cu_bat_data.b,
@@ -1187,6 +1192,11 @@
             }
 
             $scope.unbind = function(prefix){
+                var conf = confirm('确认要解除当前 Mark?');
+                if (!conf) {
+                    return;
+                };
+
                 SMark.bat_mark('unbind', {
                     a : SMark.cu_bat_data.a,
                     b : SMark.cu_bat_data.b,
