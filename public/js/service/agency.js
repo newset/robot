@@ -46,7 +46,7 @@
                 function get_status(row)
                 {
                     if (row.status == 0)
-                        return '已禁用';
+                        return '禁用';
                     if (!row.ended_at) {
                         return '无代理权';
                     };

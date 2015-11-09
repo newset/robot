@@ -124,7 +124,9 @@ controller:
                 </thead>
                 <tbody>
                     <tr class="odd"  ng-repeat="row in SIns.current_page_data | orderBy: row.id ">
-                        <td></td>
+                        <td>
+                            <span ng-if="SIns.status(row)=='禁用'">禁用</span>
+                        </td>
                         <td>[:row.id:]</td>
                         <td>[:row.name:]</td>
                         <td>
@@ -132,7 +134,9 @@ controller:
                             •
                             <span ng-repeat="l in SBase._.location.city |filter:{id: row.city_id }:equalsId">[:l.name :]</span>
                         </td>
-                        <td>[:SIns.status(row):]</td>
+                        <td>
+                            <span ng-if="SIns.status(row)!='禁用'">[:SIns.status(row):]</span>
+                        </td>
                         <td>[:row.started_at:]</td>
                         <td>[:row.ended_at:]</td>
                         <td class="edit col-md-1">
