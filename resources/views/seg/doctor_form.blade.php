@@ -177,7 +177,12 @@
 
             <div class="form-group col-md-12 text-right">
                 <button class="btn btn-danger" ng-disabled="form_doctor.$invalid"
-                        ng-click="disable(SIns.current_row)">禁用
+                        ng-click="disable(SIns.current_row)" ng-if="SIns.current_row.status!=-1 && SIns.current_row.id">
+                                        禁用
+                </button>
+                <button class="btn btn-danger" ng-disabled="form_doctor.$invalid"
+                        ng-click="disable(SIns.current_row)" ng-if="SIns.current_row.status==-1 && SIns.current_row.id">
+                                        恢复
                 </button>
                 <button class="btn btn-info" ng-disabled="form_doctor.$invalid"
                         ng-click="save(SIns.current_row)">确定
