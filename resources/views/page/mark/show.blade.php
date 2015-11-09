@@ -3,6 +3,7 @@
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<b>Mark 详情</b>
+			@if(he_is('employee'))
 			<div class="pull-right" ng-init="agency =-1">
 				<button type="button" class="btn btn-primary no-animate" ng-click="bind()" ng-show="SIns.current_row.agency_id == -1">绑定</button>
 				<button type="button" class="btn btn-primary no-animate" ng-click="unbind()" ng-show="SIns.current_row.agency_id != -1">解绑</button>
@@ -10,6 +11,7 @@
 				<button type="button" class="btn btn-primary" ng-click="recycle()" ng-disabled="SIns.current_row.status != 1">损坏报废</button>
 				<button type="button" class="btn btn-primary" ng-click="replace()" ng-disabled="SIns.current_row.status != 1">损坏更新</button>
 			</div>
+			@endif
 			<div class="clearfix"></div>
 		</div>
 	</div>
@@ -110,12 +112,14 @@
 		</div>
 		<div class="panel-body">
 			<dl class="dl-horizontal">
+	            @if(he_is('employee'))
 	            <dt>病人</dt>
 	            <dd>
 	               <span ng-if="SIns.current_row.patient_name">[:SIns.current_row.patient_name:]</span>
 	               <span ng-if="!SIns.current_row.patient_name && SIns.current_row.status==2">尚未提取</span>
 	               <span ng-if="!SIns.current_row.patient_name && SIns.current_row.status!=2">无</span>
                 </dd>
+                @endif
                 <dt>使用者</dt>
 	            <dd>
 	               <span ng-if="SIns.current_row.doctor_id">[:SIns.current_row.doctor.name:]</span>

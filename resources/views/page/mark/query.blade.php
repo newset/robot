@@ -235,6 +235,7 @@
 									  <th>医生</th>
 								      <th>销售时间</th>
 								      <th>后续Mark编号</th>
+								      <th>操作</th>
 								  @endif
 							  </tr>
 							  </thead>
@@ -277,6 +278,15 @@
 									  <td>[:row.doctor_name || '-' :]</td>
 								      <td>[:row.sold_at:]</td>
 								      <td>[:row.cmid:]</td>
+								      <td class="edit col-md-2">
+										  <span class="tool_wrapper">
+											  
+												 <a class="btn btn-default btn-sm" ui-sref="base.mark.show({id : row.id})">
+												  查看
+												  </a>
+												   
+										  </span>
+									  	</td>
 								  @endif
 							  </tr>
 							  </tbody>

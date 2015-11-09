@@ -44,6 +44,7 @@ return [
         [
             'mark' =>
                 [
+                    'r',
                     'r_',
                     'bat_cu',
                     'cu_',
