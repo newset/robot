@@ -1,6 +1,6 @@
 <div class="panel panel-default">
 	<div class="panel-body text-right">
-		<button type="button" class="btn btn-primary">保存</button>
+		<button type="button" class="btn btn-primary" ng-click="save()">保存</button>
 	</div>
 </div>
 <div class="panel panel-default">
@@ -9,16 +9,17 @@
 	   	<hr>
 	   	<div class="row">
 			<div class="col-md-6">
-				<form action="" method="POST" role="form" class="form-inline">
-				
+				<form action="" method="POST" role="form" class="form-inline" name="setting">
 					<div class="form-group">
 						<label for="">登录保存时间</label>
-						<input type="text" class="form-control" id="" placeholder="">
+						<input type="number" class="form-control" name="session_expire" placeholder="" ng-model="settings.user.session_expire" min="0" max="240">
 						<span>小时 (0为不保存，最大为240小时)</span>
+						<span ng-show="setting.session_expire.$error.max" class="text-danger">不能大于240小时</span>
+						<span ng-show="setting.session_expire.$error.min" class="text-danger">不能小于0小时</span>
 					</div>
 					<div class="form-group">
 						<label for="">每页列表行数</label>
-						<input type="text" class="form-control" id="" placeholder="">
+						<input type="number" class="form-control" name="per_page" ng-model="settings.user.per_page">
 					</div>
 				</form>
 			</div>
@@ -35,7 +36,7 @@
 							<p class="text-left">代理商结束时间在多少天内，则显示“即将过期”标识</p>
 						</label>
 						<div class="col-md-2">
-							<input type="text" class="form-control" id="" placeholder="">
+							<input type="number" class="form-control" name="agency_end" ng-model="settings.system.agency_end">
 						</div>
 					</div>
 					<div class="form-group">
@@ -43,7 +44,7 @@
 							<p class="text-left">医院的Mark存量在多少以内，会提示管理员</p>
 						</label>
 						<div class="col-md-2">
-							<input type="text" class="form-control" id="" placeholder="">
+							<input type="number" class="form-control" name="mark_storage" ng-model="settings.system.mark_storage">
 						</div>
 					</div>
 					<div class="form-group">
@@ -51,7 +52,7 @@
 							<p class="text-left">设备租赁到期，提前多少天发送站内信通知</p>
 						</label>
 						<div class="col-md-2">
-							<input type="text" class="form-control" id="" placeholder="">
+							<input type="number" class="form-control" name="robot_end" ng-model="settings.system.robot_end">
 						</div>
 					</div>
 					<div class="form-group">
@@ -59,7 +60,7 @@
 							<p class="text-left">多少天提醒一次该采集USB数据</p>
 						</label>
 						<div class="col-md-2">
-							<input type="text" class="form-control" id="" placeholder="">
+							<input type="number" class="form-control" name="collect_usb" ng-model="settings.system.collect_usb">
 						</div>
 					</div>
 					<div class="form-group">
@@ -67,7 +68,7 @@
 							<p class="text-left">USB数据当前密码</p>
 						</label>
 						<div class="col-md-3">
-							<input type="text" class="form-control" id="" placeholder="">
+							<input type="text" class="form-control" name="usb_password" ng-model="settings.system.usb_password">
 						</div>
 					</div>
 				</form>

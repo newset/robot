@@ -643,7 +643,12 @@
                             }
                         },
                         controller : ['$scope', '$state', 'H', 'settings' , function($scope, $state, H, settings){
+                            $scope.settings = settings;
 
+                            $scope.save = function(){
+                                var settings = angular.extend({}, $scope.settings);
+                                H.p(cook('setting/c'), {'data' : settings});
+                            }
                         }]
                     })
             }])
