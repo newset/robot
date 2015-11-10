@@ -20,7 +20,7 @@
 					<dd>
 						<span ng-if="SIns.current_row.lease_type_id == -1">进入库存</span>
 						<span ng-if="SIns.current_row.lease_type_id == 1">出售</span>
-						<span ng-if="SIns.current_row.lease_type_id == 2">出租</span>
+						<span ng-if="SIns.current_row.lease_type_id == 2">出租([:SIns.current_row.log_lease_lease_started_at | laDate:]——[:SIns.current_row.log_lease_lease_ended_at | laDate:])</span>
 						<span ng-if="SIns.current_row.lease_type_id == 3">免费合作</span>
 					</dd>
 					<dt>生产日期</dt>
