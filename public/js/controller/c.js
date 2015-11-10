@@ -1018,8 +1018,13 @@
                 milisecondsDiff = currentDate-new Date($scope.usbUploadDate);
                 daysDiff = Math.round(milisecondsDiff/(24*60*60*1000));
                 $scope.usbUploadTip = "";
-                if(daysDiff>90) {
-                	$scope.usbUploadTip = "距离上次USB数据采集已经过去"+daysDiff+"天";
+                if($scope.usbUploadDate!=null) {
+                	if(daysDiff>90) {
+                    	$scope.usbUploadTip = "距离上次USB数据采集已经过去"+daysDiff+"天";
+                    }
+                }
+                else {
+                	$scope.usbUploadTip = "从未采集过USB数据";
                 }
             });
             $scope.lease = function(){
