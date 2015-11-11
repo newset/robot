@@ -181,7 +181,7 @@
                                         禁用
                 </button>
                 <button class="btn btn-danger" ng-disabled="form_doctor.$invalid"
-                        ng-click="disable(SIns.current_row)" ng-if="SIns.current_row.status==-1 && SIns.current_row.id">
+                        ng-click="recover(SIns.current_row)" ng-if="SIns.current_row.status==-1 && SIns.current_row.id">
                                         恢复
                 </button>
                 <button class="btn btn-info" ng-disabled="form_doctor.$invalid"

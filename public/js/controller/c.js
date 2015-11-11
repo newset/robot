@@ -469,6 +469,15 @@
                         };*/
                     });
                 }
+                
+                $scope.recover = function(data){
+                    if (!$scope.SIns.current_row.id) {
+                        return;
+                    };
+                    H.p(cook('doctor/recover'), {id: $scope.SIns.current_row.id}).then(function(res){
+                    	$state.go('base.doctor.detail', {id: $scope.SIns.current_row.id});
+                    });
+                }
 
         }])
           //科室controller

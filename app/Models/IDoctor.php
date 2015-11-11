@@ -51,6 +51,19 @@ class IDoctor extends BaseModel
             ee(2);
         }
     }
+    
+    public function recover()
+    {
+        if (rq('id')) {
+            $row = $this->find(rq('id'));
+            $row->update(['status' => 1, 'wechat_id' => null]);
+    
+            $this->eventFire('recover', $row);
+            return ss($row);
+        }else{
+            ee(2);
+        }
+    }
 
     /**
      * 关联Mark
