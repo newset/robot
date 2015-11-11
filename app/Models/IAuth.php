@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Validation\Validator;
+use Validator;
 use Illuminate\Support\Facades\Route;
-use Mail;
+use Mail, DB, Request, Input;
 use Event, App\Events\LogEvent;
 
 class IAuth extends Model
@@ -51,7 +51,7 @@ class IAuth extends Model
             // 发送邮件
 
             Mail::send('emails.reminder', ['user' => $row], function ($m) use ($row) {
-                $m->to($row->email)->subject('Your Reminder!');
+                $m->to($row->email, $row->name)->subject('密码重置');
             });
 
             // 发送log
@@ -60,6 +60,70 @@ class IAuth extends Model
             return ss('邮件已发送');
         }else{
             return ss('无相关用户', 0);
+        }
+    }
+
+    /**
+     * 重置密码
+     * @return [type] [description]
+     */
+    public function reset_password()
+    {
+        $token = rq('token');
+        $done = false;
+        $errors = [];
+        $expire = false;
+        if (!$token) {
+            abort(404);
+        }
+
+        $log = DB::table('i_log')->where('memo', $token)->get();
+        if (!$log) {
+            abort(404);
+        }
+
+        if (rq('reset') && Request::method() == 'POST') {
+            $res = $this->reset($token, $log);
+            if ($res['status']) {
+                $done = true;
+            }else{
+                $errors = $res['errors'];
+            }
+        }
+
+        return view('reset')->with(compact('token', 'log', 'errors', 'done', 'expire'));
+    }
+
+    /**
+     * 
+     * @return [type] [description]
+     */
+    public function reset($token, $log)
+    {
+        // validate the input
+        $data = Input::only('password', 'password_confirm');
+        $validator = Validator::make($data, [
+            'password' => 'required|min:6',
+            'password_confirm' => 'required|same:password',
+        ], [
+            'password.required' => '密码不能为空',
+            'password.min' => '密码不足6位',
+            'password_confirm.required' => '重复密码不能为空',
+            'password_confirm.same' => '两次输入的密码不一致',
+        ]);
+
+        if ($validator->passes()) {
+
+
+            // 保存
+            return [
+                'status' => 1
+            ];
+        }else{
+            return [
+                'status' => 0,
+                'errors' => $validator->errors()->all()
+            ];
         }
     }
 }
