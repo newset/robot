@@ -47,14 +47,12 @@ class IAuth extends Model
         $ins = Route::current()->parameter('p3');
 
         $row = M($ins)->where('email', $email)->first();
-        $sent = sess('password_reset_sent');
-        if ($row && $sent) {
+        if ($row ) {
             // 发送邮件
-            sess('password_reset_sent', true);
 
-            // Mail::send('emails.reminder', ['user' => $row], function ($m) use ($row) {
-            //     $m->to($row->email)->subject('Your Reminder!');
-            // });
+            Mail::send('emails.reminder', ['user' => $row], function ($m) use ($row) {
+                $m->to($row->email)->subject('Your Reminder!');
+            });
 
             // 发送log
             Event::fire(new LogEvent('reminder', 'auth', ['type' => $ins, 'user' => $row]));
