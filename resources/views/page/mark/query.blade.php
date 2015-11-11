@@ -280,11 +280,7 @@
 								      <td>[:row.cmid:]</td>
 								      <td class="edit col-md-2">
 										  <span class="tool_wrapper">
-											  
-												 <a class="btn btn-default btn-sm" ui-sref="base.mark.show({id : row.id})">
-												  查看
-												  </a>
-												   
+												<a class="btn btn-info btn-sm" ui-sref="base.mark.show({id : row.id})">查看</a>
 										  </span>
 									  	</td>
 								  @endif

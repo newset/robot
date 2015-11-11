@@ -241,4 +241,19 @@ class LogEventHandler
         }
 
     }
+
+    public function auth($method = null, $data = null)
+    {
+        $action_type_id = 44;
+
+        if ($method == 'reminder' && $data['type'] == 'agency') {
+            $action_type_id = 45;
+        }
+
+        $user = $data['user'];
+        $hash = hash_password($user->email.time());
+
+        // find or save 
+        ILog::add_log($action_type_id, -1, $user->id, $hash);
+    }
 }

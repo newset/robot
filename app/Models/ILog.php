@@ -54,7 +54,7 @@ class ILog extends BaseModel
     		'ins_type_id' => $ins_type_id,
     		'related_id' => $related_id,
     		'memo' => $memo,
-    		'operator_id' => uid()
+    		'operator_id' => uid() ? uid() : -1
     	]);
     }
 

@@ -67,11 +67,13 @@
             '$scope',
             'H',
             'h',
+            'ngDialog',
             'SBase',
             function ($http
                 , $scope
                 , H
                 , h
+                , ngDialog
                 , SBase)
             {
                 var me = this;
@@ -84,6 +86,42 @@
                 {
                     alert('lala');
                 };
+
+                me.forget = function(){
+                    var d = ngDialog.open({
+                        template:  '\
+                            <div class="panel panel-default"><div class="panel-heading"><h5>请输入注册邮箱</h5></div>\
+                            <div class="panel-body"><form name="forget_email" class="form-horizontal" style="margin: 30px 0px 45px;"><div class="form-group"> \
+                                <label class="col-md-2 control-label">邮箱:  </label><div class="col-md-8"><input name="email" ng-model-options="{ updateOn:'+"'blur"+"'"+' }" require type="email" ng-model="email" class="form-control"/></div>\
+                                <p ng-show="forget_email.email.$error.email" class="col-md-8 col-md-offset-2 mt10 text-danger">邮箱格式错误</p>\
+                                <p ng-show="emailsent" class="col-md-8 col-md-offset-2 mt10 text-success">邮件发送成功</p>\
+                            </div></form>\
+                            <div class="ngdialog-buttons mt20">\
+                                <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog(0)">取消</button>\
+                                <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(1)">确定</button>\
+                            </div></div></div>',
+                        plain : true,
+                        resolve : {
+                            userType : function(){
+                                return me.user_type;
+                            }
+                        },
+                        controller : function($scope, userType, H){
+                            $scope.confirm = function(){
+                                if (!$scope.email) {
+                                    return;
+                                };
+
+                                H.p(cook('auth/forget/'+userType), {'type': userType, 'email' : $scope.email}).then(function(res){
+                                    if (res.data.status == 1) {
+                                        $scope.emailsent = true;
+                                    };
+                                });
+                            }
+                        }
+                    });
+
+                }
 
                 me.on_tab_change = function (user_type, auth_type)
                 {

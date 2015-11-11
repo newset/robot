@@ -51,7 +51,7 @@
 									</div>
 									<div class="form-group">
 										<div class="col-md-12 text-right">
-											<a href="" >忘记密码</a>
+											<a href="" ng-click="c_form_auth.forget()">忘记密码</a>
 											<button type="submit"
 													class="btn btn-primary pull-right">登录
 											</button>
@@ -85,7 +85,6 @@
 									</div>
 									<div class="form-group">
 										<div class="col-md-12 text-right">
-											<a href="" >忘记密码</a>
 											<button type="submit" class="btn btn-primary pull-right">登录</button>
 										</div>
 									</div>
@@ -232,7 +231,7 @@
 										<div class="col-md-12 text-right">
 											<button ng-click="c_form_auth.auth_type = 'signup'"
 											   href="" class="pull-left btn btn-default">我要注册</button>
-											<a href="">忘记密码</a>
+											<a href="" ng-click="c_form_auth.forget()">忘记密码</a>
 											<button type="submit"
 													class="btn btn-primary pull-right">登录
 											</button>

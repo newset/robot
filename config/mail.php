@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'remebot@remebot.com.cn', 'name' => 'Remebot医疗机器人 系统'],
 
     /*
     |--------------------------------------------------------------------------

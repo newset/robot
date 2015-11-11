@@ -28,7 +28,7 @@ class CookController extends Controller
      * @param  [type] $p2 model名
      * @return [type]     [description]
      */
-    public function leader($p1 = null, $p2 = null)
+    public function leader($p1 = null, $p2 = null, $p3 = null)
     {
         if (empty($p1)) return ee(2);
 
