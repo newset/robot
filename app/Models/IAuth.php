@@ -77,7 +77,7 @@ class IAuth extends Model
             abort(404);
         }
 
-        $log = DB::table('i_log')->where('memo', $token)->get();
+        $log = DB::table('i_log')->where('memo', $token)->first();
         if (!$log) {
             abort(404);
         }
@@ -113,9 +113,19 @@ class IAuth extends Model
         ]);
 
         if ($validator->passes()) {
+            // 修改密码
+            $table = '';
+            if ($log->action_type_id == 44) {
+                $table = 'i_employee';
+            }else if($log->action_type_id == 45){
+                $table = 'i_agency';
+            }
 
+            if ($table) {
+                DB::table($table)->where('id', $log->related_id)
+                    ->update(['password' => hash_password($data['password'])]);
+            }
 
-            // 保存
             return [
                 'status' => 1
             ];
