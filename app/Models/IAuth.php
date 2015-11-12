@@ -49,13 +49,13 @@ class IAuth extends Model
         $row = M($ins)->where('email', $email)->first();
         if ($row ) {
             // 发送邮件
-
-            Mail::send('emails.reminder', ['user' => $row], function ($m) use ($row) {
+            $hash = hash_password($row->email.time());
+            Mail::send('emails.reminder', ['user' => $row, 'hash' => $hash], function ($m) use ($row) {
                 $m->to($row->email, $row->name)->subject('密码重置');
             });
 
             // 发送log
-            Event::fire(new LogEvent('reminder', 'auth', ['type' => $ins, 'user' => $row]));
+            Event::fire(new LogEvent('reminder', 'auth', ['type' => $ins, 'user' => $row, 'hash' => $hash]));
 
             return ss('邮件已发送');
         }else{
@@ -89,6 +89,9 @@ class IAuth extends Model
             }else{
                 $errors = $res['errors'];
             }
+        }else{
+            // 设置过期
+            
         }
 
         return view('reset')->with(compact('token', 'log', 'errors', 'done', 'expire'));

@@ -251,9 +251,7 @@ class LogEventHandler
         }
 
         $user = $data['user'];
-        $hash = hash_password($user->email.time());
-
         // find or save 
-        ILog::add_log($action_type_id, -1, $user->id, $hash);
+        ILog::add_log($action_type_id, -1, $user->id, $data['hash']);
     }
 }
