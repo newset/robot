@@ -139,7 +139,11 @@
 	                        <td style="padding: 20px 0px 30px 0px;" class="logo">
 	                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
 	                                <tr>
-	                                    <td bgcolor="#ffffff" width="100" align="left"><a href="{{env('APP_URL')}}" target="_blank"><img alt="Logo" src="{{env('APP_URL').'/assets/img/login-logo.png'}}" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #666666; font-size: 16px;" border="0"></a></td>
+	                                    <td bgcolor="#ffffff" width="100" align="left">
+	                                    	<a href="{{env('APP_URL')}}" target="_blank">
+	                                    		<img alt="Logo" src="{{env('APP_URL').'/assets/img/login-logo.png'}}" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #666666; font-size: 16px;" border="0">
+	                                    	</a>
+	                                    </td>
 	                                    <td bgcolor="#ffffff" width="400" align="right" class="mobile-hide">
 	                                        <table border="0" cellpadding="0" cellspacing="0">
 	                                            <tr>
@@ -186,7 +190,7 @@
 	                                            <td align="center" style="padding: 25px 0 0 0;" class="padding-copy">
 	                                                <table border="0" cellspacing="0" cellpadding="0" class="responsive-table">
 	                                                    <tr>
-	                                                        <td align="center"><a href="{{env('APP_URL').'/$/auth/reset_password?token'.$hash}}}" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #ffffff; text-decoration: none; background-color: #5D9CEC; border-top: 15px solid #5D9CEC; border-bottom: 15px solid #5D9CEC; border-left: 25px solid #5D9CEC; border-right: 25px solid #5D9CEC; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; display: inline-block;" class="mobile-button">点击重置密码 &rarr;</a></td>
+	                                                        <td align="center"><a href="{{env('APP_URL').'/$/auth/reset_password?token='.$hash}}" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #ffffff; text-decoration: none; background-color: #5D9CEC; border-top: 15px solid #5D9CEC; border-bottom: 15px solid #5D9CEC; border-left: 25px solid #5D9CEC; border-right: 25px solid #5D9CEC; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; display: inline-block;" class="mobile-button">点击重置密码 &rarr;</a></td>
 	                                                    </tr>
 	                                                </table>
 	                                            </td>
