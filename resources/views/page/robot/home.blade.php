@@ -26,7 +26,8 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="item in data.s">
-						<td>[:info(item):]</td>
+						<!-- <td>[:info(item):]</td> -->
+						<td>租期快要结束</td>
 						<td>[:item.cust_id:]</td>
 						<td>[:SIns.robot_action_type[item.status].name:]</td>
 						<td>[:SIns.lease_type[item.lease_type_id-1].name:]</td>
@@ -59,7 +60,7 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="item in data.c">
-						<td>[:info(item):]</td>
+						<td>该采集USB数据</td>
 						<td>[:item.cust_id:]</td>
 						<td>[:SIns.robot_action_type[item.status].name:]</td>
 						<td>[:SIns.lease_type[item.lease_type_id-1].name:]</td>
@@ -92,7 +93,7 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="item in data.e">
-						<td>[:info(item):]</td>
+						<td>USB数据导出错误</td>
 						<td>[:item.cust_id:]</td>
 						<td>[:SIns.robot_action_type[item.status].name:]</td>
 						<td>[:SIns.lease_type[item.lease_type_id-1].name:]</td>
