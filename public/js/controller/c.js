@@ -745,17 +745,16 @@
             });
 
             $scope.info = function(item){
-                if (item.log_lease_lease_ended_at) {
-                      var end = moment(item.log_lease_lease_ended_at),
+                if (item.lease_ended_at) {
+                      var end = moment(item.lease_ended_at),
                         now = moment(),
                         dur = moment.duration(now.diff(end)).days();
-
-                    if (dur < 0 && Math.abs(dur) < 10) {
+                    if (dur < 0 && Math.abs(dur) < 30) {
                         return '租期快要结束';
                     };
                 };
 
-                return '该采集USB数据';
+                return '';
             }
 
             $scope.set_doctor = function(item){
