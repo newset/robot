@@ -127,6 +127,9 @@ class IAuth extends Model
             if ($table) {
                 DB::table($table)->where('id', $log->related_id)
                     ->update(['password' => hash_password($data['password'])]);
+
+                $log->memo = '通过邮件重置密码成功。';
+                $log->save();
             }
 
             return [
