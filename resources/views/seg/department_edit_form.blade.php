@@ -22,7 +22,7 @@ controller:CDepartmentEdit
     <div class="form-group">
         <label class="control-label col-md-1">登录名</label>
         <div class="col-md-6">
-            <input  class="form-control" ng-model="department.username"  required>
+            <input  class="form-control" ng-model="department.username"  required ng-disabled="true">
         </div>
     </div>
     <div class="form-group">
