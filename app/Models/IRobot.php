@@ -25,7 +25,8 @@ class IRobot extends BaseModel
             'production_date' => 'required|date'
         ];
 
-        $this->messages['regex'] = '字段 :attribute 格式错误';
+        //$this->messages['regex'] = '字段 :attribute 格式错误';
+        $this->messages['regex'] = '该值格式错误';
     }
 
     //public function r_($rq = [])

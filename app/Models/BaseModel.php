@@ -25,8 +25,10 @@ class BaseModel extends Model
     public $updateRule = [];
 
     public $messages = [
-        'required' => '字段:attribute不能为空.',
-        'unique' => '字段:attribute值已被占用.',
+        /* 'required' => '字段:attribute不能为空.',
+        'unique' => '字段:attribute值已被占用.', */
+        'required' => '该值不能为空.',
+        'unique' => '该值已被占用.',
     ];
 
     public function __construct($prefix = 'i')
