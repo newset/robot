@@ -737,6 +737,9 @@
                 if (dur < 0) {
                     $scope.agency_status = '已过期';
                     $scope.agency_status_danger = 1;
+                }else if(me.ended_at==null){
+                	$scope.agency_status = '无代理权';
+                    $scope.agency_status_danger = 0;
                 }else if(dur <= 3600*24*30*1000){
                     $scope.agency_status = '即将过期';
                     $scope.agency_status_danger = 1;
