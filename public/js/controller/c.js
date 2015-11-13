@@ -1219,8 +1219,13 @@
             SMark.cu_bat_data.b = undefined;
             SMark.cu_bat_data.c = undefined;
 
-            $scope.add = function(){
+            if($state.current.name == 'base.mark.bind'){
+                H.p(cook('agency/valid')).then(function(res){
+                    $scope.agencys = res.data.d;
+                })
+            }
 
+            $scope.add = function(){
                 SMark.bat_mark('add', {
                     a : SMark.cu_bat_data.a,
                     b : SMark.cu_bat_data.b,
@@ -1231,8 +1236,7 @@
             }
 
             $scope.bind = function(prefix){
-                var conf = confirm('确认要绑定当前 Mark?');
-                if (!conf) {
+                if (!confirm('确认要绑定'+SMark.cu_bat_data.a+'个Mark给'+$scope.targetSelected.name+'?')) {
                     return;
                 };
 
@@ -1246,8 +1250,7 @@
             }
 
             $scope.unbind = function(prefix){
-                var conf = confirm('确认要解除当前 Mark?');
-                if (!conf) {
+                if (!confirm('确认要解除当前 Mark?')) {
                     return;
                 };
 

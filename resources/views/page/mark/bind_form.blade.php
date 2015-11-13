@@ -42,10 +42,12 @@
             <div class="form-group pull-right">
                 <select class="form-control"
                         name="agency_id"
-                        ng-model="SIns.cu_bat_data.c"
+                        ng-model="targetSelected"
                         chosen
+                        ng-change="SIns.cu_bat_data.c = targetSelected.id"
                         data-placeholder="请选择代理商"
-                        ng-options="l.id as l.name for l in SAgency.all_rec | orderBy: 'id'"
+                        update="agencys"
+                        ng-options="l as l.name for l in agencys | orderBy: 'id'"
                         style="width: 200px"
                         required>
                 </select>
@@ -63,8 +65,9 @@
                         name="agency_id"
                         chosen
                         data-placeholder="请选择医院"
-                        ng-model="SIns.cu_bat_data.c"
-                        ng-options="l.id as l.name for l in SHospital.all_rec | orderBy: 'id'"
+                        ng-model="targetSelected"
+                        ng-change="SIns.cu_bat_data.c = targetSelected.id"
+                        ng-options="l as l.name for l in SHospital.all_rec | orderBy: 'id'"
                         style="width: 200px" 
                         required>
                 </select>

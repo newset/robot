@@ -111,6 +111,13 @@ class IAgency extends BaseModel
         return parent::u($rq);
     }
 
+    public function valid()
+    {
+        $data = $this->whereNotNull('started_at')->whereRaw('ended_at > now()')->get();
+
+        return ss($data);
+    }
+
     public function todo()
     {
         $data = $this->select('*')
