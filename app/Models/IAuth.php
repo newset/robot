@@ -7,6 +7,7 @@ use Validator;
 use Illuminate\Support\Facades\Route;
 use Mail, DB, Request, Input;
 use Event, App\Events\LogEvent;
+use Carbon\Carbon;
 
 class IAuth extends Model
 {
@@ -72,7 +73,7 @@ class IAuth extends Model
         $token = rq('token');
         $done = false;
         $errors = [];
-        $expire = false;
+        $expire = true;
         if (!$token) {
             abort(404);
         }
@@ -82,16 +83,19 @@ class IAuth extends Model
             abort(404);
         }
 
-        if (rq('reset') && Request::method() == 'POST') {
+        $at = Carbon::parse($log->at);
+        $diff =$at->diffInHours(Carbon::now());
+        if ($diff < 24) {
+            $expire = false;
+        }
+
+        if (rq('reset') && Request::method() == 'POST' && !$expire) {
             $res = $this->reset($token, $log);
             if ($res['status']) {
                 $done = true;
             }else{
                 $errors = $res['errors'];
             }
-        }else{
-            // 设置过期
-            
         }
 
         return view('reset')->with(compact('token', 'log', 'errors', 'done', 'expire'));

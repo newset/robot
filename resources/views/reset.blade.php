@@ -35,7 +35,7 @@
                     <h3 class="panel-title">重置密码</h3>
                 </div>
                 <div class="panel-body">
-                    @if(!$done)
+                    @if(!$done && !$expire)
                     <form action="{{url('$/auth/reset_password?token=').$token}}" method="POST" class="form-horizontal" role="form">
                         {{ csrf_field() }}
                         <input type="hidden" name="token" id="inputToken" class="form-control" value="{{$token}}">
@@ -68,13 +68,15 @@
                             </div>
                         </div>
                     </form>
-                    @else
+                    @elseif($done && !$expire)
                          <div class="alert alert-success">
                             <div class="fa fa-check-circle fa-3x"></div>
                             <span style="line-height: 40px; vertical-align: top;color: #444; margin-left: 20px">
-                                密码重置成功，请返回<a href="{{url('/')}}" style="line-height: 40px;vertical-align: top;">首页</a>重新登录 
+                                密码重置成功，请返回<a href="{{env('APP_URL')}}" style="line-height: 40px;vertical-align: top;">首页</a>重新登录 
                             </span>
                         </div>
+                    @elseif($expire)
+                        <h4>当前链接已过期，请返回首页重新发送邮件, <a href="{{env('APP_URL')}}" title=""><i class="fa fa-home"></i>返回首页</a></h4>
                     @endif
                 </div>
             </div>
