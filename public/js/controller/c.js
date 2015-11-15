@@ -1570,6 +1570,10 @@
                         {
                             if(r.data.d.count)
                             {
+                                var current = r.data.d.main[0];
+                                SMe.me_row.phone = current.phone;
+                                SMe.me_row.email = current.email;
+
                                 $scope.valid_old_password  = true;
                             }
                             else
