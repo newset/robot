@@ -1,14 +1,16 @@
 <!--main content end-->
 <!--Global JS-->
-<script type="text/javascript" src="{{base_url() . 'vendor/jquery/dist/jquery.js'}}"></script>
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.4.7/angular.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
 <script type="text/javascript" src="{{base_url() . 'vendor/chosen/chosen.jquery.min.js'}}"></script>
-<script type="text/javascript" src="{{base_url() . 'vendor/angular/angular.js'}}"></script>
-<script type="text/javascript" src="{{base_url() . 'vendor/nprogress/nprogress.js'}}"></script>
 <script type="text/javascript" src="{{base_url() . 'vendor/toastr/toastr.js'}}"></script>
-<script type="text/javascript" src="{{base_url() . 'vendor/bootstrap/dist/js/bootstrap.js'}}"></script>
-<script type="text/javascript" src="{{base_url() . 'vendor/moment/min/moment.min.js'}}"></script>
-<script type="text/javascript" src="{{base_url() . 'vendor/angular-ui-router/release/angular-ui-router.js'}}"></script>
-<script type="text/javascript" src="{{base_url() . 'vendor/angular-bootstrap/ui-bootstrap-tpls.js'}}"></script>
+<script src="//cdn.bootcss.com/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+<script src="//cdn.bootcss.com/moment.js/2.10.6/moment.min.js"></script>
+<script type="text/javascript" src="{{base_url() . 'vendor/nprogress/nprogress.js'}}"></script>
+
+<script src="//cdn.bootcss.com/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.min.js"></script>
 <script type="text/javascript" src="{{base_url() . 'vendor/angular-filter/dist/angular-filter.js'}}"></script>
 <script type="text/javascript" src="{{base_url() . 'vendor/ng-dialog/js/ngDialog.js'}}"></script>
 <script type="text/javascript" src="{{base_url() . 'vendor/ng-file-upload/ng-file-upload-shim.min.js'}}"></script>

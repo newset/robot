@@ -18,7 +18,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <link rel="shortcut icon" href="{{base_url()}}assets/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="{{base_url()}}vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Icons -->
     <link rel="stylesheet" href="{{base_url()}}assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{base_url()}}vendor/toastr/toastr.min.css">

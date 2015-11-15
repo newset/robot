@@ -20,7 +20,7 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{base_url()}}assets/img/favicon.ico" type="image/x-icon">
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="{{base_url()}}assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Icons -->
     <link rel="stylesheet" href="{{base_url()}}assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{base_url()}}node_modules/toastr/build/toastr.min.css">
@@ -44,8 +44,8 @@
     <!-- Feature detection -->
     {{--<script src="{{base_url()}}assets/js/modernizr-2.6.2.min.js"></script>--}}
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
+    <!--[if lt IE 9]-->
     <!--<script src="{{base_url()}}assets/js/html5shiv.js"></script>-->
     <!--<script src="{{base_url()}}assets/js/respond.min.js"></script>-->
-    <![endif]-->
+    <!--[endif]-->
 </head>
