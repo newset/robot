@@ -883,6 +883,7 @@
                 , h
             )
             {
+                SRobot.current_page_data = [];
                 $scope.h = h;
                 $scope.SBase = SBase;
                 $scope.SEmployee = SEmployee;
@@ -1023,10 +1024,22 @@
             $scope.data = {
                 robot_id : $scope.SIns.current_row.id
             } 
+
+            // 
             $scope.lease = function(){
+                if (!$scope.data.memo && SIns.current_row.lease_type_id > 1 && !moment(SIns.current_row.log_lease_lease_ended_at).isAfter(moment())) {
+                    alert('租赁/合作时间未到，如需强行修改租售状态，必须填写备注');
+                    return;
+                };
+
                 var data = {};
                 angular.extend(data, $scope.data);
                 data['write_data'] = 1;
+
+                if (SIns.current_row.lease_type_id > 1) {
+                    data['memo'] += '\n 【该操作为提前操作】';
+                };
+
                 H.p(cook('robotLeaseLog/c'), data).then(function(res){
                     if(res.data.status == 1){
                         $state.go('base.robot.detail', {id : $scope.SIns.current_row.id});
