@@ -92,112 +92,141 @@
 											   placeholder="医生">
 										  </div>
 										</div>
+									    <div class="form-group">
+											<label class="control-label col-md-1">出货给代理商时间</label>
+											<div class="col-md-3">
+												<datepicker date-format="yyyy-MM-dd" selector="form-control">
+													<div class="date-wrapper">
+														<input class="form-control" type="text" placeholder="" ng-model="SIns.cond.where.from_created_at">
+													</div>
+												</datepicker>
+											</div>
+											<span class="pull-left report-to">到</span>
+											<div class="col-md-3">
+												<datepicker date-format="yyyy-MM-dd" selector="form-control">
+													<div class="date-wrapper">
+														<input class="form-control" type="text" placeholder="" ng-model="SIns.cond.where.to_created_at">
+													</div>
+												</datepicker>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label col-md-1">卖出给医院时间</label>
+											<div class="col-md-3">
+												<datepicker date-format="yyyy-MM-dd" selector="form-control">
+													<div class="date-wrapper">
+														<input class="form-control" type="text" placeholder="" ng-model="SIns.cond.where.from_sold_at">
+													</div>
+												</datepicker>
+											</div>
+											<span class="pull-left report-to">到</span>
+											<div class="col-md-3">
+												<datepicker date-format="yyyy-MM-dd" selector="form-control">
+													<div class="date-wrapper">
+														<input class="form-control" type="text" placeholder="" ng-model="SIns.cond.where.to_sold_at">
+													</div>
+												</datepicker>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label col-md-1">医生扫码时间</label>
+											<div class="col-md-3">
+												<datepicker date-format="yyyy-MM-dd" selector="form-control">
+													<div class="date-wrapper">
+														<input class="form-control" type="text" placeholder="" ng-model="SIns.cond.where.from_used_at">
+													</div>
+												</datepicker>
+											</div>
+											<span class="pull-left report-to">到</span>
+											<div class="col-md-3">
+												<datepicker date-format="yyyy-MM-dd" selector="form-control">
+													<div class="date-wrapper">
+														<input class="form-control" type="text" placeholder="" ng-model="SIns.cond.where.to_used_at">
+													</div>
+												</datepicker>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label col-md-1">损坏时间</label>
+											<div class="col-md-3">
+												<datepicker date-format="yyyy-MM-dd" selector="form-control">
+													<div class="date-wrapper">
+														<input class="form-control" type="text" placeholder="" ng-model="SIns.cond.where.from_damaged_at">
+													</div>
+												</datepicker>
+											</div>
+											<span class="pull-left report-to">到</span>
+											<div class="col-md-3">
+												<datepicker date-format="yyyy-MM-dd" selector="form-control">
+													<div class="date-wrapper">
+														<input class="form-control" type="text" placeholder="" ng-model="SIns.cond.where.to_damaged_at">
+													</div>
+												</datepicker>
+											</div>
+										</div>
+										
+										<div class="form-group">
+											<label class="control-label col-md-1">归档时间</label>
+											<div class="col-md-3">
+												<datepicker date-format="yyyy-MM-dd" selector="form-control">
+													<div class="date-wrapper">
+														<input class="form-control" type="text" placeholder="" ng-model="SIns.cond.where.from_archive_at">
+													</div>
+												</datepicker>
+											</div>
+											<span class="pull-left report-to">到</span>
+											<div class="col-md-3">
+												<datepicker date-format="yyyy-MM-dd" selector="form-control">
+													<div class="date-wrapper">
+														<input class="form-control" type="text" placeholder="" ng-model="SIns.cond.where.to_archive_at">
+													</div>
+												</datepicker>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label col-md-1">手术时间</label>
+											<div class="col-md-3">
+												<datepicker date-format="yyyy-MM-dd" selector="form-control">
+													<div class="date-wrapper">
+														<input class="form-control" type="text" placeholder="" ng-model="SIns.cond.where.from_surgery_at">
+													</div>
+												</datepicker>
+											</div>
+											<span class="pull-left report-to">到</span>
+											<div class="col-md-3">
+												<datepicker date-format="yyyy-MM-dd" selector="form-control">
+													<div class="date-wrapper">
+														<input class="form-control" type="text" ng-model="SIns.cond.where.to_surgery_at" placeholder="">
+													</div>
+												</datepicker>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label col-md-1">生产时间</label>
+											<div class="col-md-3">
+												<datepicker date-format="yyyy-MM-dd" selector="form-control">
+													<div class="date-wrapper">
+														<input class="form-control" type="text" placeholder="" ng-model="SIns.cond.where.from_created_at">
+													</div>
+												</datepicker>
+											</div>
+											<span class="pull-left report-to">到</span>
+											<div class="col-md-3">
+												<datepicker date-format="yyyy-MM-dd" selector="form-control">
+													<div class="date-wrapper">
+														<input class="form-control" type="text" placeholder="" ng-model="SIns.cond.where.to_created_at">
+													</div>
+												</datepicker>
+											</div>
+										</div>
+
 									@endif
 
-								<!--     <div class="form-group">
-										<label class="control-label col-md-2">出货给代理商时间</label>
-										<input class="form-control"
-											   type="date"
-											   ng-model-options="{debounce: 300}"
-											   ng-model="SIns.cond.where.from_created_at"
-											   placeholder="">
-										至
-										<input class="form-control"
-											   type="date"
-											   ng-model-options="{debounce: 300}"
-											   ng-model="SIns.cond.where.to_created_at"
-											   placeholder="">
-									</div>
-
-									<div class="form-group">
-										<label class="control-label col-md-2">卖出给医院时间</label>
-										<input class="form-control"
-											   type="date"
-											   ng-model-options="{debounce: 300}"
-											   ng-model="SIns.cond.where.from_sold_at"
-											   placeholder="">
-										至
-										<input class="form-control"
-											   type="date"
-											   ng-model-options="{debounce: 300}"
-											   ng-model="SIns.cond.where.to_sold_at"
-											   placeholder="">
-									</div>
-
-									<div class="form-group">
-										<label class="control-label col-md-2">医生扫码时间</label>
-										<input class="form-control"
-											   type="date"
-											   ng-model-options="{debounce: 300}"
-											   ng-model="SIns.cond.where.from_used_at"
-											   placeholder="">
-										至
-										<input class="form-control"
-											   type="date"
-											   ng-model-options="{debounce: 300}"
-											   ng-model="SIns.cond.where.to_used_at"
-											   placeholder="">
-									</div>
-
-									<div class="form-group">
-										<label class="control-label col-md-2">损坏时间</label>
-										<input class="form-control"
-											   type="date"
-											   ng-model-options="{debounce: 300}"
-											   ng-model="SIns.cond.where.from_damaged_at"
-											   placeholder="">
-										至
-										<input class="form-control"
-											   type="date"
-											   ng-model-options="{debounce: 300}"
-											   ng-model="SIns.cond.where.to_damaged_at"
-											   placeholder="">
-									</div>
-
-									<div class="form-group">
-										<label class="control-label col-md-2">归档时间</label>
-										<input class="form-control"
-											   type="date"
-											   ng-model-options="{debounce: 300}"
-											   ng-model="SIns.cond.where.from_archive_at"
-											   placeholder="">
-										至
-										<input class="form-control"
-											   type="date"
-											   ng-model-options="{debounce: 300}"
-											   ng-model="SIns.cond.where.to_archive_at"
-											   placeholder="">
-									</div>
-
-									<div class="form-group">
-										<label class="control-label col-md-2">手术时间</label>
-										<input class="form-control"
-											   type="date"
-											   ng-model-options="{debounce: 300}"
-											   ng-model="SIns.cond.where.from_surgery_at"
-											   placeholder="">
-										至
-										<input class="form-control"
-											   type="date"
-											   ng-model-options="{debounce: 300}"
-											   ng-model="SIns.cond.where.to_surgery_at"
-											   placeholder="">
-									</div>
-
-									<div class="form-group">
-										<label class="control-label col-md-2">生产时间</label>
-										<input class="form-control"
-											   type="date"
-											   ng-model-options="{debounce: 300}"
-											   ng-model="SIns.cond.where.create_at"
-											   placeholder="">
-										至
-										<input class="form-control"
-											   type="date"
-											   ng-model-options="{debounce: 300}"
-											   ng-model="SIns.cond.where.create_at"
-											   placeholder="">
-									</div> -->
 
 									<div class="form-group">
 										<button class="btn btn-info" style="float: right" ng-click="SIns.refresh()">查询</button>
