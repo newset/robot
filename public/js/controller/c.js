@@ -1503,7 +1503,9 @@
             $scope.SIns = SEmployee;
 
             if(!$stateParams.id){
-                $scope.SIns.current_row = {};
+                $scope.SIns.current_row = {
+                    permissions : [0, 0, 0, 0, 0, 0, 0, 0, 0]
+                };
             }
 
             $scope.save = function(){
