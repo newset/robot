@@ -71,7 +71,7 @@
 		  </div>
 
 		  <div class="row" ng-show="SIns.current_row.id">
-			<div class="form-group">
+			<!-- <div class="form-group">
 			  <label for="" class="control-label col-md-1">状态</label>
 			  <div class="col-md-6">
 				<label class="radio-inline"><input type="radio" value="0" ng-checked="SIns.current_row.status ==0"
@@ -79,8 +79,9 @@
 				<label class="radio-inline"><input type="radio" value="2" ng-checked="SIns.current_row.status ==2"
 				  ng-model="SIns.current_row.status" />作废</label>
 			  </div>
-			</div>
-			<div class="form-group" ng-show="memoRequired">
+			</div> -->
+			<!-- <div class="form-group" ng-show="memoRequired"> -->
+			<div class="form-group">
 				<label class="control-label col-md-1">备注</label>
 				<div class="col-md-6">
 					<textarea name="memo" ng-model="memo" class="form-control"></textarea>

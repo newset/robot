@@ -28,6 +28,12 @@ class IRobotLog extends BaseModel
             // 更新状态
             IRobot::where('id', $rq['robot_id'])->update(['status'=>1]);
         }
+        else if($rq['action_type'] == 3){
+            IRobot::where('id', $rq['robot_id'])->update(['status'=>2]);
+        }
+        else if($rq['action_type'] == 4){
+            IRobot::where('id', $rq['robot_id'])->update(['status'=>0]);
+        }
 
         return parent::c($rq);
     }

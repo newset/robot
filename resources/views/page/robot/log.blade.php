@@ -26,6 +26,12 @@
 							<label class="radio-inline">
 								<input type="radio" ng-model="data.action_type" value="2">客户报修
 							</label>
+							<label class="radio-inline">
+								<input type="radio" ng-model="data.action_type" value="3">作废
+							</label>
+							<label class="radio-inline">
+								<input type="radio" ng-model="data.action_type" value="4">维修完毕
+							</label>
 						</div>
 					</div>
 				</div>
