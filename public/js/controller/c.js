@@ -1629,7 +1629,7 @@
         .controller('PMCtrl', ['$scope', 'H', '$rootScope', '$stateParams', '$state', 'UserSession', 
                 function($scope, H, $rootScope, $stateParams, $state, session){
             // 默认获取
-            $stateParams.type ? $scope.toMe = -1 :  $scope.toMe = 1;
+            $stateParams.type ? $scope.toMe = 0 :  $scope.toMe = 1;
             var type = ['employee', 'agency', 'doctor'],
                 role = session.get('his_chara')[0],
                 roleType = type.indexOf(role)+1;
@@ -1675,7 +1675,7 @@
                 });
             }else if ($state.current.name == 'base.pm.read') {
                 // 获取内容
-                
+
 
             }else if ($state.current.name == 'base.pm.new') {
                 // 发送消息

@@ -4,8 +4,8 @@
 		<div class="panel-body">
 			<div class="col-md-2 pull-left">
 				<select name="" chosen class="form-control" style="width:150px" ng-model="toMe" data-placeholder="接收的消息">
-					<option value="1" selected>接收的消息</option>
-					<option value="-1" >发送的消息</option>
+					<option value="1" ng-selected="toMe == 1">接收的消息</option>
+					<option value="0" ng-selected="toMe == 0">发送的消息</option>
 				</select>
 			</div>
 			
