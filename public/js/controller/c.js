@@ -1506,6 +1506,8 @@
                 $scope.SIns.current_row = {
                     permissions : [0, 0, 0, 0, 0, 0, 0, 0, 0]
                 };
+            }else{
+
             }
 
             $scope.save = function(){
@@ -1516,6 +1518,8 @@
 
                 if ($scope.password) {
                     data.password = $scope.password;
+                }else{
+                    delete data['password'];
                 };
 
                 SEmployee.cu(data).then(function(res){
