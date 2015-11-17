@@ -67,7 +67,12 @@ class IMessage extends BaseModel
     public function read()
     {
         $id = rq('id');
-        $data = $this->find($id)->update(['read'=> 1]);
-        return ss($data);
+        $data = $this->find($id);
+        $res = 0;
+        if($data->recipientid == uid()){
+            $data->read = 1;
+            $res = $data->save();
+        }
+        return ss($res);
     }
 }

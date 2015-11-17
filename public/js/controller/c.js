@@ -1675,6 +1675,7 @@
                 });
             }else if ($state.current.name == 'base.pm.read') {
                 // 获取内容
+                
 
             }else if ($state.current.name == 'base.pm.new') {
                 // 发送消息
