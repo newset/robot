@@ -584,11 +584,14 @@
                                 });
                             }
                         },
-                        controller : ['message', '$scope', 'H', '$state', function(message, $scope, H, $state){
+                        controller : ['message', '$scope', 'H', '$state', 'UserSession', function(message, $scope, H, $state, session){
                             $scope.message = message;
                             var type = ['employee','agency','doctor'];
-                            $scope.sendToMe = function(){
-                                if (message.recipienttype == 1) {
+                            $scope.canReply = function(){
+                                if (message.senderid == session.get('uid')) {
+                                    return false;
+                                };
+                                if (message.recipienttype == 1 && message.sendertype == 1) {
                                     return true;
                                 };
 
