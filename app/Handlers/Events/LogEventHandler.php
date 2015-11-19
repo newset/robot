@@ -193,15 +193,15 @@ class LogEventHandler
         }
 
         if ($method == 'add' && he_is('employee')) {
-            ILog::add_log(27, 3, -1, $data);
+            ILog::add_log(27, 3, -1, '添加Mark');
         }
 
         if ($method == 'bind' && he_is('employee')) {
-            ILog::add_log(28, 3, -1, $data);
+            ILog::add_log(28, 3, -1, 'Mark绑定');
         }
 
         if ($method == 'unbind' && he_is('employee')) {
-            ILog::add_log(29, 3, -1, $data);
+            ILog::add_log(29, 3, -1, 'Mark解绑');
         }
     }
 
