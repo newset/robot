@@ -73,7 +73,7 @@ class IMark extends BaseModel
             return ss(['msg'=> '请求异常'], 0);
         }
 
-        $this->eventFire($action, $response);
+        $this->eventFire($action, $response->body);
         $res = $response->body;
         return ss($res);
     }
