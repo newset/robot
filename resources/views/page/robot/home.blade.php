@@ -2,7 +2,7 @@
 	<div class="panel">
 		<div class="panel-heading">
 			<h3 class="panel-title">
-				设备管理
+				待办事项
 			</h3>
 
 		</div>
@@ -15,12 +15,13 @@
 					<tr class="info">
 						<th>提示信息</th>
 						<th>编号</th>
-						<th>状态</th>
+						<th>设备状态</th>
 						<th>销售状态</th>
 						<th>医院</th>
 						<th>代理商</th>
 						<th>负责人</th>
 						<th>维护记录</th>
+						<th>生产日期</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -35,12 +36,13 @@
 						<td>[:item.agency_name:]</td>
 						<td>[:item.employee_name:]</td>
 						<td>[:item.log_count || 0:]</td>
+						<td>[:item.production_date | laDate:]</td>
 						<td class="text-center">
 							<a ui-sref="base.robot.detail({id : item.id})" title="" class="btn btn-sm btn-primary">查看</a>
 						</td>
 					</tr>
 					<tr ng-if="!data.s.length">
-						<td colspan="9" class="text-center">暂无相关数据</td>
+						<td colspan="10" class="text-center">暂无相关数据</td>
 					</tr>
 				</tbody>
 			</table>
@@ -49,12 +51,13 @@
 					<tr class="info">
 						<th>提示信息</th>
 						<th>编号</th>
-						<th>状态</th>
+						<th>设备状态</th>
 						<th>销售状态</th>
 						<th>医院</th>
 						<th>代理商</th>
 						<th>负责人</th>
 						<th>维护记录</th>
+						<th>生产日期</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -68,12 +71,13 @@
 						<td>[:item.agency_name:]</td>
 						<td>[:item.employee_name:]</td>
 						<td>[:item.log_count || 0:]</td>
+						<td>[:item.production_date | laDate:]</td>
 						<td class="text-center">
 							<a ui-sref="base.robot.detail({id : item.id})" title="" class="btn btn-sm btn-primary">查看</a>
 						</td>
 					</tr>
 					<tr ng-if="!data.c.length">
-						<td colspan="9" class="text-center">暂无相关数据</td>
+						<td colspan="10" class="text-center">暂无相关数据</td>
 					</tr>
 				</tbody>
 			</table>
@@ -82,12 +86,13 @@
 					<tr class="info">
 						<th>提示信息</th>
 						<th>编号</th>
-						<th>状态</th>
+						<th>设备状态</th>
 						<th>销售状态</th>
 						<th>医院</th>
 						<th>代理商</th>
 						<th>负责人</th>
 						<th>维护记录</th>
+						<th>生产日期</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -101,12 +106,13 @@
 						<td>[:item.agency_name:]</td>
 						<td>[:item.employee_name:]</td>
 						<td>[:item.log_count || 0:]</td>
+						<td>[:item.production_date | laDate:]</td>
 						<td class="text-center">
 							<a ui-sref="base.robot.detail({id : item.id})" title="" class="btn btn-sm btn-primary">查看</a>
 						</td>
 					</tr>
 					<tr ng-if="!data.e.length">
-						<td colspan="9" class="text-center">暂无相关数据</td>
+						<td colspan="10" class="text-center">暂无相关数据</td>
 					</tr>
 				</tbody>
 			</table>
