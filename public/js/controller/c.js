@@ -1028,8 +1028,12 @@
 
             // 
             $scope.lease = function(){
-                if (!$scope.data.memo && SIns.current_row.lease_type_id > 1 && !moment(SIns.current_row.log_lease_lease_ended_at).isAfter(moment())) {
-                    alert('租赁/合作时间未到，如需强行修改租售状态，必须填写备注');
+            	if (!$scope.data.agency_id) {
+                    alert('必须选择代理商');
+                    return;
+                };
+                if (!$scope.data.memo && $scope.SIns.current_row.lease_type_id > 1 && !moment($scope.SIns.current_row.log_lease_lease_ended_at).isAfter(moment())) {
+                	alert('租赁/合作时间未到，如需强行修改租售状态，必须填写备注');
                     return;
                 };
 
@@ -1037,7 +1041,7 @@
                 angular.extend(data, $scope.data);
                 data['write_data'] = 1;
 
-                if (SIns.current_row.lease_type_id > 1) {
+                if ($scope.SIns.current_row.lease_type_id > 1) {
                     data['memo'] += '\n 【该操作为提前操作】';
                 };
 
