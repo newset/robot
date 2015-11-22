@@ -1032,6 +1032,10 @@
                     alert('必须选择代理商');
                     return;
                 };
+                if (!$scope.data.lease_started_at || !$scope.data.lease_ended_at) {
+                    alert('必须选择起租时间');
+                    return;
+                };
                 if (!$scope.data.memo && $scope.SIns.current_row.lease_type_id > 1 && !moment($scope.SIns.current_row.log_lease_lease_ended_at).isAfter(moment())) {
                 	alert('租赁/合作时间未到，如需强行修改租售状态，必须填写备注');
                     return;
