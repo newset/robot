@@ -83,9 +83,8 @@
 			<!-- <div class="form-group" ng-show="memoRequired"> -->
 			<div class="form-group">
 				<label class="control-label col-md-1">备注</label>
-				<div class="col-md-6">
-					<textarea name="memo" ng-model="memo" class="form-control"></textarea>
-					[:memo:]
+				<div class="col-md-6"><!-- name="memo" -->
+					<textarea  ng-model="SIns.current_row.memo" class="form-control">[:SIns.current_row.memo:]</textarea>
 				</div>
 			</div>
 		  </div>
