@@ -2,7 +2,7 @@
 	<div class="panel panel-default">
 		<div class="panel-body">
 			 <h5 class="pull-left">修改代理商信息</h5>
-			 <h5 class="pull-right">[:SIns.current_row.name:]</h5>
+			 <h5 class="pull-right"><a ui-sref="base.agency.detail({aid: SIns.current_row.id})">[:SIns.current_row.name:]</a></h5>
 		</div>
 	</div>
 
@@ -36,13 +36,13 @@
 		   			</div>
 		   		</div>
 		   		<div class="form-group">
-		   			 <label class="control-label col-md-1">内部备忘</label>
+		   			 <label class="control-label col-md-1">内部备忘(代理商看不到该信息)</label>
 		   			 <div class="col-md-6">
 		   			 	<textarea name="" ng-model="SIns.current_row.memo" rows="10" cols="20" class="form-control"></textarea>
 		   			 </div>
 		   		</div>
 		   		<div class="form-group text-right">
-		   			<div class="col-md-7">
+		   			<div class="col-md-12">
 		   			    <a ui-sref="base.agency.detail({aid: SIns.current_row.id})" class="btn btn-default">取消</a>
 		   				<!-- <a ui-sref="base.agency.detail({'id' : SIns.current_row.id})" class="btn btn-default">取消</a> -->
 		   				<a href="" ng-click="save()" class="btn btn-primary">确定</a>
