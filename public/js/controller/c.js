@@ -1112,6 +1112,10 @@
             }
 
             $scope.save = function () {
+                if (!$scope.data.memo) {
+                    alert('备注信息必须填写');
+                    return;
+                };
                 H.p(cook('robotLog/c'), $scope.data).then(function(res){
                     if (res.data.status == 1) {
                         $state.go('base.robot.detail', {id : SRobot.current_row.id});
