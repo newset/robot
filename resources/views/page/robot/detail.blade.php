@@ -43,6 +43,8 @@
     					   [:usbUploadTip:]
 					   </span>
 					</dd>
+					<dt>备注</dt>
+					<dd>[:SIns.current_row.memo:]</dd>
 				</dl>
 			</div>
 			<div class="col-md-12">
