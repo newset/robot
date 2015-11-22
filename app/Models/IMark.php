@@ -225,12 +225,12 @@ class IMark extends BaseModel
         $cmid = rq('cmid');
         // 验证 cmid todo
         $row = $this->where('id', $mark)->first();
-        $newMark = $this->where(['id'=>intval($cmid), 'status'=>1, 'agency_id'=>-1])->first();
+        $newMark = $this->where(['cust_id'=>$cmid, 'status'=>1, 'agency_id'=>-1])->first();
         $res = null;
         if(empty($newMark)) {
             
         }
-        else {
+        else { 
             $row->status = 4;
             $row->cmid = $newMark->cust_id;
             $res = $row->save();
