@@ -1002,6 +1002,7 @@
                         data.memo = memo;
                     }
 
+                    data.cust_id = data.cust_id.toUpperCase(); 
                     $scope.SIns.cu_(data).then(function(res){
                         // 跳转到详情 todo
                         if (res.data.status ==1 ) {
