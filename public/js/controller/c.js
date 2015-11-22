@@ -667,6 +667,14 @@
                 };
 
                 $scope.submit=function(){//编辑
+                	if (!$scope.department.name) {
+                        alert('必须填写科室名称');
+                        return;
+                    };
+                    if (!$scope.department.password) {
+                        alert('必须填写密码');
+                        return;
+                    };
                     console.log($scope.department);
                     SDepartment.cu($scope.department);
                     $state.go('base.hospital.department_doctor', {hid:$scope.hospital_id}, {reload: true});//返回医院详情页
