@@ -238,7 +238,10 @@
 										</div>
 									</div>
 									<div class="form-group" ng-if="c_form_auth.auth_type == 'signup'">
-										<div class="col-md-12">
+									    <div class="col-md-8">
+									        <input type="checkbox" name="agree" required ng-model="c_form_auth.vals.agree"><span>我已经阅读并同意《用户使用条款》</span>
+									    </div>
+										<div class="col-md-4">
 											<button type="submit"
 													ng-disabled="formAuth.$invalid"
 													class="btn btn-primary pull-right">注册
