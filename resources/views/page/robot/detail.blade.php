@@ -97,10 +97,11 @@
 				<table class="table table-bordered table-hover table-striped">
 					<thead>
 						<tr class="info">
-							<th class="col-md-3">时间</th>
+							<th class="col-md-2">时间</th>
 							<th>类型</th>
-							<th class="col-md-3">代理商</th>
-							<th class="col-md-3">医院</th>
+							<th class="col-md-2">代理商</th>
+							<th class="col-md-2">医院</th>
+							<th class="col-md-3">备注</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -121,6 +122,7 @@
 							</td>
 							<td>[:log.agency.name:]</td>
 							<td>[:log.hospital.name:]</td>
+							<td>[:log.memo:]</td>
 						</tr>
 					</tbody>
 				</table>
