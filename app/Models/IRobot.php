@@ -103,11 +103,11 @@ class IRobot extends BaseModel
         }
 
         if(Input::has('where.created_start')) {
-            $builder = $builder->where('v_robot.production_date', '>', Carbon::createFromFormat('Y-m-d', Input::get('where.created_start')));
+            $builder = $builder->where('v_robot.production_date', '>=', Carbon::createFromFormat('Y-m-d', Input::get('where.created_start')));
         }
 
         if(Input::has("where.created_end")) {
-            $builder = $builder->where('v_robot.production_date', '<', Carbon::createFromFormat('Y-m-d', Input::get('where.created_end')));
+            $builder = $builder->where('v_robot.production_date', '<=', Carbon::createFromFormat('Y-m-d', Input::get('where.created_end')));
         }
 
         if (Input::has('where.log_action_tid')) {
