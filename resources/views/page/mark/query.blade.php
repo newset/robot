@@ -299,9 +299,8 @@
 									  <td>
 										  <span ng-if="row.status == 1">未使用</span>
 										  <span ng-if="row.status == 2">使用完毕</span>
-										  <span ng-if="row.status == 3">已绑定</span>
-										  <span ng-if="row.status == 4">损坏报废</span>
-										  <span ng-if="row.status == 5">损坏更换</span>
+										  <span ng-if="row.status == 3">损坏报废</span>
+										  <span ng-if="row.status == 4">损坏更换</span>
 									  </td>
 									  <td>[:row.hospital_name:]</td>
 									  <td>[:row.doctor_name || '-' :]</td>
