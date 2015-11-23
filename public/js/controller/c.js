@@ -233,6 +233,7 @@
                 }
 
                 $scope.save = function(hospital){
+                	hospital.name = hospital.name.replace(/\s+/g,"");
                     $scope.SIns.cu(hospital).then(function(res){
                         if (res.data.status == 1) {
                             $scope.SIns.refresh();
