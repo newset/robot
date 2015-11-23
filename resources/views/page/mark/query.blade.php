@@ -6,7 +6,7 @@
 				<div class="panel-heading">
 					<h3 class="panel-title">查询条件</h3>
 					<div class="actions pull-right">
-						<i class="fa fa-chevron-down" i-toggle data-toggle="collapse" data-target="#mark_query" aria-expanded="false" aria-controls="collapseExample"></i>
+						<i class="fa fa-chevron-up" i-toggle data-toggle="collapse" data-target="#mark_query" aria-expanded="false" aria-controls="collapseExample"></i>
 					</div>
 				</div>
 				<div class="panel-body">

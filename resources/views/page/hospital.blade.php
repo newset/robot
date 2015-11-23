@@ -12,7 +12,7 @@ url:
                     <h3 class="panel-title">查询条件</h3>
 
                     <div class="actions pull-right">
-                        <i class="fa fa-chevron-down" i-toggle data-toggle="collapse" data-target="#form_query"
+                        <i class="fa fa-chevron-up" i-toggle data-toggle="collapse" data-target="#form_query"
                            aria-expanded="false" aria-controls="collapseExample"></i>
                     </div>
                 </div>
