@@ -46,7 +46,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-3">
-                                    <select name="provice" class="form-control" update="SIns.cond.where.province_id" chosen ng-model="SIns.cond.where.city_id" ng-options="l.id as l.name for l in SBase._.location.city || []|filter: {parent_id: SIns.cond.where.province_id}:true">
+                                    <select name="provice" class="form-control" update="SIns.cond.where.province_id" chosen ng-model="SIns.cond.where.city_id" ng-options="l.id as l.name for l in SBase._.location.city || []|filter: {parent_id: SIns.cond.where.province_id||-1}:true">
                                         <option value="">不限</option>
                                     </select>
                                 </div>
