@@ -194,6 +194,10 @@ td p
     /*width: 90% !important;*/
 }
 
+.dialog-lg .ngdialog-content{
+    width: 80%!important;
+}
+
 div.error
 {
     padding: 5px 0;

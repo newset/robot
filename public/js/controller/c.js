@@ -67,12 +67,14 @@
             '$scope',
             'H',
             'h',
+            '$timeout',
             'ngDialog',
             'SBase',
             function ($http
                 , $scope
                 , H
                 , h
+                , $timeout
                 , ngDialog
                 , SBase)
             {
@@ -129,6 +131,18 @@
                     me.auth_type = auth_type;
                     me.vals.username = "";
                     me.vals.password = "";
+
+                }
+
+                me.show_sign_up = function(){
+                    me.auth_type = 'signup';
+                }
+
+                me.show_agreement = function(){
+                    ngDialog.open({
+                        templateUrl : 'templates/agreement.html',
+                        className : "dialog-lg ngdialog-theme-default"
+                    });
                 }
 
                 me.set_ins_conf = function (type, login_or_signup)
