@@ -60,14 +60,12 @@
 						<label class="control-label col-md-1">起租时间</label>
 						<div class="col-md-8">
 							<div style="display: inline-block;">
-	                            <datepicker date-format="yyyy-MM-dd" date-max-limit="[:data.lease_ended_at:]" selector="form-control" date-set="[:data.lease_started_at:]">
-	                                <div class="input-group"><input type="text" ng-model="data.lease_started_at" class="form-control"></div>
+	                            <datepicker date-format="yyyy-MM-dd" date-max-limit="[:data.lease_ended_at:]" date-set="[:data.lease_started_at:]"><input type="text" ng-model="data.lease_started_at" class="form-control">
 	                            </datepicker>
 	                        </div>
 	                        <span style="display: inline-block;vertical-align: top;margin-top: 9px;">到</span>
 	                        <div style="display: inline-block;">
-	                            <datepicker date-format="yyyy-MM-dd" date-set="[:data.lease_ended_at:]" selector="form-control" date-min-limit="[:data.lease_started_at:]">
-	                                <div class="input-group"><input type="text" ng-model="data.lease_ended_at" class="form-control"></div>
+	                            <datepicker date-format="yyyy-MM-dd" date-set="[:data.lease_ended_at:]" date-min-limit="[:data.lease_started_at:]"><input type="text" ng-model="data.lease_ended_at" class="form-control">
 	                            </datepicker>
 	                        </div>
 						</div>

@@ -233,7 +233,9 @@
                 }
 
                 $scope.save = function(hospital){
-                	hospital.name = hospital.name.replace(/\s+/g,"");
+                    if(hospital.name){
+                        hospital.name = hospital.name.replace(/\s+/g,"");
+                    }
                     $scope.SIns.cu(hospital).then(function(res){
                         if (res.data.status == 1) {
                             $scope.SIns.refresh();
@@ -1045,7 +1047,7 @@
                     alert('必须选择起租时间');
                     return;
                 };
-                if (!$scope.data.memo && $scope.SIns.current_row.lease_type_id > 1 && !moment($scope.SIns.current_row.log_lease_lease_ended_at).isAfter(moment())) {
+                if (!$scope.data.memo && $scope.SIns.current_row.lease_type_id > 1 && moment($scope.SIns.current_row.log_lease_lease_ended_at).isAfter(moment())) {
                 	alert('租赁/合作时间未到，如需强行修改租售状态，必须填写备注');
                     return;
                 };
