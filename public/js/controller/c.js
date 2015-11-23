@@ -1040,7 +1040,7 @@
                     alert('必须选择代理商');
                     return;
                 };
-                if (!$scope.data.lease_started_at || !$scope.data.lease_ended_at) {
+                if ($scope.data.lease_type_id==2 && (!$scope.data.lease_started_at || !$scope.data.lease_ended_at)) {
                     alert('必须选择起租时间');
                     return;
                 };
