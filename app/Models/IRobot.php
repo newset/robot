@@ -103,9 +103,10 @@ class IRobot extends BaseModel
         }
 
         if(Input::has('where.created_start')) {
-            $builder = $builder->where('v_robot.production_date', '>=', Carbon::createFromFormat('Y-m-d', Input::get('where.created_start')));
+            //$builder = $builder->where('v_robot.production_date', '>=', Carbon::createFromFormat('Y-m-d', Input::get('where.created_start')));
+            $builder = $builder->where('v_robot.production_date', '>=', Input::get('where.created_start'));
         }
-
+        
         if(Input::has("where.created_end")) {
             $builder = $builder->where('v_robot.production_date', '<=', Carbon::createFromFormat('Y-m-d', Input::get('where.created_end')));
         }
@@ -118,12 +119,12 @@ class IRobot extends BaseModel
                 $builder = $builder->where('v_robot.log_count', '>', 0);
             }
         }
-
+        
         $pagination = Input::get("pagination", 1);
         $offset = 0;
         $perpage = 50;
         $result = $builder->groupBy('v_robot.cust_id')->skip(($pagination - 1) * $perpage)->take($perpage)->get();
-
+        
         $r = [
             'count' => count($result),
             'main'  => $result,
