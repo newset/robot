@@ -7,7 +7,10 @@
 	<div class="panel-body">
 	   <dl class="dl-horizontal">
 		   	<dt>发件人</dt>
-		   	<dd>[:message.sendername:]</dd>
+		   	<dd>
+		   	  <span ng-if="message.sendertype==1">[:message.sendername:](柏惠维康)</span>
+		   	  <span ng-if="message.sendertype==2">[:message.sendername:]</span>
+	   	    </dd>
 		   	<dt>发送时间</dt>
 		   	<dd>[:message.sendtime:]</dd>
 		   	<dt>内容</dt>
