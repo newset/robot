@@ -20,7 +20,7 @@ class IRobot extends BaseModel
         parent::__construct();
 
         $this->createRule = [
-            'cust_id' => 'required|unique:i_robot|regex:/[0-9]{2}[A-L][0-9]{4}/',
+            'cust_id' => 'required|unique:i_robot|regex:/^[0-9]{2}[A-L]{1}[0-9]{4}$/',
             'employee_id' => 'required|exists:i_employee,id',
             'production_date' => 'required|date'
         ];
