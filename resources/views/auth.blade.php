@@ -240,7 +240,7 @@
 									</div>
 									<div class="form-group" ng-if="c_form_auth.auth_type == 'signup'">
 									    <div class="col-md-8">
-									        <input type="checkbox" name="agree" required ng-model="c_form_auth.vals.agree"> <a href="" ng-click="c_form_auth.show_agreement()"> 我已经阅读并同意《用户使用条款》</a>
+									        <input type="checkbox" name="agree" required ng-model="c_form_auth.vals.agree">  我已经阅读并同意<a href="" ng-click="c_form_auth.show_agreement()">《用户使用条款》</a>
 									    </div>
 										<div class="col-md-4">
 											<button type="submit"
