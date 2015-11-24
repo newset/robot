@@ -1,10 +1,10 @@
-<div class="container panel-default panel" style="padding:0px" ng-controller="CPageHospital as cPageHospital">
+<div class="container panel-default panel" style="padding:0px" 
+    ng-controller="CPageHospital as cPageHospital">
     <div class="panel-heading">
         <h3 class="panel-title">新建医院</h3>
     </div>
     <div class="panel-body">
-        <form
-                name="form_hospital"
+        <form name="form_hospital"
                 class="form-horizontal">
             <div class="form-group">
                 <label class="control-label col-md-1">医院名称</label>
@@ -13,6 +13,9 @@
                     <input ng-model="SIns.current_row.name"
                            class="form-control"
                            required>
+                    <p ng-repeat="error in errors.name" class="text-danger">
+                      [:error:]
+                    </p>
                 </div>
             </div>
             <div class="form-group md-select-group">
