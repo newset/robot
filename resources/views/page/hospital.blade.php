@@ -29,7 +29,7 @@ url:
                             <div class="col-md-6">
                                 <input class="form-control"
                                        ng-model-options="{debounce: 300}"
-                                       ng-model="SIns.cond.whereLike.id"
+                                       ng-model="SIns.cond.where.id"
                                        placeholder="">
                             </div>
                         </div>
@@ -63,7 +63,7 @@ url:
                             <div class="col-md-6">
                                 <input class="form-control"
                                        ng-model-options="{debounce: 300}"
-                                       ng-model="SIns.cond.whereLike.name"
+                                       ng-model="SIns.cond.where.name"
                                        placeholder="">
                             </div>
                         </div>
