@@ -1400,8 +1400,7 @@
                 });
 
                 d.closePromise.then(function (data) {
-                    console.log(data.id + ' has been dismissed.');
-                    if (data) {
+                    if (data.value) {
                         $scope.SIns.current_row.status = 3;
                     };
                 });
@@ -1419,8 +1418,7 @@
                 });
 
                 d.closePromise.then(function (data) {
-                    console.log(data.id + ' has been dismissed.');
-                    if (data) {
+                    if (data.value) {
                         $scope.SIns.current_row.status = 4;
                         $scope.SIns.current_row.cmid = data.value;
                     };
