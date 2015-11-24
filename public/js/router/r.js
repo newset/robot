@@ -306,7 +306,7 @@
                                         endDur = moment.duration(now.diff(end)).days();
 
                                     if (endDur < 0 && Math.abs(endDur) < 10) {
-                                        return '租期快要结束';
+                                        return '代理快到期';
                                     };
                                 };
 
