@@ -418,8 +418,12 @@
 
                 $scope.save = function(data){
                     $scope.SIns.cu(data).then(function(res){
-                        $state.go('base.hospital.department_doctor', {hid : data.hospital_id});
-                        SDoctor.current_row = {};
+                        if (res.status == 1) {
+                             $state.go('base.hospital.department_doctor', {hid : data.hospital_id});
+                            SDoctor.current_row = {};
+                        }else{
+                            $scope.errors = res.data.d.additional_info;
+                        };
                     }, function(){
                         // 外键错误 todo
                         

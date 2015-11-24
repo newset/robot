@@ -177,6 +177,14 @@ class VMark extends IMark
                 $builder = $builder->where('created_at', '<', Carbon::parse($where['to_created_at']));
             }
 
+            //  if ( ! empty($where['from_solda_at']))
+            // {
+            //     $builder = $builder->where('solda_at', '>', Carbon::parse($where['from_solda_at']));
+            // } 
+            // if ( ! empty($where['to_solda_at'])){
+            //     $builder = $builder->where('solda_at', '<', Carbon::parse($where['to_solda_at']));
+            // }
+
             if ( ! empty($where['from_sold_at']) && ! empty($where['to_sold_at']))
             {
                 $builder = $builder->where('sold_at', '>', Carbon::parse($where['from_sold_at']));
@@ -260,13 +268,6 @@ class VMark extends IMark
                         # code...
                         break;
                 }
-
-                // if (in_array(1, $where['sold'])  && !in_array(2, $where['sold'])){
-                //     $builder = $builder->where('hospital_id','=',0);
-                // }
-                // if (in_array(2, $where['sold']) && !in_array(1, $where['sold'])){
-                //     $builder = $builder->where('hospital_id','>',0);
-                // }
             }
 
             if ( ! empty($where['from_surgery_at']) && ! empty($where['to_surgery_at']))
@@ -281,14 +282,6 @@ class VMark extends IMark
                 $builder = $builder->where('surgery_at', '<', Carbon::parse($where['to_surgery_at']));
             }
 
-            //if ( ! empty($where['surgery_date']))
-            //{
-            //    $v = $where['surgery_date'];
-            //    switch ($v)
-            //    {
-            //
-            //    }
-            //}
         }
 
         if (array_key_exists('archive_at', $rq['where']))
@@ -311,8 +304,7 @@ class VMark extends IMark
         //print_r($sql);
         return ss([
             'main'  => $main,
-            'count' => $builder->count(),
-            'builder' => $builder->toSql()
+            'count' => $builder->count()
         ]);
     }
 }

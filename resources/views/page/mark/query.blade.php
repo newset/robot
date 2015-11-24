@@ -97,7 +97,7 @@
 											<div class="col-md-3">
 												<datepicker date-format="yyyy-MM-dd" selector="form-control">
 													<div class="date-wrapper">
-														<input class="form-control" type="text" placeholder="" ng-model="SIns.cond.where.from_created_at">
+														<input class="form-control" type="text" placeholder="" ng-model="SIns.cond.where.from_solda_at">
 													</div>
 												</datepicker>
 											</div>
@@ -105,7 +105,7 @@
 											<div class="col-md-3">
 												<datepicker date-format="yyyy-MM-dd" selector="form-control">
 													<div class="date-wrapper">
-														<input class="form-control" type="text" placeholder="" ng-model="SIns.cond.where.to_created_at">
+														<input class="form-control" type="text" placeholder="" ng-model="SIns.cond.where.to_solda_at">
 													</div>
 												</datepicker>
 											</div>
