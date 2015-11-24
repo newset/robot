@@ -94,8 +94,8 @@
                 <td>[:row.email:]</td>
                 <td class="edit col-md-2">
                     <span class="tool_wrapper">
-                        <button class="btn btn-primary btn-sm" ui-sref="base.doctor.edit({id: row.id})">
-                            编辑
+                        <button class="btn btn-primary btn-sm" ui-sref="base.doctor.detail({id: row.id})">
+                            查看
                         </button>
                     </span>
                 </td>
