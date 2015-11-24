@@ -1743,7 +1743,7 @@
                 console.log($scope.data);
                 H.p(cook('message/cu'), $scope.data).then(function(res){
                     if (res.data.status == 1) {
-                        $state.go('base.pm.list');
+                        $state.go('base.pm.list', {type: 'outbox'});
                     };
                 });
             }
