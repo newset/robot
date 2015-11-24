@@ -15,6 +15,9 @@ class IDoctor extends BaseModel
     {
         parent::__construct();
         $this->table = table_name($this->ins_name, 'i');
+        $this->createRule = [
+            'email' => 'required|email'
+        ];
     }
 
     public function get_his_history()

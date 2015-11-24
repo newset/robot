@@ -138,7 +138,8 @@
                         <div ng-if="!SIns.current_row.id">
                             <select class="form-control"
                                     chosen
-                                    ng-model="0"
+                                    ng-init="SIns.current_row.status=0"
+                                    ng-model="SIns.current_row.status"
                                     ng-options="l.id as l.name for l in
     									[
     										{id: 0, name: '正常未培训'},
@@ -171,6 +172,9 @@
                         <input ng-model="SIns.current_row.email"
                                class="form-control"
                                required>
+                        <p ng-repeat="error in errors.email" class="text-danger">
+                          [:error:]
+                        </p>
                     </div>
                 </div>
             </div>
