@@ -8,8 +8,9 @@
 	   <dl class="dl-horizontal">
 		   	<dt>发件人</dt>
 		   	<dd>
-		   	  <span ng-if="message.sendertype==1">[:message.sendername:](柏惠维康)</span>
-		   	  <span ng-if="message.sendertype==2">[:message.sendername:]</span>
+		   	  <span ng-if="message.sendertype==1">[:message.org:](柏惠维康)</span>
+		   	  <span ng-if="message.sendertype==2">[:message.org:] </span> 
+		   	  <span ng-if="message.sendertype==3">[:message.sendername:] </span>
 	   	    </dd>
 		   	<dt>发送时间</dt>
 		   	<dd>[:message.sendtime:]</dd>

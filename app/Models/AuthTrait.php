@@ -51,9 +51,14 @@ trait AuthTrait
 
                 if($input['user_type'] == 'agency'){
                     sess('org', $user->name);
+                    sess('name_in_charge', $user->name_in_charge);
                 }
                 if($input['user_type'] == 'department'){
                     sess('org', $user->hospital_name.':'.$user->name);
+                }
+
+                if($input['user_type'] == 'employee'){
+                    sess('org', $user->name);
                 }
 
                 // 添加日志

@@ -33,6 +33,13 @@ class IMessage extends BaseModel
 
     	$rq['senderid'] = uid();
     	$rq['sendername'] = username();
+        if (he_is('agency')) {
+            $rq['org'] = sess('org');
+        }
+
+        if (he_is('employee')) {
+            $rq['org'] = sess('org');
+        }
     	// return his_chara()[0];
     	$rq['sendertype'] = $type[his_chara()[0]];
     	if (his_chara()[0] == 'agency') {

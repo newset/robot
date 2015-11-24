@@ -39,6 +39,10 @@ class IInit extends Model
             sess('org', $org->name);
             $d['org'] = sess('org');
         }
+
+        if(he_is('employee')){
+            $d['org'] = sess('org');
+        }
         return ss($d);
     }
 }

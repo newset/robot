@@ -3,7 +3,7 @@
 		<form method="get" accept-charset="utf-8" class="form-inline">
 			<label class="control-label">发送给</label>
 			@if(he_is('employee'))
-			<select name="recipientname" ng-init="data.recipienttype='agency'" chosen class="form-control col-md-1" ng-model="data.recipienttype" data=placeholder=" ">
+			<select name="recipientname" ng-init="data.recipienttype='agency'" chosen class="form-control col-md-1" ng-model="data.recipienttype" data-placeholder=" ">
 				@if(username() =='admin')
 				<option value="agency">代理商</option>
 				<option value="doctor">医生</option>
@@ -14,7 +14,7 @@
 			<select name="recipientid" ng-model="recipient" 
 				ng-change="data.recipientid=recipient.id;data.recipientname=recipient.name"
 				ng-options="l as l.name for l in users" 
-				chosen update="users" class="form-control col-md-4">
+				chosen update="users" class="form-control col-md-4" data-placeholder=" ">
 				<option value="">请选择</option>
 			</select>
 			@elseif(he_is('agency'))
