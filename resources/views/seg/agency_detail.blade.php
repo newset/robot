@@ -23,6 +23,8 @@
             <dl class="dl-horizontal">
                 <dt class="tar">名称</dt>
                 <dd>[:SIns.current_row.name:]</dd>
+                <dt class="tar">登录名</dt>
+                <dd>[:SIns.current_row.username:]</dd>
             
                 <dt class="tar">地区</dt>
                 <dd ng-show="SIns.current_row.province_id && SIns.current_row.city_id">
