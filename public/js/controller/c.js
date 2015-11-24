@@ -418,7 +418,7 @@
 
                 $scope.save = function(data){
                     $scope.SIns.cu(data).then(function(res){
-                        if (res.status == 1) {
+                        if (res.data.status == 1) {
                              $state.go('base.hospital.department_doctor', {hid : data.hospital_id});
                             SDoctor.current_row = {};
                         }else{
