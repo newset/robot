@@ -167,14 +167,14 @@ class VMark extends IMark
 
             if ( ! empty($where['from_created_at']) && ! empty($where['to_created_at']))
             {
-                $builder = $builder->where('created_at', '>', Carbon::parse($where['from_created_at']));
-                $builder = $builder->where('created_at', '<', Carbon::parse($where['to_created_at']));
+                $builder = $builder->where('created_at', '>=', Carbon::parse($where['from_created_at']));
+                $builder = $builder->where('created_at', '<=', Carbon::parse($where['to_created_at']));
             } elseif ( ! empty($where['from_created_at']))
             {
-                $builder = $builder->where('created_at', '>', Carbon::parse($where['from_created_at']));
+                $builder = $builder->where('created_at', '>=', Carbon::parse($where['from_created_at']));
             } elseif ( ! empty($where['to_created_at']))
             {
-                $builder = $builder->where('created_at', '<', Carbon::parse($where['to_created_at']));
+                $builder = $builder->where('created_at', '<=', Carbon::parse($where['to_created_at']));
             }
 
             //  if ( ! empty($where['from_solda_at']))
@@ -185,52 +185,64 @@ class VMark extends IMark
             //     $builder = $builder->where('solda_at', '<', Carbon::parse($where['to_solda_at']));
             // }
 
+            if ( ! empty($where['from_shipped_at']) && ! empty($where['to_shipped_at']))
+            {
+                $builder = $builder->where('shipped_at', '>=', Carbon::parse($where['from_shipped_at']));
+                $builder = $builder->where('shipped_at', '<=', Carbon::parse($where['to_shipped_at']));
+            } elseif ( ! empty($where['from_shipped_at']))
+            {
+                $builder = $builder->where('shipped_at', '>=', Carbon::parse($where['from_shipped_at']));
+            } elseif ( ! empty($where['to_shipped_at']))
+            {
+                $builder = $builder->where('shipped_at', '<=', Carbon::parse($where['to_shipped_at']));
+            }
+            
             if ( ! empty($where['from_sold_at']) && ! empty($where['to_sold_at']))
             {
-                $builder = $builder->where('sold_at', '>', Carbon::parse($where['from_sold_at']));
-                $builder = $builder->where('sold_at', '<', Carbon::parse($where['to_sold_at']));
+                $builder = $builder->where('sold_at', '>=', Carbon::parse($where['from_sold_at']));
+                $builder = $builder->where('sold_at', '<=', Carbon::parse($where['to_sold_at']));
             } elseif ( ! empty($where['from_sold_at']))
             {
-                $builder = $builder->where('sold_at', '>', Carbon::parse($where['from_sold_at']));
+                $builder = $builder->where('sold_at', '>=', Carbon::parse($where['from_sold_at']));
             } elseif ( ! empty($where['to_sold_at']))
             {
-                $builder = $builder->where('sold_at', '<', Carbon::parse($where['to_sold_at']));
+                $builder = $builder->where('sold_at', '<=', Carbon::parse($where['to_sold_at']));
             }
 
             if ( ! empty($where['from_used_at']) && ! empty($where['to_used_at']))
             {
-                $builder = $builder->where('used_at', '>', Carbon::parse($where['from_used_at']));
-                $builder = $builder->where('used_at', '<', Carbon::parse($where['to_used_at']));
+                $builder = $builder->where('used_at', '>=', Carbon::parse($where['from_used_at']));
+                $builder = $builder->where('used_at', '<=', Carbon::parse($where['to_used_at']));
             } elseif ( ! empty($where['from_used_at']))
             {
-                $builder = $builder->where('used_at', '>', Carbon::parse($where['from_used_at']));
+                $builder = $builder->where('used_at', '>=', Carbon::parse($where['from_used_at']));
             } elseif ( ! empty($where['to_used_at']))
             {
-                $builder = $builder->where('used_at', '<', Carbon::parse($where['to_used_at']));
+                $builder = $builder->where('used_at', '<=', Carbon::parse($where['to_used_at']));
             }
 
             if ( ! empty($where['from_damaged_at']) && ! empty($where['to_damaged_at']))
             {
-                $builder = $builder->where('damaged_at', '>', Carbon::parse($where['from_damaged_at']));
-                $builder = $builder->where('damaged_at', '<', Carbon::parse($where['to_damaged_at']));
+                $builder = $builder->where('damaged_at', '>=', Carbon::parse($where['from_damaged_at']));
+                $builder = $builder->where('damaged_at', '<=', Carbon::parse($where['to_damaged_at']));
             } elseif ( ! empty($where['from_damaged_at']))
             {
-                $builder = $builder->where('damaged_at', '>', Carbon::parse($where['from_damaged_at']));
+                $builder = $builder->where('damaged_at', '>=', Carbon::parse($where['from_damaged_at']));
             } elseif ( ! empty($where['to_damaged_at']))
             {
-                $builder = $builder->where('damaged_at', '<', Carbon::parse($where['to_damaged_at']));
+                $builder = $builder->where('damaged_at', '<=', Carbon::parse($where['to_damaged_at']));
             }
 
             if ( ! empty($where['from_archive_at']) && ! empty($where['to_archive_at']))
             {
-                $builder = $builder->where('archive_at', '>', Carbon::parse($where['from_archive_at']));
-                $builder = $builder->where('archive_at', '<', Carbon::parse($where['to_archive_at']));
+                $builder = $builder->where('archive_at', '>=', Carbon::parse($where['from_archive_at']));
+                $builder = $builder->where('archive_at', '<=', Carbon::parse($where['to_archive_at']));
             } elseif ( ! empty($where['from_archive_at']))
             {
-                $builder = $builder->where('archive_at', '>', Carbon::parse($where['from_archive_at']));
+                $builder = $builder->where('archive_at', '>=', Carbon::parse($where['from_archive_at']));
             } elseif ( ! empty($where['to_archive_at']))
             {
-                $builder = $builder->where('archive_at', '<', Carbon::parse($where['to_archive_at']));
+                $builder = $builder->where('archive_at', '<=', Carbon::parse($where['to_archive_at']));
             }
             //归档状态
             if (!empty($where['archive'])){
