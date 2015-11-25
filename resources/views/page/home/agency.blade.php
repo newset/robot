@@ -56,7 +56,11 @@
 						<td>[:info(item):]</td>
 						<td>[:item.cust_id:]</td>
 						<td>[:SIns.robot_action_type[item.status].name:]</td>
-						<td>[:SIns.lease_type[item.lease_type_id].name:]</td>
+						<td>
+						  <span ng-if="item.lease_type_id==2">[:SIns.lease_type[item.lease_type_id].name:]([:item.lease_started_at | laDate:]至[:item.lease_ended_at | laDate:])
+						  </span>
+						  <span ng-if="item.lease_type_id!=2">[:SIns.lease_type[item.lease_type_id].name:]</span>
+						</td>
 						<td>[:item.hospital_name:]</td>
 						<td>[:item.employee_name:]</td>
 						<td>[:item.log_count || 0:]</td>
