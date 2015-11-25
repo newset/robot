@@ -24,7 +24,7 @@ class IDepartment extends BaseModel
         $this->createRule = [
             'name'        => 'required',
             'username'    => 'required|unique:'. table_name($this->ins_name),
-            'password'    => 'required|min:6|regex:/^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z\d]{6,20}$/',
+            //'password'    => 'required|min:6|regex:/^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z\d]{6,20}$/',
             'hospital_id' => 'required|exists:' . table_name('hospital') . ',id',
         ];
 
