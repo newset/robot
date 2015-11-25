@@ -465,6 +465,17 @@
 
                 $scope.getLastId = SDoctor.getLastId;
 
+                $scope.get_department = function(){
+                    if ($scope.SIns.current_row.hospital_id) {
+                        SDoctor.h.get_all_department($scope.SIns.current_row.hospital_id).then(function(res){
+                            console.log('deps: ', res.data);
+                            $scope.SIns.departments = res.data.d.main;
+                        });
+                    }else{
+                        $scope.SIns.departments = [];
+                    };
+                }
+                $scope.SIns.departments = $scope.get_department();
                 $scope.save = function(data){
                     $scope.SIns.cu(data).then(function(res){
                     	$state.go('base.doctor.detail', {id: $scope.SIns.current_row.id});
