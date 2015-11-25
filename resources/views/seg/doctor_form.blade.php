@@ -38,10 +38,10 @@
                         <input ng-model="SIns.current_row.cust_id"
                                name="cust_id"
                                class="form-control"
-                               required ng-disabled="SIns.current_row.cust_id!=0">
+                               required ng-disabled="true">
                     </div>
                     <button type="button" class="btn btn-primary inline-btn" ng-click="getLastId()"
-                     ng-disabled="SIns.current_row.cust_id!=0">重新生成</button>
+                     ng-disabled="$scope.SIns.current_row.cust_id!=null">重新生成</button>
                     <label class="error absolute-label" ng-if="form_doctor.cust_id.$error.laExist">编号已存在</label>
                 </div>
             </div>

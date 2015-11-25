@@ -41,6 +41,7 @@
                     me.lastId(b).then(function(res){
                         if (res.data.status == 1) {
                             me.current_row.cust_id = Number(res.data.d);
+                            me.current_row.status = 1;
                         }else{
                             me.getLastId();
                         };
