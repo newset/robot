@@ -8,7 +8,6 @@
 		'ui.bootstrap.tabs',
 		'ui.bootstrap.pagination',
 		'ngDialog',
-		'ngSanitize',
 		'angular.filter',
 		'ngFileUpload',
 
