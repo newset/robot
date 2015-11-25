@@ -29,7 +29,7 @@ class IDepartment extends BaseModel
         ];
 
         $this->updateRule = [
-            'id'                    =>      'required|numeric',
+            'id'          => 'required|numeric',
             'password'    => 'required|min:6|regex:/^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z\d]{6,20}$/',
         ];
 

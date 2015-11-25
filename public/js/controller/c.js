@@ -1047,6 +1047,8 @@
                         var memo = ($scope.SIns.current_row.memo ? $scope.SIns.current_row.memo + '\n\n' : '') + $scope.memo;
                         memo += '['+$filter('date')(new Date(), 'yyyy-MM-dd')+' 设备被设置为 "正常"]';
                         data.memo = memo;
+                    }else{
+                        data.memo = $scope.SIns.current_row.memo;
                     }
 
                     data.cust_id = data.cust_id.toUpperCase(); 

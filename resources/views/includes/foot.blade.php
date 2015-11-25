@@ -2,6 +2,7 @@
 <!--Global JS-->
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/angular.js/1.4.7/angular.min.js"></script>
+<script src="{{base_url().'vendor/angular-sanitize/angular-sanitize.min.js'}}"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="{{base_url() . 'vendor/chosen/chosen.jquery.min.js'}}"></script>
