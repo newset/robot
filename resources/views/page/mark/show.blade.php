@@ -173,7 +173,7 @@
 			</div>
 			<div class="panel-heading text-right">
 				<button type="button" class="btn btn-primary" ng-click="bind('bind', agency_id)">确定</button>
-			<button type="button" class="btn btn-default" ng-click="close()">取消</button>
+				<button type="button" class="btn btn-default" ng-click="close()">取消</button>
 			</div>
 		</div>
 	</div>

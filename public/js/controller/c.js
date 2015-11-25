@@ -1378,7 +1378,7 @@
                 });
 
                 d.closePromise.then(function (data) {
-                    if (data) {
+                    if (data.value && data.value != '$closeButton') {
                         $scope.SIns.one($scope.SIns.current_row.id);
                     };
                 });
@@ -1396,7 +1396,7 @@
                 });
 
                 d.closePromise.then(function (data) {
-                    if (data) {
+                    if (data.value && data.value != '$closeButton') {
                         $scope.SIns.one($scope.SIns.current_row.id);
                     };
                 });
@@ -1414,7 +1414,7 @@
                 });
 
                 d.closePromise.then(function (data) {
-                    if (data.value) {
+                    if (data.value && data.value != '$closeButton') {
                         $scope.SIns.current_row.status = 3;
                     };
                 });
@@ -1432,7 +1432,7 @@
                 });
 
                 d.closePromise.then(function (data) {
-                    if (data.value) {
+                    if (data.value && data.value != '$closeButton') {
                         $scope.SIns.current_row.status = 4;
                         $scope.SIns.current_row.cmid = data.value;
                     };
