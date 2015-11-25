@@ -93,6 +93,9 @@ trait AuthTrait
         if ($ins_name == 'employee') {
             $ins = $ins->where('status',1);
         }
+        if ($ins_name == 'agency') {
+            $ins = $ins->where('status',1);
+        }
         $ins = $ins->first();
         return $ins ? $ins : false;
     }
