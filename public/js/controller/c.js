@@ -1707,7 +1707,7 @@
                     };
                 };
 
-                if ($scope.toMe == -1) {
+                if ($scope.toMe == 0) {
                     cond.where = {
                         senderid : $rootScope._user_session_data.uid,
                         sendertype : roleType
