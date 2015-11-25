@@ -648,16 +648,20 @@
                 });
 
                 $scope.cancel=function(){//重置
-                        $scope.department=angular.copy($scope.department_old);
-                  };
+                    $scope.department=angular.copy($scope.department_old);
+                };
                 $scope.submit=function(){//编辑
-                          console.log($scope.department);
-                          SDepartment.cu($scope.department);
-                          $state.go('base.hospital.department_doctor',{hid:$scope.hospital_id});//返回医院详情页
+                    SDepartment.cu($scope.department).then(function(res){
+                        if (res.data.status ==1) {
+                            $state.go('base.hospital.department_doctor',{hid:$scope.hospital_id});//返回医院详情页
+                        }else{
+                            $scope.errors = res.data.d.additional_info;
+                        };
+                    });
                 };
                 $scope.delete=function(){//删除科室
-                        SDepartment.d($scope.department.id);
-                        $state.go('base.hospital.department_doctor',{hid:$scope.hospital_id});//返回医院详情页
+                    SDepartment.d($scope.department.id);
+                    $state.go('base.hospital.department_doctor',{hid:$scope.hospital_id});//返回医院详情页
                 };
         }])
           .controller('CDepartmentNew',[//新建科室

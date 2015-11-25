@@ -32,6 +32,9 @@ controller:CDepartmentEdit
                    ng-init="department.password = ''"
                    type="password"
                    class="">
+            <p ng-repeat="error in errors.password" class="text-danger">
+              [:error:]
+            </p>
         </div>
     </div>
     {{-- <div class="form-group">
