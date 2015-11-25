@@ -48,8 +48,15 @@
                     if (row.status == 0)
                         return '禁用';
                     if (!row.ended_at) {
-                        return '无代理权';
+                        return '无';
                     };
+                    var end_at = (row.ended_at).replace(/-/g,"/");
+                    var end_date = new Date(end_at);
+                    var now = new Date();
+                    var num = Math.round((end_date-now)/(1000*3600*24));
+                    if(num<=30) {
+                    	return '一个月内过期';
+                    }
                     if (moment().isAfter(row.ended_at)) {
                         return '已过期';
                     };
