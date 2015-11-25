@@ -24,12 +24,17 @@ class IDepartment extends BaseModel
         $this->createRule = [
             'name'        => 'required',
             'username'    => 'required|unique:'. table_name($this->ins_name),
-            'password'    => 'required|min:6',
+            'password'    => 'required|min:6|regex:/^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z\d]{6,20}$/',
             'hospital_id' => 'required|exists:' . table_name('hospital') . ',id',
         ];
 
         $this->updateRule = [
             'id'                    =>      'required|numeric',
+            'password'    => 'required|min:6|regex:/^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z\d]{6,20}$/',
+        ];
+
+        $this->messages = [
+            'password.regex' => '密码不符合要求，必选包含字母和数字且不低于6位'
         ];
     }
 

@@ -31,8 +31,8 @@
 
                 function cu(d)
                 {
-                    return H.cu(me.ins_name, d)
-                        .then(function (r)
+                    var promise = H.cu(me.ins_name, d)
+                        promise.then(function (r)
                         {
                             if (r.data.d)
                             {
@@ -41,7 +41,8 @@
                             }
                         }, function ()
                         {
-                        })
+                        });
+                    return promise;
                 }
 
                 function d(id)
