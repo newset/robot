@@ -127,7 +127,7 @@
                 </dd>
 	            <dt>使用设备</dt>
 	            <dd>
-	                <span ng-if="SIns.current_row.robot_id">[:SIns.current_row.robot_id:]</span>
+	                <span ng-if="SIns.current_row.robot_id">[:SIns.current_row.robot_cust_id:]</span>
 	               <span ng-if="!SIns.current_row.robot_id && SIns.current_row.status==2">尚未提取</span>
 	               <span ng-if="!SIns.current_row.robot_id && SIns.current_row.status!=2">无</span>
 	            </dd>
