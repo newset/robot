@@ -22,15 +22,14 @@
 											   ng-model="SIns.cond.where.cust_id"
 											   placeholder="编号">
 										</div>
-
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-1">Mark状态</label>
-										<div class="col-md-6" ng-init="SIns.cond.where.status=[]">
-											<label class="checkbox-inline" ng-repeat="type in SIns.status_type"><input type="checkbox" value="[:type.id:]" multi-check holder="SIns.cond.where.status">[:type.name:]</label>
-										</div>
 									</div>
 									@if(he_is('employee'))
+										<div class="form-group">
+											<label class="control-label col-md-1">Mark状态</label>
+											<div class="col-md-6" ng-init="SIns.cond.where.status=[]">
+												<label class="checkbox-inline" ng-repeat="type in SIns.status_type"><input type="checkbox" value="[:type.id:]" multi-check holder="SIns.cond.where.status">[:type.name:]</label>
+											</div>
+										</div>
 										<div class="form-group" ng-init="SIns.cond.where.sold=[]">
 											<label class="control-label col-md-1">销售状态</label>
 											<div class="col-md-6">
@@ -41,7 +40,13 @@
 										</div>
 									@endif
 									@if(he_is('agency'))
-									   <div class="form-group" ng-init="SIns.cond.where.sold=[]">
+										<div class="form-group">
+											<label class="control-label col-md-1">Mark状态</label>
+											<div class="col-md-6" ng-init="SIns.cond.where.status=[]">
+												<label class="checkbox-inline" ng-repeat="type in SIns.a_status_type"><input type="checkbox" value="[:type.id:]" multi-check holder="SIns.cond.where.status">[:type.name:]</label>
+											</div>
+										</div>
+									   	<div class="form-group" ng-init="SIns.cond.where.sold=[]">
 											<label class="control-label col-md-1">销售状态</label>
 											<div class="col-md-6">
 												<label class="checkbox-inline"><input type="checkbox" value="4" ng-true-value="4" multi-check holder="SIns.cond.where.sold">已售</label>

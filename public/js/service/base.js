@@ -364,6 +364,30 @@
                         },
                     ];
 
+                me.a_status_type =
+                [
+                    {
+                        id: 1,
+                        name: '未使用',
+                    },
+                    {
+                        id: 3,
+                        name: '已使用并扫码',
+                    },
+                    {
+                        id: 2,
+                        name: '已使用未扫码',
+                    },
+                    {
+                        id: 4,
+                        name: '损坏报废',
+                    },
+                    {
+                        id: 5,
+                        name: '损坏更换',
+                    },
+                ];
+
                 me.popup_mark_bind = function ()
                 {
                     ngDialog.open({
