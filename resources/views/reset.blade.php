@@ -53,13 +53,13 @@
                         <div class="form-group">
                             <span class="control-label col-md-2">新密码</span>
                             <div class="col-md-4">
-                                <input type="text" name="password" id="inputPass" class="form-control"  required>
+                                <input type="password" name="password" id="inputPass" class="form-control"  required>
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="control-label col-md-2">在输入一次</span>
                             <div class="col-md-4">
-                                <input type="text" name="password_confirm" id="inputPass" class="form-control"  required>
+                                <input type="password" name="password_confirm" id="inputPass" class="form-control"  required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -72,7 +72,7 @@
                          <div class="alert alert-success">
                             <div class="fa fa-check-circle fa-3x"></div>
                             <span style="line-height: 40px; vertical-align: top;color: #444; margin-left: 20px">
-                                密码重置成功，请返回<a href="{{env('APP_URL')}}" style="line-height: 40px;vertical-align: top;">首页</a>重新登录 
+                                密码重置成功，请返回<a href="{{env('APP_URL')}}" >首页</a>重新登录 
                             </span>
                         </div>
                     @elseif($expire)

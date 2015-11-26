@@ -11,6 +11,10 @@ class ILog extends BaseModel
     protected $ins_name = 'log';
     public $timestamps = false;
 
+    function __construct() {
+        parent::__construct();
+        
+    }
     /**
      * 自定义查询
      * @return [type] [description]

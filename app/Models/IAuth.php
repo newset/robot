@@ -78,7 +78,7 @@ class IAuth extends Model
             abort(404);
         }
 
-        $log = DB::table('i_log')->where('memo', $token)->first();
+        $log = ILog::where('memo', $token)->first();
         if (!$log) {
             abort(404);
         }
