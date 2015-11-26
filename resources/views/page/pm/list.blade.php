@@ -22,7 +22,7 @@
 							
 						</th>
 						<th class="col-md-1 no-animate" ng-if="toMe == 1">发件人</th>
-						<th class="col-md-1 no-animate" ng-if="toMe == -1">收件人</th>
+						<th class="col-md-1 no-animate" ng-if="toMe == 0">收件人</th>
 						<th class="col-md-2">时间</th>
 						<th>内容</th>
 						<th class="col-md-1 text-center"></th>
