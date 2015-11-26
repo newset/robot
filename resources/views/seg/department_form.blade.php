@@ -32,6 +32,9 @@ url:
                        ng-init="department.password = ''"
                        type="password"
                        class="form-control" >
+                <p ng-repeat="error in errors.password" class="text-danger">
+                  [:error:]
+                </p>
             </div>
         </div>
       

@@ -224,9 +224,11 @@
 												</datepicker>
 											</div>
 										</div>
-
 									@endif
 
+									@if (he_is('agency'))
+										{{-- expr --}}
+									@endif
 
 									<div class="form-group">
 										<button class="btn btn-info" style="float: right" ng-click="SIns.refresh()">查询</button>

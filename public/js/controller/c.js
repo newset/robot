@@ -715,8 +715,13 @@
                         return;
                     };
                     console.log($scope.department);
-                    SDepartment.cu($scope.department);
-                    $state.go('base.hospital.department_doctor', {hid:$scope.hospital_id}, {reload: true});//返回医院详情页
+                    SDepartment.cu($scope.department).then(function(res){
+                        if (res.data.status == 1) {
+                            $state.go('base.hospital.department_doctor', {hid:$scope.hospital_id}, {reload: true});//返回医院详情页
+                        }else{
+                            $scope.errors = res.data.d.additional_info;
+                        };
+                    });
                 };
           }])
 //代理商查询/列表

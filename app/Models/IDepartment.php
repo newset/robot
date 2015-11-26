@@ -24,13 +24,13 @@ class IDepartment extends BaseModel
         $this->createRule = [
             'name'        => 'required',
             'username'    => 'required|unique:'. table_name($this->ins_name),
-            //'password'    => 'required|min:6|regex:/^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z\d]{6,20}$/',
+            'password'    => 'required|min:6|regex:/^(?=.*[a-zA-Z])(?=.*[\d])[a-zA-Z\d].+$/',
             'hospital_id' => 'required|exists:' . table_name('hospital') . ',id',
         ];
 
         $this->updateRule = [
             'id'          => 'required|numeric',
-            'password'    => 'required|min:6|regex:/^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z\d]{6,20}$/',
+            'password'    => 'min:6|regex:/^(?=.*[a-zA-Z])(?=.*[\d])[a-zA-Z\d].+$/',
         ];
 
         $this->messages = [
