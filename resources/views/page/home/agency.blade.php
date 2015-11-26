@@ -90,7 +90,7 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="item in marks">
-						<td>[:item.id:]</td>
+						<td>[:item.cust_id:]</td>
 						<td>[:SMark.status_type[item.status-1].name:]</td>
 						<td>[:item.hospital_name:]</td>
 						<td ng-if="item.doctor_id">[:item.doctor_name:]</td>
