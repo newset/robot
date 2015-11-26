@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Validator, Input;
+use DB, Validator, Input;
 use Event, App\Events\LogEvent;
 
 class IHospital extends BaseModel
@@ -61,7 +61,11 @@ class IHospital extends BaseModel
         $pager =$this->pager();
 
         $count = $builder->count();
-        $data = $builder->select('i_hospital.*')->skip($pager['skip'])->take($pager['per_page'])->get();
+        $data = $builder->select('i_hospital.*', DB::raw('count(distinct i_doctor.id) as doctor_count'), DB::raw('count(distinct i_department.id) as department_count'))
+            ->leftJoin('i_department', 'i_department.hospital_id', '=', 'i_hospital.id')
+            ->leftJoin('i_doctor', 'i_doctor.hospital_id', '=', 'i_hospital.id')
+            ->groupBy('i_hospital.id')
+            ->skip($pager['skip'])->take($pager['per_page'])->get();
         
         if ($count > 0  && Input::has('id')) {
             Event::fire(new LogEvent('r', $this->ins_name, $data[0]));
@@ -69,6 +73,7 @@ class IHospital extends BaseModel
 
         return ss([
             'main' => $data,
+            'sql' => $builder->toSql(),
             'count' => $count
         ]);
     }
