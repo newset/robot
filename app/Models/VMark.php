@@ -150,6 +150,23 @@ class VMark extends IMark
                 $builder = $builder->whereRaw($sql);
             }
 
+            // 代理商 已售 未售
+            if(! empty($where['sold_status'])){
+                $sum = array_sum($where['sold_status']);
+                switch ($sum) {
+                    case 1:
+                        $builder = $builder->where('hospital_id', '!=', '-1');
+                        break;
+                    case 2:
+                        $builder = $builder->where('hospital_id', '=', '-1');
+                        break;
+                    case 3:
+                        break;
+                    default:
+                        break;
+                }
+            }
+
             if ( ! empty($where['selling_status_type_id']))
             {
                 $status = $where['selling_status_type_id'];
