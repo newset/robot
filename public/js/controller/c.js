@@ -1099,7 +1099,7 @@
                 angular.extend(data, $scope.data);
                 data['write_data'] = 1;
 
-                if ($scope.SIns.current_row.lease_type_id > 1) {
+                if ($scope.data.memo && $scope.SIns.current_row.lease_type_id > 1 && moment($scope.SIns.current_row.log_lease_lease_ended_at).isAfter(moment())) {
                     data['memo'] += '\n 【该操作为提前操作】';
                 };
 
