@@ -20,7 +20,7 @@ class IEmployee extends BaseModel
 
         $this->createRule = [
             'name'     => 'required',
-            'username' => 'required|unique:' . table_name($this->ins_name),
+            'username' => 'required|unique:'.table_name($this->ins_name),
             'password' => 'required|min:6',
             'phone'    => 'required|numeric|min:11',
             'email'    => 'required|email',
@@ -30,6 +30,11 @@ class IEmployee extends BaseModel
 
         $this->updateRule = [
             'id' => 'required|numeric',
+            'username' => 'unique:'.table_name($this->ins_name).',username,'.rq('id')
+        ];
+
+        $this->messages = [
+            'username.unique' => '用户名已被使用'
         ];
     }
 

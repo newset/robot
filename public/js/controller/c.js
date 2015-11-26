@@ -1585,6 +1585,8 @@
                 SEmployee.cu(data).then(function(res){
                     if (res.data.status == 1) {
                         $state.go('base.employee.list');
+                    }else{
+                        $scope.errors = res.data.d.additional_info;
                     };
                 });
             }

@@ -13,6 +13,9 @@
 					<label class="control-label col-md-1">登录名</label>
 					<div class="col-md-2">
 						<input type="text" class="form-control" ng-model="SIns.current_row.username" ng-disabled="SIns.current_row.id">
+						<p ng-repeat="error in errors.username" class="text-danger">
+						  [:error:]
+						</p>
 					</div>
 				</div>
 				<div class="form-group">
