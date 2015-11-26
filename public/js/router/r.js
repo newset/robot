@@ -598,6 +598,10 @@
                                 if (message.recipienttype == 2 && message.sendername == 'admin') {
                                     return true;
                                 };
+                                
+                                if (message.recipientname == 'admin') {
+                                    return true;
+                                };
                                 return false;
                             }
 
