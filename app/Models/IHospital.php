@@ -31,40 +31,37 @@ class IHospital extends BaseModel
 
     public function r()
     {
-        $builder = $this;
+        $builder = DB::table('v_hospital');
 
         if (Input::has('id')) {
             $builder = $builder->where('id', Input::get('id'));
         }
 
         if (Input::has('where.name')) {
-            $builder = $builder->where('i_hospital.name', 'like', '%'.Input::get('where.name').'%');
+            $builder = $builder->where('v_hospital.name', 'like', '%'.Input::get('where.name').'%');
         }
 
         if (Input::has('where.id')) {
-            $builder = $builder->where('i_hospital.id', 'like', Input::get('where.id'));
+            $builder = $builder->where('v_hospital.id', 'like', Input::get('where.id'));
         }
 
         if (Input::has('where.province_id')) {
-            $builder = $builder->where('i_hospital.province_id', Input::get('where.province_id'));
+            $builder = $builder->where('v_hospital.province_id', Input::get('where.province_id'));
         }
 
         if (Input::has('where.city_id')) {
-            $builder = $builder->where('i_hospital.city_id', Input::get('where.city_id'));
+            $builder = $builder->where('v_hospital.city_id', Input::get('where.city_id'));
         }
 
         if (Input::has('where.doctor')) {
-            $builder = $builder->rightJoin('i_doctor', 'i_doctor.hospital_id', '=', 'i_hospital.id')
+            $builder = $builder->rightJoin('i_doctor', 'i_doctor.hospital_id', '=', 'v_hospital.id')
                 ->where('i_doctor.name', 'like', '%'.Input::get('where.doctor').'%');
         }
 
         $pager =$this->pager();
 
         $count = $builder->count();
-        $data = $builder->select('i_hospital.*', DB::raw('count(distinct i_doctor.id) as doctor_count'), DB::raw('count(distinct i_department.id) as department_count'))
-            ->leftJoin('i_department', 'i_department.hospital_id', '=', 'i_hospital.id')
-            ->leftJoin('i_doctor', 'i_doctor.hospital_id', '=', 'i_hospital.id')
-            ->groupBy('i_hospital.id')
+        $data = $builder->select('v_hospital.*')
             ->skip($pager['skip'])->take($pager['per_page'])->get();
         
         if ($count > 0  && Input::has('id')) {
