@@ -34,7 +34,7 @@
 							<span ng-if="!item.read" class="text-primary no-animate"><i class="fa fa-circle"></i></span>
 						</td>
 						<td class="col-md-1 no-animate" ng-show="toMe == 1">[:item.org:]</td>
-						<td class="col-md-1 no-animate" ng-show="toMe == -1">[:item.recipientname:]</td>
+						<td class="col-md-1 no-animate" ng-show="toMe == 0">[:item.recipientname:]</td>
 						<td>[:item.sendtime:]</td>
 						<td>[:item.messagecontent:]</td>
 						<td class="text-center">
