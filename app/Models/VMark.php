@@ -136,16 +136,16 @@ class VMark extends IMark
                             $sql .= ' (status =2)';
                             break;
                         case -2:
-                            $sql .= '(status = 2 and doctor_id is null)';
+                            $sql .= '(status = 2 and doctor_id is not null)';
                             break;
                         case 2:
-                            $sql .= '(status = 2 and doctor_id is not null)';
+                            $sql .= '(status = 2 and doctor_id is null)';
                             break;
                         default:
                             break;
                     }
                 }
-                
+
                 $sql .= ')';
                 $builder = $builder->whereRaw($sql);
             }
