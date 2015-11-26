@@ -39,7 +39,8 @@ class IAgency extends BaseModel
         ];
 
         $this->updateRule = [
-            'id'                    =>      'required|numeric',
+            'id'       => 'required|numeric',
+            'password' => 'min:6'
         ];
     }
 

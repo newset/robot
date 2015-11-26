@@ -30,7 +30,8 @@ class IEmployee extends BaseModel
 
         $this->updateRule = [
             'id' => 'required|numeric',
-            'username' => 'unique:'.table_name($this->ins_name).',username,'.rq('id')
+            'username' => 'unique:'.table_name($this->ins_name).',username,'.rq('id'),
+            'password' => 'min:6'
         ];
 
         $this->messages = [
