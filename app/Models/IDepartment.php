@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Requests;
+use Requests, Validator;
 use DB;
 
 class IDepartment extends BaseModel
@@ -34,7 +34,8 @@ class IDepartment extends BaseModel
         ];
 
         $this->messages = [
-            'password.regex' => '密码不符合要求，必选包含字母和数字且不低于6位'
+            'password.regex' => '密码不符合要求，必选包含字母和数字',
+            'password.min' => '密码必须大于6位'
         ];
     }
 
@@ -88,9 +89,7 @@ class IDepartment extends BaseModel
         if (!$rq) {
             $rq = rq();
         }
-        if (isset($rq['password'])) {
-            $rq['password'] = hash_password($rq['password']);
-        }
+        
         return parent::c($rq);
     }
 
@@ -104,9 +103,7 @@ class IDepartment extends BaseModel
         if (!$rq) {
             $rq = rq();
         }
-        if (isset($rq['password'])) {
-            $rq['password'] = hash_password($rq['password']);
-        }
+        
         return parent::u($rq);
     }
 

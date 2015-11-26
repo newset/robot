@@ -53,9 +53,7 @@ class IAgency extends BaseModel
         if (!$rq) {
             $rq = rq();
         }
-        if (isset($rq['password'])) {
-            $rq['password'] = hash_password($rq['password']);
-        }
+        
         return parent::c($rq);
     }
 
@@ -97,9 +95,6 @@ class IAgency extends BaseModel
 
         if (!$rq) {
             $rq = rq();
-        }
-        if (isset($rq['password'])) {
-            $rq['password'] = hash_password($rq['password']);
         }
 
         if (isset($rq['ended_at']) && $rq['ended_at'] == 'Invalid date') {

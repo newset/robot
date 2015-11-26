@@ -116,6 +116,10 @@ class BaseModel extends Model
         if ($validator->passes())
         {
             $d = array_only($rq, $this->all_fields());
+            if (isset($rq['password'])) {
+                $d['password'] = hash_password($rq['password']);
+            }
+
             $this->fill($d);
 
             if ($this->save())
@@ -165,7 +169,7 @@ class BaseModel extends Model
                     unset($d['password']);
                 }
                 else{
-                    $ins->password = $d['password'];
+                    $ins->password = hash_password($d['password']);
                 }
             }
 

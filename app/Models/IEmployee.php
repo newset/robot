@@ -63,10 +63,7 @@ class IEmployee extends BaseModel
         {
             $rq = rq();
         }
-        if (isset($rq['password']))
-        {
-            $rq['password'] = hash_password($rq['password']);
-        }
+        
         return parent::c($rq);
     }
 
@@ -81,10 +78,7 @@ class IEmployee extends BaseModel
         {
             $rq = rq();
         }
-        if (isset($rq['password']))
-        {
-            $rq['password'] = hash_password($rq['password']);
-        }
+      
         return parent::u($rq);
     }
 
