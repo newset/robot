@@ -305,14 +305,14 @@ class VMark extends IMark
 
             if ( ! empty($where['from_surgery_at']) && ! empty($where['to_surgery_at']))
             {
-                $builder = $builder->where('surgery_at', '>', Carbon::parse($where['from_surgery_at']));
-                $builder = $builder->where('surgery_at', '<', Carbon::parse($where['to_surgery_at']));
+                $builder = $builder->where('surgery_at', '>=', Carbon::parse($where['from_surgery_at']));
+                $builder = $builder->where('surgery_at', '<=', Carbon::parse($where['to_surgery_at']));
             } elseif ( ! empty($where['from_surgery_at']))
             {
-                $builder = $builder->where('surgery_at', '>', Carbon::parse($where['from_surgery_at']));
+                $builder = $builder->where('surgery_at', '>=', Carbon::parse($where['from_surgery_at']));
             } elseif ( ! empty($where['to_surgery_at']))
             {
-                $builder = $builder->where('surgery_at', '<', Carbon::parse($where['to_surgery_at']));
+                $builder = $builder->where('surgery_at', '<=', Carbon::parse($where['to_surgery_at']));
             }
 
         }
