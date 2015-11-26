@@ -44,7 +44,7 @@
 									   <div class="form-group" ng-init="SIns.cond.where.sold=[]">
 											<label class="control-label col-md-1">销售状态</label>
 											<div class="col-md-6">
-												<label class="checkbox-inline"><input type="checkbox" value="1" ng-true-value="1" multi-check holder="SIns.cond.where.sold">已售</label>
+												<label class="checkbox-inline"><input type="checkbox" value="4" ng-true-value="4" multi-check holder="SIns.cond.where.sold">已售</label>
 												<label class="checkbox-inline"><input type="checkbox" value="2" ng-true-value="2" multi-check holder="SIns.cond.where.sold">未销售</label>
 											</div>
 										</div>
