@@ -23,6 +23,9 @@
 					<div class="col-md-2">
 						<input type="password" class="form-control" ng-model="password">
 						<input type="hidden" class="form-control" ng-model="SIns.current_row.password">
+						<p ng-repeat="error in errors.password" class="text-danger">
+						  [:error:]
+						</p>
 					</div>
 				</div>
 				<div class="form-group">
@@ -35,12 +38,18 @@
 					<label class="control-label col-md-1">电话</label>
 					<div class="col-md-2">
 						<input type="text" class="form-control" ng-model="SIns.current_row.phone">
+						<p ng-repeat="error in errors.phone" class="text-danger">
+						  [:error:]
+						</p>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-md-1">Email</label>
 					<div class="col-md-2">
 						<input type="text" class="form-control" ng-model="SIns.current_row.email">
+						<p ng-repeat="error in errors.email" class="text-danger">
+						  [:error:]
+						</p>
 					</div>
 				</div>
 			</form>

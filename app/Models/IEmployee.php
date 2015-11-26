@@ -21,8 +21,8 @@ class IEmployee extends BaseModel
         $this->createRule = [
             'name'     => 'required',
             'username' => 'required|unique:'.table_name($this->ins_name),
-            'password' => 'required|min:6',
-            'phone'    => 'required|numeric|min:11',
+            'password' => 'required|alpha_num|min:6',
+            'phone'    => 'required|digits:11',
             'email'    => 'required|email',
             'status'   => 'numeric',
             'memo'     => 'string',
@@ -31,11 +31,17 @@ class IEmployee extends BaseModel
         $this->updateRule = [
             'id' => 'required|numeric',
             'username' => 'unique:'.table_name($this->ins_name).',username,'.rq('id'),
-            'password' => 'min:6'
+            'password' => 'alpha_num|min:6'
         ];
 
         $this->messages = [
-            'username.unique' => '用户名已被使用'
+            'username.required' => '用户名必填',
+            'username.unique' => '用户名已被使用',
+            'password.required' => '密码必填',
+            'password.min' => '密码至少有6位字母或者数字',
+            'phone.required' => '手机号码必填',
+            'phone.digits' => '手机号码必须为11位数字',
+            'email.required' => '电子邮箱必填'
         ];
     }
 
