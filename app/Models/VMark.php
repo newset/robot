@@ -118,7 +118,36 @@ class VMark extends IMark
             $status = Input::get('where.status');
             if(!empty($status)) {
                 $id = array_map('intval',$status);
-                $builder = $builder->whereIn('status', $id);
+                $other = array_diff($id, [2, -2]);
+                $used = array_diff($id, $other);
+
+                $sql =' 1=1 and (';
+                if (!empty($other)) {
+                    $sql .= 'status in ('.implode(',', $other).') ';
+                }
+
+                if (!empty($used) && !empty($other)) {
+                    $sql .= ' or ';
+                }
+                if (!empty($used)) {
+                    # code...
+                    switch (array_sum($used)) {
+                        case 0:
+                            $sql .= ' (status =2)';
+                            break;
+                        case -2:
+                            $sql .= '(status = 2 and doctor_id is null)';
+                            break;
+                        case 2:
+                            $sql .= '(status = 2 and doctor_id is not null)';
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                
+                $sql .= ')';
+                $builder = $builder->whereRaw($sql);
             }
 
             if ( ! empty($where['selling_status_type_id']))
@@ -176,14 +205,6 @@ class VMark extends IMark
             {
                 $builder = $builder->where('created_at', '<=', Carbon::parse($where['to_created_at']));
             }
-
-            //  if ( ! empty($where['from_solda_at']))
-            // {
-            //     $builder = $builder->where('solda_at', '>', Carbon::parse($where['from_solda_at']));
-            // } 
-            // if ( ! empty($where['to_solda_at'])){
-            //     $builder = $builder->where('solda_at', '<', Carbon::parse($where['to_solda_at']));
-            // }
 
             if ( ! empty($where['from_shipped_at']) && ! empty($where['to_shipped_at']))
             {
@@ -316,7 +337,8 @@ class VMark extends IMark
         //print_r($sql);
         return ss([
             'main'  => $main,
-            'count' => $builder->count()
+            'count' => $builder->count(),
+            'sql' => $builder->toSql()
         ]);
     }
 }
