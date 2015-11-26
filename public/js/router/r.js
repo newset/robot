@@ -588,7 +588,7 @@
                             $scope.message = message;
                             var type = ['employee','agency','doctor'];
                             $scope.canReply = function(){
-                                if (message.senderid == session.get('uid')) {
+                                if (message.senderid == session.get('uid') && type[message.sendertype-1] == session.get('his_chara')[0]) {
                                     return false;
                                 };
                                 if (message.recipienttype == 1 && message.sendertype == 1) {
