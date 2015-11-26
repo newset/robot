@@ -595,13 +595,14 @@
                                     return true;
                                 };
 
+                                if (message.recipienttype == 1 && message.recipientname == 'admin' && session.get('username') == 'admin') {
+                                    return true;
+                                };
+
                                 if (message.recipienttype == 2 && message.sendername == 'admin') {
                                     return true;
                                 };
                                 
-                                if (message.recipientname == 'admin') {
-                                    return true;
-                                };
                                 return false;
                             }
 
