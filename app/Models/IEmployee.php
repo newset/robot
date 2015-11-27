@@ -22,7 +22,7 @@ class IEmployee extends BaseModel
             'name'     => 'required',
             'username' => 'required|unique:'.table_name($this->ins_name),
             'password' => 'required|alpha_num|min:6',
-            'phone'    => 'required|digits:11',
+            'phone'    => 'required',
             'email'    => 'required|email',
             'status'   => 'numeric',
             'memo'     => 'string',
