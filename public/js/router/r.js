@@ -572,7 +572,7 @@
                         controller : 'PMCtrl'
                     })
                     .state('base.pm.read', {
-                        url : '/read/:id',
+                        url : '/read/:id?t=',
                         templateUrl: shot('page/pm/detail'),
                         resolve : {
                             message : function(H, $stateParams){
@@ -584,8 +584,9 @@
                                 });
                             }
                         },
-                        controller : ['message', '$scope', 'H', '$state', 'UserSession', function(message, $scope, H, $state, session){
+                        controller : ['message', '$scope', 'H', '$state', 'UserSession', '$stateParams', function(message, $scope, H, $state, session, $stateParams){
                             $scope.message = message;
+                            $scope.boxType = $stateParams.t == 1 ? '' : 'outbox';
                             var type = ['employee','agency','doctor'];
                             $scope.canReply = function(){
                                 if (message.senderid == session.get('uid') && type[message.sendertype-1] == session.get('his_chara')[0]) {
@@ -602,7 +603,7 @@
                                 if (message.recipienttype == 2 && message.sendername == 'admin') {
                                     return true;
                                 };
-                                
+
                                 return false;
                             }
 

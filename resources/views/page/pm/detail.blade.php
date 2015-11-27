@@ -1,6 +1,6 @@
 <div class="panel panel-default">
 	<div class="panel-body">
-	   <a ui-sref="base.pm.list" title="返回" class="btn btn-default">返回</a>
+	   <a ui-sref="base.pm.list({'type': boxType})" title="返回" class="btn btn-default">返回</a>
 	</div>
 </div>
 <div class="panel panel-default">

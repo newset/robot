@@ -1735,7 +1735,7 @@
 
             $scope.read = function(item){
                 item.read = 1;
-                $state.go('base.pm.read', {id: item.id});
+                $state.go('base.pm.read', {id: item.id, t: $scope.toMe});
             }
 
             if ($state.current.name == 'base.pm.list') {
