@@ -40,8 +40,8 @@ class IEmployee extends BaseModel
             'password.required' => '密码必填',
             'password.min' => '密码至少有6位字母或者数字',
             'phone.required' => '手机号码必填',
-            'phone.digits' => '手机号码必须为11位数字',
-            'email.required' => '电子邮箱必填'
+            'email.required' => '电子邮箱必填',
+            'email.email' => '邮箱格式有误'
         ];
     }
 
