@@ -198,7 +198,7 @@
 <script type="text/ng-template" id="mark_recycle_agency">
 	<div class="panel panel-default">
 		<div class="panel-body">
-			<h4>确认Mark [:data.mark:]已损坏报废?</h4>
+			<h4>确认损坏报废?</h4>
 		</div>
 		<div class="panel-heading text-right">
 			<button type="button" class="btn btn-primary" ng-click="recycle()">确定</button>
@@ -209,7 +209,7 @@
 <script type="text/ng-template" id="mark_unbind_agency">
 	<div class="panel panel-default">
 		<div class="panel-body">
-			<h4>确认解除绑定Mark [:data.mark:]?</h4>
+			<h4>确认解除绑定?</h4>
 		</div>
 		<div class="panel-heading text-right">
 			<button type="button" class="btn btn-primary" ng-click=" bind('unbind')">确定</button>
