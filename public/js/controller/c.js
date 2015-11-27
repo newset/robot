@@ -1334,7 +1334,7 @@
             }
 
             $scope.unbind = function(prefix){
-                if (!confirm('确认要解除当前 Mark?')) {
+                if (!confirm('确认要解绑当前 Mark?')) {
                     return;
                 };
 
