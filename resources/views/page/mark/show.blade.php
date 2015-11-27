@@ -161,8 +161,8 @@
 			    			ng-model="agency_id" 
 			    			style="width:200px;"
 			    			chosen
-			    			update="SAgency.all_rec" 
-			    			ng-options="l.id as l.name for l in SAgency.all_rec" 
+			    			update="agencys" 
+			    			ng-options="l.id as l.name for l in agencys" 
 			    			class="form-control chosen"
 			    			>
 			    			<option value="">请选择</option>

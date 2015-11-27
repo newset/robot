@@ -1458,6 +1458,12 @@
             $scope.data = $scope.ngDialogData;
             $scope.SAgency = SAgency;
 
+            if($scope.data.type == 'bind'){
+                H.p(cook('agency/valid')).then(function(res){
+                    $scope.agencys = res.data.d;
+                });
+            }
+
             $timeout(function(){
                 $('select.chosen+.chosen-container').css({'width': '200px'})
             }, 100);
