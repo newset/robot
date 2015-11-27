@@ -109,7 +109,7 @@ class IAgency extends BaseModel
 
     public function valid()
     {
-        $data = $this->whereNotNull('started_at')->whereRaw('ended_at > now()')->get();
+        $data = $this->whereNotNull('started_at')->whereRaw('ended_at > now() and status=1')->get();
 
         return ss($data);
     }
