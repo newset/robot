@@ -30,7 +30,7 @@
 				<dd>
 					<span ng-if="SIns.current_row.agency_id==-1 && SIns.current_row.hospital_id==-1">在库</span>
                 	<span ng-if="SIns.current_row.agency_id!=-1 && SIns.current_row.hospital_id==-1">代理商在库</span>
-                	<span ng-if="SIns.current_row.hospital_id!=-1 && SIns.current_row.hospital_id!=-1">已售出</span>
+                	<span ng-if="SIns.current_row.agency_id!=-1 && SIns.current_row.hospital_id!=-1">已售出</span>
 			    </dd>
 				<dt>使用状态</dt>
 				<dd>

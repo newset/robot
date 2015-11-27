@@ -1473,7 +1473,11 @@
                     'action': action
                 };
 
-                if (agency_id) {
+                if (!agency_id) {
+                    alert('请选择代理商');
+                    return;
+                }
+                else {
                     data.agency_id = agency_id;
                 };
                 H.p(cook('mark/modify'), data).then(function(res){
