@@ -1316,7 +1316,11 @@
             }
 
             $scope.bind = function(prefix){
-                if (!confirm('确认要绑定'+SMark.cu_bat_data.a+'个Mark给'+$scope.targetSelected.name+'?')) {
+            	if(!$scope.targetSelected) {
+            		alert('请选择代理商！');
+            		return;
+            	}
+                if (!confirm('是否将'+SMark.cu_bat_data.a+'个Mark绑定到'+$scope.targetSelected.name+'?')) {
                     return;
                 };
 
