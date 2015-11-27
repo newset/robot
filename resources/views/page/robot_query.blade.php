@@ -21,7 +21,7 @@
                         </form>
                     </div>
                     <div class="actions pull-right" ng-click="showSimpleForm = !showSimpleForm">
-                        <i class="fa fa-chevron-down" i-toggle data-toggle="collapse" data-target="#robot_query" aria-expanded="false" aria-controls="collapseExample"></i>
+                        <i class="fa" ng-class="{'fa-chevron-up': !simpleQuery, 'fa-chevron-down': simpleQuery}" i-toggle data-toggle="collapse" data-target="#robot_query" aria-expanded="false" aria-controls="collapseExample"></i>
                     </div>
                 </div>
                 <div class="panel-body">
