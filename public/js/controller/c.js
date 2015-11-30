@@ -1473,7 +1473,7 @@
                     'action': action
                 };
 
-                if (!agency_id) {
+                if (!agency_id && $scope.data.type == 'bind') {
                     alert('请选择代理商');
                     return;
                 }
