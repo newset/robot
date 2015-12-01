@@ -18,6 +18,7 @@
 <script type="text/javascript" src="{{base_url() . 'vendor/angular-animate/angular-animate.js'}}"></script>
 <script type="text/javascript" src="{{base_url() . 'vendor/angular-aria/angular-aria.js'}}"></script>
 <script type="text/javascript" src="{{base_url() . 'vendor/angular-material/angular-material.js'}}"></script>
+<script type="text/javascript" src="{{base_url() . 'vendor/angular-sanitize/angular-sanitize.js'}}"></script>
 <script type="text/javascript" src="{{base_url() . 'vendor/angularjs-datepicker/src/js/angular-datepicker.js'}}"></script>
 
 <script type="text/javascript" src="{{ base_url() . 'univ_js/directive/d.js'}}"></script>

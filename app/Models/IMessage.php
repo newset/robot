@@ -55,6 +55,7 @@ class IMessage extends BaseModel
         if (!$valid) {
             return ee(2);
         }
+        $rq['sendtime'] = date("Y-m-d H:i:s");
 
     	return parent::c($rq);
     }

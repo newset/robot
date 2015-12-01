@@ -24,7 +24,7 @@
 						<th class="col-md-1 no-animate" ng-if="toMe == 1">发件人</th>
 						<th class="col-md-1 no-animate" ng-if="toMe == 0">收件人</th>
 						<th class="col-md-2">时间</th>
-						<th>内容</th>
+						<th class="col-md-2">内容</th>
 						<th class="col-md-1 text-center"></th>
 					</tr>
 				</thead>
@@ -36,7 +36,7 @@
 						<td class="col-md-1 no-animate" ng-show="toMe == 1">[:item.org:]</td>
 						<td class="col-md-1 no-animate" ng-show="toMe == 0">[:item.recipientname:]</td>
 						<td>[:item.sendtime:]</td>
-						<td>[:item.messagecontent:]</td>
+						<td ng-bind="item.messagecontent | trim |limitTo: 60 | unBreak"></td>
 						<td class="text-center">
 							<a href="" class="btn btn-primary btn-sm" ng-click="read(item)">查看</a>
 						</td>

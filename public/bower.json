@@ -23,7 +23,7 @@
     "angular-material": "~0.11.4",
     "angularjs-datepicker": "~0.2.12",
     "chosen": "~1.4.2",
-    "angular-sanitize": "~1.4.7"
+    "angular-sanitize": "1.4.7"
   },
   "moduleType": [],
   "license": "MIT",

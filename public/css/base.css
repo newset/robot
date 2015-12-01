@@ -770,3 +770,14 @@ select.form-control + .chosen-container-multi .chosen-results li.result-selected
 .robot-custom-height {
 	height: 50px;
 }
+
+pre{
+    text-align: left;
+    padding: 0px;
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    margin-top: 3px;
+}
+.dl-horizontal dd, .dl-horizontal dt{
+    margin-bottom: 5px;
+}
