@@ -18,7 +18,7 @@
     <link rel="shortcut icon" href="{{base_url()}}assets/img/favicon.ico" type="image/x-icon">
     <link href="//cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Icons -->
-    <link rel="stylesheet" href="{{base_url()}}assets/css/font-awesome.min.css">
+    <link href="//cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{base_url()}}vendor/toastr/toastr.min.css">
     <link rel="stylesheet" href="{{base_url()}}vendor/chosen/chosen.min.css">
     <link rel="stylesheet" href="{{base_url()}}assets/css/animate.css">
