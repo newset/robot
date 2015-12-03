@@ -39,7 +39,7 @@
 					<div class="form-group">
 						<label class="control-label col-md-1">代理商</label>
 						<div class="col-md-6">
-							<select name="agency" data-placeholder="" class="form-control" ng-model="data.agency_id" chosen ng-options="l.id as l.name for l in SAgency.all_rec">
+							<select name="agency" data-placeholder="" class="form-control" ng-model="data.agency_id" chosen update="agencys" ng-options="l.id as l.name for l in agencys">
 								<option value="">不限</option>
 							</select>
 						</div>

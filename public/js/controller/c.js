@@ -1080,7 +1080,9 @@
                 robot_id : $scope.SIns.current_row.id
             } 
 
-            // 
+            H.p(cook('agency/valid')).then(function(res){
+                $scope.agencys = res.data.d;
+            }); 
             $scope.lease = function(){
             	if (!$scope.data.agency_id) {
                     alert('必须选择代理商');
