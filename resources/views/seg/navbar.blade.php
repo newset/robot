@@ -204,7 +204,8 @@
                         <a href="" ui-sref-opts="{reload:true}" ui-sref="base.pm.list"><i class="fa fa-envelope"></i> 站内信</a>
                     </li>
                     <li>
-                        <a href="{{url('logout')}}"><i class="fa fa-power-off"></i> 登出</a>
+                        <!-- <a href="{{url('logout')}}"><i class="fa fa-power-off"></i> 登出</a> -->
+                        <a href="/logout"><i class="fa fa-power-off"></i> 登出</a>
                     </li>
                 </ul>
             </li>
