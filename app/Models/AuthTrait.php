@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Session;
+use Session, Redirect;
 
 trait AuthTrait
 {
@@ -109,7 +109,7 @@ trait AuthTrait
         log_him_out();
         Session::forget(['username', 'org']);
         if ( ! $is_doctor)
-            return redirect('/');
-        return redirect('/doctor/home');
+            return Redirect::to(env('APP_URL'));
+        return Redirect::to(env('APP_URL').'/doctor/home');
     }
 }
