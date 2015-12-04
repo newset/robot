@@ -1080,7 +1080,9 @@
                 robot_id : $scope.SIns.current_row.id
             } 
 
-            // 
+            H.p(cook('agency/valid')).then(function(res){
+                $scope.agencys = res.data.d;
+            }); 
             $scope.lease = function(){
             	if (!$scope.data.agency_id) {
                     alert('必须选择代理商');
@@ -1132,8 +1134,10 @@
             var milisecondsDiff = date-currentDate;
             var daysDiff = Math.round(milisecondsDiff/(24*60*60*1000));
             $scope.endLeaseTip = "";
-            if(daysDiff<30) {
-            	$scope.endLeaseTip = "还有"+daysDiff+"天过期";
+            if($scope.usbUploadDate!=null) {
+            	if(daysDiff<30) {
+                	$scope.endLeaseTip = "还有"+daysDiff+"天过期";
+                }
             }
             //获取上次usb数据采集时间
             H.p(cook('robot/getLeaseUploadByRobotId'), {
