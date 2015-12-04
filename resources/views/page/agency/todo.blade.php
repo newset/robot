@@ -1,7 +1,7 @@
 <div>
 	<div class="panel panel-default">
 		<div class="panel-body">
-			<h3 class="panel-title">经销商状态</h3>
+			<h3 class="panel-title">经销商</h3>
 		</div>
 	</div>
 

@@ -108,8 +108,11 @@ trait AuthTrait
         $is_doctor = he_is('doctor');
         log_him_out();
         Session::forget(['username', 'org']);
-        if ( ! $is_doctor)
+        /* if ( ! $is_doctor)
             return redirect('/');
-        return redirect('/doctor/home');
+        return redirect('/doctor/home'); */
+        if ( ! $is_doctor)
+            return Redirect::to(env('APP_URL'));
+        return Redirect::to(env('APP_URL').'/doctor/home');
     }
 }

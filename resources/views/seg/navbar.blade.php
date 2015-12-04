@@ -205,7 +205,7 @@
                     </li>
                     <li>
                         <!-- <a href="{{url('logout')}}"><i class="fa fa-power-off"></i> 登出</a> -->
-                        <a href="/logout"><i class="fa fa-power-off"></i> 登出</a>
+                        <a href="{{env('APP_URL').'/logout'}}"><i class="fa fa-power-off"></i> 登出</a>
                     </li>
                 </ul>
             </li>
