@@ -126,28 +126,7 @@
 
     <div class="user-nav">
         <ul>
-            <!-- <li class="reg_item"><a href="">首页</a></li> -->
-
-            <!-- <li class="reg_item"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark({with_search: 1})">Mark管理</a></li> -->
-            @if(he_is('agency'))
-            <!-- <li class="reg_item"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.mark_checkout">Mark归档</a></li> -->
-            @endif
-            @if(he_is('employee'))
-                <!-- <li class="reg_item"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.hospital_menu">医院管理</a></li>
-                <li class="reg_item"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.hospital_menu">医生/科室管理</a></li>
-                <li class="reg_item"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.robot({with_search: 1})">设备管理</a></li>
-                <li class="reg_item"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.agency({with_search: 1})">代理商管理</a></li>
-                <li class="reg_item"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.employee({with_search: 1})">员工管理</a></li>
-                <li class="reg_item"><a href="" ui-sref-opts="{reload:true}" ui-sref="base.hospital_menu">病患管理</a></li> -->
-            @endif
-
-            <!-- <li class="dropdown messages">
-                <span class="badge badge-danager animated bounceIn" id="new-messages">5</span>
-                <button type="button" class="btn btn-default dropdown-toggle options" id="toggle-mail"
-                        data-toggle="dropdown">
-                    <i class="fa fa-envelope"></i>
-                </button>
-            </li> -->
+           
             @if(he_is('department'))
                  
                 <li class="dropdown settings" dropdown is-open="isopen" style="list-style: none;"> 
@@ -160,7 +139,7 @@
                             <a href="" ui-sref-opts="{reload:true}" ui-sref="base.me"><i class="fa fa-user"></i>修改密码</a>
                         </li>
                         <li>
-                            <a href="{{url('logout')}}"><i class="fa fa-power-off"></i> 退出</a>
+                            <a href="{{env('APP_URL').'/logout'}}"><i class="fa fa-power-off"></i> 退出</a>
                         </li>
                     </ul>
                      
@@ -168,23 +147,6 @@
             @else
             <li>
                 当前登录用户:
-            <!--      <md-menu md-position-mode="target-right target" ng-cloak>
-                  <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
-                    {{username()}} <i class="fa fa-angle-down"></i>
-                  </md-button>
-                  <md-menu-content width="4" >
-                    <md-menu-item>
-                      <md-button>
-                        <a href="" ui-sref-opts="{reload:true}" ui-sref="base.me"><i class="fa fa-user"></i>个人设置</a>
-                      </md-button>
-                    </md-menu-item>
-                    <md-menu-item>
-                      <md-button>
-                        <a href="{{url('logout')}}"><i class="fa fa-power-off"></i> 登出</a>
-                      </md-button>
-                    </md-menu-item>
-                  </md-menu-content>
-                </md-menu> -->
             </li>
 
             <li class="dropdown settings" dropdown is-open="isopen">
