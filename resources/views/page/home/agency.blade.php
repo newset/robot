@@ -10,7 +10,7 @@
 		    			ng-model="doctor_id" 
 		    			chosen
 		    			update="doctors" 
-		    			ng-options="l.id as l.name for l in doctors" 
+		    			ng-options="l.id as l.name for l in doctors | filter:{status: '!0'}" 
 		    			class="form-control"
 		    			>
 		    			<option value="">请选择</option>
