@@ -39,7 +39,7 @@
 				  ng-model="SIns.current_row.employee_id"
 				  chosen
 				  update="SEmployee.all"
-				  ng-options="l.id as l.name for l in SEmployee.all">
+				  ng-options="l.id as l.name for l in SEmployee.all | filter: {status: 1}">
 				  <option value="">请选择</option>
 				</select>
 				<p ng-repeat="error in errors.employee_id" class="text-danger">
