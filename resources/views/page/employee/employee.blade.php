@@ -65,13 +65,13 @@
                             </tr>
                             </tbody>
                         </table>
-                        <div class="pagination_wrapper">
-                            <span class="pull-left">记录: [:(SIns.cond.pagination+1-1)* SIns.items_per_page +  (SIns.total_items/SIns.total_items) || 0:] / [:SIns.total_items || 0:]</span>
+                        <div class="pagination_wrapper" ng-init="pagination = SIns.cond.pagination || 1">
+                            <span class="pull-left">记录: [:(pagination-1)* default_paginataion_limit +  (SIns.total_items/SIns.total_items) || 0:] / [:SIns.total_items || 0:]</span>
 
                             <pagination
                                     boundary-links="true"
                                     total-items="SIns.total_items"
-                                    items-per-page="SIns.items_per_page"
+                                    items-per-page="default_paginataion_limit"
                                     ng-model="SIns.cond.pagination"
                                     ng-change="SIns.change_page(SIns.cond.pagination)"
                                     class="pagination-md"

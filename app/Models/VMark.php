@@ -351,14 +351,14 @@ class VMark extends IMark
         $pagination = Input::get("pagination", 1);
         $perpage = rq('limit') ?  rq('limit') : $this->default_limit;
         
-        $builder = $builder->limit($this->default_limit);
+        $count = $builder->count();
         $main = $builder->skip(($pagination - 1) * $perpage)->take($perpage)->get();
         $sql = DB::getQueryLog();
 
         //print_r($sql);
         return ss([
             'main'  => $main,
-            'count' => $builder->count(),
+            'count' => $count,
             'per_page' => $perpage,
             'sql' => $builder->toSql()
         ]);

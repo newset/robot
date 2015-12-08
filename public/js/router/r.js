@@ -27,14 +27,15 @@
                         {
                             Init:
                                 [
-                                    'SBase', '$q', 'UserSession', 
-                                    function(SBase, $q, UserSession)
+                                    'SBase', '$q', 'UserSession', '$rootScope', 
+                                    function(SBase, $q, UserSession, $rootScope)
                                     {
                                         var defer = $q.defer();
                                         SBase.init()
                                             .success(function(r)
                                             {
                                                 window._robot = r;
+                                                $rootScope.default_paginataion_limit = r.d.per_page;
                                                 UserSession.set(r.d);
                                                 console.log('r: ', r);
                                                 defer.resolve(SBase);
@@ -651,12 +652,17 @@
                                 });
                             }
                         },
-                        controller : ['$scope', '$state', 'H', 'settings' , function($scope, $state, H, settings){
+                        controller : ['$scope', '$state', 'H', 'settings', '$rootScope' , function($scope, $state, H, settings, $rootScope){
                             $scope.settings = settings;
 
                             $scope.save = function(){
                                 var settings = angular.extend({}, $scope.settings);
-                                H.p(cook('setting/c'), {'data' : settings});
+                                H.p(cook('setting/c'), {'data' : settings}).then(function(res){
+                                    if (res.data.status == 1) {
+                                        $rootScope.default_paginataion_limit = settings.user.per_page;
+                                        toastr.success('成功', '设置保存成功');
+                                    };
+                                });
                             }
                         }]
                     })

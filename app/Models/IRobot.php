@@ -120,6 +120,7 @@ class IRobot extends BaseModel
             }
         }
         
+        $count = $builder->count();;
         $pagination = Input::get("pagination", 1);
         $offset = 0;
         $perpage = $this->default_limit;
@@ -127,9 +128,8 @@ class IRobot extends BaseModel
         $result = $builder->groupBy('v_robot.cust_id')->skip(($pagination - 1) * $perpage)->take($perpage)->get();
         
         $r = [
-            'count' => count($result),
+            'count' => $count,
             'main'  => $result,
-            'rq' => $builder->toSql()
         ];
 
         return ss($r);
