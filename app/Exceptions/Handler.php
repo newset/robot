@@ -42,7 +42,7 @@ class Handler extends ExceptionHandler
     {
         if ($e instanceof TokenMismatchException){
             $data = [
-                'msg' => '登录过期',
+                'msg' => 'CSRF Token 错误, 请刷新页面',
                 'code' => '00001'
             ];
             // todo 检查当前用户 token 错误原因

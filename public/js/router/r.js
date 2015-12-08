@@ -660,7 +660,7 @@
                                 H.p(cook('setting/c'), {'data' : settings}).then(function(res){
                                     if (res.data.status == 1) {
                                         $rootScope.default_paginataion_limit = settings.user.per_page;
-                                        toastr.success('成功', '设置保存成功');
+                                        toastr.success('设置保存成功', '成功');
                                     };
                                 });
                             }

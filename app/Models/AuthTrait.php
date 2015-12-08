@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Session, Redirect, Cache;
-use DB, Config;
 
 trait AuthTrait
 {
@@ -42,13 +41,7 @@ trait AuthTrait
 
             if ($user)
             {
-                $settings = Config::get('i_settings', null);
                 $lifetime = 6000;
-                if ($settings) {
-                    $lifetime = array_get($settings, 'user.session_expire') * 3600;
-                    Config::set('session.lifetime', $lifetime);
-                }
-
                 log_him_in(['username' => $user->username, 'uid' => $user->id], $lifetime);
 
                 add_chara($input['user_type']);
@@ -73,7 +66,7 @@ trait AuthTrait
                 // 添加日志
                 ILog::login($input['user_type'], $user);
 
-                return ss($user);
+                return ss($user);    
             }
 
         } else
