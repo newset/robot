@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use DB;
+use DB, Cache;
 
 use Validator, Schema, Carbon\Carbon;
 use Event, App\Events\LogEvent;
@@ -23,6 +23,7 @@ class BaseModel extends Model
      */
     public $createRule = [];
     public $updateRule = [];
+    public $default_limit = 20;
 
     public $messages = [
         /* 'required' => '字段:attribute不能为空.',
@@ -35,7 +36,11 @@ class BaseModel extends Model
     {
         $this->table = table_name($this->ins_name, $prefix);
 
-        // dd($this->table, $prefix);
+        $settings = Cache::get('i_settings', null);
+
+        if ($settings) {
+            $this->default_limit = array_get($settings, 'user.per_page');
+        }
     }
 
     public function ruler()
@@ -141,7 +146,7 @@ class BaseModel extends Model
     public function pager()
     {
         $page = rq('pagination') ? rq('pagination') : 1;
-        $per_page = rq('limit') ? rq('limit') : 20;
+        $per_page = rq('limit') ? rq('limit') : $this->default_limit;
         $skip = ($page-1) * $per_page;
 
         return ['page' => $page, 'per_page'=> $per_page, 'skip' => $skip];
@@ -341,7 +346,7 @@ class BaseModel extends Model
     public function p_builder($builder)
     {
         $rq = rq();
-        $default_limit = 50;
+        $default_limit = $this->default_limit;
 
         if (rq('id'))
         {

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use DB;
+use Cache;
 
 class IInit extends Model
 {
@@ -44,5 +45,11 @@ class IInit extends Model
             $d['org'] = sess('org');
         }
         return ss($d);
+    }
+
+    public function test()
+    {
+        $data = Cache::get('i_settings', 'default');
+        return $data;
     }
 }

@@ -9,9 +9,9 @@ if ( ! function_exists('add_chara'))
 
 if ( ! function_exists('log_him_in'))
 {
-    function log_him_in($d = null)
+    function log_him_in($d = null, $lifetime = 6000)
     {
-        Session::put('is_logged_in', 1, 6000);
+        Session::put('is_logged_in', 1, $lifetime);
         if ($d)
             Session::put($d);
     }

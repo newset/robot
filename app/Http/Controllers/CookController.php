@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Cache, DB;
 
 class CookController extends Controller
 {
@@ -20,6 +21,8 @@ class CookController extends Controller
     public function __construct()
     {
         $this->permission_api_set = config('permission');
+
+        $this->init_setting();
     }
 
     /**
@@ -91,5 +94,19 @@ class CookController extends Controller
         }else{
             abort(404);
         }
+    }
+
+    public function init_setting()
+    {
+        $settings = Cache::rememberForever('i_settings', function() {
+            $data =  DB::table(table_name('settings'))->get();
+            $rules = [];
+            array_walk($data, function($item) use(&$rules){
+                $rules[$item->k] = json_decode($item->v, true);
+            });
+            return $rules;
+        });
+
+        return $settings;
     }
 }
