@@ -4,11 +4,11 @@
 	@if(sess('permission')[0])
 	<div class="col-md-4 col-sm-6">
 		<a ui-sref="base.robot.home">
-		<div class="dashboard-tile detail tile-turquoise">
-			<div class="content">
-				<h1><img src="../assets/img/grid/01.png" alt=""> 设备管理</h1>
+			<div class="dashboard-tile detail tile-turquoise">
+				<div class="content">
+					<h1><img src="../assets/img/grid/01.png" alt=""> 设备管理</h1>
+				</div>
 			</div>
-		</div>
 		</a>
 	</div>
 	@endif

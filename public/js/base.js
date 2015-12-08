@@ -70,8 +70,14 @@
 		        	if ($location.url() != '/' && res.status == 403 && res.data.code == '00001') {
 		        		$location.url('/');
 		        		location.reload();
+		        		return res;
 		        	};
-		        	console.log(res);
+
+		        	if (res.status == 403 && res.data.code == '00003') {
+		        		toastr.error(res.data.msg, '错误');
+		        		return;
+		        	};
+		        	
 		        	return res;
 		        }
 			};

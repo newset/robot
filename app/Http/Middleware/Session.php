@@ -1,4 +1,7 @@
 <?php
+/**
+ * 根据数据库设置的 session 时间调整
+ */
 
 namespace App\Http\Middleware;
 

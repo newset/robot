@@ -43,12 +43,13 @@ class Handler extends ExceptionHandler
         if ($e instanceof TokenMismatchException){
             $data = [
                 'msg' => 'CSRF Token 错误, 请刷新页面',
-                'code' => '00001'
+                'code' => '00003',
+                'token' => $request->session()->token()
             ];
             // todo 检查当前用户 token 错误原因
             // 
             
-            return response($data, 403);
+            return response($data, 403)->withCookie(cookie('XSRF-TOKEN', $request->session()->token()));
         }
 
         if ($e->getMessage() == 'insufficient_permission') {
