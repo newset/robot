@@ -398,7 +398,8 @@ class BaseModel extends Model
         //$date_fields = $this->get_all_date_type($main);
         $r = [
             'main'  => $main,
-            'count' => $count
+            'count' => $count,
+            'per_page' => rq('limit') ? rq('limit') : $this->default_limit
         ];
 
         return ss($r);

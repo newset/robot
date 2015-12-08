@@ -69,7 +69,7 @@
                 me.current_page_data = null;
                 //me.current_page = 1;
                 me.total_items = null;
-                me.items_per_page = 50;
+                me.items_per_page = 20;
                 me.ins_name = 'robot';
                 me.cond = {
                     relation: ['robotLeaseLog', 'employee', 'mark', 'robotLog', /*'hospital', 'agency'*/],
@@ -319,7 +319,7 @@
                 me.include_archived = true;
                 //me.current_page = 1;
                 me.total_items = null;
-                me.items_per_page = 50;
+                me.items_per_page = 20;
                 me.cond = {
                     relation: [],
                     where: {},
@@ -637,7 +637,7 @@
                 me.all = [];
                 //me.current_page = 1;
                 me.total_items = null;
-                me.items_per_page = 50;
+                me.items_per_page = 20;
                 me.cond = {
                     relation: [/*'robotLeaseLog', 'mark', 'robotLog', *//*'hospital', 'agency'*/],
                     where: {},
@@ -650,6 +650,9 @@
                         .then(function (r)
                         {
                             me.all = r.data.d.main;
+                            if (r.data.d.per_page) {
+                                me.items_per_page = r.data.d.per_page;
+                            };
                         })
                 }
 

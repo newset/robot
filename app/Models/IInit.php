@@ -10,12 +10,15 @@ class IInit extends Model
 {
     public function front()
     {   
+        $cache = Cache::get('i_settings', null);
+        $per_page = array_get($cache, 'user.per_page');
         $d = [
             'debug'        => debugging(),
             'is_logged_in' => sess('is_logged_in'),
             'his_chara'    => sess('his_chara'),
             'username'     => sess('username'),
-            'uid'          => sess('uid')
+            'uid'          => sess('uid'),
+            'per_page'     => $per_page
         ];
         
         $type = [

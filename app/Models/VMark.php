@@ -64,7 +64,8 @@ class VMark extends IMark
         $result = DB::select(DB::raw($sql),$where);
         $r = [
             'count' => count($result),
-            'main'  => array_slice($result,($pagination - 1) * $perpage,$perpage)
+            'main'  => array_slice($result,($pagination - 1) * $perpage,$perpage),
+            'per_page' => $perpage
         ];
 
         return ss($r);
@@ -347,14 +348,18 @@ class VMark extends IMark
             });
         }
         DB::enableQueryLog();
-
+        $pagination = Input::get("pagination", 1);
+        $perpage = rq('limit') ?  rq('limit') : $this->default_limit;
+        
         $builder = $builder->limit($this->default_limit);
-        $main = $builder->get();
+        $main = $builder->skip(($pagination - 1) * $perpage)->take($perpage)->get();
         $sql = DB::getQueryLog();
+
         //print_r($sql);
         return ss([
             'main'  => $main,
             'count' => $builder->count(),
+            'per_page' => $perpage,
             'sql' => $builder->toSql()
         ]);
     }
