@@ -35,13 +35,13 @@ class ILog extends BaseModel
     	}
 
     	$page = rq('pagination') ? rq('pagination') : 1;
-    	$per_page = rq('limit') ? rq('limit') : 20;
+    	$per_page = rq('limit') ? rq('limit') : $this->default_limit;
     	$skip = ($page-1) * $per_page;
     	$count = $builder->count();
 
     	$builder = $builder->skip($skip)->take($per_page)->orderBy('at', 'desc');
         $data = $builder->get();
-    	return ss(['main' => $data, 'count' => $count, 'sql' => $builder->toSql(), 'start'=> Input::get('where.start')]);
+    	return ss(['main' => $data, 'count' => $count, 'per_page' => $per_page, 'start'=> Input::get('where.start')]);
     }
 
     /**

@@ -59,7 +59,7 @@ class VMark extends IMark
 
         $pagination = Input::get("pagination",1);
         $offset = 0;
-        $perpage = 50;
+        $perpage = $this->default_limit;
 
         $result = DB::select(DB::raw($sql),$where);
         $r = [
@@ -348,7 +348,7 @@ class VMark extends IMark
         }
         DB::enableQueryLog();
 
-        $builder = $builder->limit(50);
+        $builder = $builder->limit($this->default_limit);
         $main = $builder->get();
         $sql = DB::getQueryLog();
         //print_r($sql);

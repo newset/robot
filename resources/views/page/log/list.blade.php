@@ -25,13 +25,13 @@
 	   	<thead>
 	   		<tr>
 	   			<th class="col-md-2">时间</th>
-	   			<th>事件</th>
+	   			<th class="col-md-10">事件</th>
 	   		</tr>
 	   	</thead>
 	   	<tbody>
 	   		<tr ng-repeat="log in logs.main">
 	   			<td ng-bind="log.at"></td>
-	   			<td ng-bind="log.memo"></td>
+	   			<td ng-bind="log.memo" style="overflow: hidden;max-width: 0;word-break: break-all;"></td>
 	   		</tr>
 	   	</tbody>
 	   </table>

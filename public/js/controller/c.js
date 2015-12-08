@@ -1796,11 +1796,12 @@
             }
         }])
         .controller('LogCtrl', ['$scope', '$state', 'H', function ($scope, $state, H) {
+            $scope.cond = {where: {}, pagination: 1};
             $scope.items_per_page = 20;
-            $scope.cond = {where: {}, pagination: 1, limit: $scope.items_per_page};
             $scope.init = function(){
                 H.p(cook('log/r'), $scope.cond).then(function(res){
                     $scope.logs = res.data.d;
+                    $scope.items_per_page = res.data.d.per_page;
                 })
             }
 
