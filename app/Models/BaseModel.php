@@ -37,8 +37,7 @@ class BaseModel extends Model
         $this->table = table_name($this->ins_name, $prefix);
 
         $settings = Cache::get('i_settings', null);
-
-        if ($settings) {
+        if (!empty($settings)) {
             $this->default_limit = array_get($settings, 'user.per_page');
         }
     }

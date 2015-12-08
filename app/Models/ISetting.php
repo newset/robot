@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Cache;
 
 class ISetting extends BaseModel
 {
@@ -59,6 +60,7 @@ class ISetting extends BaseModel
     	// add pattern
     	$rq = rq('data');
     	$res = [];
+        $cache = [];
     	if ($rq) {
     		foreach ($rq as $key => $value) {
     			$item = $this->firstOrNew(['k'=> $key]);
@@ -66,8 +68,12 @@ class ISetting extends BaseModel
     			$item->v = $value;
     			$item->save();
     			$res[] = $item;
+                $cache[$item->k] = $value;
     		}
     	}
+        // reset cache
+        Cache::forever('i_settings', $cache);        
+
     	return ss($res);
     }
 }
