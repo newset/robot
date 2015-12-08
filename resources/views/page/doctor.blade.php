@@ -104,13 +104,13 @@
         </table>
     </div>
     <div ng-if="!SIns.current_page_data.length" class="col-md-12">暂无结果</div>
-    <div class="pagination_wrapper col-md-12">
-        <span class="pull-left">记录: [:(SIns.cond.pagination+1-1)* SIns.items_per_page +  (SIns.total_items/SIns.total_items) || 0:] / [:SIns.total_items:]</span>
+    <div class="pagination_wrapper col-md-12" ng-init="pagination = SIns.cond.pagination || 1">
+        <span class="pull-left">记录: [:(pagination-1)* default_paginataion_limit +  (SIns.total_items/SIns.total_items) || 0:] / [:SIns.total_items:]</span>
 
         <pagination max-size="10"
                     boundary-links="true"
                     total-items="SIns.total_items"
-                    items-per-page="SIns.items_per_page"
+                    items-per-page="default_paginataion_limit"
                     ng-model="SIns.cond.pagination"
                     ng-change="SIns.change_page(SIns.cond.pagination)"
                     class="pagination-md"
