@@ -412,14 +412,14 @@
 						  </table>
 						  <div class="">
 							  <div class="pagination_wrapper" ng-init="pagination = SIns.cond.pagination || 1">
-                                	<span class="pull-left">记录: [:(pagination-1)*default_paginataion_limit-default_paginataion_limit+(SIns.total_items&&1):] / [:SIns.total_items:]</span>
+                                	<span class="pull-left">记录: [:(pagination-1)*default_paginataion_limit+(SIns.total_items&&1):] / [:SIns.total_items:]</span>
 
 								  	<pagination
 										  boundary-links="true"
 										  total-items="SIns.total_items"
 										  items-per-page="default_paginataion_limit"
-										  ng-model="SIns.cond.pagination"
-										  ng-change="SIns.refresh()"
+										  ng-model="pagination"
+										  ng-change="SIns.cond.pagination = pagination; SIns.refresh()"
 										  class="pagination-md"
 										  rotate="false"
 										  max-size="10"
