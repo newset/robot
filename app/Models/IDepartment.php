@@ -54,7 +54,7 @@ class IDepartment extends BaseModel
             'c' => substr($time, -4)*3*$user
         ];
 
-        $baseUrl = 'http://www.remebot.cn/isapi/remeisapi.dll/?';
+        $baseUrl = env('ISAPI_URL');
         $url = $baseUrl.http_build_query($params);
         $res = Requests::get($url);
         $data = json_decode($res->body);

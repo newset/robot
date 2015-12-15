@@ -54,7 +54,7 @@ if ( ! function_exists('usb_url'))
         if (!he_is('employee')) {
             return;
         }
-        $base = 'http://www.remebot.cn/isapi/remeisapi.dll/?';
+        $base = env('ISAPI_URL');
         $user = DB::table('i_employee')->select(DB::raw('right(password, 4) as pass'))->where('id', uid())->first();
         $time = time();
 

@@ -54,7 +54,7 @@ class IMark extends BaseModel
             }
         }
 
-        $baseUrl = 'http://www.remebot.cn/isapi/remeisapi.dll/?';
+        $baseUrl = env('ISAPI_URL');
         $pass = substr($row->password, -4);
         $time = time();
 
