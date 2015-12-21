@@ -12,10 +12,10 @@
 				<form action="" method="POST" role="form" class="form-inline" name="setting">
 					<div class="form-group">
 						<label for="">登录保存时间</label>
-						<input type="number" class="form-control" name="session_expire" placeholder="" ng-model="settings.user.session_expire" min="0" max="240">
-						<span>小时 (0为不保存，最大为240小时)</span>
+						<input type="number" class="form-control" name="session_expire" placeholder="" ng-model="settings.user.session_expire" min="1" max="240">
+						<span>小时 (最小1小时, 最大为240小时)</span>
 						<span ng-show="setting.session_expire.$error.max" class="text-danger">不能大于240小时</span>
-						<span ng-show="setting.session_expire.$error.min" class="text-danger">不能小于0小时</span>
+						<span ng-show="setting.session_expire.$error.min" class="text-danger">不能小于1小时</span>
 					</div>
 					<div class="form-group">
 						<label for="">每页列表行数</label>
