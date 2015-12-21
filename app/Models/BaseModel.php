@@ -336,7 +336,7 @@ class BaseModel extends Model
         } else
         {
             // $builder = $builder->orderBy('created_at', 'desc');
-            $builder = $builder->orderBy('id', 'desc');
+            $builder = $builder->orderByRaw($this->defaultOrderRule);
         }
 
         return $builder;
