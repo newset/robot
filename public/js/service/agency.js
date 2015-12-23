@@ -8,9 +8,11 @@
             'H',
             'h',
             'ngDialog',
+            '$rootScope',
             function (H,
                       h,
-                      ngDialog)
+                      ngDialog,
+                      $rootScope)
             {
                 var me = this;
                 me.init = init;
@@ -54,8 +56,9 @@
                     var end_date = new Date(end_at);
                     var now = new Date();
                     var num = Math.round((end_date-now)/(1000*3600*24));
-                    if(num<=30) {
-                    	return '一个月内过期';
+                    var default_agency_end = parseInt($rootScope.default_agency_end);
+                    if(num<= default_agency_end) {
+                    	return default_agency_end+'天内过期';
                     }
                     if (moment().isAfter(row.ended_at)) {
                         return '已过期';

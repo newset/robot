@@ -18,7 +18,8 @@ class IInit extends Model
             'his_chara'    => sess('his_chara'),
             'username'     => sess('username'),
             'uid'          => sess('uid'),
-            'per_page'     => $per_page
+            'per_page'     => $per_page,
+            'agency_end'=> $this->retrieve('system.agency_end')
         ];
         
         $type = [
@@ -50,9 +51,13 @@ class IInit extends Model
         return ss($d);
     }
 
-    public function test()
+    protected function retrieve($key)
     {
         $data = Cache::get('i_settings', 'default');
-        return $data;
+        if (!empty($data)) {
+            return array_get($data, $key);
+        }else {
+            return '';
+        }
     }
 }

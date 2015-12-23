@@ -115,7 +115,9 @@ class IAgency extends BaseModel
     }
 
     public function todo()
-    {
+    {   
+        // 获取过期设置
+
         $data = $this->select('*')
             ->whereRaw('timestampdiff(day, created_at, now()) < 2')
             ->orWhereRaw('(ended_at is not null and datediff(ended_at, now()) between 0 and 10)')

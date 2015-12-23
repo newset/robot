@@ -36,6 +36,7 @@
                                             {
                                                 window._robot = r;
                                                 $rootScope.default_paginataion_limit = r.d.per_page;
+                                                $rootScope.default_agency_end = r.d.agency_end;
                                                 UserSession.set(r.d);
                                                 console.log('r: ', r);
                                                 defer.resolve(SBase);
@@ -660,6 +661,7 @@
                                 H.p(cook('setting/c'), {'data' : settings}).then(function(res){
                                     if (res.data.status == 1) {
                                         $rootScope.default_paginataion_limit = settings.user.per_page;
+                                        $rootScope.default_agency_end = settings.system.agency_end;
                                         toastr.success('设置保存成功', '成功');
                                     };
                                 });
