@@ -57,10 +57,10 @@
                     var now = new Date();
                     var num = Math.round((end_date-now)/(1000*3600*24));
                     var default_agency_end = parseInt($rootScope.default_agency_end);
-                    if(num<= default_agency_end) {
+                    if(num<= default_agency_end && num>0) {
                     	return default_agency_end+'天内过期';
                     }
-                    if (moment().isAfter(row.ended_at)) {
+                    if (num<=0) {
                         return '已过期';
                     };
                     if (moment().isBetween(row.started_at, row.ended_at)){
