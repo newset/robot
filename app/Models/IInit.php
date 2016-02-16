@@ -25,7 +25,8 @@ class IInit extends Model
         $type = [
             'employee' => 1,
             'agency' => 2,
-            'doctor' => 3
+            'doctor' => 3,
+            'department' => 4
         ];
 
         // 获取未读通知
