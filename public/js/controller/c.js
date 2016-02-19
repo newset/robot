@@ -1084,6 +1084,9 @@
                 $scope.agencys = res.data.d;
             }); 
             $scope.lease = function(){
+            	if (typeof($scope.data.lease_type_id) == "undefined") {
+            		$scope.data.lease_type_id = 1;
+            	}
             	if (!$scope.data.agency_id) {
                     alert('必须选择代理商');
                     return;
