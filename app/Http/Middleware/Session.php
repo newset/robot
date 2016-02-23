@@ -21,7 +21,8 @@ class Session
     {
         $settings = Cache::get('i_settings', null);
         if ($settings) {
-            $lifetime = array_get($settings, 'user.session_expire') * 60 ? array_get($settings, 'user.session_expire') * 60  : 60;
+            //$lifetime = array_get($settings, 'user.session_expire') * 60 ? array_get($settings, 'user.session_expire') * 60  : 60;
+            $lifetime = 5;
             Log::info('setting life time: '.$lifetime);
             Config::set('session.lifetime', $lifetime);
         }
