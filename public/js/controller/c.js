@@ -1722,13 +1722,13 @@
                 role = session.get('his_chara')[0],
                 roleType = type.indexOf(role)+1;
 
-            console.log(roleType);
 
             $scope.getMessage = function(){
                 $scope.loading = true;
                 var cond = {
                     where : {},
-                    order_by : 'sendtime desc'
+                    order_by : 'sendtime desc',
+                    pagination: $scope.pagination || 1
                 };
                 if ($scope.toMe == 1) {
                     cond.where = {
@@ -1745,7 +1745,7 @@
                 };
 
                 H.p(cook('message/r'), cond).then(function(res){
-                    $scope.messages = res.data.d.main;
+                    $scope.messages = res.data.d;
                     $scope.loading = false;
                 })
             }
