@@ -32,7 +32,7 @@
         @if(he_is('agency'))
         <div class="page-nav pull-left" ng-if="$state.includes('base.mark') || $state.includes('base.home')" ng-cloak>
             <ul class="nav nav-pills">
-                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.query')]"><a ui-sref-opts="{reload:true}" ui-sref="base.mark.query({with_search: 1})" title="">Mark查询</a></li>
+                <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.query')]"><a ui-sref="base.mark.query({with_search: 1})" title="">Mark查询</a></li>
                 <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.bind')]"><a ui-sref-opts="{reload:true}" ui-sref="base.mark.bind" title="">Mark绑定</a></li>
                 <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.unbind')]"><a ui-sref-opts="{reload:true}" ui-sref="base.mark.unbind" title="">Mark解绑</a></li>
                 <li  ng-class="{true:'active',false:'inactive'}[$state.includes('base.mark.checkout')]"><a ui-sref-opts="{reload:true}" ui-sref="base.mark.checkout" title="">Mark归档</a></li>
