@@ -75,6 +75,7 @@
 
 		        	if (res.status == 403 && res.data.code == '00003') {
 		        		toastr.error(res.data.msg, '错误');
+		        		location.href="/$/auth/logout";
 		        		return;
 		        	};
 		        	
