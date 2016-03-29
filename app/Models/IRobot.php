@@ -207,6 +207,11 @@ class IRobot extends BaseModel
     {
         return $this->hasMany('App\Models\IRobotLog', 'robot_id');
     }
+    
+    public function usblog()
+    {
+        return $this->hasMany('App\Models\IUsblog', 'robot_id');
+    }
 
     // todo
     public function used_mark()

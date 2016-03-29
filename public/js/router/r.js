@@ -213,7 +213,7 @@
                         controller : 'CPageRobotDetail as ctrl',
                         resolve : {
                             sIns : function(SRobot, $stateParams){
-                                return SRobot.h.r($stateParams.id, SRobot, ['robotLog.employee', 'robotLeaseLog.agency', 'robotLeaseLog.hospital', 'employee', 'lastAgency', 'lastHospital', 'used_mark']).then(function(res){
+                                return SRobot.h.r($stateParams.id, SRobot, ['robotLog.employee', 'robotLeaseLog.agency', 'robotLeaseLog.hospital', 'employee', 'lastAgency', 'lastHospital', 'used_mark', 'usblog']).then(function(res){
                                     SRobot.current_row = res.data.d.main[0];
                                     return SRobot;
                                 });

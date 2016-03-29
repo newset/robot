@@ -24,10 +24,8 @@ class VRobotHome extends BaseModel
 			->leftJoin('i_agency', 'v_robot_frontpage.agency_id', '=', 'i_agency.id');
 
 		$settings = Cache::get('i_settings', null);
-		$default_lease_end = 30;
 		if (!empty($settings)) {
 		    $default_lease_end = array_get($settings, 'system.lease_end');
-		    $default_lease_end = 30;
 		}	
 		$sql = 'datediff(v_robot_frontpage.ended_at, now()) < '.$default_lease_end.' and datediff(v_robot_frontpage.ended_at, now()) > 0';
 		$stop = $buider->whereRaw($sql)->get();

@@ -1117,7 +1117,7 @@
                 })
             }           
         }])
-        .controller('CPageRobotDetail', ['$scope', 'sIns', 'SAgency', 'SHospital', 'H', '$state', function ($scope, sIns, SAgency, SHospital, H, $state) {
+        .controller('CPageRobotDetail', ['$scope', 'sIns', 'SAgency', 'SHospital', 'H', '$state', '$rootScope', function ($scope, sIns, SAgency, SHospital, H, $state, $rootScope) {
             $scope.SIns = sIns;
             
             $scope.SAgency = SAgency;            
@@ -1137,11 +1137,12 @@
             var milisecondsDiff = date-currentDate;
             var daysDiff = Math.round(milisecondsDiff/(24*60*60*1000));
             $scope.endLeaseTip = "";
-            if($scope.usbUploadDate!=null) {
-            	if(daysDiff<30) {
+            var default_lease_end = parseInt($rootScope.default_lease_end);
+            //if($scope.usbUploadDate!=null) {
+            	if(daysDiff<default_lease_end && daysDiff>0) {
                 	$scope.endLeaseTip = "还有"+daysDiff+"天过期";
                 }
-            }
+            //}
             //获取上次usb数据采集时间
             H.p(cook('robot/getLeaseUploadByRobotId'), {
                 'robot_id': $scope.SIns.current_row.id,
