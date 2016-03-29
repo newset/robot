@@ -29,7 +29,7 @@ class VRobotHome extends BaseModel
 		    $default_lease_end = array_get($settings, 'system.lease_end');
 		    $default_lease_end = 30;
 		}	
-		$sql = 'datediff(v_robot_frontpage.ended_at, now()) < '.$default_lease_end;
+		$sql = 'datediff(v_robot_frontpage.ended_at, now()) < '.$default_lease_end.' and datediff(v_robot_frontpage.ended_at, now()) > 0';
 		$stop = $buider->whereRaw($sql)->get();
 		$collect = $buider->whereRaw('datediff(now(), v_robot_frontpage.upload_at) > 90 and v_robot_frontpage.upload_at is not null')
 			->orWhereRaw('datediff(now(), v_robot_frontpage.production_date) > 90 and v_robot_frontpage.upload_at is null')
