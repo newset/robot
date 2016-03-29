@@ -19,7 +19,8 @@ class IInit extends Model
             'username'     => sess('username'),
             'uid'          => sess('uid'),
             'per_page'     => $per_page,
-            'agency_end'=> $this->retrieve('system.agency_end')
+            'agency_end'   => $this->retrieve('system.agency_end'),
+            'lease_end'    => $this->retrieve('system.lease_end')
         ];
         
         $type = [

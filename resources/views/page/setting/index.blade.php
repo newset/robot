@@ -41,6 +41,14 @@
 					</div>
 					<div class="form-group">
 						<label for="" class="control-label col-md-8">
+							<p class="text-left">租期结束时间在多少天内，则显示“租期快要结束”标识</p>
+						</label>
+						<div class="col-md-2">
+							<input type="number" class="form-control" name="lease_end" ng-model="settings.system.lease_end">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="" class="control-label col-md-8">
 							<p class="text-left">医院的Mark存量在多少以内，会提示管理员</p>
 						</label>
 						<div class="col-md-2">

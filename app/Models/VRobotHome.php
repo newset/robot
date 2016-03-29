@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use DB; 
+use DB, Cache; 
 
 class VRobotHome extends BaseModel
 {
@@ -23,11 +23,18 @@ class VRobotHome extends BaseModel
 			->leftJoin('i_hospital', 'v_robot_frontpage.hospital_id', '=', 'i_hospital.id')
 			->leftJoin('i_agency', 'v_robot_frontpage.agency_id', '=', 'i_agency.id');
 
-		$stop = $buider->whereRaw('datediff(v_robot_frontpage.ended_at, now()) < 30')->get();
+		$settings = Cache::get('i_settings', null);
+		$default_lease_end = 30;
+		if (!empty($settings)) {
+		    $default_lease_end = array_get($settings, 'system.lease_end');
+		    $default_lease_end = 30;
+		}	
+		$sql = 'datediff(v_robot_frontpage.ended_at, now()) < '.$default_lease_end;
+		$stop = $buider->whereRaw($sql)->get();
 		$collect = $buider->whereRaw('datediff(now(), v_robot_frontpage.upload_at) > 90 and v_robot_frontpage.upload_at is not null')
 			->orWhereRaw('datediff(now(), v_robot_frontpage.production_date) > 90 and v_robot_frontpage.upload_at is null')
 			->get();
-
+		
 		$error = DB::table('v_robot_frontpage2')->whereRaw('max_log > max_usb')
 			->select('v_robot.*', 'i_employee.name as employee_name', 'i_hospital.name as hospital_name', 'i_agency.name as agency_name')
 			->leftJoin('v_robot', 'v_robot_frontpage2.cust_id', '=', 'v_robot.cust_id')

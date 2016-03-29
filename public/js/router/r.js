@@ -37,6 +37,7 @@
                                                 window._robot = r;
                                                 $rootScope.default_paginataion_limit = r.d.per_page;
                                                 $rootScope.default_agency_end = r.d.agency_end;
+                                                $rootScope.default_lease_end = r.d.lease_end;
                                                 UserSession.set(r.d);
                                                 console.log('r: ', r);
                                                 defer.resolve(SBase);
@@ -98,7 +99,6 @@
                         controller : ['deps', '$scope', 'SRobot', function(deps, $scope, SRobot){
                             $scope.data = deps;
                             $scope.SIns = SRobot;
-
                             $scope.info = function(item){
                                 if (item.log_lease_lease_ended_at) {
                                       var end = moment(item.log_lease_lease_ended_at),
@@ -662,6 +662,7 @@
                                     if (res.data.status == 1) {
                                         $rootScope.default_paginataion_limit = settings.user.per_page;
                                         $rootScope.default_agency_end = settings.system.agency_end;
+                                        $rootScope.default_lease_end = settings.system.lease_end;
                                         toastr.success('设置保存成功', '成功');
                                     };
                                 });
