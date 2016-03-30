@@ -48,7 +48,7 @@
 						<th>销售状态</th>
 						<th>医院</th>
 						<th>负责人</th>
-						<th>维护记录</th>
+						<th>生产日期</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -63,7 +63,7 @@
 						</td>
 						<td>[:item.hospital_name:]</td>
 						<td>[:item.employee_name:]</td>
-						<td>[:item.log_count || 0:]</td>
+						<td>[:item.production_date:]</td>
 					</tr>
 					<tr ng-if="!data.length">
 						<td colspan="9" class="text-center">暂无相关数据</td>
