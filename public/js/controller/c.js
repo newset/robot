@@ -767,7 +767,7 @@
                 //}, true)
             }
         ])
-        .controller('AgencyHome', ['deps', '$scope', 'SAgency', 'SRobot', 'SMark', 'H', 'ngDialog', '$state', function(deps, $scope, SAgency, SRobot, SMark, H, ngDialog, $state){
+        .controller('AgencyHome', ['deps', '$scope', 'SAgency', 'SRobot', 'SMark', 'H', 'ngDialog', '$state', '$rootScope', function(deps, $scope, SAgency, SRobot, SMark, H, ngDialog, $state, $rootScope){
             $scope.data = deps[0];
             $scope.marks = deps[1];
             
@@ -798,13 +798,14 @@
                 };
 
             });
-
+            
+            var default_lease_end = parseInt($rootScope.default_lease_end);
             $scope.info = function(item){
                 if (item.lease_ended_at) {
                       var end = moment(item.lease_ended_at),
                         now = moment(),
                         dur = moment.duration(now.diff(end)).days();
-                    if (dur < 0 && Math.abs(dur) < 30) {
+                    if (dur < 0 && Math.abs(dur) < default_lease_end) {
                         return '租期快要结束';
                     };
                 };

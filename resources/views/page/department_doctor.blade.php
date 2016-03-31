@@ -228,7 +228,10 @@ controller:CPageDepartment
     						<span ng-if="row.lease_type_id == 3">免费合作</span>
                         </td>
                         <td>[:row.name:]</td>
-                        <td>[:row.lease_started_at | laDate:] 至 [:row.lease_ended_at | laDate:]</td>
+                        <td>
+                        	<span ng-if="row.lease_type_id == 1">无</span>
+                        	<span ng-if="row.lease_type_id != 1">[:row.lease_started_at | laDate:] 至 [:row.lease_ended_at | laDate:]</span>
+                        </td>
                     </tr>
                 </tbody>
             </table>
