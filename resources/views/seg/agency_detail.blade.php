@@ -143,13 +143,15 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="i in SIns.current_row.robot_lease_log">
+                <tr ng-repeat="i in SIns.current_row.robot_lease_log|limitTo">
                     <td class="col-md-1">[:i.cust_id:]</td>
                     <td class="col-md-1">[:SRobot.robot_action_type[i.status].name:]</td>
-                    <td class="col-md-1" ng-repeat="t in h.robot_lease_type | filter: {id: i.lease_type_id}:equalsId">[:t.name:]</td>
+                    <td class="col-md-1" ng-repeat="t in h.robot_lease_type | filter: {id: i.lease_type_id}:true">[:t.name:]</td>
                     {{--<td class="tar col-md-1">[:i.hospital_id:]</td>--}}
                     <td class="col-md-1">[:i.name:]</td>
-                    <td class="col-md-1"></td>
+                    <td class="col-md-2">
+                        [:i.lease_started_at +' - '+i.lease_ended_at:]
+                    </td>
                 </tr>
                 </tbody>
             </table>
