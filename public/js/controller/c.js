@@ -805,8 +805,8 @@
                 if (item.lease_ended_at) {
                       var end = moment(item.lease_ended_at),
                         now = moment(),
-                        dur = moment.duration(now.diff(end)).days();
-                    if (dur < 0 && Math.abs(dur) < default_lease_end) {
+                        dur = moment.duration(now.diff(end));
+                    if (dur < 0 && Math.abs(dur) < 3600*24*1000*default_lease_end) {
                         return '租期快要结束';
                     };
                 };
