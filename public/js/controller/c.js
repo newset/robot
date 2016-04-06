@@ -786,13 +786,14 @@
 
                 var dur = moment.duration(moment(me.ended_at).diff(moment()));
                 console.log('dur: ', dur, me.ended_at);
+                var default_agency_end = parseInt($rootScope.default_agency_end);
                 if (dur < 0) {
                     $scope.agency_status = '已过期';
                     $scope.agency_status_danger = 1;
                 }else if(me.ended_at==null){
                 	$scope.agency_status = '无代理权';
                     $scope.agency_status_danger = 0;
-                }else if(dur <= 3600*24*30*1000){
+                }else if(dur <= 3600*24*default_agency_end*1000){
                     $scope.agency_status = '即将过期';
                     $scope.agency_status_danger = 1;
                 };
