@@ -15,10 +15,23 @@ class IDoctor extends BaseModel
     {
         parent::__construct();
         $this->table = table_name($this->ins_name, 'i');
-        // $this->createRule = [
-        //     'email' => 'required|email',
-        //     'name' => 'required'
-        // ];
+        $this->createRule = [
+            'email' => 'required|email',
+            'name' => 'required',
+            'phone'    => 'required'
+        ];
+        
+        $this->updateRule = [
+            'email' => 'required|email',
+            'name' => 'required',
+            'phone'    => 'required'
+        ];
+         
+        $this->messages = [
+            'phone.required' => '手机号码必填',
+            'email.required' => '电子邮箱必填',
+            'email.email' => '邮箱格式有误'
+        ];
     }
 
     public function get_his_history()

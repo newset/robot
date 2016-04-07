@@ -420,6 +420,8 @@
                 //$scope.getLastId();
 
                 $scope.save = function(data){
+                	console.log('save');
+                	console.log(data);
                     $scope.SIns.cu(data).then(function(res){
                         if (res.data.status == 1) {
                              $state.go('base.hospital.department_doctor', {hid : data.hospital_id});
@@ -478,19 +480,19 @@
                 $scope.SIns.departments = $scope.get_department();
                 $scope.save = function(data){
                     $scope.SIns.cu(data).then(function(res){
-                    	$state.go('base.doctor.detail', {id: $scope.SIns.current_row.id});
-                        /*if ($stateParams.hid) {
-                            $state.go('base.hospital.department_doctor', {hid: $stateParams.hid});
+                    	if (res.data.status == 1) {
+                           $state.go('base.doctor.detail', {id: $scope.SIns.current_row.id});
+                           SDoctor.current_row = {};
                         }else{
-                            $state.go('base.doctor.list');
-                        };*/
-                        SDoctor.current_row = {};
+                           $scope.errors = res.data.d.additional_info;
+                        };
+                    	
                     }, function(){
                         // 外键错误 todo
                         
                     });
                 }
-
+                
                 $scope.disable = function(data){
                     if (!$scope.SIns.current_row.id) {
                         return;
