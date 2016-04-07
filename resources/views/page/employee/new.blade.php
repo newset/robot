@@ -59,7 +59,7 @@
 			<div class="col-md-8">
 				<div class="col-md-4">
 					<label for="permission0" class="checkbox-inline">
-						<input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="SIns.current_row.permissions[0]" id="permission0"> 管理设备
+						<input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="SIns.current_row.permissions[0]" id="permission0"> 设备管理
 					</label>
 				</div>
 				<div class="col-md-4">
