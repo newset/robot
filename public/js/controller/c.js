@@ -879,7 +879,10 @@
             // $scope.cond = SAgency.cond;
             // SAgency.show_search_panel = $stateParams.with_search;
             $scope.agency_id=parseInt($stateParams.aid);
-           
+        	H.p(cook('agency/searchHospital'), {id : $scope.agency_id}).then(function(res){
+                $scope.SIns.agencyHospital = res.data.d;
+            });
+            
             $scope.toggle = function(){
                 var text = $scope.SIns.current_row.status == 0 ? '启用' : '禁用', 
                     conf = confirm('确认'+text+'当前代理商?');

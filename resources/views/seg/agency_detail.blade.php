@@ -105,20 +105,17 @@
             <table class="table table-striped table-bordered table-hover dataTable no-footer">
                 <thead>
                 <tr role="row" class="info">
-                    <th class="col-md-1">编号</th>
                     <th class="col-md-1">地区</th>
                     <th class="col-md-1">名称</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="h in SIns.current_row.hospital">
-                    <td class="col-md-1">[:h.cust_id:]</td>
+                <tr ng-repeat="h in SIns.agencyHospital">
                     <td class="col-md-1">
-                        <span ng-repeat="l in SBase._.location.province |filter:{id: h.province_id}:equalsId">[:l.name:]</span>
-
-                        <span ng-repeat="l in SBase._.location.city |filter:{id: h.city_id }:equalsId">[:l.name :]</span>
+                    	<span ng-repeat="l in SBase._.location.province |filter:{id: h.province_id}:true">[:l.name:]</span> 
+                    	<span ng-repeat="l in SBase._.location.city |filter:{id: h.city_id }:true">[:l.name :]</span>
                     </td>
-                    <td class="col-md-1">[:h.name:]</td>
+                    <td class="col-md-1">[:h.hospital_name:]</td>
                 </tr>
                 </tbody>
             </table >
@@ -150,7 +147,11 @@
                     {{--<td class="tar col-md-1">[:i.hospital_id:]</td>--}}
                     <td class="col-md-1">[:i.name:]</td>
                     <td class="col-md-2">
-                        [:i.lease_started_at +' - '+i.lease_ended_at:]
+                    	<span ng-if="i.lease_type_id!=2"></span>
+                    	<span ng-if="i.lease_type_id==2">
+                    		[:i.lease_started_at | laDate:] - 
+                    		[:i.lease_ended_at | laDate:]
+                    	</span>
                     </td>
                 </tr>
                 </tbody>
