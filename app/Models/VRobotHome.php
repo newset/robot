@@ -76,6 +76,7 @@ class VRobotHome extends BaseModel
 			->leftJoin('i_employee', 'i_employee.id', '=', 'i_robot.employee_id')
 			->where('i_robot_lease_log.recent', 1)
 			->where('i_robot_lease_log.agency_id', uid())
+			->groupBy('i_robot.cust_id')
 			->orderBy('i_robot.id', 'i_robot_lease_log.lease_ended_at desc')
 			->get();
 		return ss($data);
