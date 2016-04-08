@@ -133,8 +133,7 @@
                 <tr role="row" class="info">
                     <th class="col-md-1">编号</th>
                     <th class="col-md-1">设备状态</th>
-                    <th class="col-md-1">销售方式</th>
-                    {{--<th class="col-md-1">销售状态</th>--}}
+                    <th class="col-md-1">销售状态</th>
                     <th class="col-md-1">医院</th>
                     <th class="col-md-1">租赁期</th>
                 </tr>
@@ -143,8 +142,12 @@
                 <tr ng-repeat="i in SIns.current_row.robot_lease_log|limitTo">
                     <td class="col-md-1">[:i.cust_id:]</td>
                     <td class="col-md-1">[:SRobot.robot_action_type[i.status].name:]</td>
-                    <td class="col-md-1" ng-repeat="t in h.robot_lease_type | filter: {id: i.lease_type_id}:true">[:t.name:]</td>
-                    {{--<td class="tar col-md-1">[:i.hospital_id:]</td>--}}
+                    <td class="col-md-1">
+                        <span ng-if="!i.lease_type_id ">在库</span>
+                        <span>[: SRobot.robot_status_type[i.lease_type_id+1].name :]</span>
+                    </td>
+                    {{--<td class="col-md-1" ng-repeat="t in h.robot_lease_type | filter: {id: i.lease_type_id}:true">[:t.name:]</td>
+                    <td class="tar col-md-1">[:i.hospital_id:]</td>--}}
                     <td class="col-md-1">[:i.name:]</td>
                     <td class="col-md-2">
                     	<span ng-if="i.lease_type_id!=2"></span>
