@@ -261,7 +261,7 @@ class IMark extends BaseModel
             $ins->where('agency_id',uid())
             ->where('doctor_id','>',0)
             ->whereNull('archive_at')
-            ->where(function($query)
+            ->where(function($query, $time)
             {
                 $query->where(DB::raw('CAST(used_at as datetime)') ,'<=',$time)
                       ->orWhereNull('used_at');
