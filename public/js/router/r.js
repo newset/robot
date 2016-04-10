@@ -658,6 +658,9 @@
 
                             $scope.save = function(){
                                 var settings = angular.extend({}, $scope.settings);
+                                if(settings.system.lease_end==null) {
+                                	settings.system.lease_end = 0;
+                                }
                                 H.p(cook('setting/c'), {'data' : settings}).then(function(res){
                                     if (res.data.status == 1) {
                                         $rootScope.default_paginataion_limit = settings.user.per_page;
