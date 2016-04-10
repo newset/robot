@@ -33,7 +33,7 @@ class VRobotHome extends BaseModel
 			->orWhereRaw('datediff(now(), v_robot_frontpage.production_date) > 90 and v_robot_frontpage.upload_at is null')
 			->get();
 		
-		$error = DB::table('v_robot_frontpage2')->whereRaw('max_log > max_usb')
+		$error = DB::table('v_robot_frontpage2')->whereRaw('max_log > max_usb or (max_usb is null and max_log is not null)')
 			->select('v_robot.*', 'i_employee.name as employee_name', 'i_hospital.name as hospital_name', 'i_agency.name as agency_name')
 			->leftJoin('v_robot', 'v_robot_frontpage2.cust_id', '=', 'v_robot.cust_id')
 			->leftJoin('i_employee', 'v_robot_frontpage2.employee_id', '=', 'i_employee.id')
