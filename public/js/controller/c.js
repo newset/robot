@@ -1530,7 +1530,7 @@
             $scope.result = Log && Log.data && Log.data.d.message;
             $('#resultUsb').html($scope.result);
 
-            $scope.redirect = location.protocol+'//'+location.host+(location.port&&(':'+location.port)) + '/#/mark/usb';
+            $scope.redirect = location.protocol+'//'+location.host+(location.port) + '/#/mark/usb';
         }])
         .controller('CPageEmployee',
         [
