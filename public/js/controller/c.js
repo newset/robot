@@ -96,6 +96,7 @@
                             <div class="panel-body"><form name="forget_email" class="form-horizontal" style="margin: 30px 0px 45px;"><div class="form-group"> \
                                 <label class="col-md-2 control-label">邮箱:  </label><div class="col-md-8"><input name="email" ng-model-options="{ updateOn:'+"'blur"+"'"+' }" require type="email" ng-model="email" class="form-control"/></div>\
                                 <p ng-show="forget_email.email.$error.email" class="col-md-8 col-md-offset-2 mt10 text-danger">邮箱格式错误</p>\
+                                <p ng-show="nonexistence" class="col-md-8 col-md-offset-2 mt10 text-danger">不存在包含这个邮箱地址的账号</p>\
                                 <p ng-show="emailsent" class="col-md-8 col-md-offset-2 mt10 text-success">邮件发送成功</p>\
                             </div></form>\
                             <div class="ngdialog-buttons mt20">\
@@ -115,7 +116,11 @@
                                 };
 
                                 H.p(cook('auth/forget/'+userType), {'type': userType, 'email' : $scope.email}).then(function(res){
-                                    if (res.data.status == 1) {
+                                	if (res.data.status == 0) {
+                                        $scope.nonexistence = true;
+                                    }
+                                	else if (res.data.status == 1) {
+                                		$scope.nonexistence = false;
                                         $scope.emailsent = true;
                                     };
                                 });
