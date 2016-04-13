@@ -46,7 +46,6 @@ class IAuth extends Model
         $email = rq('email');
         
         $ins = Route::current()->parameter('p3');
-
         $row = M($ins)->where('email', $email)->first();
         if ($row ) {
             // 发送邮件

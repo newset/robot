@@ -26,6 +26,20 @@ class Session
             Config::set('session.lifetime', $lifetime);
         }
 
+        // 修改 email 配置
+        $mail = array_get($settings, 'email');
+        if ($mail) {
+            foreach ($mail as $key => $value) {
+                // dd($key, $value);
+                if ($value) {
+                    config(['mail.'.$key => $value]);
+                }
+                if ($key == 'username') {
+                    config(['mail.from.address' => $value]);
+                }
+            }
+        }
+
         return $next($request);
     }
 }
