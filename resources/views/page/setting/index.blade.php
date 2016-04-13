@@ -33,7 +33,7 @@
 				<form action="" method="POST" role="form" class="form-horizontal">
 					<div class="form-group">
 						<label for="" class="control-label col-md-8">
-							<p class="text-left">代理商结束时间在多少天内，则显示“即将过期”标识</p>
+							<p class="text-left">代理商代理权结束日期在多少天内，将显示“即将过期”标识</p>
 						</label>
 						<div class="col-md-2">
 							<input type="number" class="form-control" name="agency_end" ng-model="settings.system.agency_end">

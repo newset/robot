@@ -31,7 +31,7 @@ class IAgency extends BaseModel
             'province_id'       =>      'required|numeric',
             'location_detail'   =>      'string',
             'username'          =>      'required|unique:' . table_name($this->ins_name),
-            'password'          =>      'required|min:6',
+            'password'          =>      'required|min:6|regex:/^(?=.*[a-zA-Z])(?=.*[\d])[a-zA-Z\d].+$/',
             'phone'             =>      'numeric|min:11',
             'email'             =>      'email',
             'status'            =>      'numeric',
@@ -40,7 +40,20 @@ class IAgency extends BaseModel
 
         $this->updateRule = [
             'id'       => 'required|numeric',
-            'password' => 'min:6'
+            'password' => 'min:6|regex:/^(?=.*[a-zA-Z])(?=.*[\d])[a-zA-Z\d].+$/',
+            'phone'    => 'required',
+            'email'    => 'required|email',
+        ];
+        
+        $this->messages = [
+            'username.required' => '用户名必填',
+            'username.unique' => '用户名已被使用',
+            'password.required' => '密码必填',
+            'password.regex' => '密码不符合要求，必选包含字母和数字',
+            'password.min' => '密码必须大于6位',
+            'phone.required' => '手机号码必填',
+            'email.required' => '电子邮箱必填',
+            'email.email' => '邮箱格式有误'
         ];
     }
 

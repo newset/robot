@@ -16,11 +16,11 @@
 				<dl class="dl-horizontal">
 					<dt>编号</dt>
 					<dd>[:SIns.current_row.cust_id:]</dd>
-					<dt>销售状态状态</dt>
+					<dt>销售状态</dt>
 					<dd>
-						<span ng-if="SIns.current_row.lease_type_id == -1">进入库存</span>
+						<span ng-if="SIns.current_row.lease_type_id == -1">在库</span>
 						<span ng-if="SIns.current_row.lease_type_id == 1">出售</span>
-						<span ng-if="SIns.current_row.lease_type_id == 2">出租([:SIns.current_row.log_lease_lease_started_at | laDate:]——[:SIns.current_row.log_lease_lease_ended_at | laDate:]) <span class="badge badge-danger ng-binding">[:endLeaseTip:]</span></span>
+						<span ng-if="SIns.current_row.lease_type_id == 2">租赁([:SIns.current_row.log_lease_lease_started_at | laDate:]——[:SIns.current_row.log_lease_lease_ended_at | laDate:]) <span class="badge badge-danger ng-binding">[:endLeaseTip:]</span></span>
 						<span ng-if="SIns.current_row.lease_type_id == 3">免费合作</span>
 					</dd>
 					<dt>生产日期</dt>

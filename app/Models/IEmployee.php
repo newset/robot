@@ -21,7 +21,7 @@ class IEmployee extends BaseModel
         $this->createRule = [
             'name'     => 'required',
             'username' => 'required|unique:'.table_name($this->ins_name),
-            'password' => 'required|alpha_num|min:6',
+            'password' => 'required|min:6|regex:/^(?=.*[a-zA-Z])(?=.*[\d])[a-zA-Z\d].+$/',
             'phone'    => 'required',
             'email'    => 'required|email',
             'status'   => 'numeric',
@@ -31,14 +31,15 @@ class IEmployee extends BaseModel
         $this->updateRule = [
             'id' => 'required|numeric',
             'username' => 'unique:'.table_name($this->ins_name).',username,'.rq('id'),
-            'password' => 'alpha_num|min:6'
+            'password' => 'min:6|regex:/^(?=.*[a-zA-Z])(?=.*[\d])[a-zA-Z\d].+$/'
         ];
 
         $this->messages = [
             'username.required' => '用户名必填',
             'username.unique' => '用户名已被使用',
             'password.required' => '密码必填',
-            'password.min' => '密码至少有6位字母或者数字',
+            'password.regex' => '密码不符合要求，必选包含字母和数字',
+            'password.min' => '密码必须大于6位',
             'phone.required' => '手机号码必填',
             'email.required' => '电子邮箱必填',
             'email.email' => '邮箱格式有误'

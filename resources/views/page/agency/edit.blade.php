@@ -13,6 +13,9 @@
 		   			<label class="col-md-1 control-label">重置密码</label>
 		   			<div class="col-md-2">
 	   					<input type="password" ng-model="password" class="form-control" name="" value="">
+	   					<p ng-repeat="error in errors.password" class="text-danger">
+						  [:error:]
+						</p>
 		   			</div>
 		   		</div>
 		   		<div class="form-group">

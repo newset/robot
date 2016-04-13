@@ -84,9 +84,9 @@
                                     <input ng-model="SIns.me_row.phone"
                                            class="form-control"
                                            type="text"
-                                           name="phone">
+                                           name="phone" required>
                                     <label class="error"
-                                           ng-if="form_me.phone.$invalid && form_me.phone.$touched">输入有误</label>
+                                           ng-if="form_me.phone.$invalid && form_me.phone.$touched">需要输入手机号</label>
                                 </div>
 
                             </div>
@@ -96,10 +96,10 @@
                                 <div class="col-md-6">
                                     <input ng-model="SIns.me_row.email"
                                            class="form-control"
-                                           type="text"
-                                           name="email">
-                                    <label class="error"
-                                           ng-if="form_me.email.$invalid && form_me.email.$touched">输入有误</label>
+                                           type="email"
+                                           name="email" required>
+                                    <label class="error"       
+                                           ng-if="form_me.email.$invalid && form_me.email.$touched">需要输入邮箱或邮箱格式有误</label>
                                 </div>
                             </div>
 
