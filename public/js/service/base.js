@@ -79,19 +79,19 @@
 
                 me.lease_type = [
                     {
-                        id: 1,
-                        name: '自营'
+                        id: -1,
+                        name: '在库'
                     },
                     {
-                        id: 2,
+                        id: 1,
                         name: '出售'
                     },
                     {
-                        id: 3,
+                        id: 2,
                         name: '租赁'
                     },
                     {
-                        id: 4,
+                        id: 3,
                         name: '免费合作'
                     }];
                 me.robot_status_type = [
