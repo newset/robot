@@ -70,6 +70,20 @@ class IAgency extends BaseModel
             'd'=> $s
         ];
     }
+    
+    public function searchHospital()
+    {
+        $agency = rq('id');
+        
+        $data = DB::table('i_mark')->select('i_hospital.name as hospital_name','i_hospital.city_id as city_id'
+            ,'i_hospital.province_id as province_id')
+        ->where('agency_id', $agency)
+        ->where('hospital_id', '!=', -1)
+        ->leftJoin('i_hospital', 'i_mark.hospital_id', '=', 'i_hospital.id')
+        ->groupBy('i_mark.hospital_id')->get();
+        
+        return ss($data);
+    }
 
     public function r()
     {

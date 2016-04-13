@@ -96,6 +96,7 @@
                             <div class="panel-body"><form name="forget_email" class="form-horizontal" style="margin: 30px 0px 45px;"><div class="form-group"> \
                                 <label class="col-md-2 control-label">邮箱:  </label><div class="col-md-8"><input name="email" ng-model-options="{ updateOn:'+"'blur"+"'"+' }" require type="email" ng-model="email" class="form-control"/></div>\
                                 <p ng-show="forget_email.email.$error.email" class="col-md-8 col-md-offset-2 mt10 text-danger">邮箱格式错误</p>\
+                                <p ng-show="nonexistence" class="col-md-8 col-md-offset-2 mt10 text-danger">不存在包含这个邮箱地址的账号</p>\
                                 <p ng-show="emailsent" class="col-md-8 col-md-offset-2 mt10 text-success">邮件发送成功</p>\
                             </div></form>\
                             <div class="ngdialog-buttons mt20">\
@@ -115,7 +116,11 @@
                                 };
 
                                 H.p(cook('auth/forget/'+userType), {'type': userType, 'email' : $scope.email}).then(function(res){
-                                    if (res.data.status == 1) {
+                                	if (res.data.status == 0) {
+                                        $scope.nonexistence = true;
+                                    }
+                                	else if (res.data.status == 1) {
+                                		$scope.nonexistence = false;
                                         $scope.emailsent = true;
                                     };
                                 });
@@ -420,6 +425,8 @@
                 //$scope.getLastId();
 
                 $scope.save = function(data){
+                	console.log('save');
+                	console.log(data);
                     $scope.SIns.cu(data).then(function(res){
                         if (res.data.status == 1) {
                              $state.go('base.hospital.department_doctor', {hid : data.hospital_id});
@@ -478,19 +485,19 @@
                 $scope.SIns.departments = $scope.get_department();
                 $scope.save = function(data){
                     $scope.SIns.cu(data).then(function(res){
-                    	$state.go('base.doctor.detail', {id: $scope.SIns.current_row.id});
-                        /*if ($stateParams.hid) {
-                            $state.go('base.hospital.department_doctor', {hid: $stateParams.hid});
+                    	if (res.data.status == 1) {
+                           $state.go('base.doctor.detail', {id: $scope.SIns.current_row.id});
+                           SDoctor.current_row = {};
                         }else{
-                            $state.go('base.doctor.list');
-                        };*/
-                        SDoctor.current_row = {};
+                           $scope.errors = res.data.d.additional_info;
+                        };
+                    	
                     }, function(){
                         // 外键错误 todo
                         
                     });
                 }
-
+                
                 $scope.disable = function(data){
                     if (!$scope.SIns.current_row.id) {
                         return;
@@ -786,13 +793,14 @@
 
                 var dur = moment.duration(moment(me.ended_at).diff(moment()));
                 console.log('dur: ', dur, me.ended_at);
+                var default_agency_end = parseInt($rootScope.default_agency_end);
                 if (dur < 0) {
                     $scope.agency_status = '已过期';
                     $scope.agency_status_danger = 1;
                 }else if(me.ended_at==null){
                 	$scope.agency_status = '无代理权';
                     $scope.agency_status_danger = 0;
-                }else if(dur <= 3600*24*30*1000){
+                }else if(dur <= 3600*24*default_agency_end*1000){
                     $scope.agency_status = '即将过期';
                     $scope.agency_status_danger = 1;
                 };
@@ -804,8 +812,8 @@
                 if (item.lease_ended_at) {
                       var end = moment(item.lease_ended_at),
                         now = moment(),
-                        dur = moment.duration(now.diff(end)).days();
-                    if (dur < 0 && Math.abs(dur) < default_lease_end) {
+                        dur = moment.duration(now.diff(end));
+                    if (dur < 0 && Math.abs(dur) < 3600*24*1000*default_lease_end) {
                         return '租期快要结束';
                     };
                 };
@@ -878,7 +886,10 @@
             // $scope.cond = SAgency.cond;
             // SAgency.show_search_panel = $stateParams.with_search;
             $scope.agency_id=parseInt($stateParams.aid);
-           
+        	H.p(cook('agency/searchHospital'), {id : $scope.agency_id}).then(function(res){
+                $scope.SIns.agencyHospital = res.data.d;
+            });
+            
             $scope.toggle = function(){
                 var text = $scope.SIns.current_row.status == 0 ? '启用' : '禁用', 
                     conf = confirm('确认'+text+'当前代理商?');
@@ -1524,7 +1535,7 @@
             $scope.result = Log && Log.data && Log.data.d.message;
             $('#resultUsb').html($scope.result);
 
-            $scope.redirect = location.protocol+'//'+location.host+(location.port&&(':'+location.port)) + '/#/mark/usb';
+            $scope.redirect = location.protocol+'//'+location.host+(location.port) + '/#/mark/usb';
         }])
         .controller('CPageEmployee',
         [
