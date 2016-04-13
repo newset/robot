@@ -11,6 +11,21 @@ class IInit extends Model
     public function front()
     {   
         $cache = Cache::get('i_settings', null);
+
+        // 修改 email 配置
+        $mail = array_get($cache, 'email');
+        if ($mail) {
+            foreach ($mail as $key => $value) {
+                // dd($key, $value);
+                if ($value) {
+                    config(['mail.'.$key => $value]);
+                }
+                if ($key == 'username') {
+                    config(['mail.from.address' => $value]);
+                }
+            }
+        }
+
         $per_page = array_get($cache, 'user.per_page');
         $d = [
             'debug'        => debugging(),

@@ -93,7 +93,7 @@
 							<p class="text-left">服务器地址</p>
 						</label>
 						<div class="col-md-5">
-							<input type="text" class="form-control" name="server_address" ng-model="settings.email.server_address">
+							<input type="text" class="form-control" name="host" ng-model="settings.email.host">
 						</div>
 					</div>
 					<div class="form-group">
@@ -101,7 +101,7 @@
 							<p class="text-left">服务器端口</p>
 						</label>
 						<div class="col-md-5">
-							<input type="number" class="form-control" name="server_port" ng-model="settings.email.server_port">
+							<input type="number" class="form-control" name="port" ng-model="settings.email.port">
 						</div>
 					</div>
 					<div class="form-group">
@@ -109,7 +109,7 @@
 							<p class="text-left">发件人账号</p>
 						</label>
 						<div class="col-md-5">
-							<input type="text" class="form-control" name="server_account" ng-model="settings.email.server_account">
+							<input type="text" class="form-control" name="username" ng-model="settings.email.username">
 						</div>
 					</div>
 					<div class="form-group">
@@ -117,7 +117,7 @@
 							<p class="text-left">发件人密码</p>
 						</label>
 						<div class="col-md-5">
-							<input type="text" class="form-control" name="server_password" ng-model="settings.email.server_password">
+							<input type="text" class="form-control" name="password" ng-model="settings.email.password">
 						</div>
 					</div>
 				</form>
