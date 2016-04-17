@@ -109,11 +109,12 @@ class IAuth extends Model
         // validate the input
         $data = Input::only('password', 'password_confirm');
         $validator = Validator::make($data, [
-            'password' => 'required|min:6',
+            'password' => 'required|min:6|regex:/^(?=.*[a-zA-Z])(?=.*[\d])[a-zA-Z\d].+$/',
             'password_confirm' => 'required|same:password',
         ], [
             'password.required' => '密码不能为空',
             'password.min' => '密码不足6位',
+            'password.regex' => '密码不符合要求，必选包含字母和数字',
             'password_confirm.required' => '重复密码不能为空',
             'password_confirm.same' => '两次输入的密码不一致',
         ]);

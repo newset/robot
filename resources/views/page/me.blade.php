@@ -7,7 +7,7 @@
                     <div class="section col-md-12">
                         <h4>修改密码</h4>
                         <hr>
-                        <form ng-submit="SIns.change_password(SIns.me_row)"
+                        <form ng-submit="SIns.u(SIns.me_row)"
                               ng-init="SIns.me_row.id = SIns.uid"
                               class="form-horizontal"
                               name="form_me_password">
@@ -19,7 +19,7 @@
                                            ng-model-options="{debounce: 300}"
                                            class="form-control"
                                            type="password"
-                                           ng-minlength="5"
+                                           ng-minlength="6"
                                            ng-maxlength="64"
                                            name="current_password"
                                            required>
@@ -37,12 +37,15 @@
                                     <input ng-model="SIns.me_row.password"
                                            class="form-control"
                                            type="password"
-                                           ng-minlength="5"
+                                           ng-minlength="6"
                                            ng-maxlength="64"
                                            name="password"
                                            required>
-                                    <label class="error"
-                                           ng-if="form_me_password.password.$invalid && form_me_password.password.$touched">密码长度需在5至64位之间</label>
+                                    <p ng-repeat="error in SIns.errors.password" class="text-danger">
+            						  [:error:]
+            						</p> 
+            						<label class="error"      
+                                    	ng-if="form_me_password.password.$invalid && form_me_password.password.$touched">密码长度需在6至64位之间</label>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -52,7 +55,7 @@
                                     <input ng-model="SIns.me_row.password2"
                                            class="form-control"
                                            type="password"
-                                           ng-minlength="5"
+                                           ng-minlength="6"
                                            ng-maxlength="64"
                                            name="password2"
                                            compare-to="SIns.me_row.password"

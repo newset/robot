@@ -795,6 +795,7 @@
                     h.u.apply(me, [d, me])
                         .then(function (r)
                         {
+                        	me.errors = r.data.d.additional_info;
                             if (r.data.status)
                             {
                                 location.reload(true);
