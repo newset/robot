@@ -42,5 +42,14 @@
 <!--Load these page level functions-->
 
 </body>
-
+<!--[if lt IE 10]>
+<script>
+</script>
+<script src="{{ base_url() . 'vendor/iewarning/script.min.js'}}"></script>
+<![endif]-->
+<script>
+if (navigator.userAgent.match(/Trident\/6/)) {
+    document.write('<script src="{{ base_url() . 'vendor/iewarning/script.min.js'}}"><'+'/script>');
+}
+</script>
 </html>

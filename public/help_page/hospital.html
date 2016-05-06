@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body, div, span, ul, li, em, h2 {
+            margin: 0;
+            padding: 0;
+            font-family: "Source Sans Pro",Arial,sans-serif;
+            font-size: 16px;
+            -webkit-user-select: none;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        h2 {
+            margin: 2% 0 1% 1%;
+            /*width: 30%;*/
+            font-size: 30px;
+            font-family: "Source Sans Pro",Arial,sans-serif;
+            color: #64626b;
+        }
+
+
+        #menu {
+            margin: 1% 1% 0 1%;
+            padding: 1%;
+            width: 15%;
+            height: 78%;
+            /*border: 1px dashed #0174b7;*/
+            overflow: auto;
+            float: left;
+            background: rgba(169, 165, 176, 0.17);
+        }
+
+        #menu li {
+            line-height: 35px;
+        }
+
+        #menu .two, #menu .three{
+            display: none;
+        }
+
+        #menu .two {
+            margin-left: 20px;
+        }
+
+        #menu .three {
+            margin-left: 40px;
+        }
+
+
+        #menu span {
+            position: relative;
+            padding-left: 20px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        #menu span em {
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 13px;
+            height: 13px;
+            background: url("img/icon.png") no-repeat -60px -29px;
+            cursor: pointer;
+        }
+
+        #menu span em.open {
+            background-position: -43px -29px;
+        }
+
+        .cover {
+            width: 70%;
+            height: 100%;
+        }
+
+        .cover img {
+            top:2%;
+        }
+
+        .content {
+            position: relative;
+            margin: 1% 1% 1% 0;
+            padding: 1%;
+            width: 77.5%;
+            height: 78%;
+            /*border: 1px dashed #0174b7;*/
+            overflow: auto;
+            float: right;
+        }
+
+        .cover h3 {
+            position: relative;
+            margin:auto;
+            top: 40%;
+            left: 20%;
+            width: 80%;
+            font-size: 40px;
+            color: #0174b7;
+            text-align: center;
+        }
+
+        .cover h4 {
+            position: relative;
+            margin:auto;
+            top: 40%;
+            left: 20%;
+            width: 80%;
+            font-size: 40px;
+            color: #0174b7;
+            text-align: center;
+        }
+
+        p {
+            text-indent:2em;
+        }
+
+        a, a:hover {
+            text-decoration:none; color:#333
+        }
+
+        h5 {
+            font-size: 20px;
+        }
+
+        .content span {
+            position: relative;
+            margin: 5px;
+            padding-left: 20px;
+            font-size: 16px;
+            display: block;
+        }
+
+        .content span em {
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 14px;
+            height: 14px;
+            background: url("img/icon.png") no-repeat -46px -72px;
+            cursor: pointer;
+        }
+
+        .img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .img-p {
+            text-align: center;
+        }
+
+        @media screen  and (max-width: 1024px){
+
+            h2{
+                font-size: 20px;
+            }
+
+            .cover h3, .cover h4{
+                font-size: 30px;
+            }
+
+            h5 {
+                font-size: 15px;
+            }
+
+        }
+
+        @media screen  and (max-width: 769px) {
+            #menu, h2{
+                display: none;
+            }
+
+            .content {
+                position: relative;
+                margin: 1% 1% 1% 0;
+                padding: 1%;
+                width: 97%;
+                height: 78%;
+                /*border: 1px dashed #0174b7;*/
+                overflow: auto;
+                float: right;
+            }
+
+            .cover h3 {
+                position: relative;
+                margin:auto;
+                top: 40%;
+                left: 20%;
+                width: 80%;
+                font-size: 25px;
+                color: #0174b7;
+                text-align: center;
+            }
+
+            .cover h4 {
+                position: relative;
+                margin:auto;
+                top: 40%;
+                left: 20%;
+                width: 80%;
+                font-size: 25px;
+                color: #0174b7;
+                text-align: center;
+            }
+
+            h5 {
+                font-size: 15px;
+            }
+
+            .content span {
+                position: relative;
+                margin: 5px;
+                padding-left: 20px;
+                font-size: 12px;
+                display: block;
+            }
+
+            .content span em {
+                position: absolute;
+                left: 0;
+                top: 2px;
+                width: 14px;
+                height: 14px;
+                background: url("img/icon.png") no-repeat -46px -72px;
+                cursor: pointer;
+            }
+
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+<h2><img src="img/main-logo.png"/> 睿米医疗机器人运营管理系统帮助手册</h2>
+<div id="menu">
+
+    <ul>
+        <li>
+            <span><em></em><a href="#1">1.引言</a></span>
+            <ul class="two">
+                <li><span><a href="#1.1">1.1 编写目的</a></span></li>
+                <li>
+                    <span><a href="#1.2">1.2 术语与缩写词</a></span>
+                </li>
+                <li>
+                    <span><a href="#1.3">1.3 客户端</a></span>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <span><a href="#2">2.医院科室功能</a></span>
+            <!--<ul class="two">
+                <li><span><a href="#4.1">4.1 代理商首页</a></span></li>
+                <li><span><a href="#4.2">4.2 Mark查询</a></span></li>
+                <li><span><a href="#4.3">4.3 Mark绑定</a></span></li>
+            </ul>-->
+        </li>
+    </ul>
+</div>
+<div class="content">
+    <div class="cover">
+        <img src="img/main-logo.png"/>
+        <h3>睿米医疗机器人运营管理系统</h3>
+        <h4>帮助手册</h4>
+    </div>
+    <div>
+        <h5 id="1">1 引言</h5>
+        <h5 id="1.1">1.1 编写目的</h5>
+        <p>编写这份《帮助手册》的目的，是让用户了解和掌握睿米医疗机器人运营管理系统的功能和使用方法。</p>
+        <h5 id="1.2">1.2 术语和缩写词</h5>
+        <span><em></em>设备：指睿米医疗机器人，简称设备。</span>
+        <span><em></em>Mark：指睿米医疗机器人的耗材，简称Mark。</span>
+        <span><em></em>USB数据：指睿米医疗机器人导出的数据，通过USB口可以拷贝到U盘上，这个数据简称USB数据。</span>
+        <span><em></em>原地提醒：区别于传统的弹出窗口提醒，新的B/S架构应用往往直接在页面输入域的下方或者右侧对输入的信息进行提醒，这种方式简称原地提醒。</span>
+        <h5 id="1.3">1.3 客户端</h5>
+        <p>睿米医疗机器人运营管理系统没有专用的客户端，使用常见的浏览器，输入系统的网址即可访问。</p>
+        <p>系统支持Firefox，Chrome浏览器，以及IE浏览器10以上版本，对于360安全浏览器，要使用默认的“极速模式”，不能使用“兼容模式”，见下图：</p>
+        <img class="img" src="img/客户端.png" alt="图1.3 客户端"/>
+    </div>
+    <div>
+        <h5 id="2">2. 医院科室功能</h5>
+        <p>医院科室界面显示医院的可用Mark信息、科室信息以及修改密码的功能。</p>
+        <p>科室的登录是在登录页面选择“医院科室用户”，然后输入用户名密码，即可登录。</p>
+        <img class="img" src="img/图片110.png" alt="图2-1 医院科室界面"/>
+        <p class="img-p">图2-1 医院科室界面</p>
+        <p>当旧密码和新密码不为空，且旧密码正确，新密码与再输一遍相同时，才能进行密码修改的操作。</p>
+        <img class="img" src="img/图片111.png" alt="图2-2 修改密码界面"/>
+        <p class="img-p">图2-2 修改密码界面</p>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="js/utils-1.0.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>

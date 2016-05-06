@@ -126,29 +126,34 @@
 
     <div class="user-nav">
         <ul>
-           
-            @if(he_is('department'))
+        @if(he_is('department'))
+        	
+            <li class="dropdown settings" dropdown is-open="isopen" style="list-style: none;"> 
+                <a class="dropdown-toggle" data-toggle="dropdown" style="color: grey;"> 
+                    <a href="{{base_url()}}help_page/hospital.html" target="_blank">使用帮助</a> | {{sess('org')}}<i class="fa fa-angle-down">
+                    </i> 
+                </a> 
+                <ul class="dropdown-menu animated fadeInDown dropdown-menu-right">
+                    <li>
+                        <a href="" ui-sref-opts="{reload:true}" ui-sref="base.me"><i class="fa fa-user"></i>修改密码</a>
+                    </li>
+                    <li>
+                        <a href="{{env('APP_URL').'/logout'}}"><i class="fa fa-power-off"></i> 退出</a>
+                    </li>
+                </ul>
                  
-                <li class="dropdown settings" dropdown is-open="isopen" style="list-style: none;"> 
-                    <a class="dropdown-toggle" data-toggle="dropdown" style="color: grey;"> 
-                        {{sess('org')}}<i class="fa fa-angle-down">
-                        </i> 
-                    </a> 
-                    <ul class="dropdown-menu animated fadeInDown dropdown-menu-right">
-                        <li>
-                            <a href="" ui-sref-opts="{reload:true}" ui-sref="base.me"><i class="fa fa-user"></i>修改密码</a>
-                        </li>
-                        <li>
-                            <a href="{{env('APP_URL').'/logout'}}"><i class="fa fa-power-off"></i> 退出</a>
-                        </li>
-                    </ul>
-                     
-                </li>
-            @else
-            <li>
-                当前登录用户:
             </li>
-
+        @else
+            <li>
+            @if(he_is('employee'))
+                <a href="{{base_url()}}help_page/user.html" target="_blank">使用帮助</a>
+            @endif
+            @if(he_is('agency'))
+                <a href="{{base_url()}}help_page/agent.html" target="_blank">使用帮助</a>
+            @endif
+                 | 当前登录用户:
+            </li>
+    
             <li class="dropdown settings" dropdown is-open="isopen">
                 <a class="dropdown-toggle" data-toggle="dropdown">
                     @if(sess('org'))
@@ -176,8 +181,7 @@
                     <span class="badge badge-danger">[:_user_session_data.unread:]</span>
                </a> 
             </li>
-
-            @endif
+        @endif
         </ul>
     </div>
 </header>

@@ -910,6 +910,8 @@
                     started_at : SAgency.current_row.started_at,
                     ended_at : SAgency.current_row.ended_at,
                     memo : SAgency.current_row.memo,
+                    phone : SAgency.current_row.phone,
+                    email : SAgency.current_row.email
                 }
 
                 if ($scope.password) {
